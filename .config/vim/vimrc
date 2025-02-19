@@ -1,0 +1,62 @@
+" Settings
+set encoding=UTF-8
+
+set viminfo='32,<256,:256,/256,%
+set viminfofile=~/.local/state/vim/viminfo
+set backupdir=./.vimbackup,~/.local/share/vim/backup,.,~/tmp,~/ " ??
+set undodir=~/.local/share/vim/undo
+set undofile
+set history=4096
+
+" ui options
+set nu
+set shortmess="atToO"
+set wildoptions=pum
+set cursorline
+
+" search options
+set ignorecase
+set smartcase
+set hlsearch
+set wrapscan
+
+" Indentation options
+set cindent
+set autoindent
+set noexpandtab
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+
+" Mappings
+let g:mapleader=' '
+
+" match with 'less' pager
+nnoremap <Esc>u :noh<CR>
+
+nnoremap <Leader>h <C-w>h
+nnoremap <Leader>j <C-w>j
+nnoremap <Leader>k <C-w>k
+nnoremap <Leader>l <C-w>l
+
+nnoremap <Leader>H <C-w>H
+nnoremap <Leader>J <C-w>J
+nnoremap <Leader>K <C-w>K
+nnoremap <Leader>L <C-w>L
+nnoremap <Leader>T <C-w>T
+
+nnoremap <Leader>[ gT
+nnoremap <Leader>] gt
+
+nnoremap <Leader>n :bnext<CR>
+nnoremap <Leader>p :bprev<CR>
+
+nnoremap <Leader>oh :vsplit<Space>
+nnoremap <Leader>oj :belowright split<Space>
+nnoremap <Leader>ok :split<Space>
+nnoremap <Leader>ol :belowright vsplit<Space>
+nnoremap <Leader>oo :edit<Space>
+nnoremap <Leader>ot :tabnew<Space>
+
+runtime plugins.vim
+
