@@ -13,6 +13,10 @@ export EDITOR=vim
 # make other programs conform to XDG directories
 export PYTHON_HISTORY="$XDG_STATE_HOME/python/history"
 export XCURSOR_PATH="/usr/share/icons:~/.local/share/icons"
+export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
+
+# Get the aliases and functions
+[ -f $HOME/.bashrc ] && . $HOME/.bashrc
 
 if ! [[ "$PATH" =~ "$HOME/.local/bin" ]]; then
     export PATH="$HOME/.local/bin:$PATH"
