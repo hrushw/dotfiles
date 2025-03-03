@@ -16,6 +16,13 @@ if command -v bat &>/dev/null; then
 	export PAGER="bat --color=always --style=grid"
 fi
 
+# Colored output
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias diff='diff --color=auto'
+alias ip='ip --color=auto'
+export LESS='-R --use-color -Dd+r$Du+b$'
+
 # Aliases
 alias cls='tput reset'
 alias ll='ls -lh'
