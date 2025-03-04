@@ -14,6 +14,7 @@ export EDITOR=vim
 export PYTHON_HISTORY="$XDG_STATE_HOME/python/history"
 export XCURSOR_PATH="/usr/share/icons:~/.local/share/icons"
 export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
+export GNUPGHOME="$XDG_CONFIG_HOME/gnupg/"
 
 # Get the aliases and functions
 [ -f $HOME/.bashrc ] && . $HOME/.bashrc
