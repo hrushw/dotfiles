@@ -11,6 +11,7 @@ set history=4096
 " ui options
 set nu
 set shortmess="atToO"
+set wildmenu
 set wildoptions=pum
 set cursorline
 
