@@ -65,5 +65,5 @@ runtime ftplugin/man.vim
 " Colorscheme
 set termguicolors
 set background=dark
-colorscheme retrobox
 
+runtime plugins.vim
