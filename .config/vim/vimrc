@@ -59,5 +59,11 @@ nnoremap <Leader>ol :belowright vsplit<Space>
 nnoremap <Leader>oo :edit<Space>
 nnoremap <Leader>ot :tabnew<Space>
 
-runtime plugins.vim
+" Load plugins
+runtime ftplugin/man.vim
+
+" Colorscheme
+set termguicolors
+set background=dark
+colorscheme retrobox
 
