@@ -1,0 +1,71 @@
+#!/bin/bash
+
+xlspkgs() {
+	case $1 in
+		-l)
+			xbps-query -l | awk '{print $2}' | sed "s/-[0-9].*//";;
+		-m)
+			xbps-query -m | sed "s/-[0-9].*//";;
+	esac
+}
+
+log() {
+	[ $__PRINT ] && echo $*
+}
+
+
+xpkgslist_total=""
+xpkgslist_clean=""
+xpkgslist_install=""
+xpkgslist_all=$(xlspkgs -l)
+
+__PRINT=""
+__INSTALL=""
+__CLEAN=""
+__LIST=""
+
+for i in "$@"; do
+	[[ $i == *i* ]] && __INSTALL="1"
+	[[ $i == *c* ]] && __CLEAN="1"
+	[[ $i == *p* ]] && __PRINT="1"
+	[[ $i == *l* ]] && __LIST="1"
+done
+
+log "[Checking if configured packages are installed...]"
+[ $__LIST ] && printf "Applications installed (grouped):"
+[ ! -v __XPKGSDIR ] && __XPKGSDIR=~/.local/share/xpkgs
+for i in $__XPKGSDIR/*; do
+	[ $__LIST ] &&  { echo; echo "Group '${i##*/}':"; }
+	for j in $(cat $i); do
+		if {
+			for k in $xpkgslist_all; do
+				echo $k
+			done
+		} | grep -x $j>/dev/null; then
+			log "Package \"$j\" is installed"
+		else
+			xpkgslist_install="$xpkgslist_install $j"
+			log "-- Package \"$j\" is not installed"
+		fi
+		xpkgslist_total="$xpkgslist_total $j"
+		[ $__LIST ] && echo " - $j"
+	done
+done
+log
+
+log "[Checking if installed packages are correct...]"
+for i in $(xlspkgs -m); do
+	if {
+		for j in $xpkgslist_total; do
+			echo $j
+		done
+	} | grep -x $i >/dev/null; then
+		log "Package \"$i\" is installed correctly"
+	else
+		xpkgslist_clean="$xpkgslist_clean $i"
+		log "-- Package \"$i\" is installed incorrectly"
+	fi
+done
+
+[ $__INSTALL ] && [ $xpkgslist_install ] && sudo xbps-install -S $xpkgslist_install
+[ $__CLEAN ] && [ $xpkgslist_clean ] && sudo xbps-remove -R $xpkgslist_clean
