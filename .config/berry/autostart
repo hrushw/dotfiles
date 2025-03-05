@@ -1,0 +1,12 @@
+berryc edge_gap 40 0 0 0
+berryc smart_place true
+berryc title_height 20
+
+berryc resize_button 3
+berryc resize_mask mod4
+
+berryc switch_workspace 1
+
+sxhkd ~/.config/berry/berry.sxhkdrc &
+xwallpaper --center ~/wallpaper.png
+lemonbarstatus | lemonbar -g x40 -f "-xos4-terminus-medium-r-normal--24-240-72-72-c-120-iso8859-2" &

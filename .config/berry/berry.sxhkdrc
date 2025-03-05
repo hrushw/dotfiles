@@ -1,0 +1,104 @@
+super h
+	berryc cardinal_focus 2
+super j
+	berryc cardinal_focus 3
+super k
+	berryc cardinal_focus 1
+super l
+	berryc cardinal_focus 0
+
+super+shift h
+	berryc window_move -50 0
+super+shift j
+	berryc window_move 0 50
+super+shift k
+	berryc window_move 0 -50
+super+shift l
+	berryc window_move 50 0
+
+super+shift+ctrl h
+	berryc window_resize 50 0; berryc window_move -50 0;
+super+shift+ctrl j
+	berryc window_resize 0 50
+super+shift+ctrl k
+	berryc window_resize 0 50; berryc window_move 0 -50;
+super+shift+ctrl l
+	berryc window_resize 50 0
+
+super+ctrl h
+	berryc window_resize -50 0
+super+ctrl j
+	berryc window_resize 0 -50; berryc window_move 0 50;
+super+ctrl k
+	berryc window_resize 0 -50
+super+ctrl l
+	berryc window_resize -50 0; berryc window_move 50 0;
+
+
+super+alt h
+	berryc snap_left
+super+alt k
+	berryc window_monocle
+super+alt j
+	berryc window_resize_absolute 960 640; berryc window_center
+super+alt l
+	berryc snap_right
+
+super o
+	berryc cycle_focus
+super+shift o
+	berryc window_raise
+
+super m
+	berryc toggle_decorations
+super+ctrl Tab
+	berryc focus_follows_pointer true
+super+ctrl+shift Tab
+	berryc focus_follows_pointer false
+
+super q
+	berryc window_close
+super+shift q
+	berryc quit
+
+super 0
+	berryc switch_workspace 0
+super 1
+	berryc switch_workspace 1
+super 2
+	berryc switch_workspace 2
+super 3
+	berryc switch_workspace 3
+super 4
+	berryc switch_workspace 4
+super 5
+	berryc switch_workspace 5
+super 6
+	berryc switch_workspace 6
+super 7
+	berryc switch_workspace 7
+super 8
+	berryc switch_workspace 8
+super 9
+	berryc switch_workspace 9
+
+super+shift 0
+	berryc send_to_workspace 0
+super+shift 1
+	berryc send_to_workspace 1
+super+shift 2
+	berryc send_to_workspace 2
+super+shift 3
+	berryc send_to_workspace 3
+super+shift 4
+	berryc send_to_workspace 4
+super+shift 5
+	berryc send_to_workspace 5
+super+shift 6
+	berryc send_to_workspace 6
+super+shift 7
+	berryc send_to_workspace 7
+super+shift 8
+	berryc send_to_workspace 8
+super+shift 9
+	berryc send_to_workspace 9
