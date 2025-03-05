@@ -1,6 +1,7 @@
 berryc edge_gap 40 0 0 0
 berryc smart_place true
 berryc title_height 20
+berryc cycle_focus
 
 berryc resize_button 3
 berryc resize_mask mod4
