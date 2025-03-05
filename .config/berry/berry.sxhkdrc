@@ -17,22 +17,22 @@ super+shift l
 	berryc window_move 50 0
 
 super+shift+ctrl h
-	berryc window_resize 50 0; berryc window_move -50 0;
+	berryc window_move -50 0; berryc window_resize 50 0
 super+shift+ctrl j
 	berryc window_resize 0 50
 super+shift+ctrl k
-	berryc window_resize 0 50; berryc window_move 0 -50;
+	berryc window_move 0 -50 berryc window_resize 0 50
 super+shift+ctrl l
 	berryc window_resize 50 0
 
 super+ctrl h
 	berryc window_resize -50 0
 super+ctrl j
-	berryc window_resize 0 -50; berryc window_move 0 50;
+	berryc window_resize 0 -50; berryc window_move 0 50
 super+ctrl k
 	berryc window_resize 0 -50
 super+ctrl l
-	berryc window_resize -50 0; berryc window_move 50 0;
+	berryc window_resize -50 0; berryc window_move 50 0
 
 
 super+alt h
@@ -43,6 +43,12 @@ super+alt j
 	berryc window_resize_absolute 960 640; berryc window_center
 super+alt l
 	berryc snap_right
+
+super+alt+shift h
+	berryc cardinal_focus 2; berryc window_resize -50 0; berryc cardinal_focus 0; berryc window_move -50 0; berryc window_resize 50 0
+
+super+alt+shift l
+	berryc cardinal_focus 0; berryc window_resize -50 0; berryc window_move 50 0; berryc cardinal_focus 2; berryc window_resize 50 0
 
 super o
 	berryc cycle_focus
