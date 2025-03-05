@@ -1,0 +1,19 @@
+#!/bin/bash
+
+lemon_workspace() {
+	xdotool get_desktop
+}
+
+lemon_datetime() {
+	date +"[%a] %d %b %Y, %H:%M:%S"
+}
+
+lemon_batcap() {
+	cat /sys/class/power_supply/BAT0/capacity
+}
+
+lemon_batstat() {
+	cat /sys/class/power_supply/BAT0/status
+}
+
+while :; do echo "%{l}[$(lemon_workspace)]%{r}$(lemon_datetime) - [BAT0] $(lemon_batcap)% ($(lemon_batstat))"; sleep 0.1s; done

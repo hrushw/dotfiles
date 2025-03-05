@@ -1,2 +1,2 @@
 # dotfiles
-My personal linux configuration
+Void Linux - configuration files and scripts
