@@ -12,10 +12,6 @@ fi
 export HISTFILE=$XDG_STATE_HOME/bash/history
 export HISTSIZE=-1
 
-if command -v bat &>/dev/null; then
-	export PAGER="bat --color=always --style=grid"
-fi
-
 # Colored output
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
@@ -31,10 +27,6 @@ alias la='ls -alh'
 alias cla='cls; la'
 alias ..='cd ..'
 
-if command -v fzf &>/dev/null && command -v fzf-preview.sh &>/dev/null; then
-	alias FZF='fzf -m --preview "fzf-preview.sh {}"'
-fi
-
 # Prompt
 RED="\\[\\e[1;31m\\]"
 GREEN="\\[\\e[1;32m\\]"
@@ -46,10 +38,6 @@ WHITE="\\[\\e[1;37m\\]"
 ENDC="\\[\\e[0m\\]"
 
 PS1="${RED}[${GREEN}\u${ENDC}@${GREEN}\h${ENDC}: ${CYAN}\W${RED} ]${ENDC}\$ "
-
-if command -v zoxide &>/dev/null; then
-	eval "$(zoxide init bash)"
-fi
 
 set -o vi
 
