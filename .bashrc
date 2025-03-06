@@ -41,3 +41,4 @@ PS1="${RED}[${GREEN}\u${ENDC}@${GREEN}\h${ENDC}: ${CYAN}\W${RED} ]${ENDC}\$ "
 
 set -o vi
 
+command -v zoxide &>/dev/null && eval "$(zoxide init bash)"
