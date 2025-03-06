@@ -21,7 +21,7 @@ super+shift+ctrl h
 super+shift+ctrl j
 	berryc window_resize 0 50
 super+shift+ctrl k
-	berryc window_move 0 -50 berryc window_resize 0 50
+	berryc window_move 0 -50; berryc window_resize 0 50
 super+shift+ctrl l
 	berryc window_resize 50 0
 
