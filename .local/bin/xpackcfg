@@ -67,5 +67,5 @@ for i in $(xlspkgs -m); do
 	fi
 done
 
-[ $__INSTALL ] && [ $xpkgslist_install ] && sudo xbps-install -S $xpkgslist_install
-[ $__CLEAN ] && [ $xpkgslist_clean ] && sudo xbps-remove -R $xpkgslist_clean
+[ -n "$__INSTALL" ] && [ -n "$xpkgslist_install" ] && sudo xbps-install -S $xpkgslist_install
+[ -n "$__CLEAN" ] && [ -n "$xpkgslist_clean" ] && sudo xbps-remove -R $xpkgslist_clean
