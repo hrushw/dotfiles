@@ -13,6 +13,7 @@ set nu
 set shortmess="atToO"
 set wildmenu
 set wildoptions=pum
+set showcmd
 set cursorline
 
 " search options
@@ -69,11 +70,6 @@ nnoremap <Leader>ot :tabnew<Space>
 runtime ftplugin/man.vim
 let g:no_man_maps = 1
 let g:ft_man_open_mode = 'tab'
-
-runtime ftplugin/markdown.vim
-
-packadd helptoc
-nnoremap <Leader>it :HelpToc<CR>
 
 " Colorscheme
 set termguicolors
