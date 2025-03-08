@@ -56,11 +56,24 @@ nnoremap <Leader>oh :vsplit<Space>
 nnoremap <Leader>oj :belowright split<Space>
 nnoremap <Leader>ok :split<Space>
 nnoremap <Leader>ol :belowright vsplit<Space>
+
+nnoremap <Leader>oH :topleft vsplit<Space>
+nnoremap <Leader>oJ :botright split<Space>
+nnoremap <Leader>oK :topleft split<Space>
+nnoremap <Leader>oL :botright vsplit<Space>
+
 nnoremap <Leader>oo :edit<Space>
 nnoremap <Leader>ot :tabnew<Space>
 
 " Load plugins
 runtime ftplugin/man.vim
+let g:no_man_maps = 1
+let g:ft_man_open_mode = 'tab'
+
+runtime ftplugin/markdown.vim
+
+packadd helptoc
+nnoremap <Leader>it :HelpToc<CR>
 
 " Colorscheme
 set termguicolors
