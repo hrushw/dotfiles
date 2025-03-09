@@ -1,3 +1,5 @@
+#!/bin/sh
+
 berryc edge_gap 40 0 0 0
 berryc smart_place true
 berryc title_height 20

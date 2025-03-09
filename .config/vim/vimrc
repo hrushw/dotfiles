@@ -20,6 +20,7 @@ set cursorline
 set ignorecase
 set smartcase
 set hlsearch
+set incsearch
 set wrapscan
 
 " Indentation options
@@ -29,6 +30,10 @@ set noexpandtab
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
+
+" Options without 'set'
+syntax on
+nohlsearch
 
 " Mappings
 let g:mapleader=' '
