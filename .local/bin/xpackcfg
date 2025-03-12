@@ -3,9 +3,9 @@
 xlspkgs() {
 	case $1 in
 		-l)
-			xbps-query -l | awk '{print $2}' | sed "s/-[0-9].*//";;
+			xbps-query -l | awk '{print $2}' | sed "s/-[0-9].*//" | sed "s/-r[0-9].*//";;
 		-m)
-			xbps-query -m | sed "s/-[0-9].*//";;
+			xbps-query -m | sed "s/-[0-9].*//" | sed "s/-r[0-9].*//";;
 	esac
 }
 
@@ -35,7 +35,8 @@ log "[Checking if configured packages are installed...]"
 [ $__LIST ] && printf "Applications installed (grouped):"
 [ ! -v __XPKGSDIR ] && __XPKGSDIR=~/.local/share/xpkgs
 for i in $__XPKGSDIR/*; do
-	[ $__LIST ] &&  { echo; echo "Group '${i##*/}':"; }
+	[ "$__LIST" ] &&  { echo; echo "Group '${i##*/}':"; }
+	[ -d "$i" ] && continue
 	for j in $(cat $i); do
 		if {
 			for k in $xpkgslist_all; do

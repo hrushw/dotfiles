@@ -12,4 +12,4 @@ berryc switch_workspace 1
 
 sxhkd ~/.config/berry/berry.sxhkdrc &
 xwallpaper --center ~/wallpaper.png
-lemonbarstatus | lemonbar -g x40 -f "-xos4-terminus-medium-r-normal--24-240-72-72-c-120-iso8859-2" &
+lemonbarstatus | lemonbar -g x32 -f "-xos4-terminus-medium-r-normal--20-200-72-72-c-100-iso8859-2" &

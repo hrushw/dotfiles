@@ -3,3 +3,6 @@ super Return:
 
 super+shift Return:
 	zutty
+
+super p:
+	dmenu_run -i -l 20 -fn "Terminus:pixelsize=20"

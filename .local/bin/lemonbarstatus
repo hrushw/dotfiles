@@ -16,4 +16,15 @@ lemon_batstat() {
 	cat /sys/class/power_supply/BAT0/status
 }
 
-while :; do echo "%{l}[$(lemon_workspace)]%{r}$(lemon_datetime) - [BAT0] $(lemon_batcap)% ($(lemon_batstat))"; sleep 0.1s; done
+lemon_brightness() {
+	echo $(( $(cat /sys/class/backlight/intel_backlight/brightness )*100 / $(cat /sys/class/backlight/intel_backlight/max_brightness) ))
+}
+
+while :; do
+	echo -n "%{l}[$(lemon_workspace)]"
+	echo -n "%{r} [Backlight] $(lemon_brightness)%"
+	echo -n " - [BAT0] $(lemon_batcap)% ($(lemon_batstat))"
+	echo -n "- $(lemon_datetime)"
+	echo
+	sleep 0.1s
+done
