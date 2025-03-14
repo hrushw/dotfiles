@@ -1,6 +1,6 @@
 #!/bin/sh
 
-berryc edge_gap 40 0 0 0
+berryc edge_gap 32 0 0 0
 berryc smart_place true
 berryc title_height 20
 berryc cycle_focus
@@ -12,4 +12,5 @@ berryc switch_workspace 1
 
 sxhkd ~/.config/berry/berry.sxhkdrc &
 xwallpaper --center ~/wallpaper.png
+unclutter --timeout 1 &
 lemonbarstatus | lemonbar -g x32 -f "-xos4-terminus-medium-r-normal--20-200-72-72-c-100-iso8859-2" &
