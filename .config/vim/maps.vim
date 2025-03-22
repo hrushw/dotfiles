@@ -48,3 +48,4 @@ nnoremap <Leader>o_t :tab terminal<Space>
 
 tnoremap <C-n> <C-w>N
 tnoremap <C-w>n <C-n>
+

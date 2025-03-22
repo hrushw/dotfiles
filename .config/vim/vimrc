@@ -7,6 +7,8 @@ set backupdir=./.vimbackup,~/.local/share/vim/backup,.,~/tmp,~/ " ??
 set undodir=~/.local/share/vim/undo
 set undofile
 set history=4096
+set exrc
+set secure
 
 " ui options
 set nu
