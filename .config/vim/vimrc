@@ -29,6 +29,7 @@ set wrapscan
 set cindent
 set autoindent
 set noexpandtab
+set smarttab
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
