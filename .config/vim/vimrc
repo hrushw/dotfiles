@@ -12,7 +12,7 @@ set secure
 
 " ui options
 set nu
-set shortmess="atToO"
+set shortmess=atToO
 set wildmenu
 set wildoptions=pum
 set showcmd

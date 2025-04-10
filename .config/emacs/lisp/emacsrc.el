@@ -33,4 +33,5 @@
 (setq-default c-tab-always-indent nil)
 (setq-default c-syntactic-indentation nil)
 
-(setq vc-follow-symlinks t)
+(setq vc-follow-symlinks nil)
+
