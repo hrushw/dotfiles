@@ -13,6 +13,7 @@
 (load "evil.el")
 (evil-mode 1)
 
+; window settings
 (setq-default inhibit-startup-screen t)
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
@@ -22,6 +23,7 @@
 (global-display-line-numbers-mode)
 (global-hl-line-mode)
 
+; indentation settings
 (setq-default tab-width 4)
 (setq-default indent-tabs-mode t)
 (setq-default tab-always-indent nil)
@@ -30,3 +32,5 @@
 (setq-default c-basic-offset 4)
 (setq-default c-tab-always-indent nil)
 (setq-default c-syntactic-indentation nil)
+
+(setq vc-follow-symlinks t)
