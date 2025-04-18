@@ -21,6 +21,12 @@ nnoremap <Leader>] gt
 nnoremap <Leader>n :bnext<CR>
 nnoremap <Leader>p :bprev<CR>
 
+nnoremap <Leader>iw :vert resize +10<CR>
+nnoremap <Leader>ib :vert resize -10<CR>
+
+nnoremap <Leader>mw :resize +10<CR>
+nnoremap <Leader>mb :resize -10<CR>
+
 nnoremap <Leader>oh :aboveleft vert split<Space>
 nnoremap <Leader>oj :belowright split<Space>
 nnoremap <Leader>ok :aboveleft split<Space>

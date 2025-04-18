@@ -28,6 +28,8 @@ alias la='ls -alh'
 alias cla='cls; la'
 alias ..='cd ..'
 
+alias del='mv -t ~/.local/share/Trash/'
+
 # Prompt
 RED="\\[\\e[1;31m\\]"
 GREEN="\\[\\e[1;32m\\]"
