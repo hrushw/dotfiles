@@ -9,7 +9,11 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # Environment
-export HISTFILE=$XDG_STATE_HOME/bash/history
+if [ -f .bash_history ]; then
+	export HISTFILE=.bash_history
+else
+	export HISTFILE=$XDG_STATE_HOME/bash/history
+fi
 export HISTSIZE=-1
 
 # Colored output
@@ -21,11 +25,12 @@ export LESS='-R --use-color -Dd+r$Du+b$'
 export MANROFFOPT="-c"
 
 # Aliases
-alias cls='tput reset'
+alias fetch='afetch; echo'
+alias cls='tput reset; fetch'
 alias ll='ls -lh'
-alias cll='cls; ll'
+alias cll='tput reset; ll'
 alias la='ls -alh'
-alias cla='cls; la'
+alias cla='tput reset; la'
 alias ..='cd ..'
 
 alias del='mv -t ~/.local/share/Trash/'
@@ -45,3 +50,4 @@ PS1="${RED}[${GREEN}\u${ENDC}@${GREEN}\h${ENDC}: ${CYAN}\W${RED} ]${ENDC}\$ "
 set -o vi
 
 command -v zoxide &>/dev/null && eval "$(zoxide init bash)"
+fetch
