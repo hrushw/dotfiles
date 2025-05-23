@@ -16,6 +16,8 @@ else
 fi
 export HISTSIZE=-1
 
+[ -f .python_history ] && export PYTHON_HISTORY=".python_history"
+
 # Colored output
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
