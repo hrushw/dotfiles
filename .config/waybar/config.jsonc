@@ -15,24 +15,9 @@
 	"margin-right": 8,
 	"margin-bottom": 0,
 
-	"modules-left": ["mpris"],
+	"modules-left": ["clock"],
 	"modules-center": ["hyprland/workspaces"],
-	"modules-right": ["backlight", "pulseaudio", "battery", "clock"],
-
-	"mpris": {
-		"interval": 1,
-		"format": " [{position}/{length}] {player_icon}",
-		"format-paused": " [{position}/{length}] {status_icon}",
-		"tooltip-format": "{player} ({status}) - {dynamic}",
-		"max-length": 64,
-		"player-icons": {
-			"default": "⏸",
-			"mpv": "🎵"
-		},
-		"status-icons": {
-			"paused": "▶"
-		}
-	},
+	"modules-right": ["backlight", "pulseaudio", "battery"],
 
 	"hyprland/workspaces": {
 		"active-only": false,
@@ -81,7 +66,7 @@
 		"format-alt": " {:%A, %d %B %Y (%H:%M:%S)}",
 
 		"tooltip": true,
-		"tooltip-format": "<tt>{calendar}</tt>",
+		"tooltip-format": "<tt><small>{calendar}</small></tt>",
 
 		"calendar": {
 			"mode": "month",
