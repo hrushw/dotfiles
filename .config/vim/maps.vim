@@ -32,25 +32,25 @@ nnoremap <Leader>oj :belowright split<Space>
 nnoremap <Leader>ok :aboveleft split<Space>
 nnoremap <Leader>ol :belowright vert split<Space>
 
-nnoremap <Leader>oH :topleft vsplit<Space>
+nnoremap <Leader>oH :topleft vert split<Space>
 nnoremap <Leader>oJ :botright split<Space>
 nnoremap <Leader>oK :topleft split<Space>
-nnoremap <Leader>oL :botright vsplit<Space>
+nnoremap <Leader>oL :botright vert split<Space>
 
 nnoremap <Leader>oo :edit<Space>
 nnoremap <Leader>ot :tabnew<Space>
 
-nnoremap <Leader>o_h :aboveleft vert terminal<Space>
-nnoremap <Leader>o_j :belowright terminal<Space>
-nnoremap <Leader>o_k :aboveleft terminal<Space>
-nnoremap <Leader>o_l :belowright vert terminal<Space>
+nnoremap <Leader>o_h :aboveleft vert terminal<CR>
+nnoremap <Leader>o_j :belowright terminal<CR>
+nnoremap <Leader>o_k :aboveleft terminal<CR>
+nnoremap <Leader>o_l :belowright vert terminal<CR>
 
-nnoremap <Leader>o_H :topleft vert terminal<Space>
-nnoremap <Leader>o_J :botright terminal<Space>
-nnoremap <Leader>o_K :topleft terminal<Space>
-nnoremap <Leader>o_L :botright vert terminal<Space>
+nnoremap <Leader>o_H :topleft vert terminal<CR>
+nnoremap <Leader>o_J :botright terminal<CR>
+nnoremap <Leader>o_K :topleft terminal<CR>
+nnoremap <Leader>o_L :botright vert terminal<CR>
 
-nnoremap <Leader>o_t :tab terminal<Space>
+nnoremap <Leader>o_t :tab terminal<CR>
 
 tnoremap <C-n> <C-w>N
 tnoremap <C-w>n <C-n>

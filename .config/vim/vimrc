@@ -7,16 +7,20 @@ set backupdir=./.vimbackup,~/.local/share/vim/backup,.,~/tmp,~/ " ??
 set undodir=~/.local/share/vim/undo
 set undofile
 set history=4096
-set exrc
+set noexrc
 set secure
 
 " ui options
-set nu
+set ruler
+set number
+set relativenumber
+set cursorline
 set shortmess=atToO
 set wildmenu
 set wildoptions=pum
+set pumheight=32
 set showcmd
-set cursorline
+set laststatus=2
 
 " search options
 set ignorecase
@@ -33,6 +37,15 @@ set smarttab
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
+
+" Behavior
+if exists("+autochdir") | set autochdir | endif
+set autoread
+set noautoshelldir
+set noautowrite
+set noautowriteall
+
+set backspace=indent,eol,start
 
 " Options without 'set'
 syntax on

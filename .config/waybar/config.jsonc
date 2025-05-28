@@ -15,9 +15,14 @@
 	"margin-right": 8,
 	"margin-bottom": 0,
 
-	"modules-left": ["clock"],
+	"modules-left": ["clock", "network"],
 	"modules-center": ["hyprland/workspaces"],
 	"modules-right": ["backlight", "pulseaudio", "battery"],
+
+	"network": {
+		"format-wifi": " {essid} ({signalStrength}%)",
+		"max-length": 40
+	},
 
 	"hyprland/workspaces": {
 		"active-only": false,
