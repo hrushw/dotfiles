@@ -53,3 +53,5 @@ set -o vi
 
 command -v zoxide &>/dev/null && eval "$(zoxide init bash)"
 tput reset; fetch
+
+[ "$TERM" = "eterm-color" ] && alias vim='echo "vim is not supported inside eterm"'

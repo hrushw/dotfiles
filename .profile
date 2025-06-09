@@ -9,6 +9,7 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 
 export EDITOR="vim"
+export BROWSER="zen-twilight"
 
 # make other programs conform to XDG directories
 export PYTHON_HISTORY="$XDG_STATE_HOME/python/history"

@@ -39,7 +39,7 @@ set shiftwidth=4
 set softtabstop=4
 
 " Behavior
-if exists("+autochdir") | set autochdir | endif
+" if exists("+autochdir") | set autochdir | endif
 set autoread
 set noautoshelldir
 set noautowrite

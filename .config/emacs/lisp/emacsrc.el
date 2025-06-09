@@ -10,7 +10,9 @@
 
 ; adding a text editor
 (add-to-list 'load-path "~/.config/emacs/evil/")
+(setq evil-want-C-u-scroll t)
 (load "evil.el")
+(evil-set-undo-system 'undo-redo)
 (evil-mode 1)
 
 ; window settings
@@ -23,6 +25,8 @@
 (global-display-line-numbers-mode)
 (global-hl-line-mode)
 
+(global-visual-line-mode t) ; wrap text
+
 ; indentation settings
 (setq-default tab-width 4)
 (setq-default indent-tabs-mode t)
@@ -33,5 +37,18 @@
 (setq-default c-tab-always-indent nil)
 (setq-default c-syntactic-indentation nil)
 
+(setq explicit-shell-file-name "/usr/bin/bash")
+(setq shell-file-name "bash")
 (setq vc-follow-symlinks nil)
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((C . t)
+   (python . t)
+   (latex . t)
+   (forth . t)
+   (haskell . t)
+   (lisp . t)
+   (awk . t)
+   (emacs-lisp . t)))
 
