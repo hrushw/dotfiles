@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# vim mode seems to be broken
+bemenu-run -c -l 12 -H 32 -B 2 -W 0.4 \
+	--fn "Terminus 24px" -p "Launch " \
+	-P ">" \
+	--single-instance --ifne -w -i \
+	--scrollbar autohide
+
