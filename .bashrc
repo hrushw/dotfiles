@@ -10,7 +10,7 @@ fi
 
 # Environment
 if [ -f .bash_history ]; then
-	export HISTFILE=.bash_history
+	export HISTFILE=$PWD/.bash_history
 else
 	export HISTFILE=$XDG_STATE_HOME/bash/history
 fi
@@ -27,7 +27,7 @@ export LESS='-R --use-color -Dd+r$Du+b$'
 export MANROFFOPT="-c"
 
 # Aliases
-alias fetch='afetch; echo'
+alias fetch='echo; pfetch; echo'
 alias cls='tput reset; fetch'
 alias ll='ls -lh'
 alias cll='tput reset; ll'

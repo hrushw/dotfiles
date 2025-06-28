@@ -17,7 +17,7 @@
 
 	"modules-left": ["hyprland/window"],
 	"modules-center": ["hyprland/workspaces"],
-	"modules-right": ["network", "backlight", "pulseaudio", "battery", "clock"],
+	"modules-right": ["network", "backlight", "pulseaudio", "custom/alsa", "battery", "clock"],
 
 	"network": {
 		"format-wifi": " {essid} ({signalStrength}%)",
@@ -41,6 +41,17 @@
 		"format-icons": ["", ""]
 	},
 
+	"battery": {
+		"bat": "BAT0",
+		"interval": 60,
+		"states": {
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "{icon} {capacity}%",
+		"format-icons": ["", "", "", "", ""]
+	},
+
 	"pulseaudio": {
 		"format": "{icon} {volume}%",
 		"format-bluetooth": "{icon} {volume}%",
@@ -57,17 +68,6 @@
 			"car": "",
 			"default": ["", ""]
 		}
-	},
-
-	"battery": {
-		"bat": "BAT0",
-		"interval": 60,
-		"states": {
-			"warning": 30,
-			"critical": 15
-		},
-		"format": "{icon} {capacity}%",
-		"format-icons": ["", "", "", "", ""]
 	},
 
 	"clock": {
