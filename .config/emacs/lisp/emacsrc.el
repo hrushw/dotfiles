@@ -41,6 +41,9 @@
 (setq shell-file-name "bash")
 (setq vc-follow-symlinks nil)
 
+(setq browse-url-generic-program "qutebrowser")
+(setq browse-url-browser-function 'browse-url-generic)
+
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((C . t)
