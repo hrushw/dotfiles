@@ -44,5 +44,5 @@ c.content.pdfjs = True
 
 c.confirm_quit = [ "multiple-tabs", "downloads" ]
 
-config.bind(",t", "config-cycle tabs.show always never")
-config.bind(",s", "config-cycle statusbar.show always in-mode")
+config.bind(",t", "config-cycle -t tabs.show always never")
+config.bind(",s", "config-cycle -t statusbar.show always in-mode")
