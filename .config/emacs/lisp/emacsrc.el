@@ -2,6 +2,10 @@
 (load "nano.el")
 (nano-theme-set-dark)
 (nano-refresh-theme)
+(setq recentf-save-file "~/.local/state/emacs/.nano-recentf")
+(setq bookmark-default-file "~/.local/state/emacs/.nano-bookmark")
+(setq nano-font-family-monospaced "RobotoMono Nerd Font Mono")
+(nano-refresh-theme)
 
 ; disable ui elements
 (menu-bar-mode 1)
