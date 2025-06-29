@@ -1,0 +1,6 @@
+#!/bin/sh
+
+Selection=true
+LoginShell=/bin/bash --login
+
+exec dbus-launch $@
