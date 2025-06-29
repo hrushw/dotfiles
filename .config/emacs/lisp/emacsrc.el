@@ -2,9 +2,14 @@
 (load "nano.el")
 (nano-theme-set-dark)
 (nano-refresh-theme)
-(setq recentf-save-file "~/.local/state/emacs/.nano-recentf")
-(setq bookmark-default-file "~/.local/state/emacs/.nano-bookmark")
+; overriding variables
+(setq recentf-save-file "~/.local/state/emacs/recentf")
+(setq bookmark-default-file "~/.config/emacs/bookmarks")
 (setq nano-font-family-monospaced "RobotoMono Nerd Font Mono")
+(setq backup-directory-alist '(("." . "~/.local/state/emacs/backups")))
+
+(setq savehist-file "~/.local/state/emacs/history")
+(savehist-mode 1)
 (nano-refresh-theme)
 
 ; disable ui elements

@@ -20,6 +20,21 @@ c.tabs.padding = {
     "right": pad,
 }
 
+c.tabs.title.format = "{audio}{index}: {current_title}"
+c.tabs.title.format_pinned = c.tabs.title.format
+
+# Hints
+c.hints.radius = 0
+c.hints.mode = "letter"
+c.colors.hints.bg = "#bbfff785"
+c.hints.padding = {
+    "top" : 2,
+    "bottom" : 2,
+    "left": 6,
+    "right": 6,
+}
+c.fonts.hints = "bold " + global_font
+
 # Statusbar
 c.statusbar.show = "always"
 c.fonts.statusbar = global_font
