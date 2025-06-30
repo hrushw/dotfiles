@@ -1,0 +1,21 @@
+#!/bin/sh
+
+status=$(amixer sget Master | grep '%' | awk -F '[][]' '{print $6}')
+
+case $status in
+	"off")
+		statstr="󰝟 ";;
+	"on")
+		case $1 in
+			"inc")
+				statstr="󰝝 ";;
+			"dec")
+				statstr="󰝞 ";;
+			*)
+				statstr="󱄠 ";;
+		esac;;
+	*)
+		statstr="  ";;
+esac
+echo $statstr
+

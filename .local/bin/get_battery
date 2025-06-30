@@ -1,0 +1,27 @@
+#!/usr/bin/python3
+
+symbols = [
+    ["󰁺 ", "󰢜 "],
+    ["󰁻 ", "󰂆 "],
+    ["󰁼 ", "󰂇 "],
+    ["󰁽 ", "󰂈 "],
+    ["󰁾 ", "󰢝 "],
+    ["󰁿 ", "󰂉 "],
+    ["󰂀 ", "󰢞 "],
+    ["󰂁 ", "󰂊 "],
+    ["󰂂 ", "󰂋 "],
+    ["󰁹 ", "󰂅 "],
+]
+with open("/sys/class/power_supply/BAT0/capacity") as myfile:
+    num = int(myfile.read())
+with open("/sys/class/power_supply/BAT0/status") as myfile:
+    stat = myfile.read()
+    if stat == "Charging\n":
+        stat = 1
+    elif stat == "Discharging\n":
+        stat = 0
+    else:
+        stat = 0
+
+print(symbols[num // 10][stat] + str(num) + "%")
+

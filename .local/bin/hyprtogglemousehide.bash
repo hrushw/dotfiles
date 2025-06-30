@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 chset=$(hyprctl getoption cursor:hide_on_key_press | grep int | awk '{print $2}')
 case $chset in

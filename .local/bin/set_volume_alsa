@@ -1,0 +1,6 @@
+#!/bin/bash
+
+inc=$1
+vol_current=$(get_volume_alsa)
+vol_current=${vol_current::-1}
+amixer sset Master playback $((vol_current + inc))

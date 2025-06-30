@@ -1,0 +1,14 @@
+#!/usr/bin/python3
+
+def get_line_from_file(path):
+    with open(path, "r") as f:
+        bstr = f.readline()
+        if bstr[-1] == '\n':
+            bstr = bstr[:-1]
+    return bstr
+
+b = int(get_line_from_file("/sys/class/backlight/intel_backlight/brightness"))
+bmax = int(get_line_from_file("/sys/class/backlight/intel_backlight/max_brightness"))
+bp = int(b * 100/ bmax)
+
+print("󰛨 ", str(bp) + "%")

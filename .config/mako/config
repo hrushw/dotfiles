@@ -1,0 +1,37 @@
+background-color=#2e3440cc
+width=640
+height=480
+
+border-size=2
+border-color=#88c0d0
+border-radius=0
+
+outer-margin=12
+margin=8
+
+padding=16
+font=monospace 14
+
+default-timeout=0
+ignore-timeout=0
+
+layer=top
+markup=1
+
+[category=sysinfo]
+font=monospace 40
+width=320
+anchor=top-center
+text-alignment=center
+
+[category=datetime]
+font=monospace 36
+width=480
+anchor=top-center
+text-alignment=center
+
+[category=workspaces]
+font=monospace 20
+width=800
+anchor=top-center
+text-alignment=center
