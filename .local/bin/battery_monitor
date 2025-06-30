@@ -1,0 +1,32 @@
+#!/usr/bin/python3
+import os
+import time
+
+battery_low=20
+battery_low_warn=False
+
+num = 100
+sleeptime = 30
+sleepfrac = 0.8
+
+while True:
+    if battery_low_warn:
+        os.spawnlp(os.P_WAIT, "battery_notify", "battery_notify", str(int(sleepfrac*1000*sleeptime)))
+        print("BATTERY LOW!")
+    else:
+        with open("/sys/class/power_supply/BAT0/capacity") as myfile:
+            num = int(myfile.read())
+        if(num < battery_low):
+            with open("/sys/class/power_supply/BAT0/status") as myfile:
+                stat = myfile.read()
+                if stat == "Charging\n":
+                    battery_low_warn = False
+                elif stat == "Discharging\n":
+                    battery_low_warn=True
+                else:
+                    battery_low_warn=True
+        print("LOWN")
+        continue
+    time.sleep(sleeptime)
+
+
