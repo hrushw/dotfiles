@@ -8,6 +8,8 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 
+export SVDIR="$XDG_CONFIG_HOME/service"
+
 export EDITOR="vim"
 export BROWSER="qutebrowser"
 

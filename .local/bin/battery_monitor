@@ -9,6 +9,10 @@ num = 100
 sleeptime = 30
 sleepfrac = 0.8
 
+def conditional_notif():
+    if battery_low_warn:
+        os.spawnlp(os.P_WAIT, "battery_notify", "battery_notify", str(int(sleepfrac*1000*sleeptime)))
+
 while True:
     with open("/sys/class/power_supply/BAT0/capacity") as myfile:
         num = int(myfile.read())
@@ -17,16 +21,14 @@ while True:
         with open("/sys/class/power_supply/BAT0/status") as myfile:
             stat = myfile.read()
             if stat == "Charging\n":
+                conditional_notif()
                 battery_low_warn = False
             elif stat == "Discharging\n":
                 battery_low_warn=True
             else:
                 battery_low_warn=True
 
-    if battery_low_warn:
-        os.spawnlp(os.P_WAIT, "battery_notify", "battery_notify", str(int(sleepfrac*1000*sleeptime)))
-
-
+    conditional_notif()
     time.sleep(sleeptime)
 
 

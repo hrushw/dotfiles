@@ -1,0 +1,6 @@
+#!/bin/sh
+
+while true; do
+snooze -m *
+echo "LOG" >> ~/.tmpfile
+done
