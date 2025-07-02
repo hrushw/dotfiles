@@ -10,9 +10,6 @@ sleeptime = 30
 sleepfrac = 0.8
 
 while True:
-    if battery_low_warn:
-        os.spawnlp(os.P_WAIT, "battery_notify", "battery_notify", str(int(sleepfrac*1000*sleeptime)))
-
     with open("/sys/class/power_supply/BAT0/capacity") as myfile:
         num = int(myfile.read())
 
@@ -25,7 +22,11 @@ while True:
                 battery_low_warn=True
             else:
                 battery_low_warn=True
-    continue
+
+    if battery_low_warn:
+        os.spawnlp(os.P_WAIT, "battery_notify", "battery_notify", str(int(sleepfrac*1000*sleeptime)))
+
+
     time.sleep(sleeptime)
 
 
