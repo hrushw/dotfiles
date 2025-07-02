@@ -24,6 +24,10 @@
 (evil-set-undo-system 'undo-redo)
 (evil-mode 1)
 
+; mu4e
+(add-to-list 'load-path "/usr/share/emacs/site-lisp/mu4e/")
+(load "mu4e.el")
+
 ; window settings
 (setq-default inhibit-startup-screen t)
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
@@ -52,6 +56,8 @@
 
 (setq browse-url-generic-program "qutebrowser")
 (setq browse-url-browser-function 'browse-url-generic)
+
+(define-key org-mode-map (kbd "M-<return>") 'org-meta-return)
 
 (org-babel-do-load-languages
  'org-babel-load-languages

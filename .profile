@@ -17,6 +17,7 @@ export XCURSOR_PATH="/usr/share/icons:~/.local/share/icons"
 export GNUPGHOME="$XDG_CONFIG_HOME/gnupg/"
 export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
 export LESSHISTFILE="$XDG_STATE_HOME/lesshst"
+export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
 
 # Get the aliases and functions
 [ -f $HOME/.bashrc ] && . $HOME/.bashrc
