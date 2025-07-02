@@ -1,6 +1,7 @@
 #!/bin/sh
 
 while true; do
-snooze -m *
-echo "LOG" >> ~/.tmpfile
+snooze -S0 -M0 -H '/2'
+
+offlineimap
 done

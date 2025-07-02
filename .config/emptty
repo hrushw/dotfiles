@@ -3,4 +3,4 @@
 Selection=true
 LoginShell=/bin/bash --login
 
-exec dbus-launch $@
+exec dbus-run-session $@
