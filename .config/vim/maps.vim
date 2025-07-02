@@ -4,6 +4,9 @@ let g:mapleader=' '
 " match with 'less' pager
 nnoremap <Esc>u :noh<CR>
 
+nnoremap <C-j> <C-e>j
+nnoremap <C-k> <C-y>k
+
 nnoremap <Leader>h <C-w>h
 nnoremap <Leader>j <C-w>j
 nnoremap <Leader>k <C-w>k
@@ -26,6 +29,8 @@ nnoremap <Leader>ib :vert resize -10<CR>
 
 nnoremap <Leader>mw :resize +10<CR>
 nnoremap <Leader>mb :resize -10<CR>
+
+
 
 nnoremap <Leader>oh :aboveleft vert split<Space>
 nnoremap <Leader>oj :belowright split<Space>

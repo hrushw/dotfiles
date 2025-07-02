@@ -22,6 +22,10 @@ set pumheight=32
 set showcmd
 set laststatus=2
 
+set conceallevel=2
+set foldenable
+set fillchars=vert:\|,fold:-,eob:\ ,lastline:@
+
 " search options
 set ignorecase
 set smartcase

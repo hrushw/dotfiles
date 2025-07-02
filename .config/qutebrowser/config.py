@@ -74,4 +74,5 @@ config.bind(",m", "spawn mpv {url}")
 config.bind(",M", "spawn mpv {url};; tab-close")
 config.bind(",p", "spawn --userscript qute-pass")
 config.bind(",P", "spawn --userscript qute-pass --password-only")
+config.bind(",v", "spawn --userscript readability")
 
