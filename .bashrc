@@ -35,7 +35,8 @@ alias la='ls -alh'
 alias cla='tput reset; la'
 alias ..='cd ..'
 
-alias del='mv -t ~/.local/share/Trash/'
+alias rm='echo "rm is disabled, use del"'
+alias del='mv -it ~/.local/share/trash/'
 
 # Prompt
 RED="\\[\\e[1;31m\\]"

@@ -8,18 +8,21 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 
-export SVDIR="$XDG_CONFIG_HOME/service"
 
 export EDITOR="vim"
 export BROWSER="qutebrowser"
+export GTK_THEME=Breeze:dark
 
 # make other programs conform to XDG directories
+export SVDIR="$XDG_CONFIG_HOME/service"
 export PYTHON_HISTORY="$XDG_STATE_HOME/python/history"
 export XCURSOR_PATH="/usr/share/icons:~/.local/share/icons"
 export GNUPGHOME="$XDG_CONFIG_HOME/gnupg/"
 export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
 export LESSHISTFILE="$XDG_STATE_HOME/lesshst"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
+export MBLAZE="$XDG_DATA_HOME/mblaze"
+
 
 # Get the aliases and functions
 [ -f $HOME/.bashrc ] && . $HOME/.bashrc
