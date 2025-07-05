@@ -21,7 +21,7 @@ export GNUPGHOME="$XDG_CONFIG_HOME/gnupg/"
 export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
 export LESSHISTFILE="$XDG_STATE_HOME/lesshst"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
-export MBLAZE="$XDG_DATA_HOME/mblaze"
+export MBLAZE="$XDG_CONFIG_HOME/mblaze"
 
 
 # Get the aliases and functions
