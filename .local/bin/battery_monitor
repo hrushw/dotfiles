@@ -17,7 +17,7 @@ while True:
     with open("/sys/class/power_supply/BAT0/capacity") as myfile:
         num = int(myfile.read())
 
-    if(num < battery_low):
+    if num < battery_low:
         with open("/sys/class/power_supply/BAT0/status") as myfile:
             stat = myfile.read()
             if stat == "Charging\n":
@@ -27,6 +27,8 @@ while True:
                 battery_low_warn=True
             else:
                 battery_low_warn=True
+    else:
+        battery_low_warn = False
 
     conditional_notif()
     time.sleep(sleeptime)

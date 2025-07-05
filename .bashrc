@@ -52,8 +52,8 @@ PS1="${RED}[${GREEN}\u${ENDC}@${GREEN}\h${ENDC}: ${CYAN}\W${RED} ]${ENDC}\$ "
 
 set -o vi
 
-# command -v zoxide &>/dev/null && eval "$(zoxide init bash)"
-alias z='cd'
+command -v zoxide &>/dev/null && eval "$(zoxide init bash)"
+# alias z='cd'
 
 # FZF shell integration
 # Ctrl+T : autocomplete files with fzf
