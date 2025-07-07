@@ -8,6 +8,8 @@ if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
 
+[ -f $HOME/.profile ] && source $HOME/.profile
+
 # Environment
 if [ -f .bash_history ]; then
 	export HISTFILE=$PWD/.bash_history
@@ -38,17 +40,20 @@ alias ..='cd ..'
 alias rm='echo "rm is disabled, use del"'
 alias del='mv -it ~/.local/share/trash/'
 
-# Prompt
-RED="\\[\\e[1;31m\\]"
-GREEN="\\[\\e[1;32m\\]"
-YELLOW="\\[\\e[1;33m\\]"
-BLUE="\\[\\e[1;34m\\]"
-MAGENTA="\\[\\e[1;35m\\]"
-CYAN="\\[\\e[1;36m\\]"
-WHITE="\\[\\e[1;37m\\]"
-ENDC="\\[\\e[0m\\]"
+set_prompt() {
+	# Prompt
+	local RED="\\[\\e[1;31m\\]"
+	local GREEN="\\[\\e[1;32m\\]"
+	local YELLOW="\\[\\e[1;33m\\]"
+	local BLUE="\\[\\e[1;34m\\]"
+	local MAGENTA="\\[\\e[1;35m\\]"
+	local CYAN="\\[\\e[1;36m\\]"
+	local WHITE="\\[\\e[1;37m\\]"
+	local ENDC="\\[\\e[0m\\]"
 
-PS1="${RED}[${GREEN}\u${ENDC}@${GREEN}\h${ENDC}: ${CYAN}\W${RED} ]${ENDC}\$ "
+	PS1="${RED}[${GREEN}\u${ENDC}@${GREEN}\h${ENDC}: ${CYAN}\W${RED} ]${ENDC}\$ "
+}
+set_prompt
 
 set -o vi
 

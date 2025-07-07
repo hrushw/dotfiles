@@ -8,10 +8,18 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 
-
+# settings
 export EDITOR="vim"
 export BROWSER="qutebrowser"
 export GTK_THEME=Breeze:dark
+
+export EXINIT="set ai ap ic nu prompt ts=4 sw=4 nosm showmode warn ws"
+export NEXINIT=$EXINIT
+
+export CC=gcc
+export CFLAGS="-Wall -Wextra -Wpedantic -Wvla"
+
+export CDPATH=:~
 
 # make other programs conform to XDG directories
 export SVDIR="$XDG_CONFIG_HOME/service"
@@ -24,13 +32,11 @@ export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
 export MBLAZE="$XDG_CONFIG_HOME/mblaze"
 
 
-# Get the aliases and functions
-[ -f $HOME/.bashrc ] && . $HOME/.bashrc
-
 if ! [[ "$PATH" =~ "$HOME/.local/bin" ]]; then
     [ -e "$HOME/.local/bin" ] && export PATH="$HOME/.local/bin:$PATH"
 fi
 if ! [[ "$PATH" =~ "$HOME/.scripts" ]]; then
     [ -e "$HOME/.scripts" ] && export PATH="$HOME/.scripts:$PATH"
 fi
+
 

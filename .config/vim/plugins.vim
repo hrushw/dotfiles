@@ -18,6 +18,8 @@ nnoremap <Leader>.t :TagbarToggle<CR>
 " nnoremap <Leader>.F :colorscheme quiet<CR>:Limelight<CR>:Goyo 120<CR>
 " nnoremap <Leader>.qf :colorscheme moonfly<CR>:Limelight!<CR>:Goyo!<CR>
 
+let g:tagbar_foldlevel = 0
+
 let g:focusmodeenabled=0
 
 function FocusModeEnable()
