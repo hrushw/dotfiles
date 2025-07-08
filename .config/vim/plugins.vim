@@ -8,6 +8,8 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'
+
+Plug 'sile-typesetter/vim-sile'
 call plug#end()
 
 colorscheme moonfly

@@ -29,6 +29,9 @@ c.tabs.padding = {
     "right": pad,
 }
 
+c.colors.tabs.odd.bg = "#333333"
+c.colors.tabs.even.bg = "#444444"
+
 c.tabs.title.format = "{audio}{index}: {current_title}"
 c.tabs.title.format_pinned = c.tabs.title.format
 
@@ -49,8 +52,9 @@ c.statusbar.show = "always"
 c.fonts.statusbar = global_font
 c.fonts.completion.category = global_font
 c.fonts.completion.entry = global_font
-c.colors.completion.even.bg = "#bb333333"
-c.colors.completion.odd.bg = "#bb444444"
+c.colors.completion.category.bg = "#77000000"
+c.colors.completion.even.bg = "#77111111"
+c.colors.completion.odd.bg = "#77222222"
 c.completion.height = "40%"
 
 c.fonts.downloads = global_font
@@ -76,3 +80,4 @@ config.bind(",p", "spawn --userscript qute-pass")
 config.bind(",P", "spawn --userscript qute-pass --password-only")
 config.bind(",v", "spawn --userscript readability")
 
+config.bind(",yr", "click-element css \"#items yt-chip-cloud-chip-renderer:nth-of-type(2)\"")
