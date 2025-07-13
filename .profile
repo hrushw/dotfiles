@@ -18,6 +18,7 @@ export CC=gcc
 export CFLAGS="-Wall -Wextra -Wpedantic -Wvla"
 export CDPATH=:~
 export LC_COLLATE=C
+export BEMENU_OPTS='-c -l 12 -H 32 -B 2 -W 0.4 --fn "Terminus 24px"'
 
 # make other programs conform to XDG directories
 export SVDIR="$XDG_CONFIG_HOME/service"

@@ -10,8 +10,6 @@ if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
 
-[ -f $HOME/.profile ] && source $HOME/.profile
-
 # Environment
 if [ -f .bash_history ]; then
 	export HISTFILE=$PWD/.bash_history

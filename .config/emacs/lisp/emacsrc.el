@@ -73,3 +73,4 @@
    (awk . t)
    (emacs-lisp . t)))
 
+(nano-help)
