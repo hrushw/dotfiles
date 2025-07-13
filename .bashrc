@@ -1,5 +1,7 @@
 # .bashrc
 
+export BASHRC_LOADED=t
+
 # If not running interactively, do nothing
 [[ $- != *i* ]] && return
 

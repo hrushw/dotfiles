@@ -25,8 +25,8 @@
 (evil-mode 1)
 
 ; mu4e
-(add-to-list 'load-path "/usr/share/emacs/site-lisp/mu4e/")
-(load "mu4e.el")
+; (add-to-list 'load-path "/usr/share/emacs/site-lisp/mu4e/")
+; (load "mu4e.el")
 
 ; window settings
 (setq-default inhibit-startup-screen t)
@@ -57,7 +57,10 @@
 (setq browse-url-generic-program "qutebrowser")
 (setq browse-url-browser-function 'browse-url-generic)
 
+(require 'org)
+(setq org-tags-column 0)
 (define-key org-mode-map (kbd "M-<return>") 'org-meta-return)
+; (define-key org-mode-map (kbd "M-i .") (lambda () (interactive) (insert-char 8203) ))
 
 (org-babel-do-load-languages
  'org-babel-load-languages

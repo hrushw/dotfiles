@@ -29,6 +29,9 @@ export LESSHISTFILE="$XDG_STATE_HOME/lesshst"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
 export MBLAZE="$XDG_CONFIG_HOME/mblaze"
 
+if [ ! $BASHRC_LOADED ]; then
+	[ -f "$HOME/.bashrc" ] && source $HOME/.bashrc
+fi
 
 if ! [[ "$PATH" =~ "$HOME/.local/bin" ]]; then
     [ -e "$HOME/.local/bin" ] && export PATH="$HOME/.local/bin:$PATH"

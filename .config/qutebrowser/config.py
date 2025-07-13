@@ -17,7 +17,7 @@ c.url.searchengines = {
 }
 c.tabs.position = "right"
 c.tabs.favicons.scale = 2.0
-c.tabs.width = "20%"
+c.tabs.width = "15%"
 c.auto_save.session = True
 c.auto_save.interval = 15000
 c.fonts.tabs.selected = global_font
@@ -29,8 +29,17 @@ c.tabs.padding = {
     "right": pad,
 }
 
+c.colors.tabs.odd.fg = "#cccccc"
+c.colors.tabs.even.fg = "#cccccc"
+
 c.colors.tabs.odd.bg = "#333333"
 c.colors.tabs.even.bg = "#444444"
+
+c.colors.tabs.selected.odd.bg = "#000000"
+c.colors.tabs.selected.even.bg = "#000000"
+
+c.colors.tabs.selected.odd.fg = "#ffffff"
+c.colors.tabs.selected.even.fg = "#ffffff"
 
 c.tabs.title.format = "{audio}{index}: {current_title}"
 c.tabs.title.format_pinned = c.tabs.title.format
@@ -68,7 +77,7 @@ c.content.blocking.enabled = True
 c.content.blocking.method = "both"
 
 c.content.autoplay = False
-c.content.pdfjs = True
+c.content.pdfjs = False
 
 c.confirm_quit = [ "multiple-tabs", "downloads" ]
 

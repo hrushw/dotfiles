@@ -1,11 +1,13 @@
 #!/bin/bash
 
 volfrac=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ |& tail -n 1 | awk '{print $2}')
-volperc=${volfrac:2}
+volperc=${volfrac::1}${volfrac:2}
 case $volperc in
+	"00"*)
+		volperc=${volperc:2};;
 	"0"*)
 		volperc=${volperc:1};;
 	*)
-		:;;
+		break;;
 esac
 echo $volperc
