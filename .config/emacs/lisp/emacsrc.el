@@ -17,6 +17,20 @@
 (tool-bar-mode 0)
 (scroll-bar-mode 0)
 
+; tab bar customization
+(setq tab-bar-show t)
+(set-face-attribute 'tab-bar nil :foreground nano-color-foreground)
+(set-face-attribute 'tab-bar nil :background nano-color-background)
+(set-face-attribute 'tab-bar-tab nil :foreground nano-color-foreground)
+(set-face-attribute 'tab-bar-tab nil :background nano-color-background)
+(set-face-attribute 'tab-bar-tab-inactive nil :foreground nano-color-foreground)
+(set-face-attribute 'tab-bar-tab-inactive nil :background nano-color-faded)
+; (set-face-attribute 'tab-bar-tab nil :box '(:line-width 1 :color nano-color-faded)) no idea why this fails
+(set-face-attribute 'tab-bar-tab nil :box nil)
+(setq tab-bar-button-margin 2)
+(setq tab-bar-button-relief 0)
+(setq tab-bar-tab-hints t) ; adding a space before the hint is beyond my abilities
+
 ; adding a text editor
 (add-to-list 'load-path "~/.config/emacs/evil/")
 (setq evil-want-C-u-scroll t)
@@ -72,5 +86,3 @@
    (lisp . t)
    (awk . t)
    (emacs-lisp . t)))
-
-(nano-help)
