@@ -84,9 +84,6 @@ export FZF_ALT_C_OPTS="
   --preview 'tree -C {}'"
 
 alias FZF="fzf --style minimal --preview 'fzf-preview.sh {}' --bind 'focus:transform-header:file --brief {}'"
-tput reset; fetch
-
 
 [ "$TERM" = "eterm-color" ] && alias vim='echo "vim is not supported inside eterm"'
-
-[ -f $XDG_CONFIG_HOME/settings.bash ] && source $XDG_CONFIG_HOME/settings.bash
+tput reset; fetch
