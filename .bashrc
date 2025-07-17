@@ -32,13 +32,14 @@ export MANROFFOPT="-c"
 alias fetch='echo; pfetch; echo'
 alias cls='tput reset; fetch'
 alias ll='ls -lh'
-alias cll='tput reset; ll'
+alias cll='cls; ll'
 alias la='ls -alh'
-alias cla='tput reset; la'
+alias cla='cls; la'
 alias ..='cd ..'
 
 alias rm='echo "rm is disabled, use del"'
 alias del='mv -it ~/.local/share/trash/'
+alias mv="mv -i"
 
 set_prompt() {
 	# Prompt
@@ -57,8 +58,8 @@ set_prompt
 
 set -o vi
 
-# command -v zoxide &>/dev/null && eval "$(zoxide init bash)"
-alias z='cd'
+command -v zoxide &>/dev/null && eval "$(zoxide init bash)"
+# alias z='cd'
 
 # FZF shell integration
 # Ctrl+T : autocomplete files with fzf

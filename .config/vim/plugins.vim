@@ -3,6 +3,7 @@ Plug 'bluz71/vim-moonfly-colors'
 Plug 'andreasvc/vim-256noir'
 Plug 'ryanpcmcquen/true-monochrome_vim'
 
+Plug 'preservim/nerdtree'
 Plug 'preservim/tagbar'
 Plug 'junegunn/fzf.vim'
 
@@ -16,6 +17,7 @@ colorscheme moonfly
 
 " Key bindings
 nnoremap <Leader>.t :TagbarToggle<CR>
+nnoremap <Leader>.n :NERDTreeToggle<CR>
 " nnoremap <Leader>.f :colorscheme quiet<CR>:Limelight<CR>:Goyo<CR>
 " nnoremap <Leader>.F :colorscheme quiet<CR>:Limelight<CR>:Goyo 120<CR>
 " nnoremap <Leader>.qf :colorscheme moonfly<CR>:Limelight!<CR>:Goyo!<CR>

@@ -18,8 +18,18 @@ nnoremap <Leader>K <C-w>K
 nnoremap <Leader>L <C-w>L
 nnoremap <Leader>T <C-w>T
 
+func TabMoveUp()
+	execute 'tabmove +' . max([v:count, 1])
+endfunc
+
+func TabMoveDown()
+	execute 'tabmove -' . max([v:count, 1])
+endfunc
+
 nnoremap <Leader>[ gT
 nnoremap <Leader>] gt
+nnoremap g[ :<C-u>call TabMoveDown()<CR>
+nnoremap g] :<C-u>call TabMoveUp()<CR>
 
 nnoremap <Leader>n :bnext<CR>
 nnoremap <Leader>p :bprev<CR>

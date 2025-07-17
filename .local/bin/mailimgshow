@@ -1,0 +1,4 @@
+#!/bin/sh
+
+chafa -f kitty --size 80x
+exit 62

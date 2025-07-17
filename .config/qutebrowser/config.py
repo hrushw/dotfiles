@@ -15,6 +15,7 @@ c.url.default_page = "https://search.brave.com"
 c.url.searchengines = {
     "DEFAULT" : "https://search.brave.com/search?q={}"
 }
+c.tabs.show = "always"
 c.tabs.position = "right"
 c.tabs.favicons.scale = 2.0
 c.tabs.width = "15%"
@@ -76,17 +77,23 @@ c.colors.webpage.darkmode.enabled = False
 c.content.blocking.enabled = True
 c.content.blocking.method = "both"
 
+c.content.canvas_reading = False
+c.content.webgl = False
+c.content.webrtc_ip_handling_policy = "default-public-interface-only"
+
 c.content.autoplay = False
 c.content.pdfjs = False
+c.fonts.web.size.default = 16
 
 c.confirm_quit = [ "multiple-tabs", "downloads" ]
 
-config.bind(",t", "config-cycle -t tabs.show always never")
+config.bind(",t", "config-cycle -t tabs.show always switching never")
 config.bind(",s", "config-cycle -t statusbar.show always in-mode")
 config.bind(",m", "spawn mpv {url}")
 config.bind(",M", "spawn mpv {url};; tab-close")
 config.bind(",p", "spawn --userscript qute-pass")
 config.bind(",P", "spawn --userscript qute-pass --password-only")
 config.bind(",v", "spawn --userscript readability")
+config.bind(",d", "config-cycle colors.webpage.darkmode.enabled")
 
 config.bind(",yr", "click-element css \"#items yt-chip-cloud-chip-renderer:nth-of-type(2)\"")

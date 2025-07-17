@@ -16,7 +16,7 @@ export EXINIT="set ai ap ic nu prompt ts=4 sw=4 nosm showmode warn ws"
 export NEXINIT=$EXINIT
 export CC=gcc
 export CFLAGS="-Wall -Wextra -Wpedantic -Wvla"
-export CDPATH=:~
+# export CDPATH=:~
 export LC_COLLATE=C
 export BEMENU_OPTS='-b -fn "Terminus 12px"'
 
@@ -29,6 +29,7 @@ export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
 export LESSHISTFILE="$XDG_STATE_HOME/lesshst"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
 export MBLAZE="$XDG_CONFIG_HOME/mblaze"
+export TASKDATA="$XDG_DATA_HOME/task"
 
 if [ ! $BASHRC_LOADED ]; then
 	[ -f "$HOME/.bashrc" ] && source $HOME/.bashrc

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+while true; do
+	snooze -H* -M/15
+	offlineimap &>> $XDG_STATE_HOME/offlineimap.log
+	echo >> $XDG_STATE_HOME/offlineimap.log
+done
