@@ -1,0 +1,27 @@
+#!/bin/sh
+
+mkdir -pv $XDG_CONFIG_HOME $XDG_CACHE_HOME $XDG_DATA_HOME $XDG_STATE_HOME
+mkdir -pv $XDG_STATE_HOME/python
+mkdir -pv $XDG_DATA_HOME/password-store
+mkdir -pv $XDG_DATA_HOME/task
+mkdir -pv $XDG_CONFIG_HOME/mblaze
+mkdir -pv $XDG_CONFIG_HOME/gnupg
+mkdir -pv $XDG_CONFIG_HOME/readline
+mkdir -pv ~/.local/share/icons ~/.local/share/fonts ~/.local/bin
+mkdir -pv $GRIM_DEFAULT_DIR
+mkdir -pv ~/.local/state/vim
+mkdir -pv ~/.local/share/vim/undo
+mkdir -pv ~/.local/share/vim/backup
+mkdir -p ~/dl
+
+mkdir -pv $XDG_STATE_HOME/bash
+# .bash_history must be manually moved
+# $XDG_DATA_HOME/wallpaper and $XDG_DATA_HOME/lockpaper should be symlinks to images
+
+# nano emacs and evil should be cloned from
+# https://github.com/rougier/nano-emacs
+# and
+# https://github.com/emacs-evil/evil
+# in $XDG_CONFIG_HOME/emacs/
+mkdir -p ~/.local/state/emacs/backups
+mkdir -p ~/.config/emacs/bookmarks

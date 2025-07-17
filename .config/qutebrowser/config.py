@@ -87,6 +87,9 @@ c.fonts.web.size.default = 16
 
 c.confirm_quit = [ "multiple-tabs", "downloads" ]
 
+# config.bind("d", "nop")
+# config.bind("tw", "tab-close")
+
 config.bind(",t", "config-cycle -t tabs.show always switching never")
 config.bind(",s", "config-cycle -t statusbar.show always in-mode")
 config.bind(",m", "spawn mpv {url}")
