@@ -88,3 +88,5 @@ tput reset; fetch
 
 
 [ "$TERM" = "eterm-color" ] && alias vim='echo "vim is not supported inside eterm"'
+
+[ -f $XDG_CONFIG_HOME/settings.bash ] && source $XDG_CONFIG_HOME/settings.bash
