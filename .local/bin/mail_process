@@ -1,0 +1,3 @@
+#!/bin/sh
+
+mlist $(mdirs) | msort -d | mthread | mseq -S

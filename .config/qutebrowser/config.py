@@ -16,7 +16,7 @@ c.url.searchengines = {
     "DEFAULT" : "https://search.brave.com/search?q={}"
 }
 c.tabs.show = "always"
-c.tabs.position = "right"
+c.tabs.position = "left"
 c.tabs.favicons.scale = 2.0
 c.tabs.width = "15%"
 c.auto_save.session = True

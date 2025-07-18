@@ -1,4 +1,4 @@
 #!/bin/sh
 
-chafa -f kitty --size 80x
+chafa -f kitty --exact-size auto
 exit 62
