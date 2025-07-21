@@ -1,3 +1,0 @@
-#!/bin/sh
-
-mscan | tac | fzf | cut -c 5- | awk '{print $1}'

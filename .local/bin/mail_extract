@@ -1,3 +1,0 @@
-#!/bin/sh
-
-mshow -t $1 | tail -n +2 | sed 's/^ *//' | awk '{print $1}' | rev | cut -c 2- | rev | xargs mshow -x $1

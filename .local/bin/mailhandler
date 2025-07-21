@@ -1,0 +1,43 @@
+#!/bin/bash
+
+mail_process() {
+	mlist $(mdirs) |
+	msort -d |
+	mthread |
+	mseq -S
+}
+
+mail_select() {
+	mscan |
+	tac |
+	fzf |
+	cut -c 5- |
+	awk '{print $1}'
+}
+
+mail_read() {
+	mshow $(mail_select) |
+	mcolor
+}
+
+mail_extract() {
+	mshow -t $1 |
+	tail -n +2 |
+	sed 's/^ *//' |
+	awk '{print $1}' |
+	rev |
+	cut -c 2- |
+	rev |
+	xargs mshow -x $1
+}
+
+case $1 in
+	"process")
+		mail_process;;
+	"select")
+		mail_select;;
+	"read")
+		mail_read;;
+	"extract")
+		mail_extract;;
+esac

@@ -2,3 +2,4 @@ prereq
 .git
 LICENSE
 README.md
+.gitignore
