@@ -1,4 +1,6 @@
 #!/bin/sh
 
-chafa -f kitty --exact-size auto
+#chafa -f kitty --exact-size auto
+
+kitten icat --clear --unicode-placeholder --transfer-mode=stream
 exit 62

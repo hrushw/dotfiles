@@ -8,10 +8,9 @@ mail_process() {
 }
 
 mail_select() {
-	mscan |
+	mscan -f "%4n | %10d |%t %32f :  %2i%s" 2>/dev/null |
 	tac |
 	fzf |
-	cut -c 5- |
 	awk '{print $1}'
 }
 
