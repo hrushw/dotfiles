@@ -3,3 +3,4 @@ prereq
 LICENSE
 README.md
 .gitignore
+.*\.swp

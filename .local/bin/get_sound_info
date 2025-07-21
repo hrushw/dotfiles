@@ -1,0 +1,62 @@
+#!/bin/bash
+
+status_alsa() {
+	status=$(amixer sget Master | grep '%' | awk -F '[][]' '{print $6}')
+	
+	case $status in
+		"off")
+			statstr="󰝟 ";;
+		"on")
+			case $1 in
+				"inc")
+					statstr="󰝝 ";;
+				"dec")
+					statstr="󰝞 ";;
+				*)
+					statstr="󱄠 ";;
+			esac;;
+		*)
+			statstr="  ";;
+	esac
+	echo $statstr
+}
+
+volume_alsa() {
+	amixer sget Master | grep '%' | awk -F '[][]' '{print $2}'
+}
+
+status_pipewire() {
+	volstat=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ |& tail -n 1 | awk '{print $3}')
+	case $volstat in
+		"[MUTED]")
+			statstr="󰝟 ";;
+		"")
+			case $1 in
+				"inc")
+					statstr="󰝝 ";;
+				"dec")
+					statstr="󰝞 ";;
+				*)
+					statstr="󱄠 ";;
+			esac;;
+		*)
+			statstr="  ";;
+	esac
+	echo $statstr
+}
+
+volume_pipewire() {
+	volfrac=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ |& tail -n 1 | awk '{print $2}')
+	volperc=${volfrac::1}${volfrac:2}
+	case $volperc in
+		"00"*)
+			volperc=${volperc:2};;
+		"0"*)
+			volperc=${volperc:1};;
+		*)
+			break;;
+	esac
+	echo $volperc
+}
+
+$1 $2

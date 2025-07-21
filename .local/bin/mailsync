@@ -5,6 +5,6 @@ logfile=$XDG_STATE_HOME/offlineimap.log
 while true; do
 	snooze -H* -M/15
 	date; echo &>> $logfile
-	offlineimap &>> $logfile || notify-send "ERROR: Email sync failed!"
+	offlineimap &>> $logfile && notify-send -t 10000 "Email synced successfully!" || notify-send "ERROR: Email sync failed!"
 	echo; echo >> $logfile
 done
