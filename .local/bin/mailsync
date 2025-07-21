@@ -18,7 +18,7 @@ trap togglerun SIGUSR1
 while true; do
 	snooze -H* -M/15
 
-	date; echo &>> $logfile
+	(date; echo) &>> $logfile
 
 	if [ $running ]; then
 		if offlineimap &>> $logfile; then
@@ -30,5 +30,5 @@ while true; do
 		echo "sync disabled via SIGUSR1" &>> $logfile;
 	fi
 
-	echo; echo >> $logfile
+	(echo; echo) >> $logfile
 done
