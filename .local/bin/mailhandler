@@ -30,6 +30,11 @@ mail_extract() {
 	xargs mshow -x $1
 }
 
+mail_grep() {
+	pattern='subject =~~ "'$1'" || from =~~ "'$1'" || to =~~ "'$1'"'
+	echo "$(mpick -t "$pattern" | mscan)"
+}
+
 case $1 in
 	"process")
 		mail_process;;
@@ -39,4 +44,6 @@ case $1 in
 		mail_read;;
 	"extract")
 		mail_extract $2;;
+	"grep")
+		mail_grep $2;;
 esac
