@@ -16,12 +16,6 @@ mkdir -p ~/dl
 
 mkdir -pv $XDG_STATE_HOME/bash
 # .bash_history must be manually moved
-# $XDG_DATA_HOME/wallpaper and $XDG_DATA_HOME/lockpaper should be symlinks to images
 
-# nano emacs and evil should be cloned from
-# https://github.com/rougier/nano-emacs
-# and
-# https://github.com/emacs-evil/evil
-# in $XDG_CONFIG_HOME/emacs/
 mkdir -p ~/.local/state/emacs/backups
 mkdir -p ~/.config/emacs/bookmarks
