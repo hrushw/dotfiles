@@ -39,5 +39,5 @@ case $1 in
 	"read")
 		mail_read;;
 	"extract")
-		mail_extract;;
+		mail_extract $2;;
 esac
