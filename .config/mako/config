@@ -6,7 +6,7 @@ border-size=2
 border-color=#88c0d0
 border-radius=0
 
-outer-margin=12
+outer-margin=12,12,12,12
 margin=8
 
 padding=16
@@ -15,7 +15,7 @@ font=monospace 14
 default-timeout=0
 ignore-timeout=0
 
-layer=top
+layer=overlay
 markup=1
 
 [category=sysinfo]
@@ -35,3 +35,11 @@ font=monospace 20
 width=800
 anchor=top-center
 text-alignment=center
+
+[category=controls]
+font=monospace 40
+width=320
+anchor=top-center
+text-alignment=center
+
+
