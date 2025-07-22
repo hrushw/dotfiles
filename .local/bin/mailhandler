@@ -24,13 +24,21 @@ mail_view() {
 }
 
 mail_read() {
+	# step 1: read
 	case $1 in
 		"")
-			num=$(mail_select);;
+			index=$(mail_select);;
 		"grep")
-			num=$(mail_grep $2 | tac | fzf | awk '{print $1}');;
+			index=$(mail_grep $2 | tac | fzf | awk '{print $1}');;
 	esac
-	kitten @launch mailview $num
+
+
+	case $index in
+		"")
+			echo "Selection failed";;
+		*)
+			kitten @launch mailview $index;;
+	esac
 }
 
 mail_extract() {

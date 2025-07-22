@@ -7,7 +7,9 @@ source $XDG_CONFIG_HOME/bash/fzf_integration.bash
 
 [ "$TERM" = "eterm-color" ] && alias vim='echo "vim is not supported inside eterm"'
 command -v zoxide &>/dev/null && eval "$(zoxide init bash)"
+
 set -o vi
+eval $(dircolors)
 cls
 
 # History
