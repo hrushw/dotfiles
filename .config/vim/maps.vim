@@ -26,8 +26,17 @@ func TabMoveDown()
 	execute 'tabmove -' . max([v:count, 1])
 endfunc
 
-nnoremap <Leader>[ gT
+func TabFocusUp()
+	execute 'tabnext +' . max([v:count, 1])
+endfunc
+
+func TabFocusDown()
+	execute 'tabnext -' . max([v:count, 1])
+endfunc
+
+
 nnoremap <Leader>] gt
+nnoremap <Leader>[ gT
 nnoremap g[ :<C-u>call TabMoveDown()<CR>
 nnoremap g] :<C-u>call TabMoveUp()<CR>
 

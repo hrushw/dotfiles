@@ -12,3 +12,5 @@ in $XDG\_CONFIG\_HOME/emacs/
 desktop and lock screen wallpaper are set by
 symlinking selected images to
 $XDG\_DATA\_HOME/wallpaper and $XDG\_DATA\_HOME/lockpaper
+
+in `mailsync`, the SIGUSR1 trap function only takes effect after snooze exits

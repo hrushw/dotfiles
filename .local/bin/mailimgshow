@@ -1,6 +1,5 @@
 #!/bin/sh
 
-#chafa -f kitty --exact-size auto
-
-kitten icat --clear --unicode-placeholder --transfer-mode=stream
+#kitten icat --clear --unicode-placeholder --transfer-mode=stream
+chafa -f kitty --exact-size auto -s "40x40" -c 8
 exit 62

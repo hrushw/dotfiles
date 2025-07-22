@@ -1,5 +1,10 @@
 #!/bin/bash
 
+scan_format="%4n | %10d |%t %32f :  %2i%s"
+mail_list() {
+	mscan -f "$scan_format" 2>/dev/null
+}
+
 mail_process() {
 	mlist $(mdirs) |
 	msort -d |
@@ -8,15 +13,24 @@ mail_process() {
 }
 
 mail_select() {
-	mscan -f "%4n | %10d |%t %32f :  %2i%s" 2>/dev/null |
+	mail_list |
 	tac |
 	fzf |
 	awk '{print $1}'
 }
 
+mail_view() {
+	mshow $1 | mcolor
+}
+
 mail_read() {
-	mshow $(mail_select) |
-	mcolor
+	case $1 in
+		"")
+			num=$(mail_select);;
+		"grep")
+			num=$(mail_grep $2 | tac | fzf | awk '{print $1}');;
+	esac
+	kitten @launch mailview $num
 }
 
 mail_extract() {
@@ -32,8 +46,10 @@ mail_extract() {
 
 mail_grep() {
 	pattern='subject =~~ "'$1'" || from =~~ "'$1'" || to =~~ "'$1'"'
-	echo "$(mpick -t "$pattern" | mscan)"
+	mpick -t "$pattern" | mail_list
 }
+
+
 
 case $1 in
 	"process")
@@ -41,7 +57,7 @@ case $1 in
 	"select")
 		mail_select;;
 	"read")
-		mail_read;;
+		mail_read $2 $3;;
 	"extract")
 		mail_extract $2;;
 	"grep")
