@@ -1,3 +1,33 @@
 $include /etc/inputrc
+nnoremap <Leader>vv :HelpToc<CR>
 
 set colored-stats on
+set visible-stats on
+
+set disable-completion off
+
+
+set colored-completion-prefix off
+set completion-display-width 120
+
+set completion-ignore-case on
+set completion-map-case on
+
+set completion-prefix-display-length 20
+set completion-query-items 200
+
+set page-completions on
+set print-completions-horizontally on
+
+set show-all-if-ambiguous on
+set show-all-if-unmodified on
+
+set editing-mode vi
+
+set show-mode-in-prompt off
+
+set enable-bracketed-paste on
+
+Control-l: menu-complete
+Control-h: menu-complete-backward
+

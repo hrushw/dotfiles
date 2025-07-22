@@ -59,13 +59,17 @@ nohlsearch
 set termguicolors
 set background=dark
 
-runtime maps.vim
-runtime plugins.vim
-
 " Load plugins
 runtime ftplugin/man.vim
 let g:no_man_maps = 1
 let g:ft_man_open_mode = 'tab'
+
+packadd helptoc
+
+runtime maps.vim
+runtime plugins.vim
+
+nnoremap <Leader>pp :HelpToc<CR>
 
 " c syntax file does not handle struct compound literals as function arguments
 au FileType c set syntax=cpp

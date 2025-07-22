@@ -9,7 +9,8 @@ set_prompt() {
 	local WHITE="\\[\\e[1;37m\\]"
 	local ENDC="\\[\\e[0m\\]"
 
-	PS1="${RED}[${GREEN}\u${ENDC}@${GREEN}\h${ENDC}: ${CYAN}\W${RED} ]${ENDC}\$ "
+	PS1="${RED}[${GREEN}\u${ENDC}@${GREEN}\h${ENDC}: ${CYAN}\W${RED} ]${ENDC}$ "
+	PS0=""
 }
 set_prompt
 

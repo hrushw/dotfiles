@@ -40,8 +40,8 @@ nnoremap <Leader>[ gT
 nnoremap g[ :<C-u>call TabMoveDown()<CR>
 nnoremap g] :<C-u>call TabMoveUp()<CR>
 
-nnoremap <Leader>n :bnext<CR>
-nnoremap <Leader>p :bprev<CR>
+nnoremap <Leader>bn :bnext<CR>
+nnoremap <Leader>bp :bprev<CR>
 
 nnoremap <Leader>iw :vert resize +10<CR>
 nnoremap <Leader>ib :vert resize -10<CR>
