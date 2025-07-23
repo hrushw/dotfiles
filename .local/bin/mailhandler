@@ -60,6 +60,8 @@ mail_grep() {
 
 
 case $1 in
+	"list")
+		mail_list;;
 	"process")
 		mail_process;;
 	"select")
@@ -70,4 +72,8 @@ case $1 in
 		mail_extract $2;;
 	"grep")
 		mail_grep $2;;
+	"view")
+		mail_view $2;;
 esac
+
+

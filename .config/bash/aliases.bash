@@ -3,8 +3,6 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias diff='diff --color=auto'
 alias ip='ip --color=auto'
-export LESS='-R --use-color -Dd+r$Du+b$'
-export MANROFFOPT="-c"
 
 # Aliases
 alias fetch='echo; pfetch; echo'

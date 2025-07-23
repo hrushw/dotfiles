@@ -5,6 +5,9 @@ source $XDG_CONFIG_HOME/bash/aliases.bash
 source $XDG_CONFIG_HOME/bash/prompt.bash
 source $XDG_CONFIG_HOME/bash/fzf_integration.bash
 
+export LESS='-R --use-color -Dd+r$Du+b$'
+export MANROFFOPT="-c"
+
 [ "$TERM" = "eterm-color" ] && alias vim='echo "vim is not supported inside eterm"'
 command -v zoxide &>/dev/null && eval "$(zoxide init bash)"
 
