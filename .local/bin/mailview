@@ -1,0 +1,4 @@
+#!/bin/sh
+
+bash -c "mshow $1 | mcolor; read"
+

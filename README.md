@@ -1,5 +1,6 @@
 # dotfiles
 Void Linux - configuration files and scripts
+
 Managed using GNU stow
 
 `for i in ./*; do file $i | grep "broken symbolic link" && del $i; done`

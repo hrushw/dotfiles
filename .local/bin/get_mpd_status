@@ -1,0 +1,13 @@
+#!/bin/sh
+
+status=$(mpc status %state%)
+case $status in
+	"playing")
+		echo "󰐊";;
+	"paused")
+		echo "󰏤";;
+	"stopped")
+		echo "󰓛";;
+	*)
+		echo " ";;
+esac
