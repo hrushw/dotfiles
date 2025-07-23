@@ -11,9 +11,9 @@ alias ll='ls -lh'
 alias cll='cls; ll'
 alias la='ls -alh'
 alias cla='cls; la'
+alias clt='cls; tree'
 alias ..='cd ..'
 
 alias rm='echo "rm is disabled, use del"'
 alias del='mv -it ~/.local/share/trash/'
 alias mv="mv -i"
-

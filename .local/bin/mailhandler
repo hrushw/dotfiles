@@ -20,7 +20,7 @@ mail_select() {
 }
 
 mail_view() {
-	mshow $1 | mcolor
+	kitten @launch mailview $@
 }
 
 mail_read() {
@@ -29,7 +29,7 @@ mail_read() {
 		"")
 			index=$(mail_select);;
 		"grep")
-			index=$(mail_grep $2 | tac | fzf | awk '{print $1}');;
+			index=$(mail_grep ${@:2} | tac | fzf | awk '{print $1}');;
 	esac
 
 
@@ -37,19 +37,26 @@ mail_read() {
 		"")
 			echo "Selection failed";;
 		*)
-			kitten @launch mailview $index;;
+			mail_view $index;;
 	esac
 }
 
 mail_extract() {
-	mshow -t $1 |
+	case $1 in
+		"")
+			index=$(mscan -f "%c %n" | grep ">" | awk '{print $2}');;
+		*)
+			index=$1;;
+	esac
+
+	mshow -t $index |
 	tail -n +2 |
 	sed 's/^ *//' |
 	awk '{print $1}' |
 	rev |
 	cut -c 2- |
 	rev |
-	xargs mshow -x $1
+	xargs mshow -x $index
 }
 
 mail_grep() {
@@ -67,13 +74,13 @@ case $1 in
 	"select")
 		mail_select;;
 	"read")
-		mail_read $2 $3;;
+		mail_read ${@:2};;
 	"extract")
-		mail_extract $2;;
+		mail_extract ${@:2};;
 	"grep")
-		mail_grep $2;;
+		mail_grep ${@:2};;
 	"view")
-		mail_view $2;;
+		mail_view ${@:2};;
 esac
 
 
