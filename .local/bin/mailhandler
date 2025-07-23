@@ -81,6 +81,8 @@ case $1 in
 		mail_grep ${@:2};;
 	"view")
 		mail_view ${@:2};;
+	*)
+		echo "Invalid Command!";;
 esac
 
 

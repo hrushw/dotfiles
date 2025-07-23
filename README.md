@@ -1,7 +1,9 @@
 # dotfiles
 Void Linux - configuration files and scripts
+Managed using GNU stow
 
-`for i in ./*; do file $i | grep "broken symbolic link" && del $i; done` clears broken symlinks from directory
+`for i in ./*; do file $i | grep "broken symbolic link" && del $i; done`
+clears broken symlinks from directory (run from ~/.local/bin)
 
 cloned nano emacs and evil mode from
 https://github.com/rougier/nano-emacs
