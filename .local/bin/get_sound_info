@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 status_alsa() {
 	status=$(amixer sget Master | grep '%' | awk -F '[][]' '{print $6}')

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 scan_format="%4n | %10d |%t %32f :  %2i%s"
 mail_list() {
@@ -20,7 +20,12 @@ mail_select() {
 }
 
 mail_view() {
-	kitten @launch mailview $@
+	kitten @launch bash -c "mshow $@ | mcolor; read"
+}
+
+mail_img_show() {
+	chafa -f kitty --exact-size auto -s "60x60" -c 8
+	exit 62
 }
 
 mail_read() {
@@ -61,6 +66,7 @@ mail_extract() {
 
 mail_grep() {
 	pattern='subject =~~ "'$1'" || from =~~ "'$1'" || to =~~ "'$1'"'
+	echo "$pattern"
 	mpick -t "$pattern" | mail_list
 }
 
@@ -81,6 +87,8 @@ case $1 in
 		mail_grep ${@:2};;
 	"view")
 		mail_view ${@:2};;
+	"imgshow")
+		mail_img_show ${@:2};;
 	*)
 		echo "Invalid Command!";;
 esac

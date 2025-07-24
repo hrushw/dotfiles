@@ -1,5 +1,0 @@
-#!/bin/sh
-
-#kitten icat --clear --unicode-placeholder --transfer-mode=stream
-chafa -f kitty --exact-size auto -s "60x60" -c 8
-exit 62

@@ -10,8 +10,9 @@ c.downloads.location.directory = "~/dl"
 c.downloads.location.suggestion = "both"
 
 # Tabs
-c.url.start_pages = [ "qute://help" ]
-c.url.default_page = "https://search.brave.com"
+# c.url.start_pages = [ "qute://help" ]
+c.url.default_page = "qute://help"
+# c.url.default_page = "https://search.brave.com"
 c.url.searchengines = {
     "DEFAULT" : "https://search.brave.com/search?q={}"
 }
@@ -44,6 +45,8 @@ c.colors.tabs.selected.even.fg = "#ffffff"
 
 c.tabs.title.format = "{audio}{index}: {current_title}"
 c.tabs.title.format_pinned = c.tabs.title.format
+
+c.tabs.last_close = "blank"
 
 # Hints
 c.hints.radius = 0

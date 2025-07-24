@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+# Universal file/link opener
+
+view() {
+	arg="$@"
+	argtype=""
+
+	case $arg in
+		"file://"*)
+			arg=${arg:7}
+	esac
+
+	case $arg in
+		"http://"* | "https://"*)
+			qutebrowser $arg
+			break;;
+
+		*".md")
+			lowdown -t term $arg | bat --paging=always;;
+
+		*".mkv" | *".mp4" | *".webm")
+			mpv "$arg";;
+
+		*".flac" | *".opus" | *".mp3")
+			mpv --vid=no $arg;;
+
+		*".png" | *".jpg" | *".jpeg")
+			kitten icat $arg;;
+
+		*".pdf")
+			zathura --fork "$arg";;
+
+		*".txt" | *"/README" | "README")
+			bat --paging=always "$arg";;
+	esac
+}
+
+view $@
