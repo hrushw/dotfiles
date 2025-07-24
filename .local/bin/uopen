@@ -15,6 +15,13 @@ view() {
 		"http://"* | "https://"*)
 			qutebrowser $arg
 			break;;
+	esac
+
+	[ -e $arg ] || { echo "ERROR: file not found!"; return; }
+
+	case $arg in
+		*".html")
+			qutebrowser $arg;;
 
 		*".md")
 			lowdown -t term $arg | bat --paging=always;;
@@ -33,6 +40,21 @@ view() {
 
 		*".txt" | *"/README" | "README")
 			bat --paging=always "$arg";;
+
+		*)
+			if file $arg | grep -e "ASCII text" -e "UTF-8 text" &>/dev/null; then
+				if file $arg | grep "troff" &>/dev/null; then
+					man $arg
+				else
+					bat --paging=always "$arg"
+				fi
+			elif file $arg | grep "broken" &>/dev/null; then
+				file $arg
+			elif file $arg | grep "symbolic link to" &>/dev/null; then
+				view $(file $arg | rev | awk '{print $1}' | rev)
+			else
+				file $arg
+			fi;;
 	esac
 }
 
