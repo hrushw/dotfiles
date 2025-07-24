@@ -14,10 +14,10 @@ view() {
 	case $arg in
 		"http://"* | "https://"*)
 			qutebrowser $arg
-			break;;
+			return;;
 	esac
 
-	[ -e $arg ] || { echo "ERROR: file not found!"; return; }
+	[ -e "$arg" ] || { echo "ERROR: file not found!"; return; }
 
 	case $arg in
 		*".html")
@@ -42,7 +42,9 @@ view() {
 			bat --paging=always "$arg";;
 
 		*)
-			if file $arg | grep -e "ASCII text" -e "UTF-8 text" &>/dev/null; then
+			if file $arg | grep "directory"; then
+				ls -al --color=auto --hyperlink=auto $arg
+			elif file $arg | grep -e "ASCII text" -e "UTF-8 text" &>/dev/null; then
 				if file $arg | grep "troff" &>/dev/null; then
 					man $arg
 				else
@@ -58,4 +60,16 @@ view() {
 	esac
 }
 
-view $@
+if (( $# > 4 )); then
+	printf "Open $# files? [y/n]: "; read
+	case $REPLY in
+		"y"* | "Y"*)
+			;;
+		*)
+			exit;;
+	esac
+fi
+
+for i in $@; do
+	view $i
+done
