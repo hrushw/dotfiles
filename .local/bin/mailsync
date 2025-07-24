@@ -28,6 +28,7 @@ while true; do
 		fi
 	else
 		echo "sync disabled via SIGUSR1" &>> $logfile;
+		notify-send -t 10000 "Mail sync disabled, waiting again"
 	fi
 
 	(echo; echo) >> $logfile
