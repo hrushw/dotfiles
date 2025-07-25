@@ -16,7 +16,7 @@ view() {
 			return;;
 	esac
 
-	[ -e "$arg" ] || { echo "ERROR: file not found!"; return; }
+	[ -e "$arg" ] || { echo "ERROR: file '$arg' not found!"; return; }
 
 	case $arg in
 		*".html")
@@ -52,7 +52,7 @@ view() {
 			elif file $arg | grep "broken" &>/dev/null; then
 				file $arg
 			elif file $arg | grep "symbolic link to" &>/dev/null; then
-				view $(file $arg | rev | awk '{print $1}' | rev)
+				view $(realpath $arg)
 			else
 				file $arg
 			fi;;

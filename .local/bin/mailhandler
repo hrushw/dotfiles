@@ -9,7 +9,7 @@ mail_process() {
 	mlist $(mdirs) |
 	msort -d |
 	mthread |
-	mseq -S
+	mseq -S &> /dev/null
 }
 
 mail_select() {

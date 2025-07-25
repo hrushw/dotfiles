@@ -15,10 +15,8 @@ togglerun() {
 
 trap togglerun SIGUSR1
 
-while true; do
-	snooze -H* -M/15
-
-	(date; echo) &>> $logfile
+sync() {
+	{ date; echo; } &>> $logfile
 
 	if [ $running ]; then
 		if offlineimap &>> $logfile; then
@@ -31,5 +29,16 @@ while true; do
 		notify-send -t 10000 "Mail sync disabled, waiting again"
 	fi
 
-	(echo; echo) >> $logfile
+	{ echo; mailhandler process; } &>> $logfile
+	{ echo; echo; } >> $logfile
+}
+
+[ "$1" = "mono" ] && { sync; exit; }
+
+pgrep -x "mailsync" && exit
+
+while true; do
+	snooze -H* -M/15
+
+	sync
 done
