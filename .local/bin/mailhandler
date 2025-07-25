@@ -69,7 +69,26 @@ mail_grep() {
 	mpick -t "$pattern" | mail_list
 }
 
+synclogfile=$XDG_STATE_HOME/offlineimap.log
+mail_sync() {
+	{ date; echo; } &>> $synclogfile
 
+	if offlineimap &>> $synclogfile; then
+		notify-send -t 10000 "Email synced successfully!"
+	else
+		notify-send "ERROR: Email sync failed!"
+	fi
+
+	{ echo; mailhandler process; } &>> $synclogfile
+	{ echo; echo; } >> $synclogfile
+}
+
+mail_sync_bg() {
+	while true; do
+		snooze -H* -M/15
+		mail_sync
+	done
+}
 
 case $1 in
 	"list")
@@ -88,6 +107,10 @@ case $1 in
 		mail_view ${@:2};;
 	"imgshow")
 		mail_img_show ${@:2};;
+	"sync")
+		mail_sync 1;;
+	"syncd" | "sync_daemon" | "syncdaemon")
+		mail_sync_bg &>/dev/null &;;
 	*)
 		echo "Invalid Command!";;
 esac
