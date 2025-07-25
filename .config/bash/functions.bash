@@ -4,11 +4,17 @@ cmdl() {
 	eval $2
 }
 
-pyenv() {(
+# run command in python venv
+pyenv() {
+	case $1 in "e" | "-e")
+		source ~/.venv/bin/activate
+		alias exit='deactivate; unalias exit'
+		return;;
+	esac
+
 	source ~/.venv/bin/activate
-	alias ipython='ipython3'
-	alias exit='deactivate; unalias exit'
-	python $@
+
+	eval "python $@"
 	deactivate
-)}
+}
 

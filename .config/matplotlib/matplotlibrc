@@ -1,0 +1,95 @@
+# vim:fileencoding=utf-8:foldmethod=marker
+
+# COLOR {{{
+
+figure.facecolor: black
+
+xtick.color: white
+ytick.color: white
+
+xtick.labelcolor: lime
+ytick.labelcolor: lime
+
+axes.facecolor: black
+axes.edgecolor: lime
+
+axes.prop_cycle: cycler('color', ['lime', 'red', 'cyan', 'magenta', 'yellow', '8579ff', 'pink', 'royalblue', 'salmon', '00a76e'])
+
+text.color: white
+
+# }}}
+
+# GRID {{{
+
+axes.grid: True
+axes.grid.axis: both
+axes.grid.which: major
+
+grid.color: white
+grid.linestyle: -
+grid.linewidth: 0.25
+grid.alpha: 0.6
+
+# }}}
+
+# TICKS {{{
+
+# X TICK {{{
+xtick.top: True
+xtick.bottom: True
+xtick.direction: inout
+
+xtick.major.top: True
+xtick.major.bottom: True
+xtick.major.size: 8
+xtick.major.width: 1
+
+xtick.minor.visible: True
+xtick.minor.size: 4
+xtick.minor.top: True
+xtick.minor.bottom: True
+xtick.minor.width: 0.5
+# }}}
+
+
+# Y TICK {{{
+ytick.left: True
+ytick.right: True
+ytick.direction: inout
+
+ytick.major.left: True
+ytick.major.right: True
+ytick.major.size: 8
+ytick.major.width: 1
+
+ytick.minor.visible: True
+ytick.minor.size: 4
+ytick.minor.left: True
+ytick.minor.right: True
+ytick.minor.width: 0.5
+# }}}
+
+# }}}
+
+# LINES {{{
+
+lines.linewidth: 2.0
+lines.linestyle: -
+lines.antialiased: True
+
+# }}}
+
+# TEXT AND FONT {{{
+
+text.antialiased: True
+
+font.family: monospace
+font.style: normal
+font.variant: normal
+font.weight: normal
+font.stretch: normal
+font.size: 12.0
+
+font.monospace: RobotoMono Nerd Font, JetBrainsMono Nerd Font, Iosevka Nerd Font, Dejavu Sans Mono, monospace
+
+# }}}

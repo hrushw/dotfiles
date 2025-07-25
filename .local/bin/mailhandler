@@ -20,7 +20,7 @@ mail_select() {
 }
 
 mail_view() {
-	kitten @launch bash -c "mshow $@ | mcolor; read"
+	kitten @launch bash -c "mshow $@ | mcolor; read" &>/dev/null
 }
 
 mail_img_show() {
@@ -36,7 +36,6 @@ mail_read() {
 		"grep")
 			index=$(mail_grep ${@:2} | tac | fzf | awk '{print $1}');;
 	esac
-
 
 	case $index in
 		"")
