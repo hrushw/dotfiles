@@ -103,3 +103,5 @@ config.bind(",v", "spawn --userscript readability")
 config.bind(",d", "config-cycle colors.webpage.darkmode.enabled")
 
 config.bind(",yr", "click-element css \"#items yt-chip-cloud-chip-renderer:nth-of-type(2)\"")
+config.bind("gj", "tab-next")
+config.bind("gk", "tab-prev")

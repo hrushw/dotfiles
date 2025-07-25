@@ -4,7 +4,6 @@
 
 view() {
 	arg="$@"
-	argtype=""
 
 	case $arg in
 		"file://"*)
@@ -35,7 +34,7 @@ view() {
 		*".png" | *".jpg" | *".jpeg")
 			kitten icat $arg;;
 
-		*".pdf")
+		*".pdf" | *".djvu" | *".ps")
 			zathura --fork "$arg";;
 
 		*".txt" | *"/README" | "README")
@@ -61,15 +60,16 @@ view() {
 }
 
 if (( $# > 4 )); then
-	printf "Open $# files? [y/n]: "; read
+	read -p "Are you sure you want to open $# files? [y/n]: "
 	case $REPLY in
 		"y"* | "Y"*)
 			;;
 		*)
+			echo "Did not open $# files"
 			exit;;
 	esac
 fi
 
-for i in $@; do
-	view $i
+for i in "$@"; do
+	view "$i";
 done

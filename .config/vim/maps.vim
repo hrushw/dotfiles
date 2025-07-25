@@ -79,3 +79,8 @@ nnoremap <Leader>o_t :tab terminal<CR>
 tnoremap <C-n> <C-w>N
 tnoremap <C-w>n <C-n>
 
+nnoremap <C-c> <Nop>
+
+nnoremap <C-x><C-c> :q<CR>
+nnoremap <C-x><C-f> :open<space>
+
