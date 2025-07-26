@@ -13,6 +13,7 @@ export MANROFFOPT="-c"
 command -v zoxide &>/dev/null && eval "$(zoxide init bash)"
 
 eval $(dircolors)
+set -o vi
 ! [ "$NOHEADER" ] && cls
 
 # History
