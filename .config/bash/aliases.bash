@@ -19,5 +19,6 @@ alias rm='echo "rm is disabled, use del"'
 alias del='mv -it ~/.local/share/trash/'
 
 alias ..='cd ..'
+alias q="exit"
 alias :q="exit"
 alias py='python'

@@ -28,6 +28,11 @@ set show-mode-in-prompt off
 
 set enable-bracketed-paste on
 
+Tab: ""
+Control-p: ""
+Control-n: ""
+
 Control-l: menu-complete
 Control-h: menu-complete-backward
+Control-o: possible-completions
 
