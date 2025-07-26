@@ -83,4 +83,3 @@ nnoremap <C-c> <Nop>
 
 nnoremap <C-x><C-c> :q<CR>
 nnoremap <C-x><C-f> :open<space>
-

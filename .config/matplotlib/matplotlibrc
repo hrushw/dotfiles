@@ -18,13 +18,15 @@ axes.labelcolor: white
 
 axes.prop_cycle: cycler('color', ['lime', 'red', 'cyan', 'magenta', 'yellow', '8579ff', 'pink', 'royalblue', 'salmon', '00a76e'])
 
+image.cmap: bwr
+
 text.color: white
 
 # }}}
 
 # GRID {{{
 
-axes.grid: True
+axes.grid: False
 axes.grid.axis: both
 axes.grid.which: major
 
@@ -79,6 +81,33 @@ ytick.minor.width: 0.5
 lines.linewidth: 2.0
 lines.linestyle: -
 lines.antialiased: True
+
+# }}}
+
+# LEGEND {{{
+
+legend.frameon: True
+legend.shadow: False
+legend.loc: best
+legend.fancybox: True
+legend.fontsize: medium
+
+legend.borderaxespad: 1
+legend.borderpad: 1
+
+legend.labelcolor: None
+legend.title_fontsize: None
+
+legend.markerscale: 1.5
+legend.handleheight: 1
+legend.handlelength: 1
+legend.handletextpad: 1
+legend.columnspacing: 1.5
+legend.labelspacing: 1
+
+legend.framealpha: 0.8
+legend.facecolor: inherit
+legend.edgecolor: inherit
 
 # }}}
 
