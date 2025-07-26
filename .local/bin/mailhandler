@@ -20,16 +20,34 @@ mail_select() {
 }
 
 mail_view() {
-	kitten @launch bash -c "mshow $@ | mcolor; read" &>/dev/null
+	case "$1" in
+		"inline")
+			viewcmd="mshow ${@:2} | mcolor"
+			eval "$viewcmd";;
+		*)
+			viewcmd="mshow $@ | mcolor; read"
+			kitten @launch bash -c "$viewcmd" &>/dev/null
+	esac
 }
 
+# exit code is required for mblaze to use raw image output
 mail_img_show() {
-	chafa -f kitty --exact-size auto -s "60x60" -c 8
+	#chafa -f kitty --exact-size auto -s "60x60" -c 8
+	maxsize=400x1280
+	magick - -resize "$maxsize"  - | kitten icat --align left --transfer-mode="stream" --unicode-placeholder
 	exit 62
 }
 
 mail_read() {
 	# step 1: read
+	case $1 in
+		"inline")
+			set -- "${@:2}"
+			viewcmd="mail_view inline";;
+		*)
+			viewcmd="mail_view";;
+	esac
+
 	case $1 in
 		"")
 			index=$(mail_select);;
@@ -41,7 +59,7 @@ mail_read() {
 		"")
 			echo "Selection failed";;
 		*)
-			mail_view $index;;
+			eval "$viewcmd $index";;
 	esac
 }
 
@@ -65,8 +83,18 @@ mail_extract() {
 
 mail_grep() {
 	pattern='subject =~~ "'$1'" || from =~~ "'$1'" || to =~~ "'$1'"'
-	echo "$pattern"
 	mpick -t "$pattern" | mail_list
+}
+
+cmdout() {
+	case "$1" in
+		"file")
+			eval "${@:3}" >> $2;;
+		"stdout")
+			eval "${@:2}";;
+		"both")
+			eval "${@:2}" | tee $2;;
+	esac
 }
 
 synclogfile=$XDG_STATE_HOME/offlineimap.log
@@ -79,8 +107,8 @@ mail_sync() {
 		notify-send "ERROR: Email sync failed!"
 	fi
 
-	{ echo; mailhandler process; } &>> $synclogfile
-	{ echo; echo; } >> $synclogfile
+	{ echo; mail_process; } &>> $synclogfile
+	{ echo -e "\n"; } >> $synclogfile
 }
 
 mail_sync_bg() {

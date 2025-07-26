@@ -16,7 +16,7 @@ view() {
 			return;;
 	esac
 
-	[ -e "$arg" ] || { echo "ERROR: file '$arg' not found!"; return; }
+	[ -e "$arg" ] || { echo "ERROR: file '$arg' not found!"; return -1; }
 
 	case $arg in
 		*".html")
@@ -32,7 +32,7 @@ view() {
 			mpv --vid=no $arg;;
 
 		*".png" | *".jpg" | *".jpeg")
-			kitten icat $arg;;
+			kitten icat --align left --transfer-mode="stream" --unicode-placeholder $arg;;
 
 		*".pdf" | *".djvu" | *".ps")
 			zathura --fork "$arg";;

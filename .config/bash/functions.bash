@@ -18,3 +18,23 @@ pyenv() {
 	deactivate
 }
 
+newscript() {
+	[ -e "$1" ] && { echo "file already exists!"; return -1; }
+
+	case "$2" in
+		"bash")
+			header="#!/usr/bin/env bash";;
+		"sh" | "shell")
+			header="#!/bin/sh";;
+		"py" | "python")
+			header="#!/usr/bin/env python3";;
+		*)
+			echo "unrecognized script type!"
+			return -2;;
+	esac
+
+	echo -e "$header\n\n" > "$1"
+	chmod +x "$1"
+
+	eval "$EDITOR $1"
+}

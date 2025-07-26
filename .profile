@@ -30,6 +30,7 @@ export LESSHISTFILE="$XDG_STATE_HOME/lesshst"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
 export MBLAZE="$XDG_CONFIG_HOME/mblaze"
 export TASKDATA="$XDG_DATA_HOME/task"
+export VIT_DIR="$XDG_CONFIG_HOME/vit"
 export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
 
 if ! [[ "$PATH" =~ "$HOME/.local/bin" ]]; then

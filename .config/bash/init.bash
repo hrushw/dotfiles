@@ -6,7 +6,7 @@ source $XDG_CONFIG_HOME/bash/functions.bash
 source $XDG_CONFIG_HOME/bash/prompt.bash
 source $XDG_CONFIG_HOME/bash/fzf_integration.bash
 
-export LESS='-R --use-color -Dd+r$Du+b$'
+export LESS='-R --use-color -Dd+r$Du+b$ +0'
 export MANROFFOPT="-c"
 
 [ "$TERM" = "eterm-color" ] && alias vim='echo "vim is not supported inside eterm"'

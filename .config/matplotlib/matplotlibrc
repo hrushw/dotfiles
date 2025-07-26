@@ -3,6 +3,7 @@
 # COLOR {{{
 
 figure.facecolor: black
+figure.autolayout: False
 
 xtick.color: white
 ytick.color: white
@@ -12,6 +13,8 @@ ytick.labelcolor: lime
 
 axes.facecolor: black
 axes.edgecolor: lime
+axes.titlecolor: white
+axes.labelcolor: white
 
 axes.prop_cycle: cycler('color', ['lime', 'red', 'cyan', 'magenta', 'yellow', '8579ff', 'pink', 'royalblue', 'salmon', '00a76e'])
 
@@ -76,6 +79,17 @@ ytick.minor.width: 0.5
 lines.linewidth: 2.0
 lines.linestyle: -
 lines.antialiased: True
+
+# }}}
+
+# PAD {{{
+
+axes.titlepad: 16.0
+axes.labelpad: 8.0
+xtick.major.pad: 4.0
+xtick.minor.pad: 2.0
+ytick.major.pad: 4.0
+ytick.minor.pad: 2.0
 
 # }}}
 

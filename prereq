@@ -8,6 +8,7 @@ mkdir -pv $XDG_CONFIG_HOME/mblaze
 mkdir -pv $XDG_CONFIG_HOME/gnupg
 mkdir -pv $XDG_CONFIG_HOME/readline
 mkdir -pv $XDG_CONFIG_HOME/ipython
+mkdir -pv $XDG_CONFIG_HOME/vit
 mkdir -pv ~/.local/share/icons ~/.local/share/fonts ~/.local/bin
 mkdir -pv $GRIM_DEFAULT_DIR
 mkdir -pv ~/.local/state/vim

@@ -14,10 +14,11 @@ alias cll='cls; ll'
 alias la='ls -alh'
 alias cla='cls; la'
 alias clt='cls; tree'
-alias ..='cd ..'
 
 alias mv="mv -i"
 alias rm='echo "rm is disabled, use del"'
 alias del='mv -it ~/.local/share/trash/'
 
+alias ..='cd ..'
 alias :q="exit"
+alias py='python'
