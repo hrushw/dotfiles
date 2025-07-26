@@ -6,7 +6,6 @@ alias ip='ip --color=auto'
 
 # Aliases
 alias fetch='echo; pfetch; echo'
-alias cls='tput reset; fetch'
 alias ll='ls -lh'
 alias lv='ls -1'
 alias lva='ls -a1'

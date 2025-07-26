@@ -13,10 +13,7 @@ export MANROFFOPT="-c"
 command -v zoxide &>/dev/null && eval "$(zoxide init bash)"
 
 eval $(dircolors)
-eval $(lesspipe.sh)
-
-set -o vi
-cls
+! [ "$NOHEADER" ] && cls
 
 # History
 # if [ -f .bash_history ]; then

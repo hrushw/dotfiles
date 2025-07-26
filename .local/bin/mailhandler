@@ -25,14 +25,13 @@ mail_view() {
 			viewcmd="mshow ${@:2} | mcolor"
 			eval "$viewcmd";;
 		*)
-			viewcmd="mshow $@ | mcolor; read"
-			kitten @launch bash -c "$viewcmd" &>/dev/null
+			viewcmd="mshow $@ | mcolor"
+			kitten @launch sh -c "export NOHEADER=1; $viewcmd; bash" &>/dev/null
 	esac
 }
 
 # exit code is required for mblaze to use raw image output
 mail_img_show() {
-	#chafa -f kitty --exact-size auto -s "60x60" -c 8
 	maxsize=400x1280
 	magick - -resize "$maxsize"  - | kitten icat --align left --transfer-mode="stream" --unicode-placeholder
 	exit 62
