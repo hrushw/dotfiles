@@ -12,7 +12,7 @@ export XDG_STATE_HOME="$HOME/.local/state"
 export EDITOR="vim"
 export BROWSER="qutebrowser"
 export GTK_THEME=Breeze:dark
-export EXINIT="set ai ap ic nu prompt ts=4 sw=4 nosm showmode warn ws"
+export EXINIT="set ai ic nu prompt ts=4 sw=4 nosm showmode warn ws"
 export NEXINIT=$EXINIT
 export CC=gcc
 export CFLAGS="-Wall -Wextra -Wpedantic -Wvla"

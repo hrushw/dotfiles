@@ -2,10 +2,6 @@
 
 " Plugin list {{{
 call plug#begin()
-Plug 'bluz71/vim-moonfly-colors'
-Plug 'andreasvc/vim-256noir'
-Plug 'ryanpcmcquen/true-monochrome_vim'
-
 Plug 'preservim/nerdtree'
 Plug 'preservim/tagbar'
 Plug 'junegunn/fzf.vim'
@@ -16,8 +12,6 @@ Plug 'junegunn/goyo.vim'
 Plug 'sile-typesetter/vim-sile'
 call plug#end()
 " }}}
-
-colorscheme moonfly
 
 nnoremap <Leader>.n :NERDTreeToggle<CR>
 
@@ -54,34 +48,9 @@ let g:tagbar_autoshowtag = 1
 
 " }}}
 
-" goyo and limelight {{{
-" nnoremap <Leader>.f :colorscheme quiet<CR>:Limelight<CR>:Goyo<CR>
-" nnoremap <Leader>.F :colorscheme quiet<CR>:Limelight<CR>:Goyo 120<CR>
-" nnoremap <Leader>.qf :colorscheme moonfly<CR>:Limelight!<CR>:Goyo!<CR>
+set background=dark
+colorscheme sorbet
 
-let g:focusmodeenabled = 0
-
-function FocusModeEnable()
-	let g:focusmodeenabled = 1
-	colorscheme 256_noir
-	Goyo 80%
-	Limelight
-endfunc
-
-function FocusModeDisable()
-	let g:focusmodeenabled = 0
-	colorscheme moonfly
-	Goyo!
-	Limelight!
-endfunc
-
-function FocusModeToggle()
-	if g:focusmodeenabled
-		call FocusModeDisable()
-	else
-		call FocusModeEnable()
-	endif
-endfunc
-
-command Refocus call FocusModeToggle()
-" }}}
+let g:goyo_width='80%'
+let g:goyo_height='90%'
+nnoremap <Leader>.g :Goyo<CR>:Limelight<CR>
