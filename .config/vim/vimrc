@@ -1,3 +1,5 @@
+" vim:fileencoding=utf-8:foldmethod=marker
+
 " Settings
 set encoding=UTF-8
 
@@ -26,14 +28,15 @@ set conceallevel=2
 set foldenable
 set fillchars=vert:\|,fold:-,eob:\ ,lastline:@
 
-" search options
+" Search Options {{{
 set ignorecase
 set smartcase
 set hlsearch
 set incsearch
 set wrapscan
+" }}}
 
-" Indentation options
+" Indentation Options {{{
 set cindent
 set autoindent
 set noexpandtab
@@ -41,9 +44,11 @@ set smarttab
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
+" }}}
 
 " Behavior
 " if exists("+autochdir") | set autochdir | endif
+set guioptions=cdiM
 set autoread
 set noautoshelldir
 set noautowrite
