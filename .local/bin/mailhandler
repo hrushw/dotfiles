@@ -26,7 +26,7 @@ mail_view() {
 			eval "$viewcmd";;
 		*)
 			viewcmd="mshow $@ | mcolor"
-			kitten @launch sh -c "export NOHEADER=1; $viewcmd; kitten @action scroll_home; bash" &>/dev/null
+			kitten @launch sh -c "export NOHEADER=1; $viewcmd; kitten @action scroll_home; bash" &>/dev/null;;
 	esac
 }
 

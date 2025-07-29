@@ -2,37 +2,43 @@
 
 # Universal file/link opener
 
+mdview() {
+	lowdown -t term $1 | bat --paging=always
+}
+
 view() {
 	arg="$@"
 
-	case $arg in
+	case "$arg" in
 		"file://"*)
 			arg=${arg:7}
 	esac
 
-	case $arg in
+	case "$arg" in
 		"http://"* | "https://"*)
-			qutebrowser $arg
+			qutebrowser "$arg"
 			return;;
 	esac
 
 	[ -e "$arg" ] || { echo "ERROR: file '$arg' not found!"; return -1; }
 
-	case $arg in
+	case "$arg" in
 		*".html")
-			qutebrowser $arg;;
+			qutebrowser "$arg";;
 
 		*".md")
-			lowdown -t term $arg | bat --paging=always;;
+			mdview "$arg";;
+		*".rst")
+			pandoc "$arg" -t markdown | mdview;;
 
 		*".mkv" | *".mp4" | *".webm")
 			mpv "$arg";;
 
 		*".flac" | *".opus" | *".mp3")
-			mpv --vid=no $arg;;
+			mpv --vid=no "$arg";;
 
 		*".png" | *".jpg" | *".jpeg")
-			kitten icat --align left --transfer-mode="stream" --unicode-placeholder $arg;;
+			kitten icat --align left --transfer-mode="stream" --unicode-placeholder "$arg";;
 
 		*".pdf" | *".djvu" | *".ps")
 			zathura --fork "$arg";;
@@ -41,20 +47,20 @@ view() {
 			bat --paging=always "$arg";;
 
 		*)
-			if file $arg | grep "directory"; then
-				ls -al --color=auto --hyperlink=auto $arg
-			elif file $arg | grep -e "ASCII text" -e "UTF-8 text" &>/dev/null; then
-				if file $arg | grep "troff" &>/dev/null; then
-					man $arg
+			if file "$arg" | grep "directory"; then
+				ls -al --color=auto --hyperlink=auto "$arg"
+			elif file "$arg" | grep -e "ASCII text" -e "UTF-8 text" &>/dev/null; then
+				if file "$arg" | grep "troff" &>/dev/null; then
+					man "$arg"
 				else
 					bat --paging=always "$arg"
 				fi
-			elif file $arg | grep "broken" &>/dev/null; then
-				file $arg
-			elif file $arg | grep "symbolic link to" &>/dev/null; then
-				view $(realpath $arg)
+			elif file "$arg" | grep "broken" &>/dev/null; then
+				file "$arg"
+			elif file "$arg" | grep "symbolic link to" &>/dev/null; then
+				view $(realpath "$arg")
 			else
-				file $arg
+				file "$arg"
 			fi;;
 	esac
 }

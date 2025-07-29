@@ -18,6 +18,14 @@ pyenv() {
 	esac
 
 	source ~/.venv/bin/activate
+	case $1 in
+		"ipy"*)
+			if ! [ -e "$1" ]; then
+				eval "ipython ${@:2}"; deactivate; return
+			fi;;
+		*)
+			;;
+	esac
 
 	eval "python $@"
 	deactivate

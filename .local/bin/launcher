@@ -1,9 +1,14 @@
 #!/bin/sh
 
 # vim mode seems to be broken
-bemenu-run -c -l 12 -H 32 -B 2 -W 0.4 \
-	--fn "Terminus 24px" -p "Launch " \
-	-P ">" \
-	--single-instance --ifne -w -i \
-	--scrollbar autohide
-
+case "$1" in
+	"guimenu")
+		bemenu-run -c -l 12 -H 32 -B 2 -W 0.4 \
+			--fn "Terminus 24px" -p "Launch " \
+			-P ">" \
+			--single-instance --ifne -w -i \
+			--scrollbar autohide;;
+	*)
+		cmd="$(cat $XDG_CONFIG_HOME/launch | fzf | sed 's/.*| \(.*\)/\1/')"
+		$cmd &>/dev/null &
+esac
