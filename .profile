@@ -32,6 +32,8 @@ export MBLAZE="$XDG_CONFIG_HOME/mblaze"
 export TASKDATA="$XDG_DATA_HOME/task"
 export VIT_DIR="$XDG_CONFIG_HOME/vit"
 export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
+export GOPATH="$XDG_DATA_HOME/go"
+export GOMODCACHE="$XDG_DATA_HOME/go/mod"
 
 if ! [[ "$PATH" =~ "$HOME/.local/bin" ]]; then
     [ -e "$HOME/.local/bin" ] && export PATH="$HOME/.local/bin:$PATH"

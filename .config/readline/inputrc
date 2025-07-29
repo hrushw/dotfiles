@@ -10,8 +10,8 @@ set disable-completion off
 set colored-completion-prefix off
 set completion-display-width 120
 
-set completion-ignore-case on
-set completion-map-case on
+set completion-ignore-case off
+set completion-map-case off
 
 set completion-prefix-display-length 20
 set completion-query-items 200

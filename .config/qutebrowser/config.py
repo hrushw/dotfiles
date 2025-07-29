@@ -6,7 +6,7 @@ showtabbar = True
 
 c.fonts.default_family = [ "RobotoMono Nerd Font", "Symbols Nerd Font" ]
 
-c.downloads.location.directory = "~/dl"
+c.downloads.location.directory = "~/data/dl"
 c.downloads.location.suggestion = "both"
 
 # Tabs
