@@ -112,7 +112,7 @@ mail_sync() {
 
 mail_sync_bg() {
 	while true; do
-		snooze -H* -M/15
+		snooze -H* -M/10
 		mail_sync
 	done
 }

@@ -1,8 +1,8 @@
 export HISTFILE=$XDG_STATE_HOME/bash/history
 export HISTSIZE=-1
 
-source $XDG_CONFIG_HOME/bash/aliases.bash
 source $XDG_CONFIG_HOME/bash/functions.bash
+source $XDG_CONFIG_HOME/bash/aliases.bash
 source $XDG_CONFIG_HOME/bash/prompt.bash
 source $XDG_CONFIG_HOME/bash/fzf_integration.bash
 

@@ -5,7 +5,6 @@ alias diff='diff --color=auto'
 alias ip='ip --color=auto'
 
 # Aliases
-alias fetch='echo; pfetch; echo'
 alias ll='ls -lh'
 alias lv='ls -1'
 alias lva='ls -a1'
@@ -19,6 +18,7 @@ alias rm='echo "rm is disabled, use del"'
 alias del='mv -it ~/.local/share/trash/'
 
 alias ..='cd ..'
+alias ...='cd ../..'
 alias q="exit"
 alias :q="exit"
 alias py='python'

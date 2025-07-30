@@ -1,3 +1,9 @@
+fetch() {
+	echo
+	pfetch
+	echo
+}
+
 cls() {
 	tput reset
 	fetch
