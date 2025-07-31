@@ -125,15 +125,15 @@ case $1 in
 	"select")
 		mail_select;;
 	"read")
-		mail_read ${@:2};;
+		mail_read "${@:2}";;
 	"extract")
-		mail_extract ${@:2};;
+		mail_extract "${@:2}";;
 	"grep")
-		mail_grep ${@:2};;
+		mail_grep "${@:2}";;
 	"view")
-		mail_view ${@:2};;
+		mail_view "${@:2}";;
 	"imgshow")
-		mail_img_show ${@:2};;
+		mail_img_show "${@:2}";;
 	"sync")
 		mail_sync 1;;
 	"syncd" | "sync_daemon" | "syncdaemon")
