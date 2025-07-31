@@ -1,5 +1,4 @@
 $include /etc/inputrc
-nnoremap <Leader>vv :HelpToc<CR>
 
 set colored-stats on
 set visible-stats on

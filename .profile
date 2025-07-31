@@ -42,4 +42,4 @@ if ! [[ "$PATH" =~ "$HOME/.scripts" ]]; then
     [ -e "$HOME/.scripts" ] && export PATH="$HOME/.scripts:$PATH"
 fi
 
-
+source .bashrc
