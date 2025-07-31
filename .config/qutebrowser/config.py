@@ -108,3 +108,8 @@ config.bind("gj", "tab-next")
 config.bind("gk", "tab-prev")
 config.bind("<Ctrl+J>", "tab-move +")
 config.bind("<Ctrl+K>", "tab-move -")
+
+config.bind("<Alt+Shift+J>", "scroll-page 0 +0.5")
+config.bind("<Alt+Shift+K>", "scroll-page 0 -0.5")
+config.bind("<Alt+Ctrl+J>", "scroll-page 0 +1")
+config.bind("<Alt+Ctrl+K>", "scroll-page 0 -1")

@@ -9,11 +9,15 @@ source $XDG_CONFIG_HOME/bash/fzf_integration.bash
 export LESS='-R --use-color -Dd+r$Du+b$ +0'
 export MANROFFOPT="-c"
 
-[ "$TERM" = "eterm-color" ] && alias vim='echo "vim is not supported inside eterm"'
+if [ "$TERM" = "eterm-color" ]; then
+	alias vim='echo "vim is not supported inside eterm"'
+else
+	set -o vi
+fi
+
 # command -v zoxide &>/dev/null && eval "$(zoxide init bash)"
 
 eval $(dircolors)
-set -o vi
 ! [ "$NOHEADER" ] && cls
 
 # History
