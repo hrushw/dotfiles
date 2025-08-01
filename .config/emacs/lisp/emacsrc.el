@@ -86,3 +86,7 @@
    (lisp . t)
    (awk . t)
    (emacs-lisp . t)))
+
+(setenv "EDITOR" "emacsclient")
+; (setenv "PYTHON_BASIC_REPL" "t")
+

@@ -77,4 +77,6 @@ runtime plugins.vim
 nnoremap <Leader>pp :HelpToc<CR>
 
 " c syntax file does not handle struct compound literals as function arguments
-au FileType c set syntax=cpp
+" au FileType c set syntax=cpp
+
+au BufNewFile,BufRead *.sp,*.cir,*.spice setf spice
