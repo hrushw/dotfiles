@@ -6,9 +6,6 @@ Plug 'preservim/nerdtree'
 Plug 'preservim/tagbar'
 Plug 'junegunn/fzf.vim'
 
-Plug 'junegunn/limelight.vim'
-Plug 'junegunn/goyo.vim'
-
 Plug 'sile-typesetter/vim-sile'
 call plug#end()
 " }}}
@@ -50,7 +47,3 @@ let g:tagbar_autoshowtag = 1
 
 set background=dark
 colorscheme sorbet
-
-let g:goyo_width='80%'
-let g:goyo_height='90%'
-nnoremap <Leader>.g :Goyo<CR>:Limelight<CR>
