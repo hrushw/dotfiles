@@ -45,5 +45,3 @@ let g:tagbar_autoshowtag = 1
 
 " }}}
 
-set background=dark
-colorscheme sorbet
