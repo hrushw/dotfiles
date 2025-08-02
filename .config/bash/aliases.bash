@@ -22,3 +22,6 @@ alias ...='cd ../..'
 alias q="exit"
 alias :q="exit"
 alias py='python'
+
+# stops annoying font warning
+alias ngspice='LC_CTYPE=C ngspice'
