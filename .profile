@@ -17,6 +17,8 @@ export NEXINIT=$EXINIT
 export CC=gcc
 export CFLAGS="-Wall -Wextra -Wpedantic -Wvla"
 # export CDPATH=:~
+
+# forgot why i set this
 export LC_COLLATE=C
 export BEMENU_OPTS='-b -fn "Terminus 12px"'
 
