@@ -17,20 +17,29 @@ cmdl() {
 
 # run command in python venv
 pyenv() {
-	case $1 in "e" | "-e")
-		source ~/.venv/bin/activate
+	envactor=~/.venv/bin/activate
+	case $1 in "le" | "-le" | "el" | "-el")
+		set -- "-l" "-e" "${@:2}"
+	esac
+
+	case $1 in "l" | "-l" | "local")
+		envactor=./.venv/bin/activate
+		set -- "${@:2}";;
+	esac
+
+	case $1 in "e" | "-e" | "enter")
+		source "$envactor"
 		alias exit='deactivate; unalias exit'
 		return;;
 	esac
 
-	source ~/.venv/bin/activate
-	case $1 in
-		"ipy"*)
-			if ! [ -e "$1" ]; then
-				eval "ipython ${@:2}"; deactivate; return
-			fi;;
-		*)
-			;;
+	source "$envactor"
+	case "$1" in "ipy"*)
+		if ! [ -e "$1" ]; then
+			eval "ipython ${@:2}"
+			deactivate
+			return
+		fi;;
 	esac
 
 	eval "python $@"

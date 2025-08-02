@@ -18,6 +18,14 @@ view() {
 		"http://"* | "https://"*)
 			qutebrowser "$arg"
 			return;;
+
+		"irc://"* | "ircs://"*)
+			str="$(echo "$arg" | sed 's/^ircs*:\/\///' | sed 's/\// /')"
+			host="$(echo "$str" | awk '{print $1}')"
+			channel="$(echo "$str" | awk '{print $2}')"
+			echo "$host" "$channel"
+			catgirl -l -h "$host" -j "$channel"
+			return;;
 	esac
 
 	[ -e "$arg" ] || { echo "ERROR: file '$arg' not found!"; return -1; }
@@ -37,7 +45,7 @@ view() {
 		*".flac" | *".opus" | *".mp3")
 			mpv --vid=no "$arg";;
 
-		*".png" | *".jpg" | *".jpeg" | *".svg")
+		*".png" | *".jpg" | *".jpeg" | *".svg" | *".gif")
 			kitten icat --align left --transfer-mode="stream" --unicode-placeholder "$arg";;
 
 		*".dot")
