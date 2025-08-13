@@ -86,5 +86,10 @@ nnoremap <C-x><C-f> :edit<space>
 
 nnoremap <Leader>pp :HelpToc<CR>
 
+nnoremap <C-c><C-c> :!make<CR>
 
+inoremap <C-g> <Esc>
+nnoremap <C-g> <Esc>
 
+tnoremap <C-g> <C-w>N
+tnoremap <C-w>g <C-g>

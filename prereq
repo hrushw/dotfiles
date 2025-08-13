@@ -11,6 +11,8 @@ mkdir -pv $XDG_CONFIG_HOME/ipython
 mkdir -pv $XDG_CONFIG_HOME/vit
 mkdir -pv ~/.local/share/icons ~/.local/share/fonts ~/.local/bin
 mkdir -pv $GRIM_DEFAULT_DIR
+mkdir -pv $XDG_DATA_HOME/go
+mkdir -pv $XDG_DATA_HOME/go/mod
 mkdir -pv ~/.local/state/vim
 mkdir -pv ~/.local/share/vim/undo
 mkdir -pv ~/.local/share/vim/backup

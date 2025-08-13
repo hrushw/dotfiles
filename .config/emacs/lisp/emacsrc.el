@@ -74,6 +74,7 @@
 (require 'org)
 (setq org-tags-column 0)
 (define-key org-mode-map (kbd "M-<return>") 'org-meta-return)
+(setq org-edit-src-content-indentation 0)
 ; (define-key org-mode-map (kbd "M-i .") (lambda () (interactive) (insert-char 8203) ))
 
 (org-babel-do-load-languages

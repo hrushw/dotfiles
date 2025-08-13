@@ -74,11 +74,27 @@ packadd helptoc
 runtime maps.vim
 runtime plugins.vim
 
-set background=dark
-colorscheme sorbet
+" C syntax options {{{
+let c_no_curly_error = 1
+let c_space_errors = 1
+let c_comment_strings = 1
+let c_functions = 1
 
-" c syntax file does not handle struct compound literals as function arguments
-" au FileType c set syntax=cpp
+function CSyntaxFunctionToggle()
+	if exists("g:c_functions")
+		unlet g:c_functions
+	else
+		let g:c_functions = 1
+	endif
+
+	syn on
+endfunc
+
+nnoremap <Leader>.cf :call CSyntaxFunctionToggle()<CR>
+" }}}
 
 au BufNewFile,BufRead *.sp,*.cir,*.spice setf spice
+
+set background=dark
+colorscheme sorbet
 

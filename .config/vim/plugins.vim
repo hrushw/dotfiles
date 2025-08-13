@@ -45,3 +45,4 @@ let g:tagbar_autoshowtag = 1
 
 " }}}
 
+nnoremap <Leader>qq :Tags<CR>

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-scan_format="%4n | %10d |%t %32f :  %2i%s"
+scan_format="%4n | %10d |%t %24f :  %2i%s"
 mail_list() {
 	mscan -f "$scan_format" 2>/dev/null
 }
