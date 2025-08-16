@@ -1,3 +1,8 @@
+spawn() {
+	echo "$@"
+	eval "$@"
+}
+
 fetch() {
 	echo
 	pfetch
@@ -66,3 +71,37 @@ newscript() {
 
 	eval "$EDITOR $1"
 }
+
+# Recursively update cloned git repositories in a folder
+gitpullrecurse() {
+	for dir in $(ls); do
+		test -d "$dir" -a ! -L "$dir" || continue
+
+		case "$dir" in
+			"__"*)
+				echo "Ignoring directory: $dir";;
+
+			"_"*)
+				echo "Recursing into directory: $dir"
+				cd "$dir"
+				gitpullrecurse
+				cd ..;;
+
+			*)
+				cd "$dir"
+				echo "Entering directory: $PWD"
+
+				if test -d ".git"; then
+					echo "git repository found, updating..."
+					spawn git pull
+				else
+					echo "ERR_SKIP: no git repository found, ignoring"
+				fi
+
+				cd ..;;
+		esac
+		echo
+	done
+}
+
+

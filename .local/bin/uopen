@@ -57,6 +57,9 @@ view() {
 		*".txt" | *"/README" | "README")
 			bat --paging=always "$arg";;
 
+		*".org")
+			emacsclient -nc "$arg";;
+
 		*)
 			if file "$arg" | grep "directory"; then
 				ls -al --color=auto --hyperlink=auto "$arg"
