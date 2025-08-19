@@ -80,7 +80,7 @@ ytick.minor.width: 0.5
 
 lines.linewidth: 2.0
 lines.linestyle: -
-lines.antialiased: True
+lines.antialiased: False
 
 lines.dashed_pattern: 6.0, 2.0
 lines.dashdot_pattern: 8.0, 3.0, 2.0, 3.0

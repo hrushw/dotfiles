@@ -96,3 +96,4 @@
 (setenv "EDITOR" "emacsclient")
 ; (setenv "PYTHON_BASIC_REPL" "t")
 
+(setq inferior-lisp-program "sbcl")
