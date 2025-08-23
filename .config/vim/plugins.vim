@@ -6,6 +6,9 @@ Plug 'preservim/nerdtree'
 Plug 'preservim/tagbar'
 Plug 'junegunn/fzf.vim'
 
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+
 Plug 'sile-typesetter/vim-sile'
 call plug#end()
 " }}}
@@ -46,3 +49,4 @@ let g:tagbar_autoshowtag = 1
 " }}}
 
 nnoremap <Leader>qq :Tags<CR>
+nnoremap <Leader>qb :Buffers<CR>

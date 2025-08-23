@@ -22,6 +22,7 @@ alias ...='cd ../..'
 alias q="exit"
 alias :q="exit"
 alias py='python'
+alias vimS='vim -S Session.vim'
 
 # stops annoying font warning
 alias ngspice='LC_CTYPE=C ngspice'

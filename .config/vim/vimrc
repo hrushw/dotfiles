@@ -3,8 +3,9 @@
 " Settings
 set encoding=UTF-8
 
-set viminfo='32,<256,:256,/256,%
+set viminfo='32,<256,:4096,/256,%
 set viminfofile=~/.local/state/vim/viminfo
+set sessionoptions=buffers,folds,help,options,tabpages,winsize,terminal,sesdir
 set backupdir=./.vimbackup,~/.local/share/vim/backup,.,~/tmp,~/ " ??
 set undodir=~/.local/share/vim/undo
 set undofile

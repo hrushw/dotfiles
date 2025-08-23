@@ -93,3 +93,5 @@ nnoremap <C-g> <Esc>
 
 tnoremap <C-g> <C-w>N
 tnoremap <C-w>g <C-g>
+
+

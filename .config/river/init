@@ -1,0 +1,78 @@
+#!/bin/bash
+
+export GRIM_DEFAULT_DIR=$XDG_DATA_HOME/screenshots
+
+riverctl input "*" natural-scroll enabled
+riverctl input "*" tap enabled
+riverctl input "*" tap-button-map left-right-middle
+riverctl input "*" scroll-method two-finger
+
+riverctl map normal Super n focus-view next
+riverctl map normal Super p focus-view previous
+
+riverctl map normal Super+Alt v toggle-fullscreen
+riverctl map normal Super+Alt f toggle-float
+
+riverctl map normal Super+Shift h snap left
+riverctl map normal Super+Shift j snap down
+riverctl map normal Super+Shift k snap up
+riverctl map normal Super+Shift l snap right
+
+riverctl map normal Super+Shift w close
+
+riverctl map normal Super Return spawn "$TERMCMD"
+riverctl map normal Super+Shift e spawn "emacsclient -nc"
+
+# Info notifications
+
+riverctl map normal Super o spawn "notify-send -t 1000 -c sysinfo \"\$(get_workspace)\""
+riverctl map normal Super+Shift o spawn "notify-send -t 1000 -c workspaces \"\$(get_workspace multi)\""
+
+riverctl map normal Super+Control b spawn "notify-send -t 1000 -c sysinfo \"\$(get_brightness)\""
+riverctl map normal Super+Control v spawn "notify-send -t 1000 -c sysinfo \"\$(get_sound_info status_pipewire) \$(get_sound_info volume_pipewire)\""
+riverctl map normal Super+Control p spawn "battery_notify 3000"
+riverctl map normal Super+Control t spawn "notify-send -t 1000 -c datetime \"  \$(date +'%I:%M %p')\""
+riverctl map normal Super+Control d spawn "notify-send -t 3000 -c datetime \"  \$(date +'%d %b %Y')\""
+
+# XF86 key mappings
+
+volcmd="wpctl set-volume @DEFAULT_AUDIO_SINK@"
+
+volinc="$volcmd 5%+"
+voldec="$volcmd 5%-"
+
+volmute="wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+
+notifcmd="notify-send -t 400 -c controls"
+getsoundstatus="get_sound_info status_pipewire"
+getvolume="get_sound_info volume_pipewire"
+
+notifinc="$notifcmd \"\$($getsoundstatus inc) \$($getvolume)\""
+notifdec="$notifcmd \"\$($getsoundstatus dec) \$($getvolume)\""
+notifmute="$notifcmd \"\$($getsoundstatus) \$($getvolume)\""
+
+riverctl map -repeat normal None XF86AudioRaiseVolume spawn "$volinc; $notifinc"
+riverctl map -repeat normal None XF86AudioLowerVolume spawn "$voldec; $notifdec"
+
+riverctl map normal None XF86AudioMute spawn "$volmute; $notifmute"
+riverctl map normal None XF86AudioMicMute spawn "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+
+riverctl map -repeat normal None XF86MonBrightnessUp spawn "brightnessctl s 5%+ && notify-send -t 400 -c sysinfo \"\$(get_brightness)\""
+
+riverctl map -repeat normal None XF86MonBrightnessDown spawn "brightnessctl s 5%- && notify-send -t 400 -c sysinfo \"\$(get_brightness)\""
+
+riverctl map -release normal None Print spawn "grim && notify-send -t 3000 'Screnshot taken"
+riverctl map -release normal Shift Print spawn "grim -g \"\$(slurp)\" && notify-send -t 3000 'Screenshot taken'"
+
+emacs --daemon &
+
+pipewire &
+mpd &
+
+mako &
+battery_monitor &
+mailhandler syncd &
+
+brightnessctl s 80% &
+swaybg -i $XDG_DATA_HOME/wallpaper -m fit -c 000000 &
+

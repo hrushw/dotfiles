@@ -15,7 +15,11 @@ export GTK_THEME=Breeze:dark
 export EXINIT="set ai ic nu prompt ts=4 sw=4 nosm showmode warn ws"
 export NEXINIT=$EXINIT
 export CC=gcc
-export CFLAGS="-Wall -Wextra -Wpedantic -Wvla"
+export TERMCMD="kitty"
+
+
+# This line causes too many problems, shouldnt really be in profile
+# export CFLAGS="-Wall -Wextra -Wpedantic -Wvla"
 # export CDPATH=:~
 
 # forgot why i set this
