@@ -7,6 +7,8 @@ riverctl input "*" tap enabled
 riverctl input "*" tap-button-map left-right-middle
 riverctl input "*" scroll-method two-finger
 
+riverctl map normal Super Escape spawn "swaylock -i \"$XDG_STATE_HOME/lockpaper\" -s fit -c 000000"
+
 riverctl map normal Super n focus-view next
 riverctl map normal Super p focus-view previous
 
