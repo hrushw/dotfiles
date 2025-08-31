@@ -1,0 +1,15 @@
+#!/bin/bash
+
+riverctl spawn "swaybg -i $XDG_DATA_HOME/wallpaper -m fit -c 000000"
+riverctl spawn "emacs --daemon"
+
+riverctl spawn "brightnessctl s 80%"
+riverctl spawn "mailhandler syncd"
+
+riverctl spawn "mako"
+riverctl spawn "battery_monitor"
+
+riverctl spawn "pipewire"
+riverctl spawn "mpd"
+
+while true; do sleep 900; done | sandbar &

@@ -48,6 +48,7 @@
 ; window settings
 (setq-default inhibit-startup-screen t)
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
+(add-to-list 'default-frame-alist '(undecorated . t))
 
 ; relative line numbers
 (setq-default display-line-numbers-type 'relative)

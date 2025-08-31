@@ -45,6 +45,10 @@ riverctl map normal Super+Shift 7 set-view-tags 64
 riverctl map normal Super+Shift 8 set-view-tags 128
 riverctl map normal Super+Shift 9 set-view-tags 256
 
+# Mouse binds
+
+riverctl map-pointer normal Super BTN_LEFT move-view
+riverctl map-pointer normal Super BTN_RIGHT resize-view
 
 # Info notifications
 
@@ -83,18 +87,4 @@ riverctl map -repeat normal None XF86MonBrightnessDown spawn "brightnessctl s 5%
 
 riverctl map -release normal None Print spawn "grim && notify-send -t 3000 'Screnshot taken"
 riverctl map -release normal Shift Print spawn "grim -g \"\$(slurp)\" && notify-send -t 3000 'Screenshot taken'"
-
-emacs --daemon &
-
-pipewire &
-mpd &
-
-mako &
-battery_monitor &
-mailhandler syncd &
-
-brightnessctl s 80% &
-swaybg -i $XDG_DATA_HOME/wallpaper -m fit -c 000000 &
-
-while true; do :; done | sandbar &
 

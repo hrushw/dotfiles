@@ -17,6 +17,8 @@ export NEXINIT=$EXINIT
 export CC=gcc
 export TERMCMD="kitty"
 
+export GRIM_DEFAULT_DIR=$XDG_DATA_HOME/screenshots
+export XDG_CURRENT_DESKTOP=river
 
 # This line causes too many problems, shouldnt really be in profile
 # export CFLAGS="-Wall -Wextra -Wpedantic -Wvla"
