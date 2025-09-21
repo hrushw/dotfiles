@@ -12,4 +12,7 @@ riverctl spawn "battery_monitor"
 riverctl spawn "pipewire"
 riverctl spawn "mpd"
 
+riverctl spawn rivertile
+riverctl output-layout rivertile
+
 while true; do sleep 900; done | sandbar &

@@ -82,7 +82,7 @@ c.content.blocking.method = "both"
 
 c.content.canvas_reading = False
 c.content.webgl = False
-c.content.webrtc_ip_handling_policy = "default-public-interface-only"
+# c.content.webrtc_ip_handling_policy = "default-public-interface-only"
 
 c.content.autoplay = False
 c.content.pdfjs = False
