@@ -17,6 +17,35 @@ cmdl() {
 	eval $2
 }
 
+# limit ls output to 80 colums wide to improve readability
+lc () {
+	local termcols=$(set -- $(stty size); builtin echo $2)
+	[ $(("$1" < "$termcols")) != '0' ] && stty cols ${1}
+	ls --color=auto --group-directories-first ${@:2}
+	stty cols $termcols
+}
+alias l='lc 100'
+alias la='l -a'
+
+alias cl='cls; l'
+alias cla='cls; la'
+
+print_header() {
+	set -- $(stty size)
+	local rows=$1
+	local cols=$2
+	local term_clr="${B_BLUE}${TERM}${B_WHITE}"
+	local cols_clr="${B_CYAN}${cols}${B_WHITE}"
+	local rows_clr="${B_CYAN}${rows}${B_RED}"
+	echo "${ENDC}${BOLD}${B_RED}[${term_clr} - ${cols_clr} x ${rows_clr}]${ENDC}"
+}
+
+cls() {
+	tput reset
+	tabs -4
+	print_header
+}
+
 # run command in python venv
 pyenv() {
 	envactor=~/.venv/bin/activate

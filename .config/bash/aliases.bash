@@ -6,16 +6,21 @@ alias ip='ip --color=auto'
 
 # Aliases
 alias fetch='echo; pfetch'
-alias cls='tput reset; tabs -4'
 alias clf='cls; fetch'
 
-alias ll='ls -lh'
+alias ll='ls -lGh'
 alias lv='ls -1'
-alias lva='ls -a1'
-alias cll='cls; ll'
-alias la='ls -alh'
-alias cla='cls; la'
+alias lla='ll -a'
+alias lva='lv -a'
+
 alias clt='cls; tree'
+alias clta='cls; tree -a'
+
+alias cll='cls; ll'
+alias clla='cls; lla'
+alias clv='cls; lv'
+alias clva='cls; lva'
+
 alias dcl='dirs -c'
 
 alias mv="mv -i"
