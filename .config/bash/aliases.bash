@@ -30,3 +30,5 @@ alias vimS='vim -S Session.vim'
 
 # stops annoying font warning
 alias ngspice='LC_CTYPE=C ngspice'
+
+alias FZF="fzf --style minimal --preview 'fzf-preview.sh {}' --bind 'focus:transform-header:file --brief {}'"
