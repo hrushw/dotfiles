@@ -11,7 +11,7 @@ WHITE="$(tput setaf 7)"
 ENDC="$(tput sgr0)"
 BOLD="$(tput bold)"
 
-if [ $(($(tput colors) < 16)) ]; then
+if [ $(($(tput colors) > 16)) = "0" ]; then
 	B_BLACK="$BLACK"
 	B_RED="$RED"
 	B_GREEN="$GREEN"
