@@ -34,7 +34,7 @@ set_prompt() {
 	local ps1uhostname="${B_RED}[${B_GREEN}\u${B_WHITE}@${B_GREEN}\h${B_RED}]"
 	local ps1dir="${B_RED}[ ${B_CYAN}\w${B_RED} ]"
 	local ps1prompt="${B_RED}[${B_WHITE}\$${B_RED}]> "
-	PS1="${ENDC}${BOLD}${B_WHITE}${ps1uhostname} : ${ps1dir}{\n${ps1prompt}${ENDC}"
+	PS1="${ENDC}${BOLD}${B_WHITE}${ps1uhostname} : ${ps1dir}\n${ps1prompt}${ENDC}"
 	PS2="${ENDC}${BOLD}${B_RED}| ${ENDC}"
 	# PS3 does not use \[\] escape sequences
 	PS3="$(tput sgr0)$(tput bold)$(tput setaf 9)[$(tput setaf 15)#$(tput setaf 9)]? $(tput sgr0)"
