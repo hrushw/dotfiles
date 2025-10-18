@@ -5,10 +5,11 @@ spawn() {
 
 cfd() {
 	if [ -n "$1" ]; then
-		cd $(fzf --walker-root=$1 --walker=dir,hidden --walker-skip .git --preview 'tree -C {}')
+		local target=$(fzf --walker-root=$1 --walker=dir,hidden --walker-skip .git --preview 'tree -C {}')
 	else
-		cd $(fzf --walker=dir,hidden --walker-skip .git --preview 'tree -C {}')
+		local target=$(fzf --walker=dir,hidden --walker-skip .git --preview 'tree -C {}')
 	fi
+	[ -n "$target" ] && cd "$target"
 }
 
 cmdl() {
