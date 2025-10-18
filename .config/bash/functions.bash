@@ -3,6 +3,14 @@ spawn() {
 	eval "$@"
 }
 
+cfd() {
+	if [ -n "$1" ]; then
+		cd $(fzf --walker-root=$1 --walker=dir,hidden --walker-skip .git --preview 'tree -C {}')
+	else
+		cd $(fzf --walker=dir,hidden --walker-skip .git --preview 'tree -C {}')
+	fi
+}
+
 cmdl() {
 	cd $1;
 	cls;

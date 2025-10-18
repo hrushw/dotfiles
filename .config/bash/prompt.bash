@@ -9,6 +9,7 @@ set_prompt() {
 	# local WHITE="\\[\\e[1;37m\\]"
 	# local ENDC="\\[\\e[0m\\]"
 
+	local BLACK="\[$(tput setaf 2)\]"
 	local RED="\[$(tput setaf 1)\]"
 	local GREEN="\[$(tput setaf 2)\]"
 	local YELLOW="\[$(tput setaf 3)\]"
@@ -16,15 +17,27 @@ set_prompt() {
 	local MAGENTA="\[$(tput setaf 5)\]"
 	local CYAN="\[$(tput setaf 6)\]"
 	local WHITE="\[$(tput setaf 7)\]"
-	local ENDC="\[$(tput sgr0)\]"
 
+	local ENDC="\[$(tput sgr0)\]"
 	local BOLD="\[$(tput bold)\]"
 
+	# Bright colors
+	local B_RED="\[$(tput setaf 9)\]"
+	local B_GREEN="\[$(tput setaf 10)\]"
+	local B_YELLOW="\[$(tput setaf 11)\]"
+	local B_BLUE="\[$(tput setaf 12)\]"
+	local B_MAGENTA="\[$(tput setaf 13)\]"
+	local B_CYAN="\[$(tput setaf 14)\]"
+	local B_WHITE="\[$(tput setaf 15)\]"
+
 	PS0=""
-	PS1="${ENDC}${BOLD}${RED}[${GREEN}\u${WHITE}@${GREEN}\h${RED}]${WHITE} : ${RED}[ ${CYAN}\w${RED} ]\n${RED}[${WHITE}\$${RED}]> ${ENDC}"
-	PS2="${ENDC}${BOLD}${RED}| ${ENDC}"
+	local ps1uhostname="${B_RED}[${B_GREEN}\u${B_WHITE}@${B_GREEN}\h${B_RED}]"
+	local ps1dir="${B_RED}[ ${B_CYAN}\w${B_RED} ]"
+	local ps1prompt="${B_RED}[${B_WHITE}\$${B_RED}]> "
+	PS1="${ENDC}${BOLD}${B_WHITE}${ps1uhostname} : ${ps1dir}{\n${ps1prompt}${ENDC}"
+	PS2="${ENDC}${BOLD}${B_RED}| ${ENDC}"
 	# PS3 does not use \[\] escape sequences
-	PS3="$(tput sgr0)$(tput bold)$(tput setaf 1)[$(tput setaf 7)#$(tput setaf 1)]? $(tput sgr0)"
+	PS3="$(tput sgr0)$(tput bold)$(tput setaf 9)[$(tput setaf 15)#$(tput setaf 9)]? $(tput sgr0)"
 }
 set_prompt
 

@@ -16,6 +16,7 @@ alias cll='cls; ll'
 alias la='ls -alh'
 alias cla='cls; la'
 alias clt='cls; tree'
+alias dcl='dirs -c'
 
 alias mv="mv -i"
 alias rm='echo "rm is disabled, use del"'
@@ -32,3 +33,4 @@ alias vimS='vim -S Session.vim'
 alias ngspice='LC_CTYPE=C ngspice'
 
 alias FZF="fzf --style minimal --preview 'fzf-preview.sh {}' --bind 'focus:transform-header:file --brief {}'"
+
