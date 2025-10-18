@@ -94,3 +94,4 @@ riverctl map -repeat normal None XF86MonBrightnessDown spawn "brightnessctl s 5%
 riverctl map -release normal None Print spawn "grim && notify-send -t 3000 'Screnshot taken"
 riverctl map -release normal Shift Print spawn "grim -g \"\$(slurp)\" && notify-send -t 3000 'Screenshot taken'"
 
+riverctl xcursor-theme Breeze_Hacked

@@ -1,5 +1,9 @@
 # vim:fileencoding=utf-8:foldmethod=marker
 
+# FIGURE {{{
+figure.figsize:     8.0, 6.4  # figure size in inches
+# }}}
+
 # COLOR {{{
 
 figure.facecolor: black

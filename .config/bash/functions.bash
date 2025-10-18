@@ -3,17 +3,6 @@ spawn() {
 	eval "$@"
 }
 
-fetch() {
-	echo
-	pfetch
-	echo
-}
-
-cls() {
-	tput reset
-	fetch
-}
-
 cmdl() {
 	cd $1;
 	cls;

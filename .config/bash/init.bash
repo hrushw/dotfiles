@@ -15,15 +15,6 @@ else
 	set -o vi
 fi
 
-# command -v zoxide &>/dev/null && eval "$(zoxide init bash)"
-
 eval $(dircolors)
-! [ "$NOHEADER" ] && cls
+! [ "$NOHEADER" ] && clf
 
-# History
-# if [ -f .bash_history ]; then
-# 	export HISTFILE=$PWD/.bash_history
-# else
-# 	export HISTFILE=$XDG_STATE_HOME/bash/history
-# fi
-# [ -f .python_history ] && export PYTHON_HISTORY=".python_history"

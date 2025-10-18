@@ -5,6 +5,10 @@ alias diff='diff --color=auto'
 alias ip='ip --color=auto'
 
 # Aliases
+alias fetch='echo; pfetch'
+alias cls='reset; tabs -4'
+alias clf='cls; fetch'
+
 alias ll='ls -lh'
 alias lv='ls -1'
 alias lva='ls -a1'
