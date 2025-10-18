@@ -21,14 +21,24 @@ set_prompt() {
 	local ENDC="\[$(tput sgr0)\]"
 	local BOLD="\[$(tput bold)\]"
 
-	# Bright colors
-	local B_RED="\[$(tput setaf 9)\]"
-	local B_GREEN="\[$(tput setaf 10)\]"
-	local B_YELLOW="\[$(tput setaf 11)\]"
-	local B_BLUE="\[$(tput setaf 12)\]"
-	local B_MAGENTA="\[$(tput setaf 13)\]"
-	local B_CYAN="\[$(tput setaf 14)\]"
-	local B_WHITE="\[$(tput setaf 15)\]"
+	# use bright colors if supported by the terminal
+	if [ $(($(tput colors) < 16)) ]; then
+		local B_RED="$RED"
+		local B_GREEN="$GREEN"
+		local B_YELLOW="$YELLOW"
+		local B_BLUE="$BLUE"
+		local B_MAGENTA="$MAGENTA"
+		local B_CYAN="$CYAN"
+		local B_WHITE="$WHITE"
+	else
+		local B_RED="\[$(tput setaf 9)\]"
+		local B_GREEN="\[$(tput setaf 10)\]"
+		local B_YELLOW="\[$(tput setaf 11)\]"
+		local B_BLUE="\[$(tput setaf 12)\]"
+		local B_MAGENTA="\[$(tput setaf 13)\]"
+		local B_CYAN="\[$(tput setaf 14)\]"
+		local B_WHITE="\[$(tput setaf 15)\]"
+	fi
 
 	PS0=""
 	local ps1uhostname="${B_RED}[${B_GREEN}\u${B_WHITE}@${B_GREEN}\h${B_RED}]"
