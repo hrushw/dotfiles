@@ -96,7 +96,7 @@ cmdout() {
 	esac
 }
 
-synclogfile=$XDG_STATE_HOME/offlineimap.log
+synclogfile=$XDG_CACHE_HOME/offlineimap.log
 mail_sync() {
 	{ date; echo; } &>> $synclogfile
 

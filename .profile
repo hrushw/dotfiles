@@ -43,6 +43,9 @@ export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
 export GOPATH="$XDG_DATA_HOME/go"
 export GOMODCACHE="$XDG_DATA_HOME/go/mod"
 
+export XINITRC="$XDG_CONFIG_HOME/xinit/xinitrc"
+export XSERVERRC="$XDG_CONFIG_HOME/xinit/xserverrc"
+
 if ! [[ "$PATH" =~ "$HOME/.local/bin" ]]; then
     [ -e "$HOME/.local/bin" ] && export PATH="$HOME/.local/bin:$PATH"
 fi

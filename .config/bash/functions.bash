@@ -11,6 +11,7 @@ cfd() {
 	fi
 	[ -n "$target" ] && cd "$target"
 }
+alias clfd='cls; cfd'
 
 cmdl() {
 	cd $1;
@@ -31,7 +32,7 @@ alias la='l -a'
 alias cl='cls; l'
 alias cla='cls; la'
 
-print_header() {
+tszfmtprint() {
 	set -- $(stty size)
 	local rows=$1
 	local cols=$2
@@ -44,12 +45,12 @@ print_header() {
 cls() {
 	tput reset
 	tabs -4
-	print_header
+	tszfmtprint
 }
 
 # run command in python venv
 pyenv() {
-	envactor=~/.venv/bin/activate
+	envactor="$XDG_DATA_HOME/venv/bin/activate"
 	case $1 in "le" | "-le" | "el" | "-el")
 		set -- "-l" "-e" "${@:2}"
 	esac

@@ -1,0 +1,21 @@
+#!/bin/sh
+
+export XCURSOR_THEME=Breeze_Hacked
+export XCURSOR_SIZE=32
+
+xwallpaper --maximize ~/.local/share/wallpaper
+picom &
+slstatus &
+
+# the pipewire process is very fragile
+launch pipewire
+
+brightnessctl s 80%
+mailhandler syncd
+
+mpd
+emacs --daemon
+
+exec dwm
+
+

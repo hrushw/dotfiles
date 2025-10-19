@@ -45,7 +45,7 @@ view() {
 		*".flac" | *".opus" | *".mp3")
 			mpv --vid=no "$arg";;
 
-		*".png" | *".jpg" | *".jpeg" | *".svg" | *".gif" | *".ppm" | *".pbm" | *".pgm" )
+		*".png" | *".jpg" | *".jpeg" | *".svg" | *".gif" | *".ppm" | *".pbm" | *".pgm" | *".ff" )
 			kitten icat --align left --transfer-mode="stream" --unicode-placeholder "$arg";;
 
 		*".dot")
