@@ -53,4 +53,5 @@ if ! [[ "$PATH" =~ "$HOME/.scripts" ]]; then
     [ -e "$HOME/.scripts" ] && export PATH="$HOME/.scripts:$PATH"
 fi
 
+[[ $- != *i* ]] && return
 source .bashrc

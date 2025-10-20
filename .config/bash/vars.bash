@@ -35,4 +35,4 @@ export HISTFILE=$XDG_STATE_HOME/bash/history
 export HISTSIZE=-1
 export LESS='-R --use-color -Dd+r$Du+b$ +0'
 export MANROFFOPT="-c"
-
+[ $TERM = "st-256color-kitty" ] && export KITTY_WINDOW_ID=t

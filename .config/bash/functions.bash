@@ -50,7 +50,7 @@ cls() {
 
 # run command in python venv
 pyenv() {
-	envactor="$XDG_DATA_HOME/venv/bin/activate"
+	envactor="$HOME/.venv/bin/activate"
 	case $1 in "le" | "-le" | "el" | "-el")
 		set -- "-l" "-e" "${@:2}"
 	esac

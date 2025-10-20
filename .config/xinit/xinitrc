@@ -1,11 +1,15 @@
 #!/bin/sh
 
+source "$HOME/.profile"
+
 export XCURSOR_THEME=Breeze_Hacked
 export XCURSOR_SIZE=32
 
 xwallpaper --maximize ~/.local/share/wallpaper
 picom &
 slstatus &
+# hide cursor on keypress or idle
+xbanish -t 5 &
 
 # the pipewire process is very fragile
 launch pipewire
