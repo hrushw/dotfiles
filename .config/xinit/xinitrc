@@ -20,6 +20,8 @@ mailhandler syncd
 mpd
 emacs --daemon
 
+launch st -e sh -c "fastfetch; export NOCLEAR=t; exec bash"
+
 exec dwm
 
 

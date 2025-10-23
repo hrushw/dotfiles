@@ -29,13 +29,22 @@ alias del='mv -it ~/.local/share/trash/'
 
 alias ..='cd ..'
 alias ...='cd ../..'
-alias q="exit"
-alias :q="exit"
 alias py='python'
 alias vimS='vim -S Session.vim'
+
+alias quit="exit"
+alias :q="exit"
+alias q="exit"
+
+alias nsxiv="nsxiv --anti-alias=no"
 
 # stops annoying font warning
 alias ngspice='LC_CTYPE=C ngspice'
 
 alias FZF="fzf --style minimal --preview 'fzf-preview.sh {}' --bind 'focus:transform-header:file --brief {}'"
+alias o='uopen $(FZF)'
+alias v='vim $(FZF)'
+alias gg='g ~'
+alias gq='pushd ~ &>/dev/null'
+alias G='popd &>/dev/null'
 

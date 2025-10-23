@@ -10,5 +10,9 @@ else
 fi
 
 eval $(dircolors)
-! [ "$NOCLEAR" ] && cls
+if [ "$NOCLEAR" ]; then
+	! [ "$NOHEADER" ] && tszfmtprint
+else
+	cls
+fi
 

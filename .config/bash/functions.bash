@@ -3,13 +3,13 @@ spawn() {
 	eval "$@"
 }
 
-cfd() {
+g() {
 	if [ -n "$1" ]; then
 		local target=$(fzf --walker-root=$1 --walker=dir,hidden --walker-skip .git --preview 'tree -C {}')
 	else
 		local target=$(fzf --walker=dir,hidden --walker-skip .git --preview 'tree -C {}')
 	fi
-	[ -n "$target" ] && cd "$target"
+	[ -n "$target" ] && pushd "$target" &>/dev/null
 }
 alias clfd='cls; cfd'
 

@@ -54,4 +54,4 @@ if ! [[ "$PATH" =~ "$HOME/.scripts" ]]; then
 fi
 
 [[ $- != *i* ]] && return
-source .bashrc
+source $HOME/.bashrc
