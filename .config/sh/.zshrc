@@ -15,3 +15,5 @@ zstyle :compinstall filename '/home/hrushw/.zshrc'
 autoload -Uz compinit
 compinit -d "$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
 # End of lines added by compinstall
+
+source "$XDG_CONFIG_HOME/sh/colors.sh"

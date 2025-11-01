@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Start user services
+runsvdir "$XDG_CONFIG_HOME/runsvdir/current" &> "$XDG_STATE_HOME/runsvdir-local.log" &
+
+tput reset
+pfetch
+echo "$(tput bold)$(tput setaf 1)[$(tput setaf 7) Select Session $(tput setaf 1)]$(tput sgr0)"
+PS3="
+$(tput sgr0)$(tput bold)$(tput setaf 1)[$(tput setaf 7)#$(tput setaf 1)]? $(tput sgr0)"
+
+select session in "bash" "dwm" "zsh"; do break; done
+
+case $session in
+	"bash")
+		echo "Executing: GNU Bourne Again Shell"
+		bash;;
+	"zsh")
+		echo "Executing: Z Shell"
+		zsh;;
+	"dwm")
+		echo "Executing: Suckless' Dynamic Window Manager"
+		startx;;
+esac
+

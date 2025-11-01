@@ -1,26 +1,13 @@
 #!/bin/sh
 
 source "$HOME/.profile"
-
 export XCURSOR_THEME=Breeze_Hacked
 export XCURSOR_SIZE=32
 
-xwallpaper --maximize ~/.local/share/wallpaper
-# picom &
-slstatus &
-# hide cursor on keypress or idle
-xbanish -t 5 &
-
-# the pipewire process is very fragile
-# launch pipewire
+runsvdir "$XDG_CONFIG_HOME/xinit/runsvdir" &> "$XDG_STATE_HOME/runsvdir-x11.log" &
 
 brightnessctl s 80%
-
-# mpd
-# emacs --daemon
-
+xwallpaper --maximize ~/.local/share/wallpaper
 launch st -e sh -c "fastfetch; export NOCLEAR=t; exec bash"
 
-exec dwm
-
-
+dwm

@@ -1,0 +1,8 @@
+#!/bin/sh
+
+LOCKCMD=slock
+
+xset s on
+xset s 600
+exec xss-lock $LOCKCMD
+
