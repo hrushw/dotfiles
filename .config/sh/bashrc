@@ -1,6 +1,8 @@
-source $XDG_CONFIG_HOME/bash/colors.bash
-source $XDG_CONFIG_HOME/bash/functions.bash
-source $XDG_CONFIG_HOME/bash/aliases.bash
+source $XDG_CONFIG_HOME/sh/colors.sh
+source $XDG_CONFIG_HOME/sh/functions.bash
+source $XDG_CONFIG_HOME/sh/aliases.bash
+
+[ -d "$XDG_STATE_HOME/bash" ] || mkdir "$XDG_STATE_HOME/bash"
 
 export HISTFILE=$XDG_STATE_HOME/bash/history
 export HISTSIZE=-1
@@ -17,14 +19,26 @@ lc () {
 }
 alias l='lc 120'
 
+[ $TERM = "st-256color-kitty" ] && export KITTY_WINDOW_ID=t
+
 case "$TERM" in
-	"st-256color-kitty")
-		export KITTY_WINDOW_ID=t;;
 	"eterm-color")
 		alias vim='echo "vim is not supported inside eterm"';;
 	*)
 		set -o vi;;
 esac
+
+shopt -s autocd
+shopt -s cdable_vars
+shopt -s cdspell
+
+shopt -s checkwinsize
+shopt -s cmdhist
+
+shopt -s expand_aliases
+shopt -s promptvars
+
+shopt -s extglob
 
 eval $(dircolors)
 

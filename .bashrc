@@ -9,5 +9,5 @@ if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
 
-source $XDG_CONFIG_HOME/bash/init.bash
+source $XDG_CONFIG_HOME/sh/bashrc
 

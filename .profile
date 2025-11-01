@@ -61,3 +61,4 @@ export GOMODCACHE="$XDG_DATA_HOME/go/mod"
 export XINITRC="$XDG_CONFIG_HOME/xinit/xinitrc"
 export XSERVERRC="$XDG_CONFIG_HOME/xinit/xserverrc"
 
+export ZDOTDIR="$XDG_CONFIG_HOME/sh"

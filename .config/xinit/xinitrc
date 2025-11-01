@@ -6,18 +6,18 @@ export XCURSOR_THEME=Breeze_Hacked
 export XCURSOR_SIZE=32
 
 xwallpaper --maximize ~/.local/share/wallpaper
-picom &
+# picom &
 slstatus &
 # hide cursor on keypress or idle
 xbanish -t 5 &
 
 # the pipewire process is very fragile
-launch pipewire
+# launch pipewire
 
 brightnessctl s 80%
 
-mpd
-emacs --daemon
+# mpd
+# emacs --daemon
 
 launch st -e sh -c "fastfetch; export NOCLEAR=t; exec bash"
 
