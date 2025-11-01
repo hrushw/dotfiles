@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
-source ~/.profile
-
-# .bash_profile
-
 # Add local bin to path
-if ! [[ "$PATH" =~ "$HOME/.local/bin" ]]; then
-    [ -e "$HOME/.local/bin" ] && export PATH="$HOME/.local/bin:$PATH"
-fi
+
+case ":$PATH:" in
+	*:"$HOME/.local/bin":*)
+		;;
+	*)
+		PATH="${PATH:+$PATH:}$HOME/.local/bin"
+esac
 
 # forgot why i set this
 # apparantly used to determine sort order
@@ -61,5 +61,3 @@ export GOMODCACHE="$XDG_DATA_HOME/go/mod"
 export XINITRC="$XDG_CONFIG_HOME/xinit/xinitrc"
 export XSERVERRC="$XDG_CONFIG_HOME/xinit/xserverrc"
 
-[[ $- != *i* ]] && return
-source $HOME/.bashrc

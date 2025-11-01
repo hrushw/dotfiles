@@ -16,3 +16,4 @@ else
 	cls
 fi
 
+set_prompt

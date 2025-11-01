@@ -11,7 +11,6 @@ g() {
 	fi
 	[ -n "$target" ] && pushd "$target" &>/dev/null
 }
-alias clfd='cls; cfd'
 
 cmdl() {
 	cd $1;
@@ -19,6 +18,7 @@ cmdl() {
 	eval $2
 }
 
+# ls aliases
 # limit ls output to 80 colums wide to improve readability
 lc () {
 	local termcols=$(set -- $(stty size); builtin echo $2)
@@ -28,9 +28,6 @@ lc () {
 }
 alias l='lc 120'
 alias la='l -a'
-
-alias cl='cls; l'
-alias cla='cls; la'
 
 tszfmtprint() {
 	set -- $(stty size)
@@ -50,7 +47,7 @@ cls() {
 
 # run command in python venv
 pyenv() {
-	envactor="$HOME/.venv/bin/activate"
+	envactor="$XDG_DATA_HOME/venv/bin/activate"
 	case $1 in "le" | "-le" | "el" | "-el")
 		set -- "-l" "-e" "${@:2}"
 	esac
@@ -132,4 +129,16 @@ gitpullrecurse() {
 	done
 }
 
+# Fancy colored prompt
+set_prompt() {
+	# use bright colors if supported by the terminal
+	PS0=""
+	local ps1uhostname="\[${B_RED}\][\[${B_GREEN}\]\u\[${B_WHITE}\]@\[${B_GREEN}\]\h\[${B_RED}\]]"
+	local ps1dir="\[${B_RED}\][ \[${B_CYAN}\]\w\[${B_RED}\] ]"
+	local ps1prompt="\[${B_RED}\][\[${B_WHITE}\]\$\[${B_RED}\]]> "
+	PS1="\[${ENDC}${BOLD}${B_WHITE}\]${ps1uhostname}${B_WHITE} : ${ps1dir}\n${ps1prompt}\[${ENDC}\]"
+	PS2="\[${ENDC}${BOLD}${B_RED}\]| \[${ENDC}\]"
+	# PS3 does not use \[\] escape sequences
+	PS3="${ENDC}${BOLD}$(tput setaf 9)[$(tput setaf 15)#$(tput setaf 9)]? $(tput sgr0)"
+}
 

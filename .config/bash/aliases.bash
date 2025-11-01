@@ -4,14 +4,13 @@ alias grep='grep --color=auto'
 alias diff='diff --color=auto'
 alias ip='ip --color=auto'
 
-# Aliases
-alias fetch='echo; pfetch'
-alias clf='cls; fetch'
-
 alias ll='ls -lGh'
 alias lv='ls -1'
 alias lla='ll -a'
 alias lva='lv -a'
+
+alias cl='cls; l'
+alias cla='cls; la'
 
 alias clt='cls; tree'
 alias clta='cls; tree -a'
@@ -21,7 +20,10 @@ alias clla='cls; lla'
 alias clv='cls; lv'
 alias clva='cls; lva'
 
-alias dcl='dirs -c'
+
+# Aliases
+alias fetch='echo; pfetch'
+alias clf='cls; fetch'
 
 alias mv="mv -i"
 alias rm='echo "rm is disabled, use del"'
@@ -46,8 +48,7 @@ alias ngspice='LC_CTYPE=C ngspice'
 alias FZF="fzf --style minimal --preview 'fzf-preview.sh {}' --bind 'focus:transform-header:file --brief {}'"
 alias o='uopen $(FZF)'
 alias v='vim $(FZF)'
+
 alias gg='g ~'
 alias gq='pushd ~ &>/dev/null'
 alias G='popd &>/dev/null'
-
-
