@@ -98,3 +98,4 @@
 ; (setenv "PYTHON_BASIC_REPL" "t")
 
 (setq inferior-lisp-program "sbcl")
+(plist-put org-format-latex-options :scale 1.5)

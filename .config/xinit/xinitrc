@@ -15,7 +15,6 @@ xbanish -t 5 &
 launch pipewire
 
 brightnessctl s 80%
-mailhandler syncd
 
 mpd
 emacs --daemon

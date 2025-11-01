@@ -26,15 +26,19 @@ mail_view() {
 			eval "$viewcmd";;
 		*)
 			viewcmd="mshow $@ | mcolor"
-			kitten @launch sh -c "export NOHEADER=1; $viewcmd; kitten @action scroll_home; bash" &>/dev/null;;
+			kitten @launch sh -c "export NOCLEAR=1; $viewcmd; kitten @action scroll_home; bash" &>/dev/null;;
 	esac
 }
 
 # exit code is required for mblaze to use raw image output
 mail_img_show() {
-	maxsize=400x1280
-	magick - -resize "$maxsize"  - | kitten icat --align left --transfer-mode="stream" --unicode-placeholder
-	exit 62
+	if [ -n "$KITTY_WINDOW_ID" ]; then
+		maxsize=400x1280
+		magick - -resize "$maxsize" - | kitten icat --align left --transfer-mode="stream" --unicode-placeholder
+		exit 62
+	else
+		file -
+	fi
 }
 
 mail_read() {
@@ -44,7 +48,11 @@ mail_read() {
 			set -- "${@:2}"
 			viewcmd="mail_view inline";;
 		*)
-			viewcmd="mail_view";;
+			if [ -n "$KITTY_WINDOW_ID" ]; then
+				viewcmd="mail_view"
+			else
+				viewcmd="mail_view inline"
+			fi
 	esac
 
 	case $1 in
@@ -96,27 +104,6 @@ cmdout() {
 	esac
 }
 
-synclogfile=$XDG_CACHE_HOME/offlineimap.log
-mail_sync() {
-	{ date; echo; } &>> $synclogfile
-
-	if offlineimap &>> $synclogfile; then
-		notify-send -t 10000 "Email synced successfully!"
-	else
-		notify-send "ERROR: Email sync failed!"
-	fi
-
-	{ echo; mail_process; } &>> $synclogfile
-	{ echo -e "\n"; } >> $synclogfile
-}
-
-mail_sync_bg() {
-	while true; do
-		snooze -H* -M/10
-		mail_sync
-	done
-}
-
 case $1 in
 	"list")
 		mail_list;;
@@ -134,10 +121,6 @@ case $1 in
 		mail_view "${@:2}";;
 	"imgshow")
 		mail_img_show "${@:2}";;
-	"sync")
-		mail_sync 1;;
-	"syncd" | "sync_daemon" | "syncdaemon")
-		mail_sync_bg &>/dev/null &;;
 	*)
 		echo "Invalid Command!";;
 esac

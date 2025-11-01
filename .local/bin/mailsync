@@ -1,0 +1,22 @@
+#!/bin/sh
+
+synclogfile=$XDG_CACHE_HOME/offlineimap.log
+mail_sync() {
+	{ date; echo; } &>> $synclogfile
+
+	if offlineimap &>> $synclogfile; then
+		notify-send -t 10000 "Email synced successfully!"
+	else
+		notify-send "ERROR: Email sync failed!"
+	fi
+
+	{ echo; mail_process; } &>> $synclogfile
+	{ echo -e "\n"; } >> $synclogfile
+}
+
+
+while true; do
+	snooze -H* -M/10
+	mail_sync
+done
+

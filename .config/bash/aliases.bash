@@ -36,8 +36,10 @@ alias quit="exit"
 alias :q="exit"
 alias q="exit"
 
-alias nsxiv="nsxiv --anti-alias=no"
+# alias nsxiv="nsxiv --anti-alias=no"
 
+
+alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 # stops annoying font warning
 alias ngspice='LC_CTYPE=C ngspice'
 
@@ -47,4 +49,5 @@ alias v='vim $(FZF)'
 alias gg='g ~'
 alias gq='pushd ~ &>/dev/null'
 alias G='popd &>/dev/null'
+
 

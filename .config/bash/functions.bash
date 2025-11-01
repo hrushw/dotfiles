@@ -26,7 +26,7 @@ lc () {
 	ls --color=auto --group-directories-first ${@:2}
 	stty cols $termcols
 }
-alias l='lc 80'
+alias l='lc 120'
 alias la='l -a'
 
 alias cl='cls; l'
