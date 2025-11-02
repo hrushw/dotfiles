@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # Start user services
-runsvdir "$XDG_CONFIG_HOME/runsvdir/current" &> "$XDG_STATE_HOME/runsvdir-local.log" &
+export SVDIR_USER="$XDG_CONFIG_HOME/runsvdir/current"
+runsvdir "$SVDIR_USER" &> "$XDG_STATE_HOME/runsvdir-local.log" &
 
 tput reset
 pfetch

@@ -5,6 +5,7 @@ alias rm='echo "rm is disabled, use del"'
 alias del='mv -it ~/.local/share/trash/'
 
 alias FZF="fzf --style minimal --preview 'fzf-preview.sh {}' --bind 'focus:transform-header:file --brief {}'"
+alias FZFD="FZF --walker=dir"
 
 # stops annoying font warning
 alias ngspice='LC_CTYPE=C ngspice'

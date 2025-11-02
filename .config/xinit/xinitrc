@@ -1,10 +1,11 @@
 #!/bin/sh
 
 source "$HOME/.profile"
+export SVDIR_X11="$XDG_CONFIG_HOME/xinit/runsvdir/current"
 export XCURSOR_THEME=Breeze_Hacked
 export XCURSOR_SIZE=32
 
-runsvdir "$XDG_CONFIG_HOME/xinit/runsvdir" &> "$XDG_STATE_HOME/runsvdir-x11.log" &
+runsvdir "$SVDIR_X11" &> "$XDG_STATE_HOME/runsvdir-x11.log" &
 
 brightnessctl s 80%
 xwallpaper --maximize ~/.local/share/wallpaper
