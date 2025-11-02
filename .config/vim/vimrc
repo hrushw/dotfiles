@@ -98,4 +98,3 @@ au BufNewFile,BufRead *.sp,*.cir,*.spice setf spice
 
 set background=dark
 colorscheme sorbet
-
