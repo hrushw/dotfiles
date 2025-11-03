@@ -82,3 +82,16 @@ gitpullrecurse() {
 	done
 }
 
+FZF() {
+	case "$1" in
+		"-D")
+			FZF "${@:2}" --walker=dir;;
+		"-H")
+			FZF "${@:2}" --walker-root="$HOME";;
+		*)
+			fzf --style minimal \
+				--preview 'fzf-preview.sh {}' \
+				--bind 'focus:transform-header:file --brief {}' \
+				"$@";;
+	esac
+}
