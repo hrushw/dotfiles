@@ -8,6 +8,8 @@ case ":$PATH:" in
 	*)
 		PATH="${PATH:+$PATH:}$HOME/.local/bin"
 esac
+export LIBRARY_PATH="$HOME/.local/bin"
+export CPATH="$HOME/.local/include"
 
 # forgot why i set this
 # apparantly used to determine sort order
