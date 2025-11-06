@@ -19,3 +19,4 @@ $XDG\_DATA\_HOME/wallpaper and $XDG\_DATA\_HOME/lockpaper
 in `mailsync`, the SIGUSR1 trap function only takes effect after snooze exits
 
 get the script fzf-preview.sh from https://github.com/junegunn/fzf and move to ~/.local/bin
+launch [ https://github.com/silverhammermba/launch ] is not in void repos so installed manually

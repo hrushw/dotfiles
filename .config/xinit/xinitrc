@@ -6,7 +6,6 @@ export XCURSOR_THEME=Breeze_Hacked
 export XCURSOR_SIZE=32
 
 brightnessctl s 80%
-xwallpaper --maximize ~/.local/share/wallpaper
 launch st -e sh -c "fastfetch; export NOCLEAR=t; exec bash"
 
 launch runsvdir "$SVDIR_X11" &>> "$XDG_STATE_HOME/runsvdir-x11.log"
