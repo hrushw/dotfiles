@@ -36,7 +36,7 @@ fi
 # use bright colors if supported by the terminal
 set_prompt() {
 	local ps1uhostname="\[${B_RED}\][\[${B_GREEN}\]\u\[${B_WHITE}\]@\[${B_GREEN}\]\h\[${B_RED}\]]"
-	local ps1dir="\[${B_RED}\][ \[${B_CYAN}\]\w\[${B_RED}\] ]"
+	local ps1dir="\[${B_RED}\][ \[${B_CYAN}\]\W\[${B_RED}\] ]"
 	local ps1prompt="\[${B_RED}\][\[${B_WHITE}\]\$\[${B_RED}\]]> "
 
 	PS1="\[${ENDC}${BOLD}${B_WHITE}\]${ps1uhostname}${B_WHITE} : ${ps1dir}\n${ps1prompt}\[${ENDC}\]"
