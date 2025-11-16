@@ -21,12 +21,14 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 
+# vi(1) startup commands
+export EXINIT="set ai ic nu prompt ts=4 sw=4 nosm showmode warn ws"
+export NEXINIT=$EXINIT
+
 # settings
 export EDITOR="vim"
 export BROWSER="qutebrowser"
 export GTK_THEME=Breeze:dark
-export EXINIT="set ai ic nu prompt ts=4 sw=4 nosm showmode warn ws"
-export NEXINIT=$EXINIT
 export CC=gcc
 export TERMCMD="st"
 

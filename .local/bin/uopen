@@ -46,7 +46,11 @@ view() {
 			mpv --vid=no "$arg";;
 
 		*".png" | *".jpg" | *".jpeg" | *".svg" | *".gif" | *".ppm" | *".pbm" | *".pgm" | *".ff" | *".webp" )
-			kitten icat --align left --transfer-mode="stream" --unicode-placeholder "$arg";;
+			if [ "$KITTY_WINDOW_ID" ]; then
+				kitten icat --align left --transfer-mode="stream" --unicode-placeholder "$arg"
+			else
+				nsxiv "$arg"
+			fi;;
 
 		*".dot")
 			dot -Tkitty "$arg";;

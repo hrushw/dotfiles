@@ -1,0 +1,30 @@
+super + Return
+	st
+super + shift + Return
+	kitty
+super + e
+	emacsclient -nc
+
+super + p
+	dmenu_run
+super + Escape
+	slock
+
+super + backslash
+	mpc toggle
+super + bracketleft
+	mpc prev
+super + bracketright
+	mpc next
+
+XF86AudioMute
+	wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+XF86AudioLowerVolume
+	wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+XF86AudioRaiseVolume
+	wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+
+XF86MonBrightnessDown
+	brightnessctl set 5%-
+XF86MonBrightnessUp
+	brightnessctl set 5%+
