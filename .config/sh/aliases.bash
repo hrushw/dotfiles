@@ -13,4 +13,5 @@ alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 alias py='python'
 alias q="exit"
 
-
+alias ll='ls -alh'
+alias cll='cls; ll'
