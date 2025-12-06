@@ -17,6 +17,10 @@ super + bracketleft
 super + bracketright
 	mpc next
 
+
+super + shift + backslash
+	playerctl play-pause
+
 XF86AudioMute
 	wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
 XF86AudioLowerVolume

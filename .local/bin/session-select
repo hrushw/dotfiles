@@ -10,7 +10,7 @@ echo "$(tput bold)$(tput setaf 1)[$(tput setaf 7) Select Session $(tput setaf 1)
 PS3="
 $(tput sgr0)$(tput bold)$(tput setaf 1)[$(tput setaf 7)#$(tput setaf 1)]? $(tput sgr0)"
 
-select session in "bash" "dwm" "zsh"; do break; done
+select session in "bash" "xinit" "zsh"; do break; done
 
 case $session in
 	"bash")
@@ -19,8 +19,8 @@ case $session in
 	"zsh")
 		echo "Executing: Z Shell"
 		exec zsh;;
-	"dwm")
-		echo "Executing: Suckless' Dynamic Window Manager"
+	"xinit")
+		echo "Executing: startx"
 		exec startx;;
 esac
 

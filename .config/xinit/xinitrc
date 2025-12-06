@@ -9,4 +9,4 @@ brightnessctl s 80%
 launch st -e sh -c "fastfetch; export NOCLEAR=t; exec bash"
 
 launch runsvdir "$SVDIR_X11" &>> "$XDG_STATE_HOME/runsvdir-x11.log"
-exec dwm
+exec i3

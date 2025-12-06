@@ -72,7 +72,7 @@
 (setq shell-file-name "bash")
 (setq vc-follow-symlinks nil)
 
-(setq browse-url-generic-program "qutebrowser")
+(setq browse-url-generic-program "firefox")
 (setq browse-url-browser-function 'browse-url-generic)
 
 (global-set-key (kbd "C-x k") 'kill-current-buffer)

@@ -50,6 +50,11 @@ newscript() {
 	eval "$EDITOR $1"
 }
 
+spawn() {
+	echo "$@"
+	eval "$@"
+}
+
 # Recursively update cloned git repositories in a folder
 gitpullrecurse() {
 	for dir in $(ls); do
