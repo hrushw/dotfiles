@@ -1,5 +1,6 @@
 ; emacs reflux file
 (setq custom-file "~/.config/emacs/emacs-custom.el")
+(load custom-file)
 
 ; enable melpa
 (require 'package)
