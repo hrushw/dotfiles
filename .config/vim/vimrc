@@ -74,7 +74,6 @@ packadd helptoc
 
 runtime maps.vim
 runtime plugins.vim
-runtime chars.vim
 
 " C syntax options {{{
 let c_no_curly_error = 1
