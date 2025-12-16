@@ -39,7 +39,7 @@ view() {
 		*".rst")
 			pandoc "$arg" -t markdown | mdview;;
 
-		*".mkv" | *".mp4" | *".webm")
+		*".mkv" | *".mp4" | *".webm" | *".mov")
 			mpv "$arg";;
 
 		*".flac" | *".opus" | *".mp3")

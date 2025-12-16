@@ -2,7 +2,7 @@
 
 # Start user services
 export SVDIR_USER="$XDG_CONFIG_HOME/runsvdir/current"
-launch runsvdir "$SVDIR_USER" &>> "$XDG_STATE_HOME/runsvdir-local.log"
+runsvdir "$SVDIR_USER" &>> "$XDG_STATE_HOME/runsvdir-local.log" &
 
 tput reset
 pfetch
@@ -15,12 +15,12 @@ select session in "bash" "xinit" "zsh"; do break; done
 case $session in
 	"bash")
 		echo "Executing: GNU Bourne Again Shell"
-		exec bash;;
+		bash;;
 	"zsh")
 		echo "Executing: Z Shell"
-		exec zsh;;
+		zsh;;
 	"xinit")
 		echo "Executing: startx"
-		exec startx;;
+		startx;;
 esac
 
