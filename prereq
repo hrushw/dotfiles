@@ -9,6 +9,16 @@ mkdir -pv $XDG_CONFIG_HOME/gnupg
 mkdir -pv $XDG_CONFIG_HOME/readline
 mkdir -pv $XDG_CONFIG_HOME/ipython
 mkdir -pv $XDG_CONFIG_HOME/vit
+mkdir -pv $XDG_CONFIG_HOME/sioyek
+mkdir -pv $XDG_CONFIG_HOME/mpd
+mkdir -pv $XDG_CONFIG_HOME/mpv
+mkdir -pv $XDG_CONFIG_HOME/sv
+mkdir -pv $XDG_CONFIG_HOME/river
+mkdir -pv $XDG_CONFIG_HOME/qutebrowser
+mkdir -pv $XDG_CONFIG_HOME/matplotlib
+mkdir -pv $XDG_CONFIG_HOME/mako
+mkdir -pv $XDG_CONFIG_HOME/kitty
+mkdir -pv $XDG_CONFIG_HOME/hypr
 mkdir -pv ~/.local/share/icons ~/.local/share/fonts ~/.local/bin
 mkdir -pv $GRIM_DEFAULT_DIR
 mkdir -pv $XDG_DATA_HOME/go
