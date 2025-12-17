@@ -54,6 +54,13 @@
 ; (add-to-list 'load-path "/usr/share/emacs/site-lisp/mu4e/")
 ; (load "mu4e.el")
 
+; Ido mode
+(ido-mode 1)
+(ido-everywhere 1)
+
+; start in home
+(setq default-directory "~")
+
 ; window settings
 (setq-default inhibit-startup-screen t)
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
@@ -72,7 +79,6 @@
 (setq-default indent-tabs-mode t)
 (setq-default tab-always-indent nil)
 (setq-default backward-delete-char-untabify-method nil)
-
 (setq-default c-basic-offset 4)
 (setq-default c-tab-always-indent nil)
 (setq-default c-syntactic-indentation nil)

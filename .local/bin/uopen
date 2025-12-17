@@ -6,94 +6,87 @@ mdview() {
 	lowdown -t term $1 | bat --paging=always
 }
 
-view() {
-	arg="$@"
+arg="$@"
+while file "$arg" | grep "symbolic link to" &>/dev/null; do
+	arg="$(realpath "$arg")"
+done
 
-	case "$arg" in
-		"file://"*)
-			arg=${arg:7}
-	esac
+case "$arg" in
+	"file://"*)
+		arg=${arg:7}
+esac
 
-	case "$arg" in
-		"http://"* | "https://"*)
-			qutebrowser "$arg"
-			return;;
+case "$arg" in
+	"http://"* | "https://"*)
+		qutebrowser "$arg" &>/dev/null &
+		exit 0;;
 
-		"irc://"* | "ircs://"*)
-			str="$(echo "$arg" | sed 's/^ircs*:\/\///' | sed 's/\// /')"
-			host="$(echo "$str" | awk '{print $1}')"
-			channel="$(echo "$str" | awk '{print $2}')"
-			echo "$host" "$channel"
-			catgirl -l -h "$host" -j "$channel"
-			return;;
-	esac
+	"irc://"* | "ircs://"*)
+		str="$(echo "$arg" | sed 's/^ircs*:\/\///' | sed 's/\// /')"
+		host="$(echo "$str" | awk '{print $1}')"
+		channel="$(echo "$str" | awk '{print $2}')"
+		echo "$host" "$channel"
+		catgirl -l -h "$host" -j "$channel"
+		exit 0;;
+esac
 
-	[ -e "$arg" ] || { echo "ERROR: file '$arg' not found!"; return -1; }
-
-	case "$arg" in
-		*".html")
-			qutebrowser "$arg";;
-
-		*".md")
-			mdview "$arg";;
-		*".rst")
-			pandoc "$arg" -t markdown | mdview;;
-
-		*".mkv" | *".mp4" | *".webm" | *".mov")
-			mpv "$arg";;
-
-		*".flac" | *".opus" | *".mp3")
-			mpv --vid=no "$arg";;
-
-		*".png" | *".jpg" | *".jpeg" | *".svg" | *".gif" | *".ppm" | *".pbm" | *".pgm" | *".ff" | *".webp" )
-			if [ "$KITTY_WINDOW_ID" ]; then
-				kitten icat --align left --transfer-mode="stream" --unicode-placeholder "$arg"
-			else
-				nsxiv "$arg"
-			fi;;
-
-		*".dot")
-			dot -Tkitty "$arg";;
-
-		*".pdf" | *".djvu" | *".ps")
-			zathura --fork "$arg";;
-
-		*".txt" | *"/README" | "README")
-			bat --paging=always "$arg";;
-
-		*".org")
-			emacsclient -nc "$arg";;
-
-		*)
-			if file "$arg" | grep "directory"; then
-				ls -al --color=auto --hyperlink=auto "$arg"
-			elif file "$arg" | grep -e "ASCII text" -e "UTF-8 text" &>/dev/null; then
-				if file "$arg" | grep "troff" &>/dev/null; then
-					man "$arg"
-				else
-					bat --paging=always "$arg"
-				fi
-			elif file "$arg" | grep "broken" &>/dev/null; then
-				file "$arg"
-			elif file "$arg" | grep "symbolic link to" &>/dev/null; then
-				view $(realpath "$arg")
-			else
-				file "$arg"
-			fi;;
-	esac
-}
-
-if (( $# > 4 )); then
-	read -p "Are you sure you want to open $# files? [y/n]: "
-	case $REPLY in
-		"y"* | "Y"*)
-			;;
-		*)
-			echo "Did not open $# files"
-			exit;;
-	esac
+if [ ! -e "$arg" ]; then
+	echo "ERROR: file '$arg' not found!"
+	exit -1
 fi
 
-for i in "$@"; do
-	view "$i";
-done
+case "$arg" in
+	*".html")
+		qutebrowser "$arg" &>/dev/null &;;
+
+	*".md")
+		mdview "$arg";;
+	*".rst")
+		pandoc "$arg" -t markdown | mdview;;
+
+	*".mkv" | *".mp4" | *".webm" | *".mov")
+		mpv "$arg";;
+
+	*".flac" | *".opus" | *".mp3")
+		mpv --vid=no "$arg";;
+
+	*".png" | *".jpg" | *".jpeg" | *".svg" | *".gif" | *".ppm" | *".pbm" | *".pgm" | *".ff" | *".webp" )
+		if [ "$KITTY_WINDOW_ID" ]; then
+			kitten icat --align left --transfer-mode="stream" --unicode-placeholder "$arg"
+		else
+			nsxiv "$arg" &>/dev/null &
+		fi;;
+
+	*".dot")
+		if [ "$KITTY_WINDOW_ID" ]; then
+			dot -Tkitty "$arg"
+		else
+			# Works
+			zsh -c "nsxiv =(dot -Tpng "$arg") &>/dev/null"
+		fi;;
+
+	*".pdf" | *".djvu" | *".ps")
+		sioyek "$arg" &>/dev/null &;;
+
+	*".txt" | *"/README" | "README")
+		bat --paging=always "$arg";;
+
+	*".org")
+		emacsclient -nc "$arg";;
+
+	*)
+		if file "$arg" | grep "directory"; then
+			ls -al --color=auto --hyperlink=auto "$arg"
+		elif file "$arg" | grep -e "ASCII text" -e "UTF-8 text" &>/dev/null; then
+			if file "$arg" | grep "troff" &>/dev/null; then
+				# ????
+				man "$arg"
+			else
+				bat --paging=always "$arg"
+			fi
+		elif file "$arg" | grep "broken" &>/dev/null; then
+			file "$arg"
+		else
+			file "$arg"
+		fi;;
+esac
