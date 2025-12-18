@@ -87,21 +87,7 @@ gitpullrecurse() {
 	done
 }
 
-FZF() {
-	case "$1" in
-		"-D")
-			FZF "${@:2}" --walker=dir;;
-		"-H")
-			FZF "${@:2}" --walker-root="$HOME";;
-		*)
-			fzf --style minimal \
-				--preview 'fzf-preview.sh {}' \
-				--bind 'focus:transform-header:file --brief {}' \
-				"$@";;
-	esac
-}
-
-set_prompt() {
+_bash_set_prompt() {
 	local ps1uhostname="\[${B_RED}\][\[${B_GREEN}\]\u\[${B_WHITE}\]@\[${B_GREEN}\]\h\[${B_RED}\]]"
 	local ps1dir="\[${B_RED}\][ \[${B_CYAN}\]\W\[${B_RED}\] ]"
 	local ps1prompt="\[${B_RED}\][\[${B_WHITE}\]\$\[${B_RED}\]]> "
@@ -112,7 +98,7 @@ set_prompt() {
 	PS3="${ENDC}${BOLD}$(tput setaf 9)[$(tput setaf 15)#$(tput setaf 9)]? $(tput sgr0)"
 }
 
-set_title_updater() {
+_bash_set_title_updater() {
 	case "$TERM" in
 		"xterm-kitty")
 			;;

@@ -1,35 +1,9 @@
 source $XDG_CONFIG_HOME/sh/colors.sh
+source $XDG_CONFIG_HOME/sh/functions.sh
+source $XDG_CONFIG_HOME/sh/aliases.sh
 source $XDG_CONFIG_HOME/sh/functions.bash
-source $XDG_CONFIG_HOME/sh/aliases.bash
 
 [ -d "$XDG_STATE_HOME/bash" ] || mkdir "$XDG_STATE_HOME/bash"
-
-export HISTFILE=$XDG_STATE_HOME/bash/history
-export HISTSIZE=-1
-export LESS='-R --use-color -Dd+r$Du+b$ +0'
-export MANROFFOPT="-c"
-
-cls() {
-	clear && printf "\e[3J"
-	! [ "$NOHEADER" ] && tszfmtprint
-}
-
-lc () {
-	local termcols=$(set -- $(stty size); builtin echo $2)
-	[ $(("$1" < "$termcols")) != '0' ] && stty cols ${1}
-	ls --color=auto --group-directories-first ${@:2}
-	stty cols $termcols
-}
-alias l='lc 120'
-
-[ $TERM = "st-256color-kitty" ] && export KITTY_WINDOW_ID=t
-
-case "$TERM" in
-	"eterm-color")
-		alias vim='echo "vim is not supported inside eterm"';;
-	*)
-		set -o vi;;
-esac
 
 shopt -s autocd
 shopt -s cdable_vars
@@ -45,17 +19,8 @@ shopt -s extglob
 
 set -o noclobber
 
-eval $(dircolors)
+_bash_set_prompt
+_bash_set_title_updater
 
-# On kitty, tabs -4 causes the next line to be printed with spaces upto line end
-# The actual output of tabs -4, `cat -v <(tabs -4)` is also slightly different from st
-# No idea why this happens
-tabs -4
-if [ "$NOCLEAR" ]; then
-	! [ "$NOHEADER" ] && tszfmtprint
-else
-	cls
-fi
+_common_sh_init
 
-set_prompt
-set_title_updater

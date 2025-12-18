@@ -17,3 +17,7 @@ compinit -d "$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
 # End of lines added by compinstall
 
 source "$XDG_CONFIG_HOME/sh/colors.sh"
+source "$XDG_CONFIG_HOME/sh/functions.sh"
+source "$XDG_CONFIG_HOME/sh/aliases.sh"
+
+_common_sh_init
