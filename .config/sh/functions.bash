@@ -1,3 +1,11 @@
+lc () {
+	local termcols=$(set -- $(stty size); builtin echo $2)
+	[ $(("$1" < "$termcols")) != '0' ] && stty cols ${1}
+	ls --color=auto --group-directories-first -a ${@:2}
+	stty cols $termcols
+}
+alias l='lc 120'
+
 # run command in python venv
 pyenv() {
 	envactor="$XDG_DATA_HOME/venv/bin/activate"

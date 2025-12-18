@@ -1,15 +1,8 @@
 cls() {
-	clear && printf "\e[3J"
+	clear
+	test $SHELL_NAME != "sh" && printf "\e[3J"
 	! [ "$NOHEADER" ] && tszfmtprint
 }
-
-lc () {
-	local termcols=$(set -- $(stty size); builtin echo $2)
-	[ $(("$1" < "$termcols")) != '0' ] && stty cols ${1}
-	ls --color=auto --group-directories-first -a ${@:2}
-	stty cols $termcols
-}
-alias l='lc 120'
 
 FZF() {
 	case "$1" in
@@ -46,6 +39,7 @@ _common_sh_init() {
 	tabs -4
 	if [ "$NOCLEAR" ]; then
 		! [ "$NOHEADER" ] && tszfmtprint
+		export NOCLEAR=""
 	else
 		cls
 	fi

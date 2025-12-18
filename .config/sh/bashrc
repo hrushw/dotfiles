@@ -1,3 +1,5 @@
+SHELL_NAME="bash"
+
 source $XDG_CONFIG_HOME/sh/colors.sh
 source $XDG_CONFIG_HOME/sh/functions.sh
 source $XDG_CONFIG_HOME/sh/aliases.sh
