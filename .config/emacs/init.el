@@ -7,6 +7,7 @@
 (add-to-list 'package-archives
   '("melpa" . "https://melpa.org/packages/") t)
 
+; cloned from https://github.com/rougier/nano-emacs
 (add-to-list 'load-path "~/.config/emacs/nano-emacs/")
 (load "nano.el")
 (nano-theme-set-dark)
@@ -43,6 +44,7 @@
 (setq tab-bar-button-relief 0)
 (setq tab-bar-tab-hints t) ; adding a space before the hint is beyond my abilities
 
+; cloned from https://github.com/emacs-evil/evil
 ; adding a text editor
 (add-to-list 'load-path "~/.config/emacs/evil/")
 (setq evil-want-C-u-scroll t)

@@ -1,6 +1,6 @@
 cls() {
-	clear
-	test $SHELL_NAME != "sh" && printf "\e[3J"
+	tabs -4
+	tput reset
 	! [ "$NOHEADER" ] && tszfmtprint
 }
 
@@ -19,9 +19,6 @@ FZF() {
 }
 
 _common_sh_init() {
-	# On kitty, tabs -4 causes the next line to be printed with spaces upto line end
-	# The actual output of tabs -4, `cat -v <(tabs -4)` is also slightly different from st
-	# No idea why this happens
 	export HISTFILE=$XDG_STATE_HOME/bash/history
 	export HISTSIZE=-1
 	export LESS='-R --use-color -Dd+r$Du+b$ +0'
@@ -36,7 +33,6 @@ _common_sh_init() {
 
 	eval $(dircolors)
 
-	tabs -4
 	if [ "$NOCLEAR" ]; then
 		! [ "$NOHEADER" ] && tszfmtprint
 		export NOCLEAR=""

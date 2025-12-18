@@ -1,5 +1,6 @@
 " vim:fileencoding=utf-8:foldmethod=marker
 
+" Using [vim-plug](https://github.com/junegunn/vim-plug) for managing plugins
 " Plugin list {{{
 call plug#begin()
 Plug 'preservim/nerdtree'
