@@ -9,7 +9,10 @@ export HISTSIZE=-1
 export LESS='-R --use-color -Dd+r$Du+b$ +0'
 export MANROFFOPT="-c"
 
-cls() { tput reset; tabs -4; ! [ "$NOHEADER" ] && tszfmtprint; }
+cls() {
+	clear && printf "\e[3J"
+	! [ "$NOHEADER" ] && tszfmtprint
+}
 
 lc () {
 	local termcols=$(set -- $(stty size); builtin echo $2)
@@ -44,6 +47,10 @@ set -o noclobber
 
 eval $(dircolors)
 
+# On kitty, tabs -4 causes the next line to be printed with spaces upto line end
+# The actual output of tabs -4, `cat -v <(tabs -4)` is also slightly different from st
+# No idea why this happens
+tabs -4
 if [ "$NOCLEAR" ]; then
 	! [ "$NOHEADER" ] && tszfmtprint
 else
@@ -51,4 +58,4 @@ else
 fi
 
 set_prompt
-
+set_title_updater
