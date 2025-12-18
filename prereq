@@ -20,6 +20,7 @@ mkdir -pv $XDG_CONFIG_HOME/mako
 mkdir -pv $XDG_CONFIG_HOME/kitty
 mkdir -pv $XDG_CONFIG_HOME/hypr
 mkdir -pv $XDG_CONFIG_HOME/i3
+mkdir -pv $XDG_CONFIG_HOME/alacritty
 mkdir -pv ~/.local/share/icons ~/.local/share/fonts ~/.local/bin
 mkdir -pv $GRIM_DEFAULT_DIR
 mkdir -pv $XDG_DATA_HOME/go

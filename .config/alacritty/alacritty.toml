@@ -1,0 +1,34 @@
+[general]
+import = [ "colors.toml" ]
+live_config_reload = true
+working_directory = "None"
+ipc_socket = false
+
+[window]
+startup_mode = "Windowed"
+padding = { x = 0, y = 0 }
+
+opacity = 0.8
+dynamic_title = true
+
+[font]
+
+normal = { family="Terminess Nerd Font", style="Regular" }
+bold = { style="Bold" }
+italic = { style="Italic" }
+bold_italic = { style="Bold Italic" }
+size = 11
+
+builtin_box_drawing = true
+
+[colors]
+transparent_background_colors = true
+draw_bold_text_with_bright_colors = false
+
+[cursor]
+style = { shape="Block", blinking="On" }
+
+[mouse]
+hide_when_typing = true
+
+
