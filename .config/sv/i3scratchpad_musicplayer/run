@@ -1,0 +1,4 @@
+#!/bin/sh
+
+exec kitty --name i3scratchpad_musicplayer rmpc
+
