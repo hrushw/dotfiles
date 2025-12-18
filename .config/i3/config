@@ -3,6 +3,7 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 tiling_drag swap_modifier Shift
 
+title_align center
 font pango:Terminus 16
 
 bindsym $mod+Shift+q kill
@@ -70,6 +71,9 @@ bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 
+bindsym $mod+Shift+o move scratchpad
+bindsym $mod+o scratchpad show
+
 gaps outer -10
 gaps inner 20
 
@@ -77,6 +81,18 @@ default_border normal 2
 default_floating_border normal 8
 
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+
+bindsym $mod+w [instance="dropdown"] scratchpad show
+exec --no-startup-id st -n dropdown
+for_window [instance="dropdown"] move scratchpad
+for_window [instance="dropdown"] resize set 80 ppt 40 ppt
+for_window [instance="dropdown"] move position 10 ppt 0 ppt
+
+bindsym $mod+Control+m [instance="musicplayer"] scratchpad show
+exec --no-startup-id kitty --name musicplayer rmpc
+for_window [instance="musicplayer"] move scratchpad
+for_window [instance="musicplayer"] resize set 90 ppt 80 ppt
+for_window [instance="musicplayer"] move position 5 ppt 10 ppt
 
 bar {
         status_command i3status

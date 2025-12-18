@@ -6,6 +6,7 @@ export XCURSOR_THEME=Breeze_Hacked
 export XCURSOR_SIZE=32
 
 brightnessctl s 80%
+# Spawn in a terminal - helps when keybinds are broken
 st -e sh -c "fastfetch; export NOCLEAR=t; exec bash" &
 
 runsvdir "$SVDIR_X11" &>> "$XDG_STATE_HOME/runsvdir-x11.log" &
