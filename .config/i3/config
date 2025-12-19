@@ -83,18 +83,18 @@ default_floating_border normal 8
 
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
+for_window [instance="i3scratchpad_*"] move scratchpad
+for_window [instance="i3scratchpad_*"] border pixel 8
+
 bindsym $mod+w [instance="i3scratchpad_dropdown"] scratchpad show
-for_window [instance="i3scratchpad_dropdown"] move scratchpad
 for_window [instance="i3scratchpad_dropdown"] resize set 80 ppt 40 ppt
 for_window [instance="i3scratchpad_dropdown"] move position 10 ppt 0 ppt
 
 bindsym $mod+Control+m [instance="i3scratchpad_musicplayer"] scratchpad show
-for_window [instance="i3scratchpad_musicplayer"] move scratchpad
 for_window [instance="i3scratchpad_musicplayer"] resize set 90 ppt 80 ppt
 for_window [instance="i3scratchpad_musicplayer"] move position 5 ppt 10 ppt
 
 bindsym $mod+Control+i [instance="i3scratchpad_btop"] scratchpad show
-for_window [instance="i3scratchpad_btop"] move scratchpad
 for_window [instance="i3scratchpad_btop"] resize set 90 ppt 80 ppt
 for_window [instance="i3scratchpad_btop"] move position 5 ppt 10 ppt
 
