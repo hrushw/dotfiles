@@ -1,6 +1,8 @@
 cls() {
-	tabs -4
+	# reset and clear to fix issues with tabs -4 on kitty
 	tput reset
+	tabs -4
+	tput clear
 	! [ "$NOHEADER" ] && tszfmtprint
 }
 

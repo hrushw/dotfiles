@@ -96,26 +96,33 @@ gitpullrecurse() {
 }
 
 _bash_set_prompt() {
-	local ps1uhostname="\[${B_RED}\][\[${B_GREEN}\]\u\[${B_WHITE}\]@\[${B_GREEN}\]\h\[${B_RED}\]]"
-	local ps1dir="\[${B_RED}\][ \[${B_CYAN}\]\W\[${B_RED}\] ]"
-	local ps1prompt="\[${B_RED}\][\[${B_WHITE}\]\$\[${B_RED}\]]> "
+	local ps1uhostname="\[$B_RED\][\[$B_GREEN\]\u\[$B_WHITE\]@\[$B_GREEN\]\h\[$B_RED\]]"
+	local ps1dir="\[$B_RED\][ \[$B_CYAN\]\W\[$B_RED\] ]"
+	# an extra $BOLD is needed after a newline
+	# to help the terminal reprint the prompt correctly on window resize
+	# (otherwise boldface disappears on the second line)
+	local ps1prompt="\[$BOLD$B_RED\][\[$B_WHITE\]\$\[$B_RED\]]>\[$ENDC\] "
 
-	PS1="\[${ENDC}${BOLD}${B_WHITE}\]${ps1uhostname}${B_WHITE} : ${ps1dir}\n${ps1prompt}\[${ENDC}\]"
-	PS2="\[${ENDC}${BOLD}${B_RED}\]| \[${ENDC}\]"
+	PS1="\[$ENDC$BOLD$B_WHITE\]$ps1uhostname$B_WHITE : $ps1dir\[\n\]$ps1prompt"
+	PS2="\[$ENDC$BOLD$B_RED\]| \[$ENDC\]"
 	# PS3 does not use \[\] escape sequences
-	PS3="${ENDC}${BOLD}$(tput setaf 9)[$(tput setaf 15)#$(tput setaf 9)]? $(tput sgr0)"
+	PS3="$ENDC$BOLD$B_RED[$B_WHITE#$B_RED]? $ENDC"
 }
 
 _bash_set_title_updater() {
 	case "$TERM" in
+		# Kitty already handles title updating
 		"xterm-kitty")
+			;;
+		# Eterm does not have a title
+		"eterm-color")
 			;;
 		*)
 			# Set window title to command currently running
 			PS0="\[\e]2;\$(set -- \$(history 1); echo \${@:2}) [ bash: \w ]\a\]"
 			# After command execution, display cwd in window title
 			local title="\[\e]2;bash : \w\a\]"
-			PS1="${title}${PS1}"
+			PS1="$title$PS1"
 			;;
 	esac
 }

@@ -59,6 +59,8 @@
 ; Ido mode
 (ido-mode 1)
 (ido-everywhere 1)
+(setq ido-enable-flex-matching t)
+(setq ido-enable-regexp t)
 
 ; start in home
 (setq default-directory "~")
