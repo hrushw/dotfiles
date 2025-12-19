@@ -1,4 +1,5 @@
 #!/bin/sh
 
+cd
 exec st -n i3scratchpad_dropdown
 
