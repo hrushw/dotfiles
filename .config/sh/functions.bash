@@ -101,7 +101,7 @@ _bash_set_prompt() {
 	# an extra $BOLD is needed after a newline
 	# to help the terminal reprint the prompt correctly on window resize
 	# (otherwise boldface disappears on the second line)
-	local ps1prompt="\[$BOLD$B_RED\][\[$B_WHITE\]\$\[$B_RED\]]>\[$B_WHITE\] "
+	local ps1prompt="\[$BOLD$B_RED\][\[$B_WHITE\]\$\[$B_RED\]]>\[$ENDC\] "
 
 	PS0="\[$ENDC\]"
 	PS1="\[$ENDC$BOLD$B_WHITE\]$ps1uhostname\[$B_WHITE\] : $ps1dir\n$ps1prompt"
