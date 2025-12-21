@@ -18,7 +18,7 @@ esac
 
 case "$arg" in
 	"http://"* | "https://"*)
-		qutebrowser "$arg" &>/dev/null &
+		firefox "$arg" &>/dev/null &
 		exit 0;;
 
 	"irc://"* | "ircs://"*)
@@ -37,7 +37,7 @@ fi
 
 case "$arg" in
 	*".html")
-		qutebrowser "$arg" &>/dev/null &;;
+		firefox "$arg" &>/dev/null &;;
 
 	*".md")
 		mdview "$arg";;

@@ -101,9 +101,10 @@ _bash_set_prompt() {
 	# an extra $BOLD is needed after a newline
 	# to help the terminal reprint the prompt correctly on window resize
 	# (otherwise boldface disappears on the second line)
-	local ps1prompt="\[$BOLD$B_RED\][\[$B_WHITE\]\$\[$B_RED\]]>\[$ENDC\] "
+	local ps1prompt="\[$BOLD$B_RED\][\[$B_WHITE\]\$\[$B_RED\]]>\[$B_WHITE\] "
 
-	PS1="\[$ENDC$BOLD$B_WHITE\]$ps1uhostname$B_WHITE : $ps1dir\[\n\]$ps1prompt"
+	PS0="\[$ENDC\]"
+	PS1="\[$ENDC$BOLD$B_WHITE\]$ps1uhostname\[$B_WHITE\] : $ps1dir\n$ps1prompt"
 	PS2="\[$ENDC$BOLD$B_RED\]| \[$ENDC\]"
 	# PS3 does not use \[\] escape sequences
 	PS3="$ENDC$BOLD$B_RED[$B_WHITE#$B_RED]? $ENDC"
@@ -114,12 +115,12 @@ _bash_set_title_updater() {
 		# Kitty already handles title updating
 		"xterm-kitty")
 			;;
-		# Eterm does not have a title
+		# Eterm does not have a title and misinterprets relevant escape codes
 		"eterm-color")
 			;;
 		*)
 			# Set window title to command currently running
-			PS0="\[\e]2;\$(set -- \$(history 1); echo \${@:2}) [ bash: \w ]\a\]"
+			PS0="\[\e]2;\$(set -- \$(history 1); echo \${@:2}) [ bash: \w ]\a\]$PS0"
 			# After command execution, display cwd in window title
 			local title="\[\e]2;bash : \w\a\]"
 			PS1="$title$PS1"

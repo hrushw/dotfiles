@@ -75,6 +75,8 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+o move scratchpad
 bindsym $mod+o [instance="^(?!i3scratchpad_).*"] scratchpad show
 
+bindsym $mod+s [instance="^(?!i3scratchpad_).*"] sticky toggle
+
 gaps outer -10
 gaps inner 20
 
