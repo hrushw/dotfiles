@@ -1,6 +1,6 @@
 " vim:fileencoding=utf-8:foldmethod=marker
 
-" Settings
+" Settings {{{
 set encoding=UTF-8
 
 set viminfo='32,<256,:4096,/256,%
@@ -12,12 +12,14 @@ set undofile
 set history=4096
 set noexrc
 set secure
+" }}}
 
-" ui options
+" UI options {{{
 set ruler
 set number
 set relativenumber
 set cursorline
+set nocursorcolumn
 set shortmess=atToO
 set wildmenu
 set wildoptions=pum
@@ -28,6 +30,7 @@ set laststatus=2
 set conceallevel=2
 set foldenable
 set fillchars=vert:\|,fold:-,eob:\ ,lastline:@
+" }}}
 
 " Search Options {{{
 set ignorecase
@@ -47,25 +50,17 @@ set shiftwidth=4
 set softtabstop=4
 " }}}
 
-" Behavior
+" Behavior {{{
 " if exists("+autochdir") | set autochdir | endif
 set guioptions=cdiM
 set autoread
 set noautoshelldir
 set noautowrite
 set noautowriteall
-
 set backspace=indent,eol,start
+" }}}
 
-" Options without 'set'
-syntax on
-nohlsearch
-
-" Colorscheme
-set termguicolors
-set background=dark
-
-" Load plugins
+" Load plugins {{{
 runtime ftplugin/man.vim
 let g:no_man_maps = 1
 let g:ft_man_open_mode = 'tab'
@@ -74,6 +69,7 @@ packadd helptoc
 
 runtime maps.vim
 runtime plugins.vim
+" }}}
 
 " C syntax options {{{
 let c_no_curly_error = 1
@@ -96,5 +92,11 @@ nnoremap <Leader>.cf :call CSyntaxFunctionToggle()<CR>
 
 au BufNewFile,BufRead *.sp,*.cir,*.spice setf spice
 
+syntax on
+nohlsearch
+
+" Colorscheme {{{
+set termguicolors
 set background=dark
 colorscheme sorbet
+" }}}
