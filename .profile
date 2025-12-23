@@ -5,6 +5,8 @@
 case ":$PATH:" in
 	*:"$HOME/.local/bin":*)
 		;;
+	"$HOME/.local/bin":*)
+		;;
 	*)
 		PATH="${PATH:+$PATH:}$HOME/.local/bin"
 esac
@@ -49,6 +51,7 @@ export SVDIR="$XDG_CONFIG_HOME/service"
 export XCURSOR_PATH="/usr/share/icons:~/.local/share/icons"
 export GNUPGHOME="$XDG_CONFIG_HOME/gnupg/"
 export LESSHISTFILE="$XDG_STATE_HOME/lesshst"
+export RLWRAP_HOME="$XDG_STATE_HOME/readline"
 
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
 

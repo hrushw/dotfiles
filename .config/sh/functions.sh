@@ -33,7 +33,12 @@ _common_sh_init() {
 			set -o vi;;
 	esac
 
+	# ls colors
 	eval $(dircolors)
+
+	# ocaml setup
+	eval $(opam env)
+	test -f "$HOME/.opam/opam-init/complete.sh" && . $HOME/.opam/opam-init/complete.sh
 
 	if [ "$NOCLEAR" ]; then
 		! [ "$NOHEADER" ] && tszfmtprint

@@ -35,10 +35,19 @@ fi
 
 # Print terminal type and size
 tszfmtprint() {
-	local term_clr="${B_BLUE}${TERM}${B_WHITE}"
-	local cols_clr="${B_CYAN}${COLUMNS}${B_WHITE}"
-	local rows_clr="${B_CYAN}${LINES}${B_RED}"
-	local shell_clr="${B_BLUE}${SHELL_NAME}${B_RED}"
+	term_clr="${B_BLUE}${TERM}${B_WHITE}"
+	shell_clr="${B_BLUE}${SHELL_NAME}${B_RED}"
+
+	case "$SHELL_NAME" in
+		"bash" | "zsh")
+			cols_clr="${B_CYAN}${COLUMNS}${B_WHITE}"
+			rows_clr="${B_CYAN}${LINES}${B_RED}"
+			;;
+		*)
+			cols_clr="${B_CYAN}$(tput cols)${B_WHITE}"
+			rows_clr="${B_CYAN}$(tput lines)${B_RED}"
+			;;
+	esac
 	echo "${ENDC}${BOLD}${B_RED}[${term_clr} => ${shell_clr}] ${B_WHITE}-${B_RED} [${cols_clr} x ${rows_clr}]${ENDC}"
 }
 
