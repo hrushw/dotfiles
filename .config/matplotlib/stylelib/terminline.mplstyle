@@ -82,7 +82,7 @@ ytick.minor.width: 0.5
 
 # LINES {{{
 
-lines.linewidth: 2.0
+lines.linewidth: 1.0
 lines.linestyle: -
 lines.antialiased: False
 

@@ -26,6 +26,7 @@ set wildoptions=pum
 set pumheight=32
 set showcmd
 set laststatus=2
+set showtabline=1
 
 set conceallevel=2
 set foldenable

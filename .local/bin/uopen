@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 # Universal file/link opener
 
@@ -50,7 +50,9 @@ case "$arg" in
 	*".flac" | *".opus" | *".mp3")
 		mpv --vid=no "$arg";;
 
-	*".png" | *".jpg" | *".jpeg" | *".svg" | *".gif" | *".ppm" | *".pbm" | *".pgm" | *".ff" | *".webp" )
+	# idk how to make case match case-insensitive in zsh so temp fix for now
+	*".png" | *".jpg" | *".jpeg" | *".svg" | *".gif" | *".ppm" | *".pbm" | *".pgm" | *".ff" | *".webp" |
+	*".PNG" | *".JPG" | *".JPEG" | *".SVG" | *".GIF" | *".PPM" | *".PBM" | *".PGM" | *".FF" | *".WEBP" )
 		if [ "$KITTY_WINDOW_ID" ]; then
 			kitten icat --align left --transfer-mode="stream" --unicode-placeholder "$arg"
 		else
@@ -61,8 +63,7 @@ case "$arg" in
 		if [ "$KITTY_WINDOW_ID" ]; then
 			dot -Tkitty "$arg"
 		else
-			# Works
-			zsh -c "nsxiv =(dot -Tpng "$arg") &>/dev/null"
+			nsxiv =(dot -Tpng "$arg") &>/dev/null
 		fi;;
 
 	*".pdf" | *".djvu" | *".ps")
