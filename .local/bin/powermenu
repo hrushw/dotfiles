@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+PS3="
+$(tput sgr0)$(tput bold)$(tput setaf 1)[$(tput setaf 7)#$(tput setaf 1)]? $(tput sgr0)"
+
+select opt in "Shutdown" "Reboot" "Sleep" "Suspend" "Hibernate"; do break; done
+
+case "$opt" in
+	"Shutdown")
+		sudo shutdown -P now;;
+	"Reboot")
+		sudo shutdown -r now;;
+	"Sleep")
+		sudo zzz -S;;
+	"Suspend")
+		sudo zzz -z;;
+	"Hibernate")
+		sudo zzz -Z;;
+esac
