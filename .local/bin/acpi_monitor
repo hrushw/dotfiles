@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+locker=slock
+
+handle() {
+	case "$1" in
+		"button/power")
+			case "$2" in
+				"PBTN" | "PWRF") $locker;;
+			esac;;
+		"button/lid")
+			case "$3" in
+				"close") $locker;;
+			esac;;
+		"button/sleep")
+			case "$2" in
+				"SBTN" | "SLPB") $locker;;
+			esac;;
+	esac
+}
+
+acpi_listen | while read -r ev; do
+	handle $ev
+done

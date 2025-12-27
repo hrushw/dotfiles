@@ -1,4 +1,4 @@
 #!/bin/sh
 
 cd
-st -n i3scratchpad_btop -e btop
+exec st -n i3scratchpad_btop -e btop

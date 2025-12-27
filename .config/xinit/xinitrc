@@ -4,6 +4,7 @@ source "$HOME/.profile"
 export SVDIR_X11="$XDG_CONFIG_HOME/xinit/runsvdir/current"
 export XCURSOR_THEME=Breeze_Hacked
 export XCURSOR_SIZE=32
+# export SCREENLOCKER=slock
 
 brightnessctl s 80%
 # Spawn in a terminal - helps when keybinds are broken
