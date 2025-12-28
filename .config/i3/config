@@ -83,7 +83,7 @@ gaps inner 20
 default_border normal 2
 default_floating_border normal 8
 
-exec --no-startup-id xss-lock --transfer-sleep-lock -- slock --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- slock
 
 for_window [instance="i3scratchpad_*"] move scratchpad
 for_window [instance="i3scratchpad_*"] border pixel 8

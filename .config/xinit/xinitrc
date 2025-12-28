@@ -7,6 +7,7 @@ export XCURSOR_SIZE=32
 # export SCREENLOCKER=slock
 
 brightnessctl s 80%
+xset s 900 900
 # Spawn in a terminal - helps when keybinds are broken
 st -e sh -c "fastfetch; export NOCLEAR=t; exec bash" &
 
