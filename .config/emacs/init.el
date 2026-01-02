@@ -32,6 +32,13 @@
 
 (nano-refresh-theme)
 
+; window settings
+(setq-default inhibit-startup-screen t)
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
+(add-to-list 'default-frame-alist '(undecorated . t))
+
+; clear window-setup-hook (nano adds a splash that disables the menubar)
+(setq window-setup-hook ())
 ; disable ui elements
 (menu-bar-mode 1)
 (tool-bar-mode 0)
@@ -64,11 +71,6 @@
 
 ; start in home
 (setq default-directory "~")
-
-; window settings
-(setq-default inhibit-startup-screen t)
-(add-to-list 'default-frame-alist '(fullscreen . maximized))
-(add-to-list 'default-frame-alist '(undecorated . t))
 
 ; relative line numbers
 (setq-default display-line-numbers-type 'relative)

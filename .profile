@@ -5,11 +5,11 @@
 case ":$PATH:" in
 	*:"$HOME/.local/bin":*)
 		;;
-	"$HOME/.local/bin":*)
-		;;
 	*)
 		PATH="${PATH:+$PATH:}$HOME/.local/bin"
 esac
+
+
 export LIBRARY_PATH="$HOME/.local/bin"
 export CPATH="$HOME/.local/include"
 
@@ -29,7 +29,7 @@ export NEXINIT=$EXINIT
 
 # settings
 export EDITOR="vim"
-export BROWSER="qutebrowser"
+export BROWSER="firefox"
 export GTK_THEME=Breeze:dark
 export CC=gcc
 export TERMCMD="st"

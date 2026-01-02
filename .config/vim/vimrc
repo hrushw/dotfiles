@@ -28,7 +28,7 @@ set showcmd
 set laststatus=2
 set showtabline=1
 
-set conceallevel=2
+set conceallevel=0
 set foldenable
 set fillchars=vert:\|,fold:-,eob:\ ,lastline:@
 " }}}

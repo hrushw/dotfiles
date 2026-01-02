@@ -56,7 +56,7 @@ case "$arg" in
 		if [ "$KITTY_WINDOW_ID" ]; then
 			kitten icat --align left --transfer-mode="stream" --unicode-placeholder "$arg"
 		else
-			nsxiv "$arg" &>/dev/null &
+			nsxiv --alpha-layer "$arg" &>/dev/null &
 		fi;;
 
 	*".dot")
@@ -67,7 +67,7 @@ case "$arg" in
 		fi;;
 
 	*".pdf" | *".djvu" | *".ps")
-		sioyek "$arg" &>/dev/null &;;
+		zathura "$arg" &>/dev/null &;;
 
 	*".txt" | *"/README" | "README")
 		bat --paging=always "$arg";;
