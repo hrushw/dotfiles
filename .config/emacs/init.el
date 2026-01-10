@@ -1,44 +1,49 @@
-; emacs reflux file
+; cloned from https://github.com/rougier/nano-emacs
+; (add-to-list 'load-path "~/.config/emacs/nano-emacs/")
+; (load "nano.el")
+; (nano-theme-set-dark)
+;
+; ; overriding variables
+; (setq nano-font-family-monospaced "RobotoMono Nerd Font Mono")
+;
+; (set-face-attribute 'tab-bar nil :foreground nano-color-foreground)
+; (set-face-attribute 'tab-bar nil :background nano-color-background)
+; (set-face-attribute 'tab-bar-tab nil :foreground nano-color-foreground)
+; (set-face-attribute 'tab-bar-tab nil :background nano-color-background)
+; (set-face-attribute 'tab-bar-tab-inactive nil :foreground nano-color-foreground)
+; (set-face-attribute 'tab-bar-tab-inactive nil :background nano-color-faded)
+;
+; ; (set-face-attribute 'tab-bar-tab nil :box '(:line-width 1 :color nano-color-faded)) no idea why this fails
+;
+; (nano-refresh-theme)
+
+; clear window-setup-hook (nano adds a splash that disables the menubar)
+; (setq window-setup-hook ())
+
+;; mu4e
+; (add-to-list 'load-path "/usr/share/emacs/site-lisp/mu4e/")
+; (load "mu4e.el")
+
+; emacs reflux files
 (setq custom-file "~/.config/emacs/emacs-custom.el")
+(setq recentf-save-file "~/.local/state/emacs/recentf")
+(setq bookmark-default-file "~/.config/emacs/bookmarks")
+(setq savehist-file "~/.local/state/emacs/history")
+(setq backup-directory-alist '(("." . "~/.local/state/emacs/backups")))
+
 (load custom-file)
+(savehist-mode 1)
 
 ; enable melpa
 (require 'package)
 (add-to-list 'package-archives
   '("melpa" . "https://melpa.org/packages/") t)
 
-; cloned from https://github.com/rougier/nano-emacs
-(add-to-list 'load-path "~/.config/emacs/nano-emacs/")
-(load "nano.el")
-(nano-theme-set-dark)
-
-; overriding variables
-(setq recentf-save-file "~/.local/state/emacs/recentf")
-(setq bookmark-default-file "~/.config/emacs/bookmarks")
-(setq nano-font-family-monospaced "RobotoMono Nerd Font Mono")
-(setq backup-directory-alist '(("." . "~/.local/state/emacs/backups")))
-
-(setq savehist-file "~/.local/state/emacs/history")
-(savehist-mode 1)
-
-(set-face-attribute 'tab-bar nil :foreground nano-color-foreground)
-(set-face-attribute 'tab-bar nil :background nano-color-background)
-(set-face-attribute 'tab-bar-tab nil :foreground nano-color-foreground)
-(set-face-attribute 'tab-bar-tab nil :background nano-color-background)
-(set-face-attribute 'tab-bar-tab-inactive nil :foreground nano-color-foreground)
-(set-face-attribute 'tab-bar-tab-inactive nil :background nano-color-faded)
-
-; (set-face-attribute 'tab-bar-tab nil :box '(:line-width 1 :color nano-color-faded)) no idea why this fails
-
-(nano-refresh-theme)
-
 ; window settings
 (setq-default inhibit-startup-screen t)
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 (add-to-list 'default-frame-alist '(undecorated . t))
 
-; clear window-setup-hook (nano adds a splash that disables the menubar)
-(setq window-setup-hook ())
 ; disable ui elements
 (menu-bar-mode 1)
 (tool-bar-mode 0)
@@ -51,17 +56,13 @@
 (setq tab-bar-button-relief 0)
 (setq tab-bar-tab-hints t) ; adding a space before the hint is beyond my abilities
 
-; cloned from https://github.com/emacs-evil/evil
 ; adding a text editor
+; cloned from https://github.com/emacs-evil/evil
 (add-to-list 'load-path "~/.config/emacs/evil/")
 (setq evil-want-C-u-scroll t)
 (load "evil.el")
 (evil-set-undo-system 'undo-redo)
 (evil-mode 1)
-
-; mu4e
-; (add-to-list 'load-path "/usr/share/emacs/site-lisp/mu4e/")
-; (load "mu4e.el")
 
 ; Ido mode
 (ido-mode 1)
