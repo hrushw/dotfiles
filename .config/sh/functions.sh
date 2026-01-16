@@ -25,6 +25,7 @@ _common_sh_init() {
 	export HISTSIZE=-1
 	export LESS='-R --use-color -Dd+r$Du+b$ +0'
 	export MANROFFOPT="-c"
+	export PAGER="bat --style changes,grid,numbers,snip"
 
 	case "$TERM" in
 		"eterm-color")

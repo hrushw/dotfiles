@@ -11,6 +11,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 
 " Language support
+Plug 'preservim/vim-markdown'
 Plug 'sile-typesetter/vim-sile'
 Plug 'marekmaskarinec/vim-umka'
 Plug 'https://github.com/ollykel/v-vim'

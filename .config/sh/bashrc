@@ -8,13 +8,13 @@ source $XDG_CONFIG_HOME/sh/functions.bash
 [ -d "$XDG_STATE_HOME/bash" ] || mkdir "$XDG_STATE_HOME/bash"
 
 shopt -s autocd
-shopt -s cdable_vars
+# shopt -s cdable_vars
 shopt -s cdspell
 
 shopt -s checkwinsize
 shopt -s cmdhist
 
-shopt -s expand_aliases
+# shopt -s expand_aliases
 shopt -s promptvars
 
 shopt -s extglob

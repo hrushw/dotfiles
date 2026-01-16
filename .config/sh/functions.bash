@@ -103,8 +103,12 @@ _bash_set_prompt() {
 	# (otherwise boldface disappears on the second line)
 	local ps1prompt="\[$BOLD$B_RED\][\[$B_WHITE\]\$\[$B_RED\]]>\[$ENDC\] "
 
+	if [ "$SMALLPROMPT" ]; then
+		PS1="\[$ENDC\]$ps1prompt"
+	else
+		PS1="\[$ENDC$BOLD$B_WHITE\]$ps1uhostname\[$B_WHITE\] : $ps1dir\n$ps1prompt"
+	fi
 	PS0="\[$ENDC\]"
-	PS1="\[$ENDC$BOLD$B_WHITE\]$ps1uhostname\[$B_WHITE\] : $ps1dir\n$ps1prompt"
 	PS2="\[$ENDC$BOLD$B_RED\]| \[$ENDC\]"
 	# PS3 does not use \[\] escape sequences
 	PS3="$ENDC$BOLD$B_RED[$B_WHITE#$B_RED]? $ENDC"

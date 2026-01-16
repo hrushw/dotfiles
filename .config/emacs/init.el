@@ -1,21 +1,21 @@
 ; cloned from https://github.com/rougier/nano-emacs
-; (add-to-list 'load-path "~/.config/emacs/nano-emacs/")
-; (load "nano.el")
-; (nano-theme-set-dark)
-;
-; ; overriding variables
-; (setq nano-font-family-monospaced "RobotoMono Nerd Font Mono")
-;
-; (set-face-attribute 'tab-bar nil :foreground nano-color-foreground)
-; (set-face-attribute 'tab-bar nil :background nano-color-background)
-; (set-face-attribute 'tab-bar-tab nil :foreground nano-color-foreground)
-; (set-face-attribute 'tab-bar-tab nil :background nano-color-background)
-; (set-face-attribute 'tab-bar-tab-inactive nil :foreground nano-color-foreground)
-; (set-face-attribute 'tab-bar-tab-inactive nil :background nano-color-faded)
-;
-; ; (set-face-attribute 'tab-bar-tab nil :box '(:line-width 1 :color nano-color-faded)) no idea why this fails
-;
-; (nano-refresh-theme)
+(add-to-list 'load-path "~/.config/emacs/nano-emacs/")
+(load "nano.el")
+(nano-theme-set-dark)
+
+; overriding variables
+(setq nano-font-family-monospaced "RobotoMono Nerd Font Mono")
+
+(set-face-attribute 'tab-bar nil :foreground nano-color-foreground)
+(set-face-attribute 'tab-bar nil :background nano-color-background)
+(set-face-attribute 'tab-bar-tab nil :foreground nano-color-foreground)
+(set-face-attribute 'tab-bar-tab nil :background nano-color-background)
+(set-face-attribute 'tab-bar-tab-inactive nil :foreground nano-color-foreground)
+(set-face-attribute 'tab-bar-tab-inactive nil :background nano-color-faded)
+
+; (set-face-attribute 'tab-bar-tab nil :box '(:line-width 1 :color nano-color-faded)) no idea why this fails
+
+(nano-refresh-theme)
 
 ; clear window-setup-hook (nano adds a splash that disables the menubar)
 ; (setq window-setup-hook ())
