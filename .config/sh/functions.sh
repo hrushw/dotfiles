@@ -6,20 +6,6 @@ cls() {
 	! [ "$NOHEADER" ] && tszfmtprint
 }
 
-FZF() {
-	case "$1" in
-		"-D")
-			FZF "${@:2}" --walker=dir;;
-		"-H")
-			FZF "${@:2}" --walker-root="$HOME";;
-		*)
-			fzf --style minimal \
-				--preview 'fzf-preview.sh {}' \
-				--bind 'focus:transform-header:file --brief {}' \
-				"$@";;
-	esac
-}
-
 _common_sh_init() {
 	export HISTFILE=$XDG_STATE_HOME/bash/history
 	export HISTSIZE=-1

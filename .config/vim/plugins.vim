@@ -4,9 +4,11 @@
 " Plugin list {{{
 call plug#begin()
 Plug 'preservim/nerdtree'
-Plug 'ryanoasis/vim-devicons'
 Plug 'preservim/tagbar'
 Plug 'junegunn/fzf.vim'
+
+Plug 'ryanoasis/vim-devicons'
+Plug 'mhinz/vim-startify'
 
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
@@ -17,6 +19,7 @@ Plug 'lervag/vimtex'
 Plug 'sile-typesetter/vim-sile'
 Plug 'marekmaskarinec/vim-umka'
 Plug 'https://github.com/ollykel/v-vim'
+Plug 'baskerville/vim-sxhkdrc'
 call plug#end()
 " }}}
 

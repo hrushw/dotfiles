@@ -1,7 +1,7 @@
 super + Return
-	st
+	$TERMCMD
 super + shift + Return
-	kitty
+	xterm
 super + e
 	emacsclient -nc
 

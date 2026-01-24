@@ -46,6 +46,9 @@ nnoremap <C-c><C-c> :!make<CR>
 
 inoremap <C-g> <Esc>
 nnoremap <C-g> <Esc>
+cnoremap <C-g> <Esc>
+
+nnoremap <C-x>k :bdel<CR>
 
 " digraphs
 digr ii 8747

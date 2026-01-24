@@ -6,6 +6,22 @@ lc () {
 }
 alias l='lc 120'
 
+_bash_fzf_integration() {
+	eval "$(fzf --bash)"
+
+	# export FZF_CTRL_T_COMMAND=""
+	# export FZF_ALT_C_COMMAND=""
+
+	export FZF_CTRL_T_OPTS="
+		--walker-skip .git,node_modules,target
+		--preview 'fzf-preview.sh {}'
+		--bind 'ctrl-/:change-preview-window(down|hidden|)'"
+	export FZF_ALT_C_OPTS="
+		--walker-skip .git,node_modules,target
+		--preview 'tree -C {}'"
+	export FZF_CTRL_R_OPTS=""
+}
+
 # run command in python venv
 pyenv() {
 	envactor="$XDG_DATA_HOME/venv/bin/activate"
@@ -64,11 +80,6 @@ newscript() {
 	eval "$EDITOR $1"
 }
 
-spawn() {
-	echo "$@"
-	eval "$@"
-}
-
 # Recursively update cloned git repositories in a folder
 gitpullrecurse() {
 	for dir in $(ls); do
@@ -90,7 +101,7 @@ gitpullrecurse() {
 
 				if test -d ".git"; then
 					echo "git repository found, updating..."
-					spawn git pull
+					git pull
 				else
 					echo "ERR_SKIP: no git repository found, ignoring"
 				fi
