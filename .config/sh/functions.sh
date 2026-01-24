@@ -7,8 +7,6 @@ cls() {
 }
 
 _common_sh_init() {
-	export HISTFILE=$XDG_STATE_HOME/bash/history
-	export HISTSIZE=-1
 	export LESS='-R --use-color -Dd+r$Du+b$ +0'
 	export MANROFFOPT="-c"
 	export PAGER="bat --paging=always --style changes,grid,numbers,snip"

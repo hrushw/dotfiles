@@ -1,5 +1,5 @@
 #!/bin/sh
 
 cd
-NOHEADER=t SMALLPROMPT=t exec st -n i3scratchpad_dropdown
+NOHEADER=t SMALLPROMPT=t exec xterm -name i3scratchpad_dropdown
 

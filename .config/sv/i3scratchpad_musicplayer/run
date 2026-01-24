@@ -1,5 +1,5 @@
 #!/bin/sh
 
 cd
-exec kitty --name i3scratchpad_musicplayer rmpc
+exec xterm -name i3scratchpad_musicplayer rmpc
 

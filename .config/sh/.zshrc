@@ -1,12 +1,12 @@
-SHELL_NAME="zsh"
+export SHELL_NAME="zsh"
 
 # Lines configured by zsh-newuser-install
 [ -d "$XDG_STATE_HOME/zsh" ] || mkdir "$XDG_STATE_HOME/zsh"
 [ -d "$XDG_CACHE_HOME/zsh" ] || mkdir "$XDG_CACHE_HOME/zsh"
 
-HISTFILE="$XDG_STATE_HOME/zsh/history"
-HISTSIZE=200000
-SAVEHIST=$HISTSIZE
+export HISTFILE="$XDG_STATE_HOME/zsh/history"
+export HISTSIZE=200000
+export SAVEHIST=$HISTSIZE
 setopt autocd beep extendedglob nomatch
 unsetopt notify
 bindkey -v

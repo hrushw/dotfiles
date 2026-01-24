@@ -1,4 +1,4 @@
 #!/bin/sh
 
 cd
-exec st -n i3scratchpad_btop -e btop
+exec xterm -name i3scratchpad_btop -e btop

@@ -11,3 +11,7 @@ XTerm*cursorBlink: True
 XTerm*renderfont: True
 XTerm*background: Black
 XTerm*foreground: White
+
+i3scratchpad_musicplayer*font: xft:Cozette:pixelsize=32:style=Regular
+i3scratchpad_dropdown*font: xft:Cozette:pixelsize=32:style=Regular
+i3scratchpad_btop*font: xft:Cozette:pixelsize=32:style=Regular

@@ -1,5 +1,7 @@
 SHELL_NAME="bash"
 
+export HISTFILE=$XDG_STATE_HOME/bash/history
+export HISTSIZE=-1
 source $XDG_CONFIG_HOME/sh/colors.sh
 source $XDG_CONFIG_HOME/sh/functions.sh
 source $XDG_CONFIG_HOME/sh/aliases.sh
@@ -24,5 +26,6 @@ set -o noclobber
 _bash_set_prompt
 _bash_set_title_updater
 
-_bash_fzf_integration
+# currently no way to disable fuzzy completion
+# _bash_fzf_integration
 _common_sh_init

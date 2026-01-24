@@ -37,7 +37,7 @@ nnoremap <Leader>p :bprev<CR>
 tnoremap <C-n> <C-w>N
 tnoremap <C-w>n <C-n>
 
-nnoremap <C-x><C-c> :q<CR>
+nnoremap <C-x><C-c> :qa<CR>
 nnoremap <C-x><C-f> :edit<space>
 
 nnoremap <Leader>qp :HelpToc<CR>
@@ -49,6 +49,7 @@ nnoremap <C-g> <Esc>
 cnoremap <C-g> <Esc>
 
 nnoremap <C-x>k :bdel<CR>
+nnoremap <C-x>0 :close<CR>
 
 " digraphs
 digr ii 8747

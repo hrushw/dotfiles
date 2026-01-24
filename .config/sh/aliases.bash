@@ -2,6 +2,7 @@
 
 alias mv="mv -i"
 alias rm='echo "rm is disabled, use del"'
+alias pkill='pkill -x'
 alias del='mv -it ~/.local/share/trash/'
 
 # stops annoying font warning

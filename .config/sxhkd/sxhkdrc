@@ -1,5 +1,7 @@
 super + Return
-	$TERMCMD
+	st
+super + control + Return
+	st -f "Cozette:pixelsize=32:style=Regular:antialias=false:autohint=true"
 super + shift + Return
 	xterm
 super + e

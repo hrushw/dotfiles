@@ -18,7 +18,7 @@ Plug 'preservim/vim-markdown'
 Plug 'lervag/vimtex'
 Plug 'sile-typesetter/vim-sile'
 Plug 'marekmaskarinec/vim-umka'
-Plug 'https://github.com/ollykel/v-vim'
+Plug 'ollykel/v-vim'
 Plug 'baskerville/vim-sxhkdrc'
 call plug#end()
 " }}}
@@ -62,3 +62,12 @@ nnoremap <Leader>qq :Tags<CR>
 nnoremap <Leader>qb :Buffers<CR>
 nnoremap <Leader>f :FZF<CR>
 
+let g:startify_session_dir = '~/.local/share/vim/session'
+
+let g:startify_enable_special = 1
+let g:startify_lists = [
+	\ { 'type': 'files',     'header': ['   MRU']            },
+	\ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
+	\ { 'type': 'sessions',  'header': ['   Sessions']       },
+	\ { 'type': 'commands',  'header': ['   Commands']       },
+\ ]
