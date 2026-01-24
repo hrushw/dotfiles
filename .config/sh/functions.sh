@@ -30,7 +30,7 @@ _common_sh_init() {
 	# make guile shut up
 	export GUILE_AUTO_COMPILE=0
 
-	export CHICKEN_INSTALL_REPOSITORY="$HOME/.local/lib/chicken/$(basename "$(ls -1 /usr/lib/chicken | tail -n 1)")"
+	export CHICKEN_INSTALL_REPOSITORY="$HOME/.local/lib/chicken/repo"
 	export CHICKEN_INSTALL_PREFIX="$HOME/.local"
 	export CHICKEN_REPOSITORY_PATH="$CHICKEN_INSTALL_REPOSITORY"
 
