@@ -25,7 +25,14 @@ _common_sh_init() {
 	export HISTSIZE=-1
 	export LESS='-R --use-color -Dd+r$Du+b$ +0'
 	export MANROFFOPT="-c"
-	export PAGER="bat --style changes,grid,numbers,snip"
+	export PAGER="bat --paging=always --style changes,grid,numbers,snip"
+
+	# make guile shut up
+	export GUILE_AUTO_COMPILE=0
+
+	export CHICKEN_INSTALL_REPOSITORY="$HOME/.local/lib/chicken/$(basename "$(ls -1 /usr/lib/chicken | tail -n 1)")"
+	export CHICKEN_INSTALL_PREFIX="$HOME/.local"
+	export CHICKEN_REPOSITORY_PATH="$CHICKEN_INSTALL_REPOSITORY"
 
 	case "$TERM" in
 		"eterm-color")

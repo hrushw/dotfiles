@@ -116,6 +116,11 @@
    (awk . t)
    (emacs-lisp . t)))
 
+(add-to-list 'org-latex-packages-alist '("" "tikz" t))
+(eval-after-load "preview"
+  '(add-to-list 'preview-default-preamble "\\PreviewEnvironment{tikzpicture}" t))
+(setq org-preview-latex-default-process 'imagemagick)
+
 (setenv "EDITOR" "emacsclient")
 ; (setenv "PYTHON_BASIC_REPL" "t")
 

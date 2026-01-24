@@ -25,15 +25,21 @@ pyenv() {
 	esac
 
 	source "$envactor"
-	case "$1" in "ipy"*)
-		if ! [ -e "$1" ]; then
-			eval "ipython ${@:2}"
-			deactivate
-			return
-		fi;;
+	case "$1" in
+		"ipy"*)
+			if ! [ -e "$1" ]; then
+				eval "ipython ${@:2}"
+				deactivate
+				return
+			fi;;
+		"exec"*)
+			if ! [ -e "$1" ]; then
+				eval "${@:2}"
+			fi;;
+		*)
+			eval "python $@"
+			;;
 	esac
-
-	eval "python $@"
 	deactivate
 }
 
@@ -108,7 +114,7 @@ _bash_set_prompt() {
 	else
 		PS1="\[$ENDC$BOLD$B_WHITE\]$ps1uhostname\[$B_WHITE\] : $ps1dir\n$ps1prompt"
 	fi
-	PS0="\[$ENDC\]"
+	# PS0="\[$ENDC\]"
 	PS2="\[$ENDC$BOLD$B_RED\]| \[$ENDC\]"
 	# PS3 does not use \[\] escape sequences
 	PS3="$ENDC$BOLD$B_RED[$B_WHITE#$B_RED]? $ENDC"
@@ -124,7 +130,7 @@ _bash_set_title_updater() {
 			;;
 		*)
 			# Set window title to command currently running
-			PS0="\[\e]2;\$(set -- \$(history 1); echo \${@:2}) [ bash: \w ]\a\]$PS0"
+			PS0="\[\e]2;\$(set -- \$(history 1); echo \${@:2}) [ bash: \w ]\a\]"
 			# After command execution, display cwd in window title
 			local title="\[\e]2;bash : \w\a\]"
 			PS1="$title$PS1"

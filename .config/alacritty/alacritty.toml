@@ -6,14 +6,14 @@ ipc_socket = false
 
 [window]
 startup_mode = "Windowed"
-padding = { x = 0, y = 0 }
+padding = { x = 1, y = 1 }
 
 opacity = 0.8
 dynamic_title = true
 
 [font]
-
 normal = { family="Terminess Nerd Font", style="Regular" }
+offset = { x = 0, y = -2 }
 bold = { style="Bold" }
 italic = { style="Italic" }
 bold_italic = { style="Bold Italic" }

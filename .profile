@@ -10,7 +10,7 @@ case ":$PATH:" in
 esac
 
 
-export LIBRARY_PATH="$HOME/.local/bin"
+export LIBRARY_PATH="$HOME/.local/lib"
 export CPATH="$HOME/.local/include"
 
 # forgot why i set this
@@ -27,6 +27,8 @@ export XDG_STATE_HOME="$HOME/.local/state"
 export EXINIT="set ai ic nu prompt ts=4 sw=4 nosm showmode warn ws"
 export NEXINIT=$EXINIT
 
+export GUILE_AUTO_COMPILE=0
+
 # settings
 export EDITOR="vim"
 export BROWSER="firefox"
@@ -35,9 +37,8 @@ export CC=gcc
 export TERMCMD="st"
 
 export GRIM_DEFAULT_DIR=$XDG_DATA_HOME/screenshots
-# export XDG_CURRENT_DESKTOP=river
 
-# This causes problems with Makefiles
+# causes problems with Makefiles
 # export CFLAGS="-Wall -Wextra -Wpedantic -Wvla"
 
 # export CDPATH=:~

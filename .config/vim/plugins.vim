@@ -4,6 +4,7 @@
 " Plugin list {{{
 call plug#begin()
 Plug 'preservim/nerdtree'
+Plug 'ryanoasis/vim-devicons'
 Plug 'preservim/tagbar'
 Plug 'junegunn/fzf.vim'
 
@@ -12,6 +13,7 @@ Plug 'junegunn/limelight.vim'
 
 " Language support
 Plug 'preservim/vim-markdown'
+Plug 'lervag/vimtex'
 Plug 'sile-typesetter/vim-sile'
 Plug 'marekmaskarinec/vim-umka'
 Plug 'https://github.com/ollykel/v-vim'
@@ -55,3 +57,5 @@ let g:tagbar_autoshowtag = 1
 
 nnoremap <Leader>qq :Tags<CR>
 nnoremap <Leader>qb :Buffers<CR>
+nnoremap <Leader>f :FZF<CR>
+
