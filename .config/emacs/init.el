@@ -1,116 +1,93 @@
-(load-theme 'gruber-darker t)
+;; Packages
+(progn
+  (require 'package)
+  (add-to-list 'package-archives
+               '("melpa" . "https://melpa.org/packages/") t))
 
-;; emacs reflux files
-(setq custom-file "~/.config/emacs/emacs-custom.el"
-      recentf-save-file "~/.local/state/emacs/recentf"
-      bookmark-default-file "~/.config/emacs/bookmarks"
-      savehist-file "~/.local/state/emacs/history"
-      backup-directory-alist '(("." . "~/.local/state/emacs/backups")))
+;; Default frame
+(setq default-frame-alist
+      '((fullscreen . maximized)
+        (undecorated . t)
+        (font . "JetBrainsMono Nerd Font-16")
+        (vertical-scroll-bars . nil)
+        (horizontal-scroll-bars . nil)))
 
-(setq make-backup-files t
-	  backup-by-copying t)
+;; Evil mode
+(progn
+  (setq evil-want-C-u-scroll t)
+  (require 'evil)
+  (evil-mode 1)
+  (evil-set-undo-system 'undo-redo))
 
-(load custom-file)
-(savehist-mode 1)
+;; Sensible indentation settings
+(progn
+  (setq-default tab-width 4
+                indent-tabs-mode t
+                tab-always-indent t
+                backward-delete-char-untabify-method nil
+                c-basic-offset 4
+                c-tab-always-indent nil
+                c-syntactic-indentation nil)
+  (add-hook 'emacs-lisp-mode-hook
+            '(lambda () (setq indent-tabs-mode nil))))
 
-; enable melpa
-(require 'package)
-(add-to-list 'package-archives
-  '("melpa" . "https://melpa.org/packages/") t)
+;; Ido mode
+(progn
+  (require 'ido)
+  (ido-mode 1)
+  (ido-everywhere 1)
+  (setq ido-enable-flex-matching t)
+  (setq ido-enable-regexp t))
 
-; window settings
-(add-to-list 'default-frame-alist '(fullscreen . maximized))
-(add-to-list 'default-frame-alist '(undecorated . t))
-(add-to-list 'default-frame-alist '(font . "Cozette-24"))
+;; Disable bars
+(progn
+  (menu-bar-mode 0)
+  (tool-bar-mode 0)
+  (scroll-bar-mode 0)
+  (setq tab-bar-show 1
+        tab-bar-tab-hints t))
 
-;; quieter emacs
-(setq-default inhibit-startup-screen t ; no startup screen
-			  initial-buffer-choice nil
-			  initial-scratch-message nil
-			  delete-old-versions t)
+;; Quieter emacs
+(progn
+  (setq-default inhibit-startup-screen t ; no startup screen
+                initial-buffer-choice nil
+                initial-scratch-message nil
+                delete-old-versions t ; disable annoying prompt while saving
+                vc-follow-symlinks nil) ; follow symlinks without prompting
+  (global-set-key (kbd "C-x k") 'kill-current-buffer)) ; override ido kill buffer
 
+;; Lines and line numbers
+(progn
+  (setq-default display-line-numbers-type 'relative)
+  (set-face-attribute 'line-number-current-line nil :weight 'bold)
+  (global-display-line-numbers-mode)
+  (global-hl-line-mode)
+  (global-visual-line-mode t)) ; wrap text
 
+;; Org mode
+(progn
+  (require 'org)
+  (define-key org-mode-map (kbd "M-<return>") 'org-meta-return)
+  (setq org-tags-column 0
+        org-edit-src-content-indentation 0
+        org-hide-emphasis-markers t))
 
+(progn
+  (plist-put org-format-latex-options :scale 1.5)
+  (add-to-list 'org-latex-packages-alist '("" "tikz" t))
+  (eval-after-load "preview"
+    '(add-to-list 'preview-default-preamble "\\PreviewEnvironment{tikzpicture}" t))
+  (setq org-preview-latex-default-process 'imagemagick))
 
-; disable ui elements
-(menu-bar-mode 0)
-(tool-bar-mode 0)
-(scroll-bar-mode 0)
+(progn
+  (setq explicit-shell-file-name nil
+        shell-file-name "bash"
+        browse-url-generic-program "firefox"
+        browse-url-browser-function 'browse-url-generic
+        inferior-lisp-program "sbcl")
+  (setenv "EDITOR" "emacsclient"))
 
-; tab bar customization
-(set-face-attribute 'tab-bar-tab nil :box nil)
-(setq tab-bar-show t
-	  tab-bar-button-margin 2
-	  tab-bar-button-relief 0
-	  tab-bar-tab-hints t) ; adding a space before the hint is beyond my abilities
+(progn
+  (require 'gruber-darker-theme)
+  (load-theme 'gruber-darker t))
 
-; adding a text editor
-; cloned from https://github.com/emacs-evil/evil
-(add-to-list 'load-path "~/.config/emacs/evil/")
-(setq evil-want-C-u-scroll t)
-(load "evil.el")
-(evil-set-undo-system 'undo-redo)
-(evil-mode 1)
-
-; Ido mode
-(ido-mode 1)
-(ido-everywhere 1)
-(setq ido-enable-flex-matching t)
-(setq ido-enable-regexp t)
-
-; start in home
-(setq default-directory "~")
-
-; relative line numbers
-(setq-default display-line-numbers-type 'relative)
-(set-face-attribute 'line-number-current-line nil :weight 'bold)
-(global-display-line-numbers-mode)
-(global-hl-line-mode)
-
-(global-visual-line-mode t) ; wrap text
-
-; indentation settings
-(setq-default tab-width 4
-			  indent-tabs-mode t
-			  tab-always-indent nil
-			  backward-delete-char-untabify-method nil
-			  c-basic-offset 4
-			  c-tab-always-indent nil
-			  c-syntactic-indentation nil)
-
-(setq explicit-shell-file-name "/usr/bin/bash")
-(setq shell-file-name "bash")
-(setq vc-follow-symlinks nil)
-
-(setq browse-url-generic-program "firefox")
-(setq browse-url-browser-function 'browse-url-generic)
-
-(global-set-key (kbd "C-x k") 'kill-current-buffer)
-
-(require 'org)
-(setq org-tags-column 0)
-(define-key org-mode-map (kbd "M-<return>") 'org-meta-return)
-(setq org-edit-src-content-indentation 0)
-; (define-key org-mode-map (kbd "M-i .") (lambda () (interactive) (insert-char 8203) ))
-
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((C . t)
-   (python . t)
-   (latex . t)
-   (forth . t)
-   (haskell . t)
-   (lisp . t)
-   (awk . t)
-   (emacs-lisp . t)))
-
-(add-to-list 'org-latex-packages-alist '("" "tikz" t))
-(eval-after-load "preview"
-  '(add-to-list 'preview-default-preamble "\\PreviewEnvironment{tikzpicture}" t))
-(setq org-preview-latex-default-process 'imagemagick)
-
-(setenv "EDITOR" "emacsclient")
-; (setenv "PYTHON_BASIC_REPL" "t")
-
-(setq inferior-lisp-program "sbcl")
-(plist-put org-format-latex-options :scale 1.5)
