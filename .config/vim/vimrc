@@ -93,6 +93,8 @@ nnoremap <Leader>.cf :call CSyntaxFunctionToggle()<CR>
 
 au BufNewFile,BufRead *.sp,*.cir,*.spice setf spice
 
+au FileType scheme set expandtab
+
 syntax on
 nohlsearch
 

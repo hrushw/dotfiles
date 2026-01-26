@@ -8,7 +8,7 @@
 (setq default-frame-alist
       '((fullscreen . maximized)
         (undecorated . t)
-        (font . "JetBrainsMono Nerd Font-16")
+        (font . "SpaceMono Nerd Font-16")
         (vertical-scroll-bars . nil)
         (horizontal-scroll-bars . nil)))
 
@@ -28,6 +28,7 @@
                 c-basic-offset 4
                 c-tab-always-indent nil
                 c-syntactic-indentation nil)
+  ;; use spaces for elisp
   (add-hook 'emacs-lisp-mode-hook
             '(lambda () (setq indent-tabs-mode nil))))
 
@@ -70,7 +71,8 @@
   (define-key org-mode-map (kbd "M-<return>") 'org-meta-return)
   (setq org-tags-column 0
         org-edit-src-content-indentation 0
-        org-hide-emphasis-markers t))
+        org-hide-emphasis-markers t
+        org-indent-mode t))
 
 (progn
   (plist-put org-format-latex-options :scale 1.5)
@@ -91,3 +93,13 @@
   (require 'gruber-darker-theme)
   (load-theme 'gruber-darker t))
 
+(progn
+  (global-set-key (kbd "C-;") 'compile)
+  (global-set-key (kbd "C-:") 'recompile))
+
+(progn
+  (require 'auctex)
+  (setq LaTeX-section-hook
+        '(LaTeX-section-heading
+          LaTeX-section-title
+          LaTeX-section-section)))
