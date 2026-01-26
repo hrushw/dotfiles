@@ -17,8 +17,8 @@ alias q="exit"
 alias ll='ls -alh'
 alias cll='cls; ll'
 
-alias FZF="fzf --style minimal --bind 'focus:transform-header:file --brief {}' --preview 'fzf-preview.sh {}'"
-alias FZFD="fzf --style minimal --bind 'focus:transform-header:file --brief {}' --preview 'tree -C {}' --walker=dir"
+alias FZF="fzf --style minimal --walker=file,hidden --bind 'focus:transform-header:file --brief {}' --preview 'fzf-preview.sh {}'"
+alias FZFD="fzf --style minimal --bind 'focus:transform-header:file --brief {}' --preview 'tree -C {}' --walker=dir,hidden"
 
 # Fuzzification
 alias of="uopen \"\$(FZF)\""

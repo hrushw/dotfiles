@@ -74,8 +74,8 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 
 bindsym $mod+n workspace next
 bindsym $mod+p workspace prev
-bindsym $mod+Control+Shift+n move container to workspace next; workspace next
-bindsym $mod+Control+Shift+p move container to workspace prev; workspace prev
+bindsym $mod+Shift+n move container to workspace next; workspace next
+bindsym $mod+Shift+p move container to workspace prev; workspace prev
 
 bindsym $mod+Shift+o move scratchpad
 bindsym $mod+o [instance="^(?!i3scratchpad_).*"] scratchpad show
