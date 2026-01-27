@@ -9,9 +9,9 @@ case ":$PATH:" in
 		PATH="${PATH:+$PATH:}$HOME/.local/bin"
 esac
 
-
-export LIBRARY_PATH="$HOME/.local/lib"
-export CPATH="$HOME/.local/include"
+export LIBRARY_PATH="/usr/local/lib64:/usr/local/lib:$HOME/.local/lib"
+export LD_LIBRARY_PATH="$LIBRARY_PATH"
+export CPATH="/usr/local/include:$HOME/.local/include"
 
 # forgot why i set this
 # apparantly used to determine sort order

@@ -75,8 +75,9 @@
         org-indent-mode t))
 
 (progn
-  (plist-put org-format-latex-options :scale 1.5)
+  (plist-put org-format-latex-options :scale 2)
   (add-to-list 'org-latex-packages-alist '("" "tikz" t))
+  (add-to-list 'org-latex-packages-alist '("" "pgfplots" t))
   (eval-after-load "preview"
     '(add-to-list 'preview-default-preamble "\\PreviewEnvironment{tikzpicture}" t))
   (setq org-preview-latex-default-process 'imagemagick))
@@ -103,3 +104,6 @@
         '(LaTeX-section-heading
           LaTeX-section-title
           LaTeX-section-section)))
+(progn
+  (add-hook 'LaTeX-mode-hook #'turn-on-cdlatex)
+  (add-hook 'latex-mode-hook #'turn-on-cdlatex))
