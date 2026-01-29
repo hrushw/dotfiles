@@ -134,3 +134,4 @@
   (add-hook 'pdf-view-mode-hook
             #'(lambda () (display-line-numbers-mode -1)))
   (pdf-tools-install))
+

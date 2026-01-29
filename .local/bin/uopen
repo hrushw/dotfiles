@@ -66,7 +66,7 @@ case "$arg" in
 			zsh -c "nsxiv =(dot -Tpng "$arg")" &>/dev/null &
 		fi;;
 
-	*".pdf" | *".djvu" | *".ps")
+	*".pdf" | *".djvu" | *".ps" | *".eps")
 		zathura "$arg" &>/dev/null &;;
 
 	*".txt" | *"/README" | "README")

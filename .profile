@@ -48,6 +48,8 @@ export BEMENU_OPTS='-b -fn "Terminus 12px"'
 # make other programs conform to XDG directories
 export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
 
+export ASYMPTOTE_CONFIG="$XDG_CONFIG_HOME/asymptote/config.asy"
+
 export SVDIR="$XDG_CONFIG_HOME/service"
 export XCURSOR_PATH="/usr/share/icons:~/.local/share/icons"
 export GNUPGHOME="$XDG_CONFIG_HOME/gnupg/"
