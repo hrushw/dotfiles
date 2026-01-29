@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t -*-
+
 ;; Packages
 (progn
   (require 'package)
@@ -30,7 +32,11 @@
                 c-syntactic-indentation nil)
   ;; use spaces for elisp
   (add-hook 'emacs-lisp-mode-hook
-            '(lambda () (setq indent-tabs-mode nil))))
+            #'(lambda () (setq indent-tabs-mode nil)))
+  (add-hook 'scheme-mode-hook
+            #'(lambda () (setq indent-tabs-mode nil)))
+  (add-hook 'lisp-mode-hook
+            #'(lambda () (setq indent-tabs-mode nil))))
 
 ;; Ido mode
 (progn
@@ -55,7 +61,7 @@
                 initial-scratch-message nil
                 delete-old-versions t ; disable annoying prompt while saving
                 vc-follow-symlinks nil) ; follow symlinks without prompting
-  (global-set-key (kbd "C-x k") 'kill-current-buffer)) ; override ido kill buffer
+  (keymap-global-set "C-x k" 'kill-current-buffer)) ; override ido kill buffer
 
 ;; Lines and line numbers
 (progn
@@ -75,6 +81,7 @@
         org-indent-mode t))
 
 (progn
+  (defvar preview-default-preamble)
   (plist-put org-format-latex-options :scale 2)
   (add-to-list 'org-latex-packages-alist '("" "tikz" t))
   (add-to-list 'org-latex-packages-alist '("" "pgfplots" t))
@@ -92,11 +99,12 @@
 
 (progn
   (require 'gruber-darker-theme)
-  (load-theme 'gruber-darker t))
+  (load-theme 'gruber-darker t nil))
 
+;; keybinds
 (progn
-  (global-set-key (kbd "C-;") 'compile)
-  (global-set-key (kbd "C-:") 'recompile))
+  (keymap-global-set "C-;" 'compile)
+  (keymap-global-set "C-:" 'recompile))
 
 (progn
   (require 'auctex)
@@ -107,3 +115,4 @@
 (progn
   (add-hook 'LaTeX-mode-hook #'turn-on-cdlatex)
   (add-hook 'latex-mode-hook #'turn-on-cdlatex))
+

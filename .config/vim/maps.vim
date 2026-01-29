@@ -34,13 +34,17 @@ nnoremap g] :<C-u>call TabMoveUp()<CR>
 nnoremap <Leader>n :bnext<CR>
 nnoremap <Leader>p :bprev<CR>
 
+nnoremap <Leader>qp :HelpToc<CR>
+
 tnoremap <C-n> <C-w>N
 tnoremap <C-w>n <C-n>
 
+" Emacs keys slowly growing on me
+
+nnoremap <C-s> /
+
 nnoremap <C-x><C-c> :qa<CR>
 nnoremap <C-x><C-f> :edit<space>
-
-nnoremap <Leader>qp :HelpToc<CR>
 
 nnoremap <C-c><C-c> :!make<CR>
 

@@ -92,7 +92,7 @@ nnoremap <Leader>.cf :call CSyntaxFunctionToggle()<CR>
 " }}}
 
 au BufNewFile,BufRead *.sp,*.cir,*.spice setf spice
-
+au BufNewFile,BufRead config,*.config setf config
 au FileType scheme set expandtab
 
 syntax on

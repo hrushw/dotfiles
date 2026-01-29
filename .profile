@@ -57,6 +57,8 @@ export RLWRAP_HOME="$XDG_STATE_HOME/readline"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
 
 export MBLAZE="$XDG_CONFIG_HOME/mblaze"
+export NOTMUCH_CONFIG="$XDG_CONFIG_HOME/notmuch/config.ini"
+
 export TASKDATA="$XDG_DATA_HOME/task"
 export VIT_DIR="$XDG_CONFIG_HOME/vit"
 
