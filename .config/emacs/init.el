@@ -16,27 +16,33 @@
 
 ;; Evil mode
 (progn
+  (setq evil-want-C-d-scroll t)
   (setq evil-want-C-u-scroll t)
+  (setq evil-want-keybinding nil)
+  (setq evil-want-integration t)
   (require 'evil)
+  (require 'evil-collection)
   (evil-mode 1)
-  (evil-set-undo-system 'undo-redo))
+  (evil-set-undo-system 'undo-redo)
+  (evil-collection-init))
 
 ;; Sensible indentation settings
 (progn
   (setq-default tab-width 4
-                indent-tabs-mode t
                 tab-always-indent t
                 backward-delete-char-untabify-method nil
                 c-basic-offset 4
                 c-tab-always-indent nil
                 c-syntactic-indentation nil)
-  ;; use spaces for elisp
+  ;; use spaces for lisp
   (add-hook 'emacs-lisp-mode-hook
             #'(lambda () (setq indent-tabs-mode nil)))
   (add-hook 'scheme-mode-hook
             #'(lambda () (setq indent-tabs-mode nil)))
   (add-hook 'lisp-mode-hook
-            #'(lambda () (setq indent-tabs-mode nil))))
+            #'(lambda () (setq indent-tabs-mode nil)))
+  (add-hook 'c-mode-hook
+            #'(lambda () (setq indent-tabs-mode   t))))
 
 ;; Ido mode
 (progn
@@ -97,6 +103,11 @@
         inferior-lisp-program "sbcl")
   (setenv "EDITOR" "emacsclient"))
 
+(defun switch-theme (new-theme)
+  (disable-theme (car custom-enabled-themes))
+  (load-theme new-theme t nil))
+
+;; Gruber darker
 (progn
   (require 'gruber-darker-theme)
   (load-theme 'gruber-darker t nil))
@@ -106,6 +117,7 @@
   (keymap-global-set "C-;" 'compile)
   (keymap-global-set "C-:" 'recompile))
 
+;; AUCTeX and CDLaTeX setup
 (progn
   (require 'auctex)
   (setq LaTeX-section-hook
@@ -116,3 +128,9 @@
   (add-hook 'LaTeX-mode-hook #'turn-on-cdlatex)
   (add-hook 'latex-mode-hook #'turn-on-cdlatex))
 
+;; pdf-tools setup
+(progn
+  (require 'pdf-tools)
+  (add-hook 'pdf-view-mode-hook
+            #'(lambda () (display-line-numbers-mode -1)))
+  (pdf-tools-install))

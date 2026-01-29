@@ -1,0 +1,5 @@
+#!/bin/sh
+
+cd
+. $XDG_DATA_HOME/venv/bin/activate
+exec emacs --fg-daemon=emacs_pyenv

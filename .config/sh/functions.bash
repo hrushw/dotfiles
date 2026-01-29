@@ -120,7 +120,7 @@ _bash_set_prompt() {
 	# (otherwise boldface disappears on the second line)
 	local ps1prompt="\[$BOLD$B_RED\][\[$B_WHITE\]\$\[$B_RED\]]>\[$ENDC\] "
 
-	if [ "$SMALLPROMPT" ]; then
+	if [ "$DROPDOWN" ]; then
 		PS1="\[$ENDC\]$ps1prompt"
 	else
 		PS1="\[$ENDC$BOLD$B_WHITE\]$ps1uhostname\[$B_WHITE\] : $ps1dir\n$ps1prompt"

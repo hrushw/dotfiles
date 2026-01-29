@@ -1,5 +1,5 @@
 #!/bin/sh
 
 cd
-NOHEADER=t SMALLPROMPT=t exec st -n i3scratchpad_dropdown -f "Cozette:pixelsize=32:antialias=false:autohint=true"
+NOHEADER=t DROPDOWN=t exec st -n i3scratchpad_dropdown -f "Cozette:pixelsize=32:antialias=false:autohint=true"
 

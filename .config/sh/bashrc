@@ -1,6 +1,11 @@
 SHELL_NAME="bash"
 
-export HISTFILE=$XDG_STATE_HOME/bash/history
+
+if [ "$DROPDOWN" ]; then
+	export HISTFILE=$XDG_STATE_HOME/bash/dropdown_history
+else
+	export HISTFILE=$XDG_STATE_HOME/bash/history
+fi
 export HISTSIZE=-1
 source $XDG_CONFIG_HOME/sh/colors.sh
 source $XDG_CONFIG_HOME/sh/functions.sh
