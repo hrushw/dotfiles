@@ -27,7 +27,6 @@ mkdir -pv $XDG_DATA_HOME/go/mod
 mkdir -pv ~/.local/state/vim
 mkdir -pv ~/.local/share/vim/undo
 mkdir -pv ~/.local/share/vim/backup
-mkdir -p ~/dl
 
 mkdir -pv $XDG_STATE_HOME/bash
 # .bash_history must be manually moved
