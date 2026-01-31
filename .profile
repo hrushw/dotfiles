@@ -60,6 +60,7 @@ export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
 
 export MBLAZE="$XDG_CONFIG_HOME/mblaze"
 export NOTMUCH_CONFIG="$XDG_CONFIG_HOME/notmuch/config.ini"
+export MAILCAPS="$XDG_CONFIG_HOME/mailcap"
 
 export TASKDATA="$XDG_DATA_HOME/task"
 export VIT_DIR="$XDG_CONFIG_HOME/vit"
@@ -76,3 +77,16 @@ export XSERVERRC="$XDG_CONFIG_HOME/xinit/xserverrc"
 export ZDOTDIR="$XDG_CONFIG_HOME/sh"
 export ENV="$XDG_CONFIG_HOME/sh/shinit.sh"
 
+# make guile shut up
+export GUILE_AUTO_COMPILE=0
+
+# set chicken scheme packages to local install
+export CHICKEN_INSTALL_REPOSITORY="$HOME/.local/lib/chicken/repo"
+export CHICKEN_INSTALL_PREFIX="$HOME/.local"
+export CHICKEN_REPOSITORY_PATH="$CHICKEN_INSTALL_REPOSITORY"
+
+# `ls` colors
+eval $(dircolors)
+
+# OCaml environment
+eval $(opam env)

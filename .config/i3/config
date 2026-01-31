@@ -108,5 +108,6 @@ for_window [instance="i3scratchpad_btop"] resize set 90 ppt 80 ppt
 for_window [instance="i3scratchpad_btop"] move position 5 ppt 10 ppt
 
 bar {
-        status_command i3status
+	font pango:Terminus 16
+	status_command i3status
 }

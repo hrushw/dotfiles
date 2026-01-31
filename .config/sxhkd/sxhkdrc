@@ -16,6 +16,10 @@ super + bracketleft
 	mpc prev
 super + bracketright
 	mpc next
+super + comma
+	mpc seek -5
+super + period
+	mpc seek +5
 
 
 super + shift + backslash

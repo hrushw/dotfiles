@@ -135,3 +135,9 @@
             #'(lambda () (display-line-numbers-mode -1)))
   (pdf-tools-install))
 
+;; notmuch setup
+(progn
+  (add-to-list 'load-path
+               "/usr/share/emacs/site-lisp/notmuch")
+  (require 'notmuch))
+

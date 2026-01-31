@@ -1,3 +1,7 @@
+launch() {
+	"$@" &>/dev/null &
+}
+
 lc () {
 	local termcols=$(set -- $(stty size); builtin echo $2)
 	[ $(("$1" < "$termcols")) != '0' ] && stty cols ${1}

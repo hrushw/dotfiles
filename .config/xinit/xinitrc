@@ -1,15 +1,10 @@
 #!/bin/sh
 
-source "$HOME/.profile"
-export SVDIR_X11="$XDG_CONFIG_HOME/xinit/runsvdir/current"
-export XCURSOR_THEME=Breeze_Hacked
-export XCURSOR_SIZE=32
+. "$HOME/.profile"
+. "$XDG_CONFIG_HOME/xinit/xinitrc_common"
 # export SCREENLOCKER=slock
 
-brightnessctl s 80%
 xset s 900 900
-# Spawn in a terminal - helps when keybinds are broken
-st -e sh -c "fastfetch; export NOCLEAR=t; exec bash" &
 
 runsvdir "$SVDIR_X11" &>> "$XDG_STATE_HOME/runsvdir-x11.log" &
 xrdb load "$XDG_CONFIG_HOME/xinit/Xresources"
