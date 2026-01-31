@@ -1,6 +1,3 @@
 #!/bin/sh
 
-while true; do
-	snooze -H* -M/10
-	offlineimap -l "$XDG_STATE_HOME/offlineimap.log"
-done
+exec "$HOME/.local/libexec/mailsync"

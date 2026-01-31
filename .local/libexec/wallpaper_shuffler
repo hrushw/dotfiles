@@ -1,0 +1,10 @@
+#!/bin/sh
+
+while true; do
+	for i in "$XDG_DATA_HOME/wallpapers/"*; do
+		echo "$i"
+	done | shuf | while read pape; do
+		xwallpaper --maximize "$pape"
+		sleep 300
+	done
+done
