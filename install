@@ -1,3 +1,4 @@
 #!/bin/sh
 
+./prereq
 stow -t "$HOME" .

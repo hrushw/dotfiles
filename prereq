@@ -34,3 +34,8 @@ mkdir -pv $XDG_STATE_HOME/bash
 
 mkdir -p ~/.local/state/emacs/backups
 mkdir -p ~/.config/emacs/bookmarks
+
+cd .config/sv
+for i in *; do
+	mkdir -pv "$XDG_CONFIG_HOME/sv/$i"
+done
