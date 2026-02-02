@@ -1,9 +1,3 @@
-URxvt.font: xft:Terminus:pixelsize=24:style=Regular, xft:Noto Sans Devanagari:size=20:style=Regular
-URxvt.depth: 32
-URxvt.background: [80]Black
-URxvt.foreground: White
-URxvt.scrollBar: False
-
 #define _term_color0 Black
 #define _term_color1 Red3
 #define _term_color2 Green3
@@ -22,51 +16,9 @@ URxvt.scrollBar: False
 #define _term_color14 cyan
 #define _term_color15 white
 
-URxvt*color0: _term_color0
-URxvt*color1: _term_color1
-URxvt*color2: _term_color2
-URxvt*color3: _term_color3
-URxvt*color4: _term_color4
-URxvt*color5: _term_color5
-URxvt*color6: _term_color6
-URxvt*color7: _term_color7
-
-URxvt*color8: _term_color8
-URxvt*color9: _term_color9
-URxvt*color10: _term_color10
-URxvt*color11: _term_color11
-URxvt*color12: _term_color12
-URxvt*color13: _term_color13
-URxvt*color14: _term_color14
-URxvt*color15: _term_color15
-
-XTerm*Color0: _term_color0
-XTerm*Color1: _term_color1
-XTerm*Color2: _term_color2
-XTerm*Color3: _term_color3
-XTerm*Color4: _term_color4
-XTerm*Color5: _term_color5
-XTerm*Color6: _term_color6
-XTerm*Color7: _term_color7
-
-XTerm*Color8: _term_color8
-XTerm*Color9: _term_color9
-XTerm*Color10: _term_color10
-XTerm*Color11: _term_color11
-XTerm*Color12: _term_color12
-XTerm*Color13: _term_color13
-XTerm*Color14: _term_color14
-XTerm*Color15: _term_color15
-
-XTerm*termName: xterm-256color
-XTerm*font: xft:Cozette:pixelsize=32:style=Regular, xft:Noto Sans Devanagari:size=20:style=Regular
-XTerm*decTerminalID: vt340
-XTerm*cursorBlink: True
-XTerm*renderfont: True
-XTerm*background: Black
-XTerm*foreground: White
-
-st*font: Terminus:pixelsize=24:antialias=false:autohint=true
+#include "Xresources.urxvt.X"
+#include "Xresources.xterm.X"
+#include "Xresources.st.X"
 
 st.i3scratchpad_musicplayer.font: Cozette:style=Regular:pixelsize=32:antialias=false:autohint=false
 st.i3scratchpad_dropdown.font: Cozette:style=Regular:pixelsize=32:antialias=false:autohint=false
