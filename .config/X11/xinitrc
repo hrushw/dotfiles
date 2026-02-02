@@ -7,6 +7,6 @@
 xset s 900 900
 
 runsvdir "$SVDIR_X11" &>> "$XDG_STATE_HOME/runsvdir-x11.log" &
-xrdb load "$XDG_CONFIG_HOME/xinit/Xresources"
+xrdb load "$XDG_CONFIG_HOME/xinit/xresources/Xresources"
 
 i3

@@ -1,4 +1,4 @@
 #!/bin/sh
 
 cd
-exec st -n i3scratchpad_btop -f "Cozette:pixelsize=24:antialias=false:autohint=true" -e btop
+exec st -n i3scratchpad_btop -e btop
