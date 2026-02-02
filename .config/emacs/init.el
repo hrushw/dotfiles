@@ -30,6 +30,8 @@
 (progn
   (setq-default tab-width 4
                 tab-always-indent t
+                indent-tabs-mode t
+                indent-line-function 'insert-tab
                 backward-delete-char-untabify-method nil
                 c-basic-offset 4
                 c-tab-always-indent nil
@@ -40,9 +42,7 @@
   (add-hook 'scheme-mode-hook
             #'(lambda () (setq indent-tabs-mode nil)))
   (add-hook 'lisp-mode-hook
-            #'(lambda () (setq indent-tabs-mode nil)))
-  (add-hook 'c-mode-hook
-            #'(lambda () (setq indent-tabs-mode   t))))
+            #'(lambda () (setq indent-tabs-mode nil))))
 
 ;; Ido mode
 (progn
@@ -54,9 +54,9 @@
 
 ;; Disable bars
 (progn
-  (menu-bar-mode 0)
-  (tool-bar-mode 0)
-  (scroll-bar-mode 0)
+  (menu-bar-mode -1)
+  (tool-bar-mode -1)
+  (scroll-bar-mode -1)
   (setq tab-bar-show 1
         tab-bar-tab-hints t))
 
@@ -84,7 +84,8 @@
   (setq org-tags-column 0
         org-edit-src-content-indentation 0
         org-hide-emphasis-markers t
-        org-indent-mode t))
+        org-indent-mode t
+        org-catch-invisible-edits 'show))
 
 (progn
   (defvar preview-default-preamble)
@@ -123,10 +124,17 @@
   (setq LaTeX-section-hook
         '(LaTeX-section-heading
           LaTeX-section-title
-          LaTeX-section-section)))
-(progn
-  (add-hook 'LaTeX-mode-hook #'turn-on-cdlatex)
-  (add-hook 'latex-mode-hook #'turn-on-cdlatex))
+          LaTeX-section-section))
+  ((lambda (fun)
+     (add-hook 'LaTeX-mode-hook fun)
+     (add-hook 'latex-mode-hook fun))
+   #'(lambda () (setq indent-tabs-mode t)
+       (add-to-list 'TeX-view-program-selection '(output-pdf "Zathura"))))
+  )
+
+;; (progn
+;;   (add-hook 'LaTeX-mode-hook #'turn-on-cdlatex)
+;;   (add-hook 'latex-mode-hook #'turn-on-cdlatex))
 
 ;; pdf-tools setup
 (progn
