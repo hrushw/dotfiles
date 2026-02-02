@@ -7,6 +7,7 @@ case ":$PATH:" in
 		;;
 	*)
 		PATH="${PATH:+$PATH:}$HOME/.local/bin"
+		;;
 esac
 
 export LIBRARY_PATH="/usr/local/lib64:/usr/local/lib:$HOME/.local/lib"

@@ -1,3 +1,5 @@
+#!/bin/sh
+
 cls() {
 	# reset and clear to fix issues with tabs -4 on kitty
 	tput reset

@@ -1,3 +1,4 @@
+#!/bin/sh
 # Aliases
 
 alias mv="mv -i"

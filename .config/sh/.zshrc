@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 export SHELL_NAME="zsh"
 
 # Lines configured by zsh-newuser-install

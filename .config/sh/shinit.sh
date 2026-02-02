@@ -1,3 +1,5 @@
+#!/bin/sh
+
 case "$0" in
 	"dash" | "ash" | "sh" | "ksh" | "mksh" | "ksh93")
 		SHELL_NAME="$0";;
