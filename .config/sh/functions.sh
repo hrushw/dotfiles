@@ -13,12 +13,11 @@ _common_sh_init() {
 	export MANROFFOPT="-c"
 	export PAGER="bat --paging=always --style changes,grid,numbers,snip"
 
-	case "$TERM" in
-		"eterm-color")
-			alias vim='echo "vim is not supported inside eterm"';;
-		*)
-			set -o vi;;
-	esac
+	if test -n "$INSIDE_EMACS"; then
+		alias vim='echo "vim is disabled inside emacs"'
+	else
+		set -o vi
+	fi
 
 	# ocaml completion
 	test -f "$HOME/.opam/opam-init/complete.sh" && . $HOME/.opam/opam-init/complete.sh
