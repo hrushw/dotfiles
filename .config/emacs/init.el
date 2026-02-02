@@ -128,13 +128,13 @@
   ((lambda (fun)
      (add-hook 'LaTeX-mode-hook fun)
      (add-hook 'latex-mode-hook fun))
-   #'(lambda () (setq indent-tabs-mode t)
+   #'(lambda ()
        (add-to-list 'TeX-view-program-selection '(output-pdf "Zathura"))))
   )
 
-;; (progn
-;;   (add-hook 'LaTeX-mode-hook #'turn-on-cdlatex)
-;;   (add-hook 'latex-mode-hook #'turn-on-cdlatex))
+(progn
+  (add-hook 'LaTeX-mode-hook #'turn-on-cdlatex)
+  (add-hook 'latex-mode-hook #'turn-on-cdlatex))
 
 ;; pdf-tools setup
 (progn
