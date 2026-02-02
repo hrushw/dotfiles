@@ -1,4 +1,11 @@
-URxvt.font: xft:Terminus:pixelsize=24:style=Regular, xft:Noto Sans Devanagari:size=20:style=Regular
+URxvt*imLocale: en_US.UTF-8
+
+/* do not increase size of symbols nerd font, will not display */
+URxvt.font: \
+	xft:Terminus:pixelsize=24:style=Regular, \
+	xft:Symbols Nerd Font:pixelsize=16:style=Regular, \
+	xft:Noto Sans Devanagari:size=20:style=Regular
+
 URxvt.depth: 32
 URxvt.background: [80]Black
 URxvt.foreground: White
