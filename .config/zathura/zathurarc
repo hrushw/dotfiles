@@ -21,7 +21,7 @@ set dbus-service true
 set dbus-raise-window true
 
 set double-click-follow true
-set incremental-search true
+set incremental-search false
 set open-first-page false
 set scroll-page-aware false
 

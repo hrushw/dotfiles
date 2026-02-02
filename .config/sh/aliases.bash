@@ -14,7 +14,7 @@ alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 alias py='python'
 alias q="exit"
 
-alias ll='ls -alh'
+alias ll='ls -alhG'
 alias cll='cls; ll'
 
 alias FZF="fzf --style minimal --walker=file,hidden --bind 'focus:transform-header:file --brief {}' --preview 'fzf-preview.sh {}'"
