@@ -108,15 +108,24 @@
   (disable-theme (car custom-enabled-themes))
   (load-theme new-theme t nil))
 
+(defun toggle-theme ()
+  (interactive)
+  (if (eq (car custom-enabled-themes) 'gruber-darker)
+      (switch-theme 'modus-operandi-deuteranopia)
+    (switch-theme 'gruber-darker)))
+
+
 ;; Gruber darker
 (progn
   (require 'gruber-darker-theme)
+  (setq custom-enabled-themes '())
   (load-theme 'gruber-darker t nil))
 
 ;; keybinds
 (progn
   (keymap-global-set "C-;" 'compile)
-  (keymap-global-set "C-:" 'recompile))
+  (keymap-global-set "C-:" 'recompile)
+  (keymap-global-set "C-'" #'toggle-theme))
 
 ;; AUCTeX and CDLaTeX setup
 (progn
