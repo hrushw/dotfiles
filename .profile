@@ -6,7 +6,7 @@ case ":$PATH:" in
 	*:"$HOME/.local/bin":*)
 		;;
 	*)
-		PATH="${PATH:+$PATH:}$HOME/.local/bin"
+		PATH="$HOME/.local/bin:$PATH"
 		;;
 esac
 
@@ -72,8 +72,8 @@ export PYTHON_HISTORY="$XDG_STATE_HOME/python/history"
 export GOPATH="$XDG_DATA_HOME/go"
 export GOMODCACHE="$XDG_DATA_HOME/go/mod"
 
-export XINITRC="$XDG_CONFIG_HOME/xinit/xinitrc"
-export XSERVERRC="$XDG_CONFIG_HOME/xinit/xserverrc"
+export XINITRC="$XDG_CONFIG_HOME/X11/xinitrc"
+export XSERVERRC="$XDG_CONFIG_HOME/X11/xserverrc"
 
 export ZDOTDIR="$XDG_CONFIG_HOME/sh"
 export ENV="$XDG_CONFIG_HOME/sh/shinit.sh"

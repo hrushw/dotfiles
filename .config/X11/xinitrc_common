@@ -1,6 +1,6 @@
 #!/bin/sh
 
-export SVDIR_X11="$XDG_CONFIG_HOME/xinit/runsvdir/current"
+export SVDIR_X11="$XDG_CONFIG_HOME/X11/runsvdir/current"
 export XCURSOR_THEME=Breeze_Hacked
 export XCURSOR_SIZE=32
 
