@@ -17,6 +17,7 @@ mkdir -pv $XDG_CONFIG_HOME/river
 mkdir -pv $XDG_CONFIG_HOME/qutebrowser
 mkdir -pv $XDG_CONFIG_HOME/matplotlib/stylelib
 mkdir -pv $XDG_CONFIG_HOME/mako
+mkdir -pv $XDG_CONFIG_HOME/asymptote
 mkdir -pv $XDG_CONFIG_HOME/kitty
 mkdir -pv $XDG_CONFIG_HOME/hypr
 mkdir -pv $XDG_CONFIG_HOME/i3

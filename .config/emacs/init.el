@@ -125,7 +125,8 @@
 (progn
   (keymap-global-set "C-;" 'compile)
   (keymap-global-set "C-:" 'recompile)
-  (keymap-global-set "C-'" #'toggle-theme))
+  (keymap-global-set "M-p t" #'toggle-theme)
+  (keymap-global-set "M-p M-r" #'restart-emacs))
 
 ;; AUCTeX and CDLaTeX setup
 (progn
@@ -134,6 +135,7 @@
         '(LaTeX-section-heading
           LaTeX-section-title
           LaTeX-section-section))
+;;        preview-scale-function 0.8)
   ((lambda (fun)
      (add-hook 'LaTeX-mode-hook fun)
      (add-hook 'latex-mode-hook fun))
