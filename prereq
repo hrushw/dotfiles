@@ -23,7 +23,7 @@ mkdir -pv $XDG_CONFIG_HOME/hypr
 mkdir -pv $XDG_CONFIG_HOME/i3
 mkdir -pv $XDG_CONFIG_HOME/alacritty
 mkdir -pv ~/.local/share/icons ~/.local/share/fonts ~/.local/bin
-mkdir -pv $GRIM_DEFAULT_DIR
+# mkdir -pv $GRIM_DEFAULT_DIR
 mkdir -pv $XDG_DATA_HOME/go/mod
 mkdir -pv ~/.local/state/vim
 mkdir -pv ~/.local/share/vim/undo
