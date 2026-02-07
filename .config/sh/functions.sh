@@ -5,7 +5,7 @@ cls() {
 	tput reset
 	tabs -4
 	tput clear
-	! [ "$NOHEADER" ] && tszfmtprint
+	! [ "$NOHEADER_" ] && tszfmtprint
 }
 
 _common_sh_init() {
@@ -22,8 +22,14 @@ _common_sh_init() {
 	# ocaml completion
 	test -f "$HOME/.opam/opam-init/complete.sh" && . $HOME/.opam/opam-init/complete.sh
 
+	if [ "$NOHEADER" ]; then
+		export NOHEADER_=t
+		export NOHEADER=""
+	else
+		export NOHEADER_=""
+	fi
 	if [ "$NOCLEAR" ]; then
-		! [ "$NOHEADER" ] && tszfmtprint
+		! [ "$NOHEADER_" ] && tszfmtprint
 		export NOCLEAR=""
 	else
 		cls

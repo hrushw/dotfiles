@@ -1,0 +1,16 @@
+#!/bin/sh
+
+SCREENSHOTS_DIR="$XDG_DATA_HOME/screenshots"
+
+# Take screenshot of 
+{
+	crud |
+	tail -n 1 |
+	cut -c 3- |
+	sed 's/\(.*\)x\(.*\)+\(.*\)+\(.*\)/\3,\4,\1,\2/'
+} | {
+	read dims
+	scrot -a "$dims" -F "$SCREENSHOTS_DIR/scr_\$a_%Y-%m-%d_%H-%M-%S_\$wx\$h.png" \
+		-e 'printf $f | xclip -i -selection clipboard'
+}
+

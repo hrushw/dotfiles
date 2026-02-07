@@ -63,21 +63,28 @@ case "$arg" in
 		if [ "$KITTY_WINDOW_ID" ]; then
 			dot -Tkitty "$arg"
 		else
-			zsh -c "nsxiv =(dot -Tpng "$arg")" &>/dev/null &
+			tmppng="$(mktemp)"
+			dot -Tpng "$arg" > "$tmppng"
+			(nsxiv "$tmppng" &>/dev/null; rm "$tmppng") &
 		fi;;
 
 	*".pdf" | *".djvu" | *".ps" | *".eps")
 		zathura "$arg" &>/dev/null &;;
 
 	*".txt" | *"/README" | "README")
-		bat --paging=always "$arg";;
+		xterm -e "bat --paging=always \"$arg\"";;
 
 	*".org")
 		emacsclient -nc "$arg";;
 
 	*)
 		if file "$arg" | grep "directory"; then
-			ls -al --color=auto --hyperlink=auto "$arg"
+			if [ -t 1 ]; then
+				ls -al --color=auto --hyperlink=auto "$arg"
+			else
+				cd "$arg"
+				xterm &
+			fi
 		elif file "$arg" | grep -e "ASCII text" -e "UTF-8 text" &>/dev/null; then
 			if file "$arg" | grep "troff" &>/dev/null; then
 				# ????

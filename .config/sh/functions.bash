@@ -128,6 +128,7 @@ _bash_set_prompt() {
 
 	if [ "$DROPDOWN" ]; then
 		PS1="\[$ENDC\]$ps1prompt"
+		export DROPDOWN=""
 	else
 		PS1="\[$ENDC$BOLD$B_WHITE\]$ps1uhostname\[$B_WHITE\] : $ps1dir\n$ps1prompt"
 	fi

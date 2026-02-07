@@ -37,14 +37,17 @@ export GTK_THEME=Breeze:dark
 export CC=gcc
 export TERMCMD="st"
 
-export GRIM_DEFAULT_DIR=$XDG_DATA_HOME/screenshots
+# not using wayland currently
+# export GRIM_DEFAULT_DIR=$XDG_DATA_HOME/screenshots
 
 # causes problems with Makefiles
 # export CFLAGS="-Wall -Wextra -Wpedantic -Wvla"
 
+# generally not useful
 # export CDPATH=:~
 
-export BEMENU_OPTS='-b -fn "Terminus 12px"'
+# not using bemenu currently
+# export BEMENU_OPTS='-b -fn "Terminus 12px"'
 
 # make other programs conform to XDG directories
 export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
