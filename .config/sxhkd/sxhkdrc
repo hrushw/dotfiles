@@ -36,5 +36,6 @@ XF86MonBrightnessDown
 	brightnessctl set 5%-
 XF86MonBrightnessUp
 	brightnessctl set 5%+
-Print
+# Without '@' Esc fails to cancel selection??
+@Print
 	$HOME/.local/libexec/x11_screenshot
