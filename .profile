@@ -35,7 +35,7 @@ export EDITOR="vim"
 export BROWSER="firefox"
 export GTK_THEME=Breeze:dark
 export CC=gcc
-export TERMCMD="st"
+export TERMCMD="xterm"
 
 # not using wayland currently
 # export GRIM_DEFAULT_DIR=$XDG_DATA_HOME/screenshots

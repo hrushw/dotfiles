@@ -4,6 +4,14 @@
 
 shopt -s nocasematch
 
+open_in_term() {
+	if [ -t 1 ]; then
+		eval "$@"
+	else
+		xterm -e "$@"
+	fi
+}
+
 mdview() {
 	lowdown -t term $1 | bat --paging=always
 }
@@ -72,7 +80,7 @@ case "$arg" in
 		zathura "$arg" &>/dev/null &;;
 
 	*".txt" | *"/README" | "README")
-		xterm -e "bat --paging=always \"$arg\"";;
+		open_in_term bat --paging=always "$arg";;
 
 	*".org")
 		emacsclient -nc "$arg";;
@@ -88,9 +96,9 @@ case "$arg" in
 		elif file "$arg" | grep -e "ASCII text" -e "UTF-8 text" &>/dev/null; then
 			if file "$arg" | grep "troff" &>/dev/null; then
 				# ????
-				man "$arg"
+				open_in_term man "$arg"
 			else
-				bat --paging=always "$arg"
+				open_in_term bat --paging=always "$arg"
 			fi
 		elif file "$arg" | grep "broken" &>/dev/null; then
 			file "$arg"
