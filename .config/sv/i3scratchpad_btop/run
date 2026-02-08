@@ -1,4 +1,4 @@
 #!/bin/sh
 
 cd
-exec st -n i3scratchpad_btop -e btop &>> "$XDG_DATA_HOME/sv/generic.log"
+exec st -n i3scratchpad_btop -e btop >> "$XDG_DATA_HOME/sv/generic.log" 2>&1

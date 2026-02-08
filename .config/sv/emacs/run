@@ -1,4 +1,4 @@
 #!/bin/sh
 
 cd
-exec emacs --fg-daemon &>> "$XDG_DATA_HOME/sv/generic.log"
+exec emacs --fg-daemon >> "$XDG_DATA_HOME/sv/generic.log" 2>&1
