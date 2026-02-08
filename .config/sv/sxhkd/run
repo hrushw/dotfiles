@@ -1,4 +1,4 @@
 #!/bin/sh
 
 cd "$HOME"
-exec sxhkd
+exec sxhkd &>> "$XDG_DATA_HOME/sv/generic.log"

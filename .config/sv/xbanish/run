@@ -1,4 +1,4 @@
 #!/bin/sh
 
-exec xbanish -t 5
+exec xbanish -t 5 &>> "$XDG_DATA_HOME/sv/generic.log"
 

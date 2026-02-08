@@ -1,3 +1,3 @@
 #!/bin/sh
 
-exec pipewire
+exec pipewire &>> "$XDG_DATA_HOME/sv/generic.log"
