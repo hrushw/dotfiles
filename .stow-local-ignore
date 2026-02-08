@@ -6,3 +6,5 @@ README.md
 .gitignore
 .*\.swp
 archive
+.config/runsvdir/current/README
+.config/X11/runsvdir/current/README

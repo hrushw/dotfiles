@@ -1,29 +1,7 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 # Start user services
 export SVDIR_USER="$XDG_CONFIG_HOME/runsvdir/current"
-runsvdir "$SVDIR_USER" &>> "$XDG_STATE_HOME/runsvdir-local.log" &
-
-tput reset
-pfetch
-echo "$(tput bold)$(tput setaf 1)[$(tput setaf 7) Select Session $(tput setaf 1)]$(tput sgr0)"
-PS3="
-$(tput sgr0)$(tput bold)$(tput setaf 1)[$(tput setaf 7)#$(tput setaf 1)]? $(tput sgr0)"
-
-select session in "xinit" "bash" "dash" "zsh"; do break; done
-
-case $session in
-	"dash")
-		echo "Executing: Debian Almquist Shell"
-		rlwrap dash;;
-	"bash")
-		echo "Executing: GNU Bourne Again Shell"
-		bash;;
-	"zsh")
-		echo "Executing: Z Shell"
-		zsh;;
-	"xinit")
-		echo "Executing: startx"
-		startx;;
-esac
+export _RUNSVDIR_USER_PID=$$
+exec runsvdir "$SVDIR_USER"
 
