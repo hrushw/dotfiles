@@ -20,10 +20,14 @@
 #include "Xresources.xterm.X"
 #include "Xresources.st.X"
 
-st.i3scratchpad_musicplayer.font: Cozette:style=Regular:pixelsize=32:antialias=false:autohint=false
-st.i3scratchpad_dropdown.font: Cozette:style=Regular:pixelsize=32:antialias=false:autohint=false
-st.i3scratchpad_btop.font: Cozette:style=Regular:pixelsize=32:antialias=false:autohint=false
+i3scratchpad_musicplayer.font: Terminus:style=Regular:pixelsize=24:antialias=false:autohint=false
+i3scratchpad_dropdown.font: Cozette:style=Regular:pixelsize=32:antialias=false:autohint=false
+i3scratchpad_btop.font: Terminus:style=Regular:pixelsize=24:antialias=false:autohint=false
 
-XTerm.i3scratchpad_musicplayer.font: xft:Cozette:style=Regular:pixelsize=32:antialias=false:autohint=false
-XTerm.i3scratchpad_dropdown.font: xft:Cozette:style=Regular:pixelsize=32:antialias=false:autohint=false
-XTerm.i3scratchpad_btop.font: xft:Cozette:style=Regular:pixelsize=32:antialias=false:autohint=false
+/* St.i3scratchpad_musicplayer.font: Cozette:style=Regular:pixelsize=32:antialias=false:autohint=false */
+/* St.i3scratchpad_dropdown.font: Cozette:style=Regular:pixelsize=32:antialias=false:autohint=false */
+/* St.i3scratchpad_btop.font: Terminus:style=Regular:pixelsize=32:antialias=false:autohint=false */
+
+/* XTerm.i3scratchpad_musicplayer.font: xft:Cozette:style=Regular:pixelsize=32:antialias=false:autohint=false */
+/* XTerm.i3scratchpad_dropdown.font: xft:Cozette:style=Regular:pixelsize=32:antialias=false:autohint=false */
+/* XTerm.i3scratchpad_btop.font: xft:Cozette:style=Regular:pixelsize=32:antialias=false:autohint=false */
