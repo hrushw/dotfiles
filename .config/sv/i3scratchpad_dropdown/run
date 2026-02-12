@@ -1,5 +1,5 @@
 #!/bin/sh
 
 cd
-NOHEADER=t DROPDOWN=t exec st -n i3scratchpad_dropdown -e tmux >> "$XDG_DATA_HOME/sv/generic.log" 2>&1
+NOHEADER=t DROPDOWN=t exec st -n i3scratchpad_dropdown >> "$XDG_DATA_HOME/sv/generic.log" 2>&1
 

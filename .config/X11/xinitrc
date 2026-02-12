@@ -1,5 +1,6 @@
 #!/bin/sh
 
+cd
 . "$HOME/.profile"
 # export SCREENLOCKER=slock
 
