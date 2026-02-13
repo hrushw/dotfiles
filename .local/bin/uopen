@@ -8,12 +8,8 @@ open_in_term() {
 	if [ -t 1 ]; then
 		eval "$@"
 	else
-		xterm -e "$@"
+		xterm -e "$@" &>/dev/null &
 	fi
-}
-
-mdview() {
-	lowdown -t term $1 | bat --paging=always
 }
 
 arg="$@"
@@ -50,28 +46,36 @@ case "$arg" in
 		firefox "$arg" &>/dev/null &;;
 
 	*".md")
-		mdview "$arg";;
+		tmpfmt="$(mktemp /tmp/mdfmt.XXXXXX)"
+		lowdown -t term "$arg" > "$tmpfmt"
+		open_in_term "$PAGER" "$tmpfmt"
+		rm "$tmpfmt";;
+
 	*".rst")
-		pandoc "$arg" -t markdown | mdview;;
+		tmpfmt="$(mktemp /tmp/mdfmt.XXXXXX)"
+		pandoc "$arg" -t markdown | lowdown -t term > "$tmpfmt"
+		open_in_term "$PAGER" "$tmpfmt"
+		rm "$tmpfmt";;
 
 	*".mkv" | *".mp4" | *".webm" | *".mov")
-		mpv "$arg";;
+		mpv "$arg" &>/dev/null &;;
 
 	*".flac" | *".opus" | *".mp3")
-		mpv --vid=no "$arg";;
+		# mpv --vid=no "$arg";;
+		mpv "$arg" &>/dev/null &;;
 
 	*".png" | *".jpg" | *".jpeg" | *".svg" | *".gif" | *".ppm" | *".pbm" | *".pgm" | *".ff" | *".webp")
-		if [ "$KITTY_WINDOW_ID" ]; then
+		if [ "$KITTY_WINDOW_ID" -a -t 1 ]; then
 			kitten icat --align left --transfer-mode="stream" --unicode-placeholder "$arg"
 		else
 			nsxiv --alpha-layer "$arg" &>/dev/null &
 		fi;;
 
 	*".dot")
-		if [ "$KITTY_WINDOW_ID" ]; then
+		if [ "$KITTY_WINDOW_ID" -a -t 1 ]; then
 			dot -Tkitty "$arg"
 		else
-			tmppng="$(mktemp)"
+			tmppng="$(mktemp /tmp/dotpng.XXXXXX)"
 			dot -Tpng "$arg" > "$tmppng"
 			(nsxiv "$tmppng" &>/dev/null; rm "$tmppng") &
 		fi;;
@@ -80,7 +84,7 @@ case "$arg" in
 		zathura "$arg" &>/dev/null &;;
 
 	*".txt" | *"/README" | "README")
-		open_in_term bat --paging=always "$arg";;
+		open_in_term "$PAGER" "$arg";;
 
 	*".org")
 		emacsclient -nc "$arg";;
@@ -95,10 +99,9 @@ case "$arg" in
 			fi
 		elif file "$arg" | grep -e "ASCII text" -e "UTF-8 text" &>/dev/null; then
 			if file "$arg" | grep "troff" &>/dev/null; then
-				# ????
 				open_in_term man "$arg"
 			else
-				open_in_term bat --paging=always "$arg"
+				open_in_term "$PAGER" "$arg"
 			fi
 		elif file "$arg" | grep "broken" &>/dev/null; then
 			file "$arg"
