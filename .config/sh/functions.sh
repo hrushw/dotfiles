@@ -15,7 +15,8 @@ cls() {
 _common_sh_init() {
 	export LESS='-R --use-color -Dd+r$Du+b$ +0'
 	# export MANROFFOPT="-c"
-	export PAGER="bat --paging=always --style changes,grid,numbers,snip"
+	# export PAGER="bat --paging=always --style changes,grid,numbers,snip"
+	export PAGER="less"
 
 	if test -n "$INSIDE_EMACS"; then
 		alias vim='echo "vim is disabled inside emacs"'
