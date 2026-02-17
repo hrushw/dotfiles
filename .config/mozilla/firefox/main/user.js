@@ -255,12 +255,37 @@ user_pref("permissions.default.geo", 0);
 user_pref("browser.urlbar.suggest.quicksuggest.all", false);
 user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
 user_pref("browser.urlbar.suggest.quicksuggest.sponsored", false);
+
+// Location bar / Search bar / Suggestions / History / Forms (arkenfox section 0800)
+user_pref("browser.urlbar.speculativeConnect.enabled", false);
+user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
+user_pref("browser.urlbar.suggest.quicksuggest.sponsored", false);
+user_pref("browser.search.suggest.enabled", false);
+user_pref("browser.urlbar.suggest.searches", false);
+user_pref("browser.urlbar.trending.featureGate", false);
+user_pref("browser.formfill.enable", false);
+user_pref("browser.search.separatePrivateDefault", true);
+user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
 user_pref("browser.urlbar.suggest.topsites", false);
 user_pref("browser.urlbar.suggest.history", false);
 
+// disable autofill (arkenfox section 0900)
+user_pref("signon.autofillForms", false);
+user_pref("signon.formlessCapture.enabled", false);
+user_pref("network.auth.subresource-http-auth-allow", 1);
+
+// disk avoidance (arkenfox section 1000)
+// user_pref("browser.cache.disk.enable", false);
+user_pref("browser.cache.memory.enable", false);
+user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
+user_pref("media.memory_cache_max_size", 65536);
+user_pref("browser.sessionstore.privacy_level", 2);
+
+// misc
 user_pref("dom.push.enabled", false);
 user_pref("extensions.pocket.enabled", false);
 user_pref("identity.fxaccounts.enabled", false);
+user_pref("dom.disable_window_move_resize", true);
 
 // UI overrides
 user_pref("full-screen-api.ignore-widgets", true);
