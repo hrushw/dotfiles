@@ -93,4 +93,4 @@ export CHICKEN_REPOSITORY_PATH="$CHICKEN_INSTALL_REPOSITORY"
 eval $(dircolors)
 
 # OCaml environment
-eval $(opam env)
+# eval $(opam env)

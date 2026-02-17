@@ -25,3 +25,6 @@ alias FZFD="fzf --style minimal --bind 'focus:transform-header:file --brief {}' 
 alias of="uopen \"\$(FZF)\""
 alias vf="vim \"\$(FZF)\""
 alias gf="cd \"\$(FZFD)\""
+
+alias xup="sudo xbps-install -Syu"
+alias xqr="xbps-query -R"
