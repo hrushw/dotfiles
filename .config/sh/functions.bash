@@ -123,7 +123,7 @@ _bash_set_prompt() {
 	local ps1prompt="\[$BOLD$B_RED\][\[$B_WHITE\]\$\[$B_RED\]]>\[$ENDC\] "
 
 	if [ "$DROPDOWN" ]; then
-		PS1="\[$ENDC\]$ps1prompt"
+		PS1="\[$ENDC$BOLD\]$ps1dir $ps1prompt"
 		export DROPDOWN=""
 	else
 		PS1="\[$ENDC$BOLD$B_WHITE\]$ps1uhostname\[$B_WHITE\] : $ps1dir\n$ps1prompt"
