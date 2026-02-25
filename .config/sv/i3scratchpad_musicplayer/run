@@ -1,5 +1,5 @@
 #!/bin/sh
 
 cd
-exec kitty --name i3scratchpad_musicplayer rmpc >> "$XDG_DATA_HOME/sv/generic.log" 2>&1
+exec kitty --name scratchpad_musicplayer rmpc >> "$XDG_DATA_HOME/sv/generic.log" 2>&1
 
