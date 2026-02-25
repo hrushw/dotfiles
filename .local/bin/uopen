@@ -61,8 +61,8 @@ case "$arg" in
 		mpv "$arg" &>/dev/null &;;
 
 	*".flac" | *".opus" | *".mp3")
-		# mpv --vid=no "$arg";;
-		mpv "$arg" &>/dev/null &;;
+		mpv --vid=no "$arg";;
+		# mpv "$arg" &>/dev/null &;;
 
 	*".png" | *".jpg" | *".jpeg" | *".svg" | *".gif" | *".ppm" | *".pbm" | *".pgm" | *".ff" | *".webp")
 		if [ "$KITTY_WINDOW_ID" -a -t 1 ]; then
