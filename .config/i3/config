@@ -78,9 +78,9 @@ bindsym $mod+Shift+n move container to workspace next; workspace next
 bindsym $mod+Shift+p move container to workspace prev; workspace prev
 
 bindsym $mod+Shift+o move scratchpad
-bindsym $mod+o [instance="^(?!i3scratchpad_).*"] scratchpad show
+bindsym $mod+o [instance="^(?!scratchpad_).*"] scratchpad show
 
-bindsym $mod+s [instance="^(?!i3scratchpad_).*"] sticky toggle
+bindsym $mod+s [instance="^(?!scratchpad_).*"] sticky toggle
 
 gaps outer -10
 gaps inner 20
@@ -92,20 +92,20 @@ hide_edge_borders smart
 
 exec --no-startup-id xss-lock --transfer-sleep-lock -- slock
 
-for_window [instance="i3scratchpad_*"] move scratchpad
-for_window [instance="i3scratchpad_*"] border pixel 8
+for_window [instance="scratchpad_*"] move scratchpad
+for_window [instance="scratchpad_*"] border pixel 8
 
-bindsym $mod+w [instance="i3scratchpad_dropdown"] scratchpad show
-for_window [instance="i3scratchpad_dropdown"] resize set 80 ppt 40 ppt
-for_window [instance="i3scratchpad_dropdown"] move position 10 ppt 0 ppt
+bindsym $mod+w [instance="scratchpad_dropdown"] scratchpad show
+for_window [instance="scratchpad_dropdown"] resize set 80 ppt 40 ppt
+for_window [instance="scratchpad_dropdown"] move position 10 ppt 0 ppt
 
-bindsym $mod+Control+m [instance="i3scratchpad_musicplayer"] scratchpad show
-for_window [instance="i3scratchpad_musicplayer"] resize set 90 ppt 80 ppt
-for_window [instance="i3scratchpad_musicplayer"] move position 5 ppt 10 ppt
+bindsym $mod+Control+m [instance="scratchpad_musicplayer"] scratchpad show
+for_window [instance="scratchpad_musicplayer"] resize set 90 ppt 80 ppt
+for_window [instance="scratchpad_musicplayer"] move position 5 ppt 10 ppt
 
-bindsym $mod+Control+i [instance="i3scratchpad_btop"] scratchpad show
-for_window [instance="i3scratchpad_btop"] resize set 90 ppt 80 ppt
-for_window [instance="i3scratchpad_btop"] move position 5 ppt 10 ppt
+bindsym $mod+Control+i [instance="scratchpad_btop"] scratchpad show
+for_window [instance="scratchpad_btop"] resize set 90 ppt 80 ppt
+for_window [instance="scratchpad_btop"] move position 5 ppt 10 ppt
 
 bar {
 	font pango:Terminus 16
