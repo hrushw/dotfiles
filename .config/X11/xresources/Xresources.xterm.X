@@ -1,11 +1,12 @@
 XTerm*termName: xterm-256color
-/* XTerm*font: xft:Cozette:pixelsize=32:style=Regular, xft:Noto Sans Devanagari:size=20:style=Regular */
-XTerm*font: xft:Terminus:pixelsize=24:style=Regular, xft:Noto Sans Devanagari:size=20:style=Regular
+XTerm*font: xft:Cozette:pixelsize=32:style=Regular, xft:Noto Sans Devanagari:size=20:style=Regular
+/* XTerm*font: xft:Terminus:pixelsize=24:style=Regular, xft:Noto Sans Devanagari:size=20:style=Regular */
 XTerm*decTerminalID: vt340
 XTerm*cursorBlink: True
 XTerm*renderfont: True
 XTerm*background: Black
 XTerm*foreground: White
+XTerm*metaSendsEscape: true
 
 XTerm*Color0: _term_color0
 XTerm*Color1: _term_color1

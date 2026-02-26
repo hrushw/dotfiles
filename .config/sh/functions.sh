@@ -4,6 +4,10 @@ launch() {
 	"$@" &>/dev/null &
 }
 
+scatter() {
+	"$@" &>/dev/null & exit
+}
+
 cls() {
 	# reset and clear to fix issues with tabs -4 on kitty
 	tput reset

@@ -4,10 +4,12 @@ tiling_drag modifier titlebar
 tiling_drag swap_modifier Shift
 
 title_align center
+for_window [all] title_window_icon yes
+for_window [all] title_window_icon padding6
 font pango:Terminus 16
 
 # (window is scratchpad) ? (hide) : (kill)
-bindsym $mod+Shift+q [con_id=__focused__ instance="^(?!i3scratchpad_).*"] kill; [con_id=__focused__] scratchpad show
+bindsym $mod+Shift+q [con_id=__focused__ instance="^(?!scratchpad_).*"] kill; [con_id=__focused__] scratchpad show
 bindsym $mod+r reload
 bindsym $mod+Shift+r restart
 bindsym $mod+Control+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
@@ -37,7 +39,7 @@ bindsym $mod+t layout toggle split
 
 bindsym $mod+semicolon fullscreen toggle
 bindsym $mod+f focus mode_toggle
-bindsym $mod+Shift+space [con_id=__focused__ instance="^(?!i3scratchpad_).*"] floating toggle
+bindsym $mod+Shift+space [con_id=__focused__ instance="^(?!scratchpad_).*"] floating toggle
 
 bindsym $mod+g focus child
 bindsym $mod+Shift+g focus parent
@@ -82,6 +84,8 @@ bindsym $mod+o [instance="^(?!scratchpad_).*"] scratchpad show
 
 bindsym $mod+s [instance="^(?!scratchpad_).*"] sticky toggle
 
+bindsym $mod+b bar mode toggle
+
 # gaps outer -10
 # gaps inner 20
 gaps outer 0
@@ -110,6 +114,9 @@ for_window [instance="scratchpad_btop"] resize set 90 ppt 80 ppt
 for_window [instance="scratchpad_btop"] move position 5 ppt 10 ppt
 
 bar {
+	mode dock
+	hidden_state hide
+	modifier none
 	font pango:Terminus 16
 	status_command i3status
 }
