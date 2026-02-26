@@ -137,10 +137,8 @@ _bash_set_prompt() {
 _bash_set_title_updater() {
 	case "$TERM" in
 		# Kitty already handles title updating
-		"xterm-kitty")
-			;;
 		# Eterm does not have a title and misinterprets relevant escape codes
-		"eterm-color")
+		"xterm-kitty" | "eterm-color" | "tmux-256color")
 			;;
 		*)
 			# Set window title to command currently running

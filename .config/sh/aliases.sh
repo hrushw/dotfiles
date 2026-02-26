@@ -1,6 +1,7 @@
 #!/bin/sh
 # Aliases
 
+# Safety
 alias mv="mv -i"
 alias rm='echo "rm is disabled, use del"'
 alias pkill='pkill -x'
@@ -12,14 +13,17 @@ alias ngspice='LC_CTYPE=C ngspice'
 # prevent wget from dumping history into home
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 
-alias py='python'
-alias q="exit"
-
-alias ll='ls -alhG'
-alias cll='cls; ll'
-
 alias FZF="fzf --style minimal --walker=file,hidden --bind 'focus:transform-header:file --brief {}' --preview 'fzf-preview.sh {}'"
 alias FZFD="fzf --style minimal --bind 'focus:transform-header:file --brief {}' --preview 'tree -C {}' --walker=dir,hidden"
+
+# Shortcuts
+alias py='python'
+alias q="exit"
+alias t='tmux'
+alias et='exec tmux'
+alias r="exec $SHELL_NAME"
+alias ll='ls -alhG'
+alias cll='cls; ll'
 
 # Fuzzification
 alias of="uopen \"\$(FZF)\""
