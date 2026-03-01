@@ -19,10 +19,6 @@ alias FZFD="fzf --style minimal --bind 'focus:transform-header:file --brief {}' 
 # Shortcuts
 alias py='python'
 alias q="exit"
-alias t='tmux'
-alias et='exec tmux'
-alias ta='tmux attach'
-alias eta='exec tmux attach'
 alias r="exec $SHELL_NAME"
 alias ll='ls -alhG'
 alias cll='cls; ll'
@@ -34,3 +30,8 @@ alias gf="cd \"\$(FZFD)\""
 
 alias xup="sudo xbps-install -Syu"
 alias xqr="xbps-query -R"
+
+alias t='tmux'
+alias et='exec tmux'
+alias ta='tmux attach'
+alias eta='exec tmux attach'
