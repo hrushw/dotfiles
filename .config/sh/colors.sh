@@ -1,6 +1,8 @@
 #!/bin/sh
 
 # Prompt color variables - must be loaded before prompt.bash
+REVERSE="$(tput rev)"
+
 BLACK="$(tput setaf 0)"
 RED="$(tput setaf 1)"
 GREEN="$(tput setaf 2)"

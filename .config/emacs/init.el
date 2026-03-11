@@ -79,22 +79,42 @@
 
 ;; Org mode
 (progn
-  (require 'org)
+  ;; cloned https://code.tecosaur.net/tec/org-mode
+  ;; use-package instructions at https://abode.karthinks.com/org-latex-preview/ caused some issues,
+  ;; but loading cloned files directly seems to work
+  (add-to-list 'load-path "~/.config/emacs/org-mode/lisp")
+  (load "~/.config/emacs/org-mode/lisp/org.el")
+  (add-hook 'org-mode-hook 'org-latex-preview-mode)
+  (setq org-latex-preview-mode-display-live t)
+  (setq org-latex-preview-mode-update-delay 0.25)
+  ;; (require 'org)
   (define-key org-mode-map (kbd "M-<return>") 'org-meta-return)
   (setq org-tags-column 0
         org-edit-src-content-indentation 0
         org-hide-emphasis-markers t
         org-indent-mode t
         org-catch-invisible-edits 'show))
+(progn
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((emacs-lisp . t)
+     (python . t)
+     (scheme . t)
+     (latex . t)
+     (makefile . t)
+     (calc . t)
+     (perl . t)
+     (shell . t))))
 
 (progn
   (defvar preview-default-preamble)
   (plist-put org-format-latex-options :scale 2)
   (add-to-list 'org-latex-packages-alist '("" "tikz" t))
   (add-to-list 'org-latex-packages-alist '("" "pgfplots" t))
+  (add-to-list 'org-latex-packages-alist '("euler-digits,euler-hat-accent" "eulervm" t))
   (eval-after-load "preview"
     '(add-to-list 'preview-default-preamble "\\PreviewEnvironment{tikzpicture}" t))
-  (setq org-preview-latex-default-process 'imagemagick))
+  (setq org-preview-latex-default-process 'dvisvgm))
 
 (progn
   (setq explicit-shell-file-name nil
@@ -117,7 +137,7 @@
 
 ;; Gruber darker
 (progn
-  (require 'gruber-darker-theme)
+  (load "~/.config/emacs/gruber-darker-theme/gruber-darker-theme.el")
   (setq custom-enabled-themes '())
   (load-theme 'gruber-darker t nil))
 
