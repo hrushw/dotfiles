@@ -7,7 +7,8 @@ URxvt.font: \
 	xft:Noto Sans Devanagari:size=20:style=Regular
 
 URxvt.depth: 32
-URxvt.background: [80]Black
+/* URxvt.background: [80]Black */
+URxvt.background: Black
 URxvt.foreground: White
 URxvt.scrollBar: False
 

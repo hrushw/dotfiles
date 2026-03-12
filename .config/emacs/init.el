@@ -35,7 +35,8 @@
                 backward-delete-char-untabify-method nil
                 c-basic-offset 4
                 c-tab-always-indent nil
-                c-syntactic-indentation nil)
+                c-syntactic-indentation nil
+                electric-indent-mode t)
   ;; use spaces for lisp
   (add-hook 'emacs-lisp-mode-hook
             #'(lambda () (setq indent-tabs-mode nil)))

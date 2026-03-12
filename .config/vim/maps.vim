@@ -39,6 +39,17 @@ nnoremap <Leader>qp :HelpToc<CR>
 tnoremap <C-n> <C-w>N
 tnoremap <C-w>n <C-n>
 
+" command mode keybinds
+cnoremap <C-h> <Left>
+cnoremap <C-j> <Down>
+cnoremap <C-k> <Up>
+cnoremap <C-l> <Right>
+cnoremap <C-w> <C-Right>
+cnoremap <C-b> <C-Left>
+cnoremap <C-g> <Esc>
+cnoremap <C-p> <Home>
+cnoremap <C-n> <End>
+
 " Emacs keys slowly growing on me
 
 nnoremap <C-s> /
