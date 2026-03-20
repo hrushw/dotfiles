@@ -25,6 +25,8 @@
   (evil-mode 1)
   (evil-set-undo-system 'undo-redo)
   (evil-collection-init))
+;;  (add-hook 'Info-mode-hook (lambda () (evil-local-mode 0)))
+;;  (add-hook 'calc-mode-hook (lambda () (evil-local-mode 0))))
 
 ;; Sensible indentation settings
 (progn
@@ -73,6 +75,7 @@
 ;; Lines and line numbers
 (progn
   (setq-default display-line-numbers-type 'relative)
+  (setq-default display-line-numbers-width-start t)
   (set-face-attribute 'line-number-current-line nil :weight 'bold)
   (global-display-line-numbers-mode)
   (global-hl-line-mode)
@@ -86,6 +89,7 @@
   (add-to-list 'load-path "~/.config/emacs/org-mode/lisp")
   (load "~/.config/emacs/org-mode/lisp/org.el")
   (add-hook 'org-mode-hook 'org-latex-preview-mode)
+  (add-hook 'org-mode-hook #'turn-on-org-cdlatex)
   (setq org-latex-preview-mode-display-live t)
   (setq org-latex-preview-mode-update-delay 0.25)
   ;; (require 'org)
@@ -95,6 +99,7 @@
         org-hide-emphasis-markers t
         org-indent-mode t
         org-catch-invisible-edits 'show))
+
 (progn
   (org-babel-do-load-languages
    'org-babel-load-languages
@@ -108,10 +113,16 @@
      (shell . t))))
 
 (progn
-  (defvar preview-default-preamble)
-  (plist-put org-format-latex-options :scale 2)
+  ;; (defvar preview-default-preamble)
+  (plist-put org-format-latex-options :scale 2.0)
+  (plist-put org-latex-preview-appearance-options :scale 2.0)
+  (plist-put org-latex-preview-appearance-options :zoom 1.25)
   (add-to-list 'org-latex-packages-alist '("" "tikz" t))
   (add-to-list 'org-latex-packages-alist '("" "pgfplots" t))
+  (add-to-list 'org-latex-packages-alist '("" "physics2" t))
+  (add-to-list 'org-latex-packages-alist '("" "derivative" t))
+  (add-to-list 'org-latex-packages-alist '("" "esint" t))
+  (add-to-list 'org-latex-packages-alist '("" "bm" t))
   (add-to-list 'org-latex-packages-alist '("euler-digits,euler-hat-accent" "eulervm" t))
   (eval-after-load "preview"
     '(add-to-list 'preview-default-preamble "\\PreviewEnvironment{tikzpicture}" t))
@@ -181,3 +192,6 @@
                "/usr/share/emacs/site-lisp/notmuch")
   (require 'notmuch))
 
+(progn
+  (require 'company)
+  (global-company-mode 1))

@@ -1,0 +1,23 @@
+% Null macro for convenience
+\def\0{}
+
+% Vector macros
+\let\vecsymb\vec
+\renewcommand\vec[1]{\boldsymbol{#1}}
+\newcommand\unitvec[1]{\hat{\boldsymbol{#1}}}
+\newcommand\tensor[1]{\widetilde{\boldsymbol{#1}}}
+
+% Vector algebra macros
+\newcommand\del{\boldsymbol{\nabla}}
+\newcommand\dotp{\boldsymbol{\cdot}}
+\newcommand\crossp{\boldsymbol{\times}}
+\newcommand\tensorp{\boldsymbol{\otimes}}
+
+% Vector calculus macros
+% gradient, divergence, curl, laplacian, alternate laplacian
+\newcommand\grad{\del}
+\newcommand\divg{\del \dotp}
+\newcommand\curl{\del \crossp}
+\newcommand\lapl{\nabla^2}
+\newcommand\laplalt{\nabla'^2}
+
