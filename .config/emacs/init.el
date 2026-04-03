@@ -45,7 +45,9 @@
   (add-hook 'scheme-mode-hook
             #'(lambda () (setq indent-tabs-mode nil)))
   (add-hook 'lisp-mode-hook
-            #'(lambda () (setq indent-tabs-mode nil))))
+            #'(lambda () (setq indent-tabs-mode nil)))
+  (add-hook 'text-mode-hook
+            #'(lambda () (setq indent-line-function 'indent-relative))))
 
 ;; Ido mode
 (progn
@@ -77,8 +79,8 @@
   (setq-default display-line-numbers-type 'relative)
   (setq-default display-line-numbers-width-start t)
   (set-face-attribute 'line-number-current-line nil :weight 'bold)
-  (global-display-line-numbers-mode)
-  (global-hl-line-mode)
+  (global-display-line-numbers-mode 1)
+  (global-hl-line-mode 1)
   (global-visual-line-mode t)) ; wrap text
 
 ;; Org mode
@@ -90,6 +92,8 @@
   (load "~/.config/emacs/org-mode/lisp/org.el")
   (add-hook 'org-mode-hook 'org-latex-preview-mode)
   (add-hook 'org-mode-hook #'turn-on-org-cdlatex)
+  (org-defkey org-cdlatex-mode-map (kbd "_") nil)
+  (org-defkey org-cdlatex-mode-map (kbd "^") nil)
   (setq org-latex-preview-mode-display-live t)
   (setq org-latex-preview-mode-update-delay 0.25)
   ;; (require 'org)
@@ -117,12 +121,13 @@
   (plist-put org-format-latex-options :scale 2.0)
   (plist-put org-latex-preview-appearance-options :scale 2.0)
   (plist-put org-latex-preview-appearance-options :zoom 1.25)
-  (add-to-list 'org-latex-packages-alist '("" "tikz" t))
-  (add-to-list 'org-latex-packages-alist '("" "pgfplots" t))
   (add-to-list 'org-latex-packages-alist '("" "physics2" t))
   (add-to-list 'org-latex-packages-alist '("" "derivative" t))
   (add-to-list 'org-latex-packages-alist '("" "esint" t))
   (add-to-list 'org-latex-packages-alist '("" "bm" t))
+  ;; (add-to-list 'org-latex-packages-alist '("" "pstricks" t))
+  ;; (add-to-list 'org-latex-packages-alist '("" "tikz" t))
+  ;; (add-to-list 'org-latex-packages-alist '("" "pgfplots" t))
   (add-to-list 'org-latex-packages-alist '("euler-digits,euler-hat-accent" "eulervm" t))
   (eval-after-load "preview"
     '(add-to-list 'preview-default-preamble "\\PreviewEnvironment{tikzpicture}" t))
@@ -145,7 +150,6 @@
   (if (eq (car custom-enabled-themes) 'gruber-darker)
       (switch-theme 'modus-operandi-deuteranopia)
     (switch-theme 'gruber-darker)))
-
 
 ;; Gruber darker
 (progn
@@ -184,6 +188,9 @@
   (require 'pdf-tools)
   (add-hook 'pdf-view-mode-hook
             #'(lambda () (display-line-numbers-mode -1)))
+  (setq pdf-view-midnight-colors
+        (cons (face-attribute 'default :foreground)
+              (face-attribute 'default :background)))
   (pdf-tools-install))
 
 ;; notmuch setup
@@ -194,4 +201,5 @@
 
 (progn
   (require 'company)
+  (setq company-clang-insert-arguments nil)
   (global-company-mode 1))

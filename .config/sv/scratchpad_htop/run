@@ -1,0 +1,4 @@
+#!/bin/sh
+
+cd
+exec st -n scratchpad_btop -e htop >> "$XDG_DATA_HOME/sv/generic.log" 2>&1
