@@ -291,4 +291,3 @@ user_pref("dom.disable_window_move_resize", true);
 user_pref("full-screen-api.ignore-widgets", true);
 user_pref("ui.context_menus.after_mouseup", true);
 
-
