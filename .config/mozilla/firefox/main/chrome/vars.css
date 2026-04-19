@@ -1,0 +1,7 @@
+:root {
+	--bgcolor-dark: #000;
+	--bgcolor-light: #ccc;
+	--bgcolor-global: var(--bgcolor-dark);
+}
+
+

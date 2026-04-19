@@ -1,0 +1,50 @@
+@import url("vars.css");
+
+body, #browser, .browser-toolbar, .browserContainer,
+	.menupopup-arrowscrollbox,
+	.urlbar-input-container,
+	.searchmode-switcher,
+	.browserContainer
+{
+	background-color: var(--bgcolor-global) !important;
+}
+
+.identity-box-button,
+{
+	background-color: var(--bgcolor-global) !important;
+	border: 2px solid #777 !important;
+	border-radius: 0 !important;
+}
+
+.searchmode-switcher {
+	border: 1px solid #777;
+}
+
+.tab-background,
+.urlbar-background,
+.searchmode-switcher,
+.urlbar-input-container,
+.bookmark-item,
+.menupopup-arrowscrollbox,
+.subviewbutton,
+.toolbarbutton-icon,
+.toolbarbutton-badge-stack,
+#input,
+.button-background,
+#tabs-newtab-button,
+.identity-box-button,
+menuitem,
+#trust-icon-container
+{
+	border-radius: 0 !important;
+}
+
+.browserContainer {
+	border-start-start-radius: 0 !important;
+}
+
+panel {
+	--panel-border-radius: 0 !important;
+	--panel-background: var(--bgcolor-global) !important;
+}
+

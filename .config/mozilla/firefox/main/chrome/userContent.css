@@ -1,0 +1,52 @@
+@import url("vars.css");
+
+@-moz-document
+	url("chrome://browser/content/blanktab.html"),
+	url-prefix("about:"),
+	url-prefix("moz-extension:") {
+	body,
+	.sticky-container,
+	.container,
+	.picker-item,
+	richlistbox,
+	listheader {
+		background-color: var(--bgcolor-global) !important;
+	}
+
+	.forest > li {
+		background-color: var(--bgcolor-global) !important;
+	}
+
+	input[type="checkbox"] {
+		accent-color: var(--bgcolor-global) !important;
+	}
+
+	#input {
+		background-color: var(--bgcolor-global) !important;
+		border-radius: 0 !important;
+	}
+
+	.container,
+	moz-box-button,
+	moz-box-link,
+	.button-background,
+	.picker-item,
+	menulist,
+	button,
+	listheader,
+	richlistbox,
+	richlistitem,
+	.category,
+	.sidebar-footer-link,
+	.select-wrapper {
+		border-radius: 0 !important;
+	}
+}
+
+@layer tokens-foundation {
+  :root {
+	--background-color-canvas: var(--bgcolor-global) !important;
+	--background-color-box: var(--bgcolor-global) !important;
+  }
+}
+
