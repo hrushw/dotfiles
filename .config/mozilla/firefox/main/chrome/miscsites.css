@@ -1,0 +1,38 @@
+@-moz-document
+url-prefix("https://www.youtube.com/"),
+url-prefix("https://music.youtube.com/")
+{
+	yt-thumbnail-view-model,
+	.ytSpecTouchFeedbackShapeHoverEffect,
+	.yt-simple-endpoint,
+	ytd-guide-entry-renderer,
+	yt-interaction,
+	.ytCollectionsStackCollectionStack1Large,
+	.ytCollectionsStackCollectionStack2,
+	.ytmusic-guide-entry-renderer,
+	.ytmusic-two-row-item-renderer,
+	.yt-img-shadow,
+	.ytmusic-responsive-list-item-renderer
+	{
+		border-radius: 0 !important;
+	}
+
+	.ytd-guide-entry-renderer {
+		--paper-item-focused-before-border-radius: 0 !important;
+	}
+}
+
+@-moz-document
+url-prefix("https://web.whatsapp.com/") {
+	._ap1-, ._amk6 {
+		border-radius: 0 !important;
+	}
+
+	.xqfj769, .xaejkm2, .x1uuy6ko, .x1gfim23
+	{
+		border-start-start-radius: 0 !important;
+		border-start-end-radius: 0 !important;
+		border-end-start-radius: 0 !important;
+		border-end-end-radius: 0 !important;
+	}
+}
