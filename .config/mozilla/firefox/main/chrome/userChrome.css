@@ -143,7 +143,8 @@ panel {
 #trust-icon-container,
 .identity-box-button,
 .permission-popup-permission-remove-button,
-.urlbar-page-action {
+.urlbar-page-action,
+#trustpanel-popup-connection {
 	background-color: var(--bgcolor-global) !important;
 	border-radius: 0 !important;
 	font-family: var(--font-ui) !important;
