@@ -1,7 +1,6 @@
 @-moz-document
 	url("chrome://browser/content/blanktab.html"),
-	url-prefix("about:"),
-	url-prefix("moz-extension:") {
+	url-prefix("about:") {
 	body,
 	.sticky-container,
 	.container,
@@ -10,10 +9,6 @@
 	listheader {
 		background-color: var(--bgcolor-global) !important;
 		font-family: var(--font-global) !important;
-	}
-
-	.forest > li {
-		background-color: var(--bgcolor-global) !important;
 	}
 
 	input[type="checkbox"] {

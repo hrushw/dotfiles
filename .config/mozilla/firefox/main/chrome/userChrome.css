@@ -4,7 +4,8 @@ body, #browser, .browser-toolbar, .browserContainer,
 	.menupopup-arrowscrollbox,
 	.urlbar-input-container,
 	.searchmode-switcher,
-	.browserContainer
+	.browserContainer,
+	.urlbar-background
 {
 	background-color: var(--bgcolor-global) !important;
 	font-family: var(--font-ui) !important;
@@ -19,14 +20,22 @@ body, #browser, .browser-toolbar, .browserContainer,
 }
 
 .searchmode-switcher {
-	border: 1px solid #777;
+	border: 1px solid var(--hover-border-color);
 }
+
+.searchmode-switcher:is(:active, :hover) {
+	border: 1px solid var(--active-border-color);
+}
+
+.searchmode-switcher:is([open], [selected]) {
+	border: 1px solid var(--selection-border-color);
+}
+
 
 .tab-background,
 .urlbar-background,
 .searchmode-switcher,
 .urlbar-input-container,
-.bookmark-item,
 .menupopup-arrowscrollbox,
 .subviewbutton,
 .toolbarbutton-icon,
@@ -34,10 +43,10 @@ body, #browser, .browser-toolbar, .browserContainer,
 #input,
 .button-background,
 #tabs-newtab-button,
-.identity-box-button,
-menuitem,
-#trust-icon-container,
-.toolbarbutton-1
+menuitem, menu,
+.toolbarbutton-1,
+.urlbarView-row,
+.tab-close-button
 {
 	border-radius: 0 !important;
 	font-family: var(--font-ui) !important;
@@ -95,10 +104,10 @@ panel {
 }
 
 
-:is(
-	:is(#nav-bar-customization-target, #nav-bar) .toolbarbutton-1,
-	#tabs-newtab-button
-) {
+:is(#nav-bar-customization-target, #nav-bar) .toolbarbutton-1,
+#tabs-newtab-button,
+.unified-extensions-item-menu-button
+{
 	& > :is(.toolbarbutton-icon, .toolbarbutton-badge-stack) {
 		background-color: var(--bgcolor-global) !important;
 	}
@@ -120,25 +129,42 @@ panel {
 	}
 }
 
-.bookmark-item,
-#appMenu-mainView > .panel-subview-body > .subviewbutton,
-#widget-overflow-fixed-list > .toolbarbutton-1 {
+.bookmark-item, .openintabs-menuitem,
+:is(
+	panelview, .panel-subview-body,
+	#appmenu-developer-tools-view,
+	.panel-header
+) > .subviewbutton,
+#unified-extensions-area > .unified-extensions-item
+	> .unified-extensions-item-row-wrapper
+	> .unified-extensions-item-action-button,
+#widget-overflow-fixed-list > .toolbarbutton-1,
+.urlbarView-row-inner,
+#trust-icon-container,
+.identity-box-button,
+.permission-popup-permission-remove-button,
+.urlbar-page-action {
 	background-color: var(--bgcolor-global) !important;
+	border-radius: 0 !important;
+	font-family: var(--font-ui) !important;
 
-	&:not([open]) {
+	&:not([open], [selected]) {
 		border: 1px solid transparent !important;
 	}
 
-	&:is([open]) {
+	&:not(:active):is([open], [selected]) {
 		border: 1px solid var(--selection-border-color) !important;
 	}
 
-	&:not([open]):hover {
+	&:not([open], [selected]):hover {
 		border: 1px solid var(--hover-border-color) !important;
 	}
 
-	&:not([open]):active {
+	&:active {
 		border: 1px solid var(--active-border-color) !important;
 	}
 }
 
+menuseparator::before, toolbarseparator::before {
+	border-top: 1px solid var(--border-color-ui-popup) !important;
+}
