@@ -170,3 +170,8 @@ panel {
 menuseparator::before, toolbarseparator::before {
 	border-top: 1px solid var(--border-color-ui-popup) !important;
 }
+
+#notifications-toolbar {
+	outline: 1px solid var(--border-color-ui-popup) !important;
+}
+
