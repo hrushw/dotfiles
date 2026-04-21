@@ -7,6 +7,7 @@ body, #browser, .browser-toolbar, .browserContainer,
 	.browserContainer
 {
 	background-color: var(--bgcolor-global) !important;
+	font-family: var(--font-ui) !important;
 }
 
 .identity-box-button,
@@ -14,6 +15,7 @@ body, #browser, .browser-toolbar, .browserContainer,
 	background-color: var(--bgcolor-global) !important;
 	border: 2px solid #777 !important;
 	border-radius: 0 !important;
+	font-family: var(--font-ui) !important;
 }
 
 .searchmode-switcher {
@@ -34,10 +36,30 @@ body, #browser, .browser-toolbar, .browserContainer,
 #tabs-newtab-button,
 .identity-box-button,
 menuitem,
-#trust-icon-container
+#trust-icon-container,
+.toolbarbutton-1
 {
 	border-radius: 0 !important;
+	font-family: var(--font-ui) !important;
 }
+
+.tab-background:is([selected]) {
+	border: 1px solid var(--selection-border-color);
+	background-color: var(--bgcolor-global) !important;
+}
+
+.tab-background:not([selected]) {
+	background-color: var(--bgcolor-global) !important;
+}
+
+.tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected]) {
+	border: 1px solid var(--hover-border-color);
+}
+
+.tabbrowser-tab:active > .tab-stack > .tab-background:not([selected]) {
+	border: 1px solid var(--active-border-color);
+}
+
 
 .browserContainer {
 	border-start-start-radius: 0 !important;
@@ -46,5 +68,75 @@ menuitem,
 panel {
 	--panel-border-radius: 0 !important;
 	--panel-background: var(--bgcolor-global) !important;
+}
+
+.menupopup-arrowscrollbox {
+	border: 1px solid var(--border-color-ui-popup) !important;
+}
+
+:is(menupopup, panel):where([type="arrow"]) {
+	--panel-border-color: var(--border-color-ui-popup) !important;
+}
+
+.urlbar:not(:active):is([focused]) > .urlbar-background {
+	outline: 1px solid var(--selection-border-color) !important;
+}
+
+.urlbar:not([focused]) > .urlbar-background {
+	/* outline: 1px solid var(--border-color-ui-generic) !important; */
+}
+
+.urlbar:not([focused]):hover > .urlbar-background {
+	outline: 1px solid var(--hover-border-color) !important; */
+}
+
+.urlbar:active > .urlbar-background {
+	outline: 1px solid var(--active-border-color) !important; */
+}
+
+
+:is(#nav-bar-customization-target, #nav-bar) {
+	.toolbarbutton-1:is([open]) > :is(.toolbarbutton-icon, .toolbarbutton-badge-stack) {
+		outline: 1px solid var(--selection-border-color) !important;
+		background-color: var(--bgcolor-global) !important;
+	}
+
+	.toolbarbutton-1:hover:not([open]) > :is(.toolbarbutton-icon, .toolbarbutton-badge-stack) {
+		outline: 1px solid var(--hover-border-color) !important;
+		background-color: var(--bgcolor-global) !important;
+	}
+
+	.toolbarbutton-1:is([checked]) > :is(.toolbarbutton-icon, .toolbarbutton-badge-stack) {
+		background-color: var(--bgcolor-global) !important;
+	}
+
+	.toolbarbutton-1:active > :is(.toolbarbutton-icon, .toolbarbutton-badge-stack) {
+		outline: 1px solid var(--active-border-color) !important;
+		background-color: var(--bgcolor-global) !important;
+	}
+}
+
+.bookmark-item,
+#appMenu-mainView > .subviewbutton,
+#widget-overflow-fixed-list > .toolbarbutton-1 {
+	&:not([open]) {
+		border: 1px solid transparent !important;
+		background-color: var(--bgcolor-global) !important;
+	}
+
+	&:is([open]) {
+		border: 1px solid var(--selection-border-color) !important;
+		background-color: var(--bgcolor-global) !important;
+	}
+
+	&:not([open]):hover {
+		border: 1px solid var(--hover-border-color) !important;
+		background-color: var(--bgcolor-global) !important;
+	}
+
+	&:not([open]):active {
+		border: 1px solid var(--active-border-color) !important;
+		background-color: var(--bgcolor-global) !important;
+	}
 }
 

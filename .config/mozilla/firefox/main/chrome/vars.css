@@ -2,6 +2,12 @@
 	--bgcolor-dark: #000;
 	--bgcolor-light: #ccc;
 	--bgcolor-global: var(--bgcolor-dark);
+	--selection-border-color: #07f;
+	--hover-border-color: #777;
+	--active-border-color: #fff;
+	--font-ui: "Terminus";
+	--border-color-ui-popup: #37c;
+	--border-color-ui-generic: #ccc;
 }
 
 

@@ -9,6 +9,7 @@
 	richlistbox,
 	listheader {
 		background-color: var(--bgcolor-global) !important;
+		font-family: var(--font-global) !important;
 	}
 
 	.forest > li {
