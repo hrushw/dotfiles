@@ -1,17 +1,25 @@
 @import url("vars.css");
 
 body, #browser, .browser-toolbar, .browserContainer,
-	.menupopup-arrowscrollbox,
-	.urlbar-input-container,
-	.searchmode-switcher,
-	.browserContainer,
-	.urlbar-background
+.menupopup-arrowscrollbox,
+.urlbar-input-container,
+.searchmode-switcher,
+.browserContainer,
+.urlbar-background,
+.subviewbutton,
+.toolbarbutton-1,
+.bookmark-item, .openintabs-menuitem,
+#trust-icon-container,
+.identity-box-button,
+:is(#trustpanel-popup, #permission-popup) :is(button, toolbarbutton),
+.urlbar-page-action,
+.urlbarView-row-inner
 {
 	background-color: var(--bgcolor-global) !important;
 	font-family: var(--font-ui) !important;
 }
 
-.identity-box-button,
+.identity-box-button
 {
 	background-color: var(--bgcolor-global) !important;
 	border: 2px solid #777 !important;
@@ -139,14 +147,12 @@ panel {
 	> .unified-extensions-item-row-wrapper
 	> .unified-extensions-item-action-button,
 #widget-overflow-fixed-list > .toolbarbutton-1,
-.urlbarView-row-inner,
 #trust-icon-container,
 .identity-box-button,
-.permission-popup-permission-remove-button,
+:is(#trustpanel-popup, #permission-popup) :is(button, toolbarbutton),
 .urlbar-page-action,
-#trustpanel-popup-connection,
-#trustpanel-clear-cookies-button {
-	background-color: var(--bgcolor-global) !important;
+.urlbarView-row-inner
+{
 	border-radius: 0 !important;
 	font-family: var(--font-ui) !important;
 
@@ -158,7 +164,7 @@ panel {
 		border: 1px solid var(--selection-border-color) !important;
 	}
 
-	&:not([open], [selected]):hover {
+	&:not(:active, [open], [selected]):hover {
 		border: 1px solid var(--hover-border-color) !important;
 	}
 
@@ -173,5 +179,16 @@ menuseparator::before, toolbarseparator::before {
 
 #notifications-toolbar {
 	outline: 1px solid var(--border-color-ui-popup) !important;
+}
+
+:is(menuitem, menu):where([_moz-menuactive="true"]),
+:is(
+	panelview, .panel-subview-body,
+	#appmenu-developer-tools-view,
+	.panel-header
+) > .subviewbutton:hover,
+#widget-overflow-fixed-list > .toolbarbutton-1:hover
+{
+	background-color: var(--clickmenu-hover-bgcolor) !important;
 }
 
