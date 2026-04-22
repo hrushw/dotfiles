@@ -13,7 +13,11 @@ body, #browser, .browser-toolbar, .browserContainer,
 .identity-box-button,
 :is(#trustpanel-popup, #permission-popup) :is(button, toolbarbutton),
 .urlbar-page-action,
-.urlbarView-row-inner
+.urlbarView-row-inner,
+#bookmarkpropertiesdialog,
+.titleIcon,
+#editBookmarkPanelContent :is(input, richlistbox),
+:is(.expander-down, .expander-up)
 {
 	background-color: var(--bgcolor-global) !important;
 	font-family: var(--font-ui) !important;
@@ -27,18 +31,36 @@ body, #browser, .browser-toolbar, .browserContainer,
 	font-family: var(--font-ui) !important;
 }
 
-.searchmode-switcher {
-	border: 1px solid var(--hover-border-color);
+.searchmode-switcher,
+{
+	&:not(:active, :hover, [open], [selected]) {
+		border: 1px solid var(--hover-border-color);
+	}
+
+	&:is(:active, :hover) {
+		border: 1px solid var(--active-border-color);
+	}
+
+	&:is([open], [selected]) {
+		border: 1px solid var(--selection-border-color);
+	}
 }
 
-.searchmode-switcher:is(:active, :hover) {
-	border: 1px solid var(--active-border-color);
-}
+#editBookmarkPanelContent input {
+	outline: none !important;
 
-.searchmode-switcher:is([open], [selected]) {
-	border: 1px solid var(--selection-border-color);
-}
+	&:not(:focus, :active, :hover) {
+		border: 1px solid var(--hover-border-color) !important;
+	}
 
+	&:focus {
+		border: 1px solid var(--selection-border-color) !important;
+	}
+
+	&:is(:active, :hover) {
+		border: 1px solid var(--active-border-color) !important;
+	}
+}
 
 .tab-background,
 .urlbar-background,
@@ -54,7 +76,9 @@ body, #browser, .browser-toolbar, .browserContainer,
 menuitem, menu,
 .toolbarbutton-1,
 .urlbarView-row,
-.tab-close-button
+.tab-close-button,
+.dialogBox,
+#editBookmarkPanelContent :is(input, richlistbox)
 {
 	border-radius: 0 !important;
 	font-family: var(--font-ui) !important;
@@ -137,6 +161,19 @@ panel {
 	}
 }
 
+#editBookmarkPanelContent richlistitem {
+	padding: 8px;
+	background-color: var(--bgcolor-global) !important;
+	color: var(--fgcolor-global) !important;
+
+	&:is([checked="true"]) {
+		border: 1px solid var(--selection-border-color) !important;
+	}
+	&:not([checked="true"]) {
+		border: 1px solid var(--hover-border-color) !important;
+	}
+}
+
 .bookmark-item, .openintabs-menuitem,
 :is(
 	panelview, .panel-subview-body,
@@ -151,7 +188,9 @@ panel {
 .identity-box-button,
 :is(#trustpanel-popup, #permission-popup) :is(button, toolbarbutton),
 .urlbar-page-action,
-.urlbarView-row-inner
+.urlbarView-row-inner,
+:is(.expander-down, .expander-up),
+#editBookmarkPanelContent richlistitem
 {
 	border-radius: 0 !important;
 	font-family: var(--font-ui) !important;
@@ -177,8 +216,13 @@ menuseparator::before, toolbarseparator::before {
 	border-top: 1px solid var(--border-color-ui-popup) !important;
 }
 
-#notifications-toolbar {
+#notifications-toolbar
+{
 	outline: 1px solid var(--border-color-ui-popup) !important;
+}
+
+.dialogBox {
+	border: 1px solid var(--border-color-ui-popup) !important;
 }
 
 :is(menuitem, menu):where([_moz-menuactive="true"]),
@@ -187,7 +231,8 @@ menuseparator::before, toolbarseparator::before {
 	#appmenu-developer-tools-view,
 	.panel-header
 ) > .subviewbutton:hover,
-#widget-overflow-fixed-list > .toolbarbutton-1:hover
+#widget-overflow-fixed-list > .toolbarbutton-1:hover,
+:is(.expander-down, .expander-up):hover
 {
 	background-color: var(--clickmenu-hover-bgcolor) !important;
 }

@@ -1,7 +1,11 @@
 :root {
 	--bgcolor-dark: #000;
 	--bgcolor-light: #ccc;
+	--fgcolor-dark: #fff;
+	--fgcolor-light: #000;
 	--bgcolor-global: var(--bgcolor-dark);
+	--fgcolor-global: var(--fgcolor-dark);
+
 	--selection-border-color: #07f;
 	--hover-border-color: #777;
 	--active-border-color: #fff;
