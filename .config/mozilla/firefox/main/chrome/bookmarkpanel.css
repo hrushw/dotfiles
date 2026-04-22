@@ -1,0 +1,70 @@
+#editBookmarkPanelContent :is(input, richlistbox),
+:is(.expander-down, .expander-up)
+{
+	background-color: var(--bgcolor-global) !important;
+	font-family: var(--font-ui) !important;
+}
+
+#editBookmarkPanelContent input {
+	outline: none !important;
+
+	&:not(:focus, :active, :hover) {
+		border: 1px solid var(--hover-border-color) !important;
+	}
+
+	&:focus {
+		border: 1px solid var(--selection-border-color) !important;
+	}
+
+	&:is(:active, :hover) {
+		border: 1px solid var(--active-border-color) !important;
+	}
+}
+
+#editBookmarkPanelContent :is(input, richlistbox)
+{
+	border-radius: 0 !important;
+	font-family: var(--font-ui) !important;
+}
+
+#editBookmarkPanelContent richlistitem {
+	padding: 8px;
+	background-color: var(--bgcolor-global) !important;
+	color: var(--fgcolor-global) !important;
+
+	&:is([checked="true"]) {
+		border: 1px solid var(--selection-border-color) !important;
+	}
+	&:not([checked="true"]) {
+		border: 1px solid var(--hover-border-color) !important;
+	}
+}
+
+:is(.expander-down, .expander-up),
+#editBookmarkPanelContent richlistitem
+{
+	border-radius: 0 !important;
+	font-family: var(--font-ui) !important;
+
+	&:not([open], [selected]) {
+		border: 1px solid transparent !important;
+	}
+
+	&:not(:active):is([open], [selected]) {
+		border: 1px solid var(--selection-border-color) !important;
+	}
+
+	&:not(:active, [open], [selected]):hover {
+		border: 1px solid var(--hover-border-color) !important;
+	}
+
+	&:active {
+		border: 1px solid var(--active-border-color) !important;
+	}
+}
+
+:is(.expander-down, .expander-up):hover
+{
+	background-color: var(--clickmenu-hover-bgcolor) !important;
+}
+

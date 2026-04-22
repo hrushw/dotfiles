@@ -16,7 +16,7 @@ body, #browser, .browser-toolbar, .browserContainer,
 .urlbarView-row-inner,
 #bookmarkpropertiesdialog,
 .titleIcon,
-#editBookmarkPanelContent :is(input, richlistbox),
+#editBookmarkPanelContent :is(input, richlistbox, menulist),
 :is(.expander-down, .expander-up)
 {
 	background-color: var(--bgcolor-global) !important;
@@ -31,7 +31,7 @@ body, #browser, .browser-toolbar, .browserContainer,
 	font-family: var(--font-ui) !important;
 }
 
-.searchmode-switcher,
+.searchmode-switcher
 {
 	&:not(:active, :hover, [open], [selected]) {
 		border: 1px solid var(--hover-border-color);
@@ -46,7 +46,7 @@ body, #browser, .browser-toolbar, .browserContainer,
 	}
 }
 
-#editBookmarkPanelContent input {
+#editBookmarkPanelContent :is(input, menulist) {
 	outline: none !important;
 
 	&:not(:focus, :active, :hover) {
@@ -57,7 +57,7 @@ body, #browser, .browser-toolbar, .browserContainer,
 		border: 1px solid var(--selection-border-color) !important;
 	}
 
-	&:is(:active, :hover) {
+	&:not(:focus):is(:active, :hover) {
 		border: 1px solid var(--active-border-color) !important;
 	}
 }
@@ -78,7 +78,9 @@ menuitem, menu,
 .urlbarView-row,
 .tab-close-button,
 .dialogBox,
-#editBookmarkPanelContent :is(input, richlistbox)
+#editBookmarkPanel :is(#editBookmarkPanelBottomContent, button),
+.dialog-button-box button,
+#editBookmarkPanelContent :is(input, richlistbox, menulist)
 {
 	border-radius: 0 !important;
 	font-family: var(--font-ui) !important;
