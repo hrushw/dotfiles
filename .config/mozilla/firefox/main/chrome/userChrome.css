@@ -239,3 +239,9 @@ menuseparator::before, toolbarseparator::before {
 	background-color: var(--clickmenu-hover-bgcolor) !important;
 }
 
+.urlbarView-action-btn {
+	background-color: transparent !important;
+	border-radius: 0 !important;
+	border: none !important;
+	outline: none !important;
+}
