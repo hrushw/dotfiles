@@ -1,21 +1,24 @@
 @-moz-document
 	url("chrome://browser/content/blanktab.html"),
-	url-prefix("about:") {
+	url-prefix("about:")
+{
 	body,
 	.sticky-container,
 	.container,
 	.picker-item,
 	richlistbox,
-	listheader {
+	listheader,
+	panel-list
+	{
 		background-color: var(--bgcolor-global) !important;
-		font-family: var(--font-global) !important;
+		font-family: var(--font-ui) !important;
 	}
 
 	input[type="checkbox"] {
 		accent-color: var(--bgcolor-global) !important;
 	}
 
-	#input {
+	#input, input, panel-list {
 		background-color: var(--bgcolor-global) !important;
 		border-radius: 0 !important;
 	}
@@ -32,8 +35,79 @@
 	richlistitem,
 	.category,
 	.sidebar-footer-link,
-	.select-wrapper {
+	.select-wrapper,
+	moz-message-bar
+	{
 		border-radius: 0 !important;
+	}
+
+	.container,
+	moz-box-link
+	{
+		background-color: var(--bgcolor-global !important);
+		border-color: var(--border-color-ui-popup) !important;
+	}
+
+	moz-box-button,
+	.button-background {
+		background-color: var(--bgcolor-global !important);
+		color: var(--fgcolor-global) !important;
+
+		&:not(:hover) {
+			border: 1px solid var(--selection-border-color) !important;
+			background-color: var(--bgcolor-global) !important;
+		}
+
+		&:hover {
+			border: 1px solid transparent !important;
+			background-color: var(--clickmenu-hover-bgcolor) !important;
+		}
+
+		&:active {
+			border: 1px solid transparent !important;
+			background-color: var(--clickmenu-click-bgcolor) !important;
+		}
+	}
+
+	.picker-item,
+	input {
+		background-color: var(--bgcolor-global !important);
+		outline: none !important;
+
+		&:not(:focus, :active, :hover, [checked]) {
+			border: 1px solid var(--hover-border-color) !important;
+		}
+
+		&:is(:focus, [checked]) {
+			border: 1px solid var(--selection-border-color) !important;
+		}
+
+		&:not(:focus, [checked]):is(:active, :hover) {
+			border: 1px solid var(--active-border-color) !important;
+		}
+	}
+
+	.sidebar-footer-link,
+	richlistitem {
+		border-radius: 0 !important;
+		background-color: var(--bgcolor-global) !important;
+		outline: none !important;
+
+		&:not([open], [selected]) {
+			border: 1px solid transparent !important;
+		}
+
+		&:not(:active):is([open], [selected]) {
+			border: 1px solid var(--selection-border-color) !important;
+		}
+
+		&:not(:active, [open], [selected]):hover {
+			border: 1px solid var(--hover-border-color) !important;
+		}
+
+		&:active {
+			border: 1px solid var(--active-border-color) !important;
+		}
 	}
 }
 
@@ -41,6 +115,7 @@
   :root {
 	--background-color-canvas: var(--bgcolor-global) !important;
 	--background-color-box: var(--bgcolor-global) !important;
+	--border-color: var(--border-color-ui-popup) !important;
   }
 }
 

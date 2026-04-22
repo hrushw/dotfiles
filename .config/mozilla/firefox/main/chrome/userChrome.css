@@ -245,3 +245,8 @@ menuseparator::before, toolbarseparator::before {
 	border: none !important;
 	outline: none !important;
 }
+
+
+:is(menuitem, menu):where([_moz-menuactive="true"]):active {
+	background-color: var(--clickmenu-click-bgcolor) !important;
+}

@@ -9,10 +9,11 @@
 	--selection-border-color: #07f;
 	--hover-border-color: #777;
 	--active-border-color: #fff;
-	--font-ui: "Terminus";
+	--font-ui: "Terminus", "DejaVu Sans";
 	--border-color-ui-popup: #37c;
 	--border-color-ui-generic: #ccc;
 	--clickmenu-hover-bgcolor: #33c;
+	--clickmenu-click-bgcolor: #07f;
 }
 
 
