@@ -42,10 +42,6 @@ url-prefix("https://web.whatsapp.com/") {
 		color: var(--fgcolor-global) !important;
 	}
 
-	body {
-		font-family: var(--font-ui) !important;
-	}
-
 	._ak8j, ._ak8o, ._amk4
 	{
 		color: var(--fgcolor-global) !important;
@@ -59,8 +55,20 @@ url-prefix("https://web.whatsapp.com/") {
 		color: var(--fgcolor-global) !important;
 	}
 
-	._ak72:hover {
-		background-color: var(--clickmenu-hover-bgcolor) !important;
+	.ak72 {
+		background-color: var(--bgcolor-global) !important;
+		color: var(--fgcolor-global) !important;
+	}
+
+	:not([aria-selected="true"]) > ._ak72:hover {
+		outline: 1px solid var(--active-border-color) !important;
+		background-color: var(--bgcolor-global) !important;
+		color: var(--fgcolor-global) !important;
+	}
+
+	:is([aria-selected="true"]) > ._ak72 {
+		outline: 1px solid var(--selection-border-color) !important;
+		background-color: var(--bgcolor-global) !important;
 		color: var(--fgcolor-global) !important;
 	}
 }
