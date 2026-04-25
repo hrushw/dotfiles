@@ -20,6 +20,11 @@ url-prefix("https://music.youtube.com/")
 	.ytd-guide-entry-renderer {
 		--paper-item-focused-before-border-radius: 0 !important;
 	}
+
+	ytd-app {
+		background-color: var(--bgclor-global) !important;
+		background: var(--bgclor-global) !important;
+	}
 }
 
 @-moz-document
