@@ -1,0 +1,41 @@
+@import url("vars.css");
+@import url("accent.css");
+
+@layer tokens-foundation {
+	:root, :host(.anonymous-content-host) {
+		--text-color: var(--fgcolor-global) !important;
+		--border-color: var(--accent-color-global) !important;
+
+		/* No rounded borders */
+		--border-radius-xsmall: 0 !important;
+		--border-radius-small: 0 !important;
+		--border-radius-medium: 0 !important;
+		--border-radius-large: 0 !important;
+
+		--background-color-canvas : var(--bgcolor-global) !important;
+		--background-color-box-info : var(--bgcolor-global) !important;
+		--background-color-box : var(--bgcolor-global) !important;
+
+		--arrowpanel-background: var(--bgcolor-global) !important;
+		--panel-separator-color: var(--accent-color-global) !important;
+	}
+}
+
+menupopup, panel {
+	--panel-border-radius: 0 !important;
+	--menuitem-border-radius: 0 !important;
+
+	--panel-background: var(--bgcolor-global) !important;
+	--panel-border-color: var(--accent-color-global) !important;
+}
+
+.dialogBox {
+	background-color: var(--bgcolor-global) !important;
+	border: 1px solid var(--accent-color-global) !important
+}
+
+moz-input-search {
+	--input-text-background-color: var(--bgcolor-global) !important;
+	--border-color-interactive: var(--accent-color-global) !important;
+	--input-text-color: var(--fgcolor-global) !important;
+}

@@ -1,0 +1,16 @@
+@layer tokens-foundation {
+	:root, :host(.anonymous-content-host) {
+		--color-accent-primary: var(--accent-color-global) !important;
+		--color-accent-primary-hover: color-mix(
+			in srgb,
+			var(--color-accent-primary) 80%,
+			var(--fgcolor-global)
+		) !important;
+		--color-accent-primary-active: color-mix(
+			in srgb,
+			var(--color-accent-primary) 60%,
+			var(--fgcolor-global)
+		) !important;
+		--color-accent-primary-selected: var(--color-accent-primary) !important;
+	}
+}

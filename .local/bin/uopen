@@ -48,13 +48,13 @@ case "$arg" in
 	*".md")
 		tmpfmt="$(mktemp /tmp/mdfmt.XXXXXX)"
 		lowdown -t term "$arg" > "$tmpfmt"
-		open_in_term "$PAGER" "$tmpfmt"
+		open_in_term bat "$tmpfmt"
 		rm "$tmpfmt";;
 
 	*".rst")
 		tmpfmt="$(mktemp /tmp/mdfmt.XXXXXX)"
 		pandoc "$arg" -t markdown | lowdown -t term > "$tmpfmt"
-		open_in_term "$PAGER" "$tmpfmt"
+		open_in_term bat "$tmpfmt"
 		rm "$tmpfmt";;
 
 	*".mkv" | *".mp4" | *".webm" | *".mov")
@@ -68,7 +68,7 @@ case "$arg" in
 		if [ "$KITTY_WINDOW_ID" -a -t 1 ]; then
 			kitten icat --align left --transfer-mode="stream" --unicode-placeholder "$arg"
 		else
-			nsxiv --alpha-layer "$arg" &>/dev/null &
+			nsxiv --anti-alias=no --alpha-layer "$arg" &>/dev/null &
 		fi;;
 
 	*".dot")
@@ -77,14 +77,14 @@ case "$arg" in
 		else
 			tmppng="$(mktemp /tmp/dotpng.XXXXXX)"
 			dot -Tpng "$arg" > "$tmppng"
-			(nsxiv "$tmppng" &>/dev/null; rm "$tmppng") &
+			(nsxiv --anti-alias=no "$tmppng" &>/dev/null; rm "$tmppng") &
 		fi;;
 
 	*".pdf" | *".djvu" | *".ps" | *".eps")
 		zathura "$arg" &>/dev/null &;;
 
 	*".txt" | *"/README" | "README")
-		open_in_term "$PAGER" "$arg";;
+		open_in_term bat "$arg";;
 
 	*".org")
 		emacsclient -nc "$arg";;
@@ -101,7 +101,7 @@ case "$arg" in
 			if file "$arg" | grep "troff" &>/dev/null; then
 				open_in_term man "$arg"
 			else
-				open_in_term "$PAGER" "$arg"
+				open_in_term bat "$arg"
 			fi
 		elif file "$arg" | grep "broken" &>/dev/null; then
 			file "$arg"

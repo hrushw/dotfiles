@@ -1,5 +1,10 @@
-@import url("vars.css");
+@import url("common.css");
 
-@import url("content.css");
-
-@import url("miscsites.css");
+@-moz-document
+	url("chrome://browser/content/blanktab.html"),
+	url("about:newtab") {
+	body, code, pre {
+		background-color: var(--bgcolor-global) !important;
+		color: var(--fgcolor-global) !important;
+	}
+}
