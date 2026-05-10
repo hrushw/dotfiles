@@ -16,14 +16,22 @@
 
 		--tab-selected-bgcolor: var(--focus-color-global) !important;
 
+		--toolbar-field-focus-color: var(--fgcolor-global) !important;
 		--toolbar-field-focus-background-color: var(--bgcolor-global) !important;
+
+		--sidebar-background-color: var(--bgcolor-global) !important;
 
 		--urlbarView-separator-color: var(--accent-color-global) !important;
 		--urlbarView-highlight-background: var(--accent-color-global) !important;
 		--urlbarView-hover-background: var(--focus-color-global) !important;
 		--urlbarView-highlight-color: var(--fgcolor-global) !important;
 
+		--urlbar-box-bgcolor: color-mix(in srgb, var(--accent-color-global) 50%, var(--bgcolor-global)) !important;
+		--urlbar-box-focus-bgcolor: var(--focus-color-global) !important;
+
 		--arrowpanel-border-color: var(--accent-color-global) !important;
+
+		--toolbarbutton-icon-fill: var(--fgcolor-global) !important;
 	}
 }
 
@@ -43,3 +51,28 @@ menu, menuitem {
 	color: var(--fgcolor-global) !important;
 }
 
+#tabbrowser-tabs[orient="vertical"] {
+	& .tabbrowser-tab {
+		padding-block: 0px !important;
+	}
+}
+
+#tabbrowser-arrowscrollbox[orient="vertical"] > #tabbrowser-arrowscrollbox-periphery > #tabs-newtab-button, #vertical-tabs-newtab-button {
+	padding: 0px var(--tab-inline-padding) !important;
+	margin-inline: 0px !important;
+}
+
+toolbar .toolbaritem-combined-buttons {
+	margin-inline: 0px !important;
+}
+
+#urlbar {
+	--urlbar-height: var(--urlbar-container-height) !important;
+}
+
+@media -moz-pref("browser.urlbar.trustPanel.featureGate") {
+	#trust-icon-container {
+		padding-inline: calc((var(--urlbar-height) - 16px) / 2) !important;
+		height: unset !important;
+	}
+}

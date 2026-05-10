@@ -3,4 +3,5 @@
 	--fgcolor-global: light-dark(#000, #fff);
 	--focus-color-global: light-dark(#baf, #42c);
 	--accent-color-global: light-dark(#2b9, #37f);
+	--secondary-accent-color-global: light-dark(#000, #5fd)
 }

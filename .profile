@@ -42,6 +42,7 @@ export TERMCMD="xterm"
 
 # causes problems with Makefiles
 # export CFLAGS="-Wall -Wextra -Wpedantic -Wvla"
+export __WFLAGS="-Wall -Wextra -Wpedantic -Wvla -Winline -Wstrict-overflow=5 -Wshift-overflow=2"
 
 # generally not useful
 # export CDPATH=:~
