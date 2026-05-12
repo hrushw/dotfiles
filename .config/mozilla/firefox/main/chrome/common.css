@@ -90,7 +90,7 @@ menuseparator {
 
 input[type="checkbox"] {
 	appearance: none !important;
-	border: 1px solid var(--fgcolor-global) !important;
+	border: 1px solid var(--accent-color-global) !important;
 
 	&:not(:hover, :checked) {
 		background-color: var(--bgcolor-global);
@@ -100,7 +100,13 @@ input[type="checkbox"] {
 		background-color: var(--focus-color-global);
 	}
 
+	&:checked:not(:hover) {
+		background-color: var(--bgcolor-global);
+	}
+
 	&:checked {
-		background-color: var(--accent-color-global);
+		background-image: var(--checkmark-global);
+		background-repeat: no-repeat;
+		background-size: contain;
 	}
 }
