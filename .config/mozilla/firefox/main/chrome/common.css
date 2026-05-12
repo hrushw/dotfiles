@@ -9,7 +9,7 @@
 	--toolbarbutton-outer-padding-narrow: 0px !important;
 
 	--tab-inner-inline-margin: 0px !important;
-	--tab-collapsed-width: calc(var(--tab-collapsed-background-width) + 2 * var(--space-medium)) !important;
+	/* --tab-collapsed-width: calc(var(--tab-collapsed-background-width) + 2 * var(--space-medium)) !important; */
 
 	--urlbarView-results-padding: 0px !important;
 	--urlbarView-row-gutter: 0px !important;
@@ -27,6 +27,14 @@
 	--panel-subview-body-padding-inline: 0px !important;
 
 	--urlbar-box-hover-bgcolor: var(--focus-color-global) !important;
+
+	--toolbar-start-end-padding: 0px !important;
+
+	--lwt-accent-color: var(--bgcolor-global) !important;
+
+	--arrowpanel-shadow-margin: 0px !important;
+
+	--sidebar-box-background: var(--bgcolor-global) !important;
 }
 
 @layer tokens-foundation {
@@ -39,6 +47,7 @@
 		--border-radius-small: 0 !important;
 		--border-radius-medium: 0 !important;
 		--border-radius-large: 0 !important;
+		--border-radius-circle: 0 !important;
 
 		--background-color-canvas : var(--bgcolor-global) !important;
 		--background-color-box-info : var(--bgcolor-global) !important;
@@ -46,6 +55,7 @@
 
 		--arrowpanel-background: var(--bgcolor-global) !important;
 		--panel-separator-color: var(--accent-color-global) !important;
+		--card-border-color: var(--accent-color-global) !important;
 	}
 }
 
@@ -53,16 +63,18 @@ menupopup, panel {
 	--panel-border-radius: 0 !important;
 	--menuitem-border-radius: 0 !important;
 
-	--panel-background: var(--bgcolor-global) !important;
+	--panel-background: var(--alpha-bgcolor-global) !important;
 	--panel-border-color: var(--accent-color-global) !important;
 
 	/* --panel-padding-block: 0px !important; */
 	--menuitem-icon-fill: var(--fgcolor-global) !important;
 	--panel-padding: 0px !important;
+
+	--panel-shadow-margin: 0px !important;
 }
 
 .dialogBox {
-	background-color: var(--bgcolor-global) !important;
+	background-color: var(--alpha-bgcolor-global) !important;
 	border: 1px solid var(--accent-color-global) !important
 }
 
@@ -74,4 +86,21 @@ moz-input-folder, moz-input-search {
 
 menuseparator {
 	padding-block: 0px !important;
+}
+
+input[type="checkbox"] {
+	appearance: none !important;
+	border: 1px solid var(--fgcolor-global) !important;
+
+	&:not(:hover, :checked) {
+		background-color: var(--bgcolor-global);
+	}
+
+	&:hover {
+		background-color: var(--focus-color-global);
+	}
+
+	&:checked {
+		background-color: var(--accent-color-global);
+	}
 }

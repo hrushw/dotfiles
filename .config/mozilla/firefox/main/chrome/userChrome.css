@@ -3,7 +3,7 @@
 @media not ((forced-colors) or (-moz-native-theme)) {
 	:root:not([lwtheme]) {
 		--input-fgcolor: var(--fgcolor-global) !important;
-		--input-bgcolor: var(--bgcolor-global) !important;
+		--input-bgcolor: transparent !important;
 
 		--toolbox-textcolor: var(--fgcolor-global) !important;
 		--toolbox-bgcolor: var(--bgcolor-global) !important;
@@ -16,22 +16,26 @@
 
 		--tab-selected-bgcolor: var(--focus-color-global) !important;
 
+		--toolbar-field-color: var(--fgcolor-global) !important;
+		--toolbar-field-background-color: var(--alpha-bgcolor-global) !important;
 		--toolbar-field-focus-color: var(--fgcolor-global) !important;
-		--toolbar-field-focus-background-color: var(--bgcolor-global) !important;
+		--toolbar-field-focus-background-color: var(--alpha-bgcolor-global) !important;
 
 		--sidebar-background-color: var(--bgcolor-global) !important;
 
 		--urlbarView-separator-color: var(--accent-color-global) !important;
-		--urlbarView-highlight-background: var(--accent-color-global) !important;
+		--urlbarView-highlight-background: var(--alpha-accent-color-global) !important;
 		--urlbarView-hover-background: var(--focus-color-global) !important;
 		--urlbarView-highlight-color: var(--fgcolor-global) !important;
 
-		--urlbar-box-bgcolor: color-mix(in srgb, var(--accent-color-global) 50%, var(--bgcolor-global)) !important;
+		--urlbar-box-bgcolor: var(--alpha-accent-color-global) !important;
 		--urlbar-box-focus-bgcolor: var(--focus-color-global) !important;
 
 		--arrowpanel-border-color: var(--accent-color-global) !important;
 
 		--toolbarbutton-icon-fill: var(--fgcolor-global) !important;
+
+		--toolbar-field-border-color: var(--alpha-accent-color-global) !important;
 	}
 }
 
@@ -49,11 +53,40 @@ menu, menuitem {
 .browserContainer {
 	background-color: var(--bgcolor-global) !important;
 	color: var(--fgcolor-global) !important;
+
+	@media -moz-pref("sidebar.revamp") {
+		outline: none !important;
+		border: 1px solid var(--accent-color-global) !important;
+	}
 }
 
 #tabbrowser-tabs[orient="vertical"] {
 	& .tabbrowser-tab {
 		padding-block: 0px !important;
+	}
+	&:not([expanded]) {
+		& .tab-close-button {
+			background-image: none !important;
+			top: 0px !important;
+
+			width: 12px !important;
+			height: 12px !important;
+			padding: 0px !important;
+			margin: 0px !important;
+			background-color: var(--bgcolor-global) !important;
+
+			&:not(:hover, :active) {
+				border: 1px solid transparent;
+			}
+
+			&:hover {
+				border: 1px solid color-mix(in srgb, var(--fgcolor-global) 50%, transparent);
+			}
+
+			&:active {
+				border: 1px solid var(--accent-color-global);
+			}
+		}
 	}
 }
 
@@ -74,5 +107,85 @@ toolbar .toolbaritem-combined-buttons {
 	#trust-icon-container {
 		padding-inline: calc((var(--urlbar-height) - 16px) / 2) !important;
 		height: unset !important;
+	}
+}
+
+.actions-list {
+	& > moz-button:not(.tools-overflow) {
+		--button-outer-padding-inline: 0px !important;
+		--button-outer-padding-block: 0px !important;
+	}
+}
+
+#urlbar-container {
+	--urlbar-container-height: var(--urlbar-min-height) !important;
+}
+
+#PersonalToolbar {
+	padding-inline: 0px !important;
+}
+
+#personal-toolbar-empty-description, toolbarbutton.bookmark-item:not(.subviewbutton) {
+	margin: 0px !important;
+}
+
+#sidebar-tools-and-extensions-splitter {
+	margin-block-end: 0px !important;
+}
+
+.buttons-wrapper {
+	min-height: var(--button-min-height) !important;
+}
+
+.tools-and-extensions[orientation="horizontal"] {
+	padding-inline: 0px !important;
+	padding-block-start: 0px !important;
+	padding-block-end: 0px !important;
+}
+
+#tabbrowser-tabs tab-split-view-wrapper {
+	margin-inline: 0px !important;
+	padding: 0px !important;
+}
+
+#tabbrowser-tabs[orient="vertical"] tab-split-view-wrapper {
+	gap: 0px !important;
+	grid-template-columns: 50% 50% !important;
+}
+
+#tabbrowser-tabpanels {
+	&[splitview] {
+		& .split-view-panel.split-view-panel-active {
+			margin: var(--focus-outline-width) !important;
+		}
+	}
+}
+
+splitter {
+	border-inline-color: var(--accent-color-global) var(--accent-color-global) !important;
+	background-color: var(--accent-color-global) !important;
+}
+
+
+moz-urlbar{
+	&[focused]:not([suppress-focus-border]) > .urlbar-background, #searchbar-focus-within {
+		outline: none !important;
+		border-color: var(--focus-color-global) !important;
+	}
+
+	&[breakout][breakout-extend] > .urlbar-input-container {
+		border-bottom-color: var(--arrowpanel-border-color) !important;
+	}
+}
+
+body {
+	width: -webkit-fill-available !important;
+	height: -webkit-fill-available !important;
+}
+
+@media -moz-pref("sidebar.revamp") {
+	#sidebar-splitter {
+		width: 1px !important;
+		border-inline: none !important;
 	}
 }
