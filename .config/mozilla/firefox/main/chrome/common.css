@@ -75,7 +75,7 @@ menupopup, panel {
 
 .dialogBox {
 	background-color: var(--alpha-bgcolor-global) !important;
-	border: 1px solid var(--accent-color-global) !important
+	border: var(--ui-border-global) !important
 }
 
 moz-input-folder, moz-input-search {

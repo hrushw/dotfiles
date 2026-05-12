@@ -56,7 +56,7 @@ menu, menuitem {
 
 	@media -moz-pref("sidebar.revamp") {
 		outline: none !important;
-		border: 1px solid var(--accent-color-global) !important;
+		border: var(--ui-border-global) !important;
 	}
 }
 
@@ -84,7 +84,7 @@ menu, menuitem {
 			}
 
 			&:active {
-				border: 1px solid var(--accent-color-global);
+				border: var(--ui-border-global);
 			}
 		}
 	}
@@ -164,8 +164,28 @@ toolbar .toolbaritem-combined-buttons {
 splitter {
 	border-inline-color: var(--accent-color-global) var(--accent-color-global) !important;
 	background-color: var(--accent-color-global) !important;
+
+	&#sidebar-launcher-splitter {
+		width: 8px !important;
+		background-color: transparent !important;
+		border: var(--ui-border-global) !important;
+	}
 }
 
+#sidebar-main {
+	border: var(--ui-border-global) !important;
+}
+
+#navigator-toolbox {
+	border-left: var(--ui-border-global) !important;
+	border-right: var(--ui-border-global) !important;
+	border-top: var(--ui-border-global) !important;
+	border-bottom: none !important;
+}
+
+#TabsToolbar {
+	border-bottom: var(--ui-border-global) !important;
+}
 
 moz-urlbar{
 	&[focused]:not([suppress-focus-border]) > .urlbar-background, #searchbar-focus-within {

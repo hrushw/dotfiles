@@ -9,4 +9,6 @@
 
 	--alpha-bgcolor-global: color-mix(in srgb, var(--bgcolor-global) var(--bgalpha-global), transparent);
 	--alpha-accent-color-global: color-mix(in srgb, var(--accent-color-global) var(--accent-alpha-global), transparent);
+
+	--ui-border-global: 1px solid var(--accent-color-global);
 }
