@@ -168,7 +168,7 @@ splitter {
 	&#sidebar-launcher-splitter {
 		width: 8px !important;
 		background-color: transparent !important;
-		border: var(--ui-border-global) !important;
+		border-block: var(--ui-border-global) !important;
 	}
 }
 
@@ -177,8 +177,7 @@ splitter {
 }
 
 #navigator-toolbox {
-	border-left: var(--ui-border-global) !important;
-	border-right: var(--ui-border-global) !important;
+	border-inline: var(--ui-border-global) !important;
 	border-top: var(--ui-border-global) !important;
 	border-bottom: none !important;
 }

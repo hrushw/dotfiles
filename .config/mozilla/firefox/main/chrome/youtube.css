@@ -1,0 +1,86 @@
+@-moz-document url-prefix("https://www.youtube.com")
+{
+	:root {
+		color-scheme: light dark !important;
+	}
+
+	ytd-app,
+	ytd-masthead,
+	ytd-network-status-banner[current-state="OFFLINE"]
+	{
+		background: var(--bgcolor-global) !important;
+	}
+
+	/* searchbox */
+	.ytSearchboxComponentInputBox,
+	.ytSearchboxComponentSearchButton,
+	/* guide (sidebar) buttons border (normal, hover, active, etc) */
+	ytd-guide-entry-renderer,
+	#endpoint.yt-simple-endpoint.ytd-guide-entry-renderer,
+	yt-interaction.ytd-guide-entry-renderer,
+	/* video thumbnails */
+	.ytThumbnailViewModelLarge,
+	/* video thumbnail hover effect */
+	.ytSpecTouchFeedbackShapeThumbnailSizeLarge .ytSpecTouchFeedbackShapeFill,
+	.ytSpecTouchFeedbackShapeThumbnailSizeLarge .ytSpecTouchFeedbackShapeHoverEffect,
+	.ytSpecTouchFeedbackShapeThumbnailSizeLarge .ytSpecTouchFeedbackShapeStroke,
+
+	.ytSheetViewModelContextual
+	{
+		border-radius: 0px !important;
+	}
+
+	tp-yt-paper-item.ytd-guide-entry-renderer {
+		--paper-item-focused-before-border-radius: 0px !important;
+	}
+
+	/* make searchbox have same color as background */
+	.ytSearchboxComponentInputBox,
+	.ytSearchboxComponentSearchButton
+	{
+		border-color: var(--accent-color-global) !important;
+		background-color: var(--bgcolor-global) !important;
+	}
+
+	#sections.ytd-guide-renderer>.ytd-guide-renderer
+	{
+		padding: 0px !important;
+		width: 100% !important;
+		border-bottom: 1px solid var(--accent-color-global) !important;
+	}
+
+	#container.ytd-masthead {
+		padding: 0px !important;
+	}
+
+	ytd-guide-entry-renderer {
+		width: 100% !important;
+	}
+
+	ytd-rich-grid-renderer {
+		--ytd-rich-grid-gutter-margin: 0px !important;
+	}
+
+	#guide {
+		border-right: 1px solid var(--accent-color-global) !important;
+	}
+	#masthead-container {
+		border-bottom: 1px solid var(--accent-color-global) !important;
+	}
+
+	#guide-links-primary.ytd-guide-renderer {
+		border: none !important;
+	}
+
+	#contents.ytd-rich-grid-renderer {
+		padding-top: 0px !important;
+	}
+
+	.ytContextualSheetLayoutHost {
+		background-color: var(--alpha-bgcolor-global) !important;
+	}
+
+	tp-yt-iron-dropdown {
+		border: 1px solid var(--accent-color-global) !important;
+	}
+}

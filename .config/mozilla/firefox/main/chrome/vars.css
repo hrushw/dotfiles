@@ -21,7 +21,7 @@
 	--overlay-accent-color-global: color-mix(in srgb, var(--accent-color-global) var(--accent-alpha-overlay-global), transparent);
 	--overlay-focus-color-global: color-mix(in srgb, var(--focus-color-global) var(--focus-alpha-overlay-global), transparent);
 
-	--ui-border-global: 2px solid var(--accent-color-global);
+	--ui-border-global: 1px solid var(--accent-color-global);
 
 
 	--checkmark-global-light: url('data:image/svg+xml;utf8,<svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg"><g><path fill-rule="evenodd" clip-rule="evenodd" d="M10 0L10 1L5 10 L4 10L3 9L0 6L0 5L2 5L4 8L9 0L10 0Z" fill="black"/></g></svg>');
