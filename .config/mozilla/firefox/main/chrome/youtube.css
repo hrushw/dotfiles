@@ -4,11 +4,27 @@
 		color-scheme: light dark !important;
 	}
 
-	ytd-app,
-	ytd-masthead,
-	ytd-network-status-banner[current-state="OFFLINE"]
+	html {
+		--ytd-z-index-masthead: 0 !important;
+	}
+
+	ytd-app
 	{
 		background: var(--bgcolor-global) !important;
+		--app-drawer-content-container-background-color: var(--bgcolor-global) !important;
+	}
+
+	ytd-tabbed-page-header {
+		--yt-lightsource-section1-color: var(--bgcolor-global) !important;
+	}
+
+	ytd-masthead,
+	ytd-network-status-banner[current-state="OFFLINE"],
+	#page-header-container.ytd-tabbed-page-header,
+	#tabs-container.ytd-tabbed-page-header,
+	ytd-feed-nudge-renderer #content-wrapper.ytd-feed-nudge-renderer
+	{
+		background-color: var(--bgcolor-global) !important;
 	}
 
 	/* searchbox */
@@ -16,16 +32,41 @@
 	.ytSearchboxComponentSearchButton,
 	/* guide (sidebar) buttons border (normal, hover, active, etc) */
 	ytd-guide-entry-renderer,
-	#endpoint.yt-simple-endpoint.ytd-guide-entry-renderer,
-	yt-interaction.ytd-guide-entry-renderer,
+	ytd-mini-guide-entry-renderer,
+	:is(
+		yt-interaction,
+		yt-img-shadow,
+		#endpoint.yt-simple-endpoint
+	):is(
+		.ytd-guide-entry-renderer,
+		.ytd-mini-guide-entry-renderer
+	),
 	/* video thumbnails */
+	.ytThumbnailViewModelSmall,
+	.ytThumbnailViewModelMedium,
 	.ytThumbnailViewModelLarge,
 	/* video thumbnail hover effect */
-	.ytSpecTouchFeedbackShapeThumbnailSizeLarge .ytSpecTouchFeedbackShapeFill,
-	.ytSpecTouchFeedbackShapeThumbnailSizeLarge .ytSpecTouchFeedbackShapeHoverEffect,
-	.ytSpecTouchFeedbackShapeThumbnailSizeLarge .ytSpecTouchFeedbackShapeStroke,
+	:is(
+		.ytSpecTouchFeedbackShapeThumbnailSizeSmall,
+		.ytSpecTouchFeedbackShapeThumbnailSizeMedium,
+		.ytSpecTouchFeedbackShapeThumbnailSizeLarge
+	) :is(
+		.ytSpecTouchFeedbackShapeFill,
+		.ytSpecTouchFeedbackShapeHoverEffect,
+		.ytSpecTouchFeedbackShapeStroke
+	),
+	ytd-video-preview #media-container.ytd-video-preview,
+	/* popup menus */
+	.ytSheetViewModelContextual,
 
-	.ytSheetViewModelContextual
+	.ytp-progress-bar-start.ytp-progress-bar-end,
+	.ytp-chrome-controls :is(
+		.ytp-right-controls,
+		.ytp-play-button
+	),
+	ytd-feed-nudge-renderer #dismissible.ytd-feed-nudge-renderer,
+	ytd-thumbnail a.ytd-thumbnail, ytd-thumbnail::before,
+	.ytSubThreadConnection, .ytSubThreadContinuation
 	{
 		border-radius: 0px !important;
 	}
@@ -64,9 +105,6 @@
 	#guide {
 		border-right: 1px solid var(--accent-color-global) !important;
 	}
-	#masthead-container {
-		border-bottom: 1px solid var(--accent-color-global) !important;
-	}
 
 	#guide-links-primary.ytd-guide-renderer {
 		border: none !important;
@@ -82,5 +120,9 @@
 
 	tp-yt-iron-dropdown {
 		border: 1px solid var(--accent-color-global) !important;
+	}
+
+	ytd-guide-section-renderer {
+		--paper-item-min-height: 2em !important;
 	}
 }

@@ -72,7 +72,9 @@
 	.x91sizk, .x1vva9xg, .x1jfkl46, .x1p0mfcu,
 	.xt1g1te, .x7zqoo0, .x1iz9ej4, .x1ga13z8,
 	.xal68kn, .x51dqfy, .x1w4cqa3, .x1byqp33,
-	.xcgujcq, .x1rsuxf0, .x1igtfuo, .x13up0n2
+	.xcgujcq, .x1rsuxf0, .x1igtfuo, .x13up0n2,
+	.xeusxvb, .x1pahc9y, .x1ertn4p, .x1c9tyrk,
+	.xr9e8f9, .x6en5u8, .x1ui04y5, .x1e4oeot
 	{
 		border-radius: 0px !important;
 		border-start-start-radius : 0px !important;
@@ -80,4 +82,28 @@
 		border-end-start-radius   : 0px !important;
 		border-end-end-radius     : 0px !important;
 	}
+
+	._ap1-
+	{
+		margin-inline: 0px !important;
+	}
+
+	.x889kno, .x1a8lsjc
+	{
+		padding-top: 0px !important;
+		padding-bottom: 0px !important;
+	}
+
+	.xr9ek0c, .xjpr12u
+	{
+		margin-top: 0px !important;
+		margin-bottom: 0px !important;
+	}
+
+	._ak8h {
+		padding-inline: var(--chat-spacing) !important;
+		padding-block: 0px !important;
+	}
 }
+
+
