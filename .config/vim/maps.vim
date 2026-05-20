@@ -2,69 +2,69 @@
 let g:mapleader=' '
 
 " match with 'less' pager
-nnoremap <Esc>u :noh<CR>
+nn <Esc>u :noh<CR>
 
-nnoremap <C-j> <C-e>j
-nnoremap <C-k> <C-y>k
+nn <C-j> <C-e>j
+nn <C-k> <C-y>k
 
-nnoremap <Leader> <C-w>
+nn <Leader> <C-w>
 
 func TabMoveUp()
 	execute 'tabmove +' . max([v:count, 1])
-endfunc
+endf
 
 func TabMoveDown()
 	execute 'tabmove -' . max([v:count, 1])
-endfunc
+endf
 
 func TabFocusUp()
 	execute 'tabnext +' . max([v:count, 1])
-endfunc
+endf
 
 func TabFocusDown()
 	execute 'tabnext -' . max([v:count, 1])
-endfunc
+endf
 
 
-nnoremap <Leader>] gt
-nnoremap <Leader>[ gT
-nnoremap g[ :<C-u>call TabMoveDown()<CR>
-nnoremap g] :<C-u>call TabMoveUp()<CR>
+nn <Leader>] gt
+nn <Leader>[ gT
+nn g[ :<C-u>call TabMoveDown()<CR>
+nn g] :<C-u>call TabMoveUp()<CR>
 
-nnoremap <Leader>n :bnext<CR>
-nnoremap <Leader>p :bprev<CR>
+nn <Leader>n :bnext<CR>
+nn <Leader>p :bprev<CR>
 
-nnoremap <Leader>qp :HelpToc<CR>
+nn <Leader>qp :HelpToc<CR>
 
 tnoremap <C-n> <C-w>N
 tnoremap <C-w>n <C-n>
 
 " command mode keybinds
-cnoremap <C-h> <Left>
-cnoremap <C-j> <Down>
-cnoremap <C-k> <Up>
-cnoremap <C-l> <Right>
-cnoremap <C-w> <C-Right>
-cnoremap <C-b> <C-Left>
-cnoremap <C-g> <Esc>
-cnoremap <C-p> <Home>
-cnoremap <C-n> <End>
+cno <C-h> <Left>
+cno <C-j> <Down>
+cno <C-k> <Up>
+cno <C-l> <Right>
+cno <C-w> <C-Right>
+cno <C-b> <C-Left>
+cno <C-g> <Esc>
+cno <C-p> <Home>
+cno <C-n> <End>
 
 " Emacs keys slowly growing on me
 
-nnoremap <C-s> /
+nn <C-s> /
 
-nnoremap <C-x><C-c> :qa<CR>
-nnoremap <C-x><C-f> :edit<space>
+nn <C-x><C-c> :qa<CR>
+nn <C-x><C-f> :edit<space>
 
-nnoremap <C-c><C-c> :!make<CR>
+nn <C-c><C-c> :!make<CR>
 
-inoremap <C-g> <Esc>
-nnoremap <C-g> <Esc>
-cnoremap <C-g> <Esc>
+ino <C-g> <Esc>
+nn <C-g> <Esc>
+cno <C-g> <Esc>
 
-nnoremap <C-x>k :bdel<CR>
-nnoremap <C-x>0 :close<CR>
+nn <C-x>k :bdel<CR>
+nn <C-x>0 :close<CR>
 
 " digraphs
 digr ii 8747

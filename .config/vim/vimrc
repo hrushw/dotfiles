@@ -1,85 +1,24 @@
 " vim:fileencoding=utf-8:foldmethod=marker
 
-" Settings {{{
-set encoding=UTF-8
+ru settings.vim
+ru maps.vim
+ru plugins.vim
 
-set viminfo='32,<256,:4096,/256,%
-set viminfofile=~/.local/state/vim/viminfo
-set sessionoptions=buffers,folds,help,options,tabpages,winsize,terminal,sesdir
-set backupdir=./.vimbackup,~/.local/share/vim/backup,.,~/tmp,~/ " ??
-set undodir=~/.local/share/vim/undo
-set undofile
-set history=4096
-set noexrc
-set secure
-" }}}
-
-" UI options {{{
-set ruler
-set number
-set relativenumber
-set cursorline
-set nocursorcolumn
-set shortmess=atToO
-set wildmenu
-set wildoptions=pum
-set pumheight=32
-set showcmd
-set laststatus=2
-set showtabline=1
-
-set conceallevel=0
-set foldenable
-set fillchars=vert:\|,fold:-,eob:\ ,lastline:@
-" }}}
-
-" Search Options {{{
-set ignorecase
-set smartcase
-set hlsearch
-set incsearch
-set wrapscan
-" }}}
-
-" Indentation Options {{{
-set cindent
-set autoindent
-set noexpandtab
-set smarttab
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-" }}}
-
-" Behavior {{{
-" if exists("+autochdir") | set autochdir | endif
-set guioptions=cdiM
-set autoread
-set noautoshelldir
-set noautowrite
-set noautowriteall
-set backspace=indent,eol,start
-" }}}
-
-" Load plugins {{{
-runtime ftplugin/man.vim
+" Load plugins
+ru ftplugin/man.vim
 let g:no_man_maps = 1
 let g:ft_man_open_mode = 'tab'
 
-packadd helptoc
+pa helptoc
 
-runtime maps.vim
-runtime plugins.vim
-" }}}
-
-" C syntax options {{{
+" C syntax options
 let c_no_curly_error = 1
 let c_space_errors = 1
 let c_comment_strings = 1
-let c_functions = 1
+let c_functions = 0
 
 function CSyntaxFunctionToggle()
-	if exists("g:c_functions")
+	if exists("c_functions")
 		unlet g:c_functions
 	else
 		let g:c_functions = 1
@@ -89,17 +28,14 @@ function CSyntaxFunctionToggle()
 endfunc
 
 nnoremap <Leader>.cf :call CSyntaxFunctionToggle()<CR>
-" }}}
 
 au BufNewFile,BufRead *.sp,*.cir,*.spice setf spice
 au BufNewFile,BufRead config,*.config setf config
-au FileType scheme set expandtab
+au FileType scheme,lisp set expandtab
 
-syntax on
-nohlsearch
+sy on
+noh
 
-" Colorscheme {{{
-set termguicolors
-set background=dark
-colorscheme sorbet
-" }}}
+" Colorscheme
+set tgc bg=dark
+colo sorbet
