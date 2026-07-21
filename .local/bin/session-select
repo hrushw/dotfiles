@@ -1,7 +1,0 @@
-#!/bin/sh
-
-# Start user services
-export SVDIR_USER="$XDG_CONFIG_HOME/runsvdir/current"
-export _RUNSVDIR_USER_PID=$$
-exec runsvdir "$SVDIR_USER"
-

@@ -1,5 +1,5 @@
 # dotfiles
-Void Linux - configuration files and scripts
+Fedora Linux - configuration files and scripts
 
 Managed using GNU `stow`
 

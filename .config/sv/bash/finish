@@ -1,3 +1,0 @@
-#!/bin/sh
-
-kill -HUP $_RUNSVDIR_USER_PID

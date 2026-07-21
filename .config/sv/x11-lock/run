@@ -1,8 +1,0 @@
-#!/bin/sh
-
-LOCKCMD=slock
-
-xset s on
-xset s 600
-exec xss-lock $LOCKCMD >> "$XDG_DATA_HOME/sv/generic.log" 2>&1
-

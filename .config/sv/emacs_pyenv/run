@@ -1,5 +1,0 @@
-#!/bin/sh
-
-cd
-. $XDG_DATA_HOME/venv/bin/activate
-exec emacs --fg-daemon=emacs_pyenv >> "$XDG_DATA_HOME/sv/generic.log" 2>&1
