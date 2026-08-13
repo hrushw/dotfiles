@@ -4,15 +4,15 @@ SHELL_NAME="bash"
 
 
 if [ "$DROPDOWN" ]; then
-	export HISTFILE=$XDG_STATE_HOME/bash/dropdown_history
+	export HISTFILE="$XDG_STATE_HOME/bash/dropdown_history"
 else
-	export HISTFILE=$XDG_STATE_HOME/bash/history
+	export HISTFILE="$XDG_STATE_HOME/bash/history"
 fi
 export HISTSIZE=-1
-source $XDG_CONFIG_HOME/sh/colors.sh
-source $XDG_CONFIG_HOME/sh/functions.sh
-source $XDG_CONFIG_HOME/sh/aliases.sh
-source $XDG_CONFIG_HOME/sh/functions.bash
+source "$XDG_CONFIG_HOME/sh/colors.sh"
+source "$XDG_CONFIG_HOME/sh/functions.sh"
+source "$XDG_CONFIG_HOME/sh/aliases.sh"
+source "$XDG_CONFIG_HOME/sh/functions.bash"
 
 [ -d "$XDG_STATE_HOME/bash" ] || mkdir "$XDG_STATE_HOME/bash"
 
