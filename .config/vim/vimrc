@@ -1,0 +1,40 @@
+set noex secure
+
+set vif=$XDG_STATE_HOME/vim/viminfo
+set udf udir=$XDG_DATA_HOME/vim/undo
+set bdir=./.vimbackup,$XDG_DATA_HOME/vim/backup,.,~/tmp/,~/
+set hi=4096
+
+set shm=atToO
+set fcs=vert:\|,fold:-,eob:\ ,lastline:@
+
+set nu rnu ru
+set ic scs hls is ws
+set ts=4 sw=4 sts=0 cin ai noet sta
+set ar noaw noawa noasd
+
+set showmode warn
+set hidden
+
+set tgc bg=dark
+colorscheme catppuccin
+
+nno ` <C-w>
+nno <Esc>u <Cmd>noh<CR>
+
+let g:mapleader = ' '
+
+nno <Leader>p <Cmd>bp<CR>
+nno <Leader>n <Cmd>bn<CR>
+
+nno <Leader>] gt
+nno <Leader>[ gT
+
+cno <C-h> <Left>
+cno <C-j> <Down>
+cno <C-k> <Up>
+cno <C-l> <Right>
+cno <C-w> <C-Right>
+cno <C-b> <C-Left>
+cno <C-p> <Home>
+cno <C-n> <End>
