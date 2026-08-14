@@ -24,7 +24,7 @@ alias ll='ls -alhG'
 alias cll='cls; ll'
 
 # Fuzzification
-alias of="uopen \"\$(FZF)\""
+# alias of="uopen \"\$(FZF)\""
 alias vf="vim \"\$(FZF)\""
 alias gf="cd \"\$(FZFD)\""
 
@@ -38,3 +38,5 @@ alias eta='exec tmux attach'
 alias tqn='tmux switch-client -n; exit'
 alias tqp='tmux switch-client -p; exit'
 alias tq='tqp'
+
+alias nnn='n3cd'
