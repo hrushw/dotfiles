@@ -27,6 +27,6 @@ case ":$PATH:" in
 esac
 
 # Tab completion for juliaup and julia channel selection
-[ -f "${XDG_DATA_HOME:-$HOME/.local/share}/completions/bash.sh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/completions/bash.sh"
+[ -f "${XDG_DATA_HOME:-$HOME/.local/share}/julia/juliaup/completions/bash.sh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/julia/juliaup/completions/bash.sh"
 
 # <<< juliaup initialize <<<
