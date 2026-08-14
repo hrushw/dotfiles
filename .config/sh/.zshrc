@@ -11,7 +11,11 @@ export HISTSIZE=200000
 export SAVEHIST=$HISTSIZE
 setopt autocd beep extendedglob nomatch
 unsetopt notify
+
 bindkey -v
+bindkey "^H" backward-delete-char
+bindkey "^?" backward-delete-char
+
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/hrushw/.zshrc'
