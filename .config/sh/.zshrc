@@ -15,6 +15,7 @@ unsetopt notify
 bindkey -v
 bindkey "^H" backward-delete-char
 bindkey "^?" backward-delete-char
+bindkey '^R' history-incremental-search-backward
 
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
