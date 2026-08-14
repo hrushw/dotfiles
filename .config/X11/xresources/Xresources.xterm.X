@@ -4,9 +4,13 @@ XTerm*font: xft:Cozette:pixelsize=32:style=Regular, xft:Noto Sans Devanagari:siz
 XTerm*decTerminalID: vt340
 XTerm*cursorBlink: True
 XTerm*renderfont: True
+
+XTerm*metaSendsEscape: true
+XTerm*vt100.modifyOtherKeys: 1
+XTerm*vt100.formatOtherKeys: 1
+
 XTerm*background: Black
 XTerm*foreground: White
-XTerm*metaSendsEscape: true
 
 XTerm*Color0: _term_color0
 XTerm*Color1: _term_color1
