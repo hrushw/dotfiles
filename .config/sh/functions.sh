@@ -17,8 +17,8 @@ cls() {
 }
 
 _common_sh_init() {
-	export LESS='-R --use-color -Dd+r$Du+b$ +0'
-	# export MANROFFOPT="-c"
+	export LESS='-R --use-color -Dd+R -Du+B -DS+Ysd'
+	export MANROFFOPT="-c"
 	# export PAGER="bat --paging=always --style changes,grid,numbers,snip"
 	export PAGER="less"
 
