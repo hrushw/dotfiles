@@ -39,4 +39,3 @@ alias tqn='tmux switch-client -n; exit'
 alias tqp='tmux switch-client -p; exit'
 alias tq='tqp'
 
-alias nnn='n3cd'

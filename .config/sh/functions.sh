@@ -45,7 +45,7 @@ _common_sh_init() {
 	fi
 }
 
-n3cd ()
+ncd ()
 {
 	[ "${NNNLVL:-0}" -eq 0 ] || {
 		echo "nnn is already running"
