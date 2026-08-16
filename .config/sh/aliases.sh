@@ -5,7 +5,8 @@
 alias mv="mv -i"
 alias rm='echo "rm is disabled, use del"'
 alias pkill='pkill -x'
-alias del='mv -it $XDG_DATA_HOME/Trash'
+# alias del='mv -it $XDG_DATA_HOME/Trash'
+alias del='trash'
 
 # stops annoying font warning
 alias ngspice='LC_CTYPE=C ngspice'
