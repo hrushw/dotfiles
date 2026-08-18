@@ -10,7 +10,8 @@ set fcs=vert:\|,fold:-,eob:\ ,lastline:@
 
 set nu rnu ru
 set ic scs hls is ws
-set ts=4 sw=4 sts=0 cin ai noet sta
+" set ts=4 sw=4 sts=0 cin ai noet sta
+set ts=4 sw=4 sts=0 ai noet sta
 set ar noaw noawa noasd
 
 set showmode warn
@@ -38,3 +39,10 @@ cno <C-w> <C-Right>
 cno <C-b> <C-Left>
 cno <C-p> <Home>
 cno <C-n> <End>
+
+if !empty(globpath(&rtp, "plugins.vim"))
+	ru plugins.vim
+endif
+
+autocmd Filetype c,cpp,zig set cin
+autocmd Filetype scheme,lisp set et

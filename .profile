@@ -88,6 +88,7 @@ export GUILE_AUTO_COMPILE=0
 export CHICKEN_INSTALL_REPOSITORY="$HOME/.local/lib/chicken/repo"
 export CHICKEN_INSTALL_PREFIX="$HOME/.local"
 export CHICKEN_REPOSITORY_PATH="$CHICKEN_INSTALL_REPOSITORY"
+export CHICKEN_INCLUDE_PATH="$HOME/.local/lib/chicken/include"
 
 export NNN_OPTS="aAfgHoR"
 export NNN_TRASH=1
