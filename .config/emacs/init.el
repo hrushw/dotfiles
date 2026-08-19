@@ -13,6 +13,7 @@
 
 (use-package files
   :custom
+  (auto-save-default nil)
   (backup-directory-alist '(("." . "~/.local/state/emacs/backups")))
   (make-backup-files t)
   (backup-by-copying t))
