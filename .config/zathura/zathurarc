@@ -26,7 +26,7 @@ set open-first-page false
 set scroll-page-aware false
 
 # increase max thumbnail size to 16M
-set page-thumbnail-size 16777216
+# set page-thumbnail-size 16777216
 
 # Disable inversion by default
 set recolor false
