@@ -1,6 +1,9 @@
-(use-package custom
+(use-package package
   :custom
-  (custom-enabled-themes '(modus-operandi-deuteranopia)))
+  (package-archives
+   (delete-dups
+    (append '(("melpa" . "https://melpa.org/packages"))
+	    package-archives))))
 
 (use-package emacs
   :custom
@@ -9,7 +12,21 @@
      (undecorated . t)
      (font . "SpaceMono Nerd Font-16")
      (vertical-scroll-bars . nil)
-     (horizontal-scroll-bars . nil))))
+     (horizontal-scroll-bars . nil)))
+  (inhibit-startup-screen t)
+  (initial-scratch-message nil))
+
+(use-package custom
+  :custom
+  (custom-enabled-themes '(modus-operandi-deuteranopia)))
+
+(use-package cus-edit
+  :custom
+  (custom-file "~/.config/emacs/emacs-custom.el"))
+
+(use-package simple
+  :bind
+  (("C-x k" . kill-current-buffer)))
 
 (use-package files
   :custom
@@ -54,28 +71,8 @@
   :custom
   (vc-follow-symlinks t))
 
-(defvar bootstrap-version)
-(let ((bootstrap-file
-       (expand-file-name
-        "straight/repos/straight.el/bootstrap.el"
-        (or (bound-and-true-p straight-base-dir)
-            user-emacs-directory)))
-      (bootstrap-version 7))
-
-  (unless (file-exists-p bootstrap-file)
-    (with-current-buffer
-        (url-retrieve-synchronously
-         "https://radian-software.github.io/straight.el/install.el"
-         'silent 'inhibit-cookies)
-      (goto-char (point-max))
-      (eval-print-last-sexp)))
-  (load bootstrap-file nil 'nomessage))
-
-(straight-use-package 'use-package)
-(use-package straight)
-
 (use-package evil
-  :straight t
+  :ensure t
   :custom
   (evil-want-C-d-scroll t)
   (evil-want-C-u-scroll t)
@@ -85,10 +82,10 @@
   (evil-undo-system 'undo-redo))
 
 (use-package evil-collection
-  :straight t
+  :ensure t
   :after evil
   :config
   (evil-collection-init))
 
 (use-package magit
-  :straight t)
+  :ensure t)
