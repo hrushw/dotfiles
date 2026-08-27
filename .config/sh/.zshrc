@@ -27,6 +27,7 @@ compinit -d "$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
 
 source "$XDG_CONFIG_HOME/sh/colors.sh"
 source "$XDG_CONFIG_HOME/sh/functions.sh"
+source "$XDG_CONFIG_HOME/sh/functions.bash"
 source "$XDG_CONFIG_HOME/sh/aliases.sh"
 
 _zsh_set_prompt() {

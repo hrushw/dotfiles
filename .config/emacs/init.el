@@ -22,16 +22,20 @@
 
 (use-package cus-edit
   :custom
-  (custom-file "~/.config/emacs/emacs-custom.el"))
+  (custom-file
+   (substitute-in-file-name "${XDG_CONFIG_HOME}/emacs/emacs-custom.el")))
 
 (use-package simple
+  :custom
+  (global-visual-line-mode t)
   :bind
   (("C-x k" . kill-current-buffer)))
 
 (use-package files
   :custom
   (auto-save-default nil)
-  (backup-directory-alist '(("." . "~/.local/state/emacs/backups")))
+  (backup-directory-alist
+    '(("." . (substitute-in-file-name "${XDG_STATE_HOME}/emacs/backups"))))
   (make-backup-files t)
   (backup-by-copying t))
 
@@ -56,20 +60,36 @@
 
 (use-package recentf
   :custom
-  (recentf-save-file "~/.local/state/emacs/recentf"))
+  (recentf-save-file
+   (substitute-in-file-name
+    "${XDG_STATE_HOME}/emacs/recentf")))
 
 (use-package bookmark
   :custom
-  (bookmark-default-file "~/.config/emacs/bookmarks"))
+  (bookmark-default-file
+   (substitute-in-file-name
+    "${XDG_CONFIG_HOME}/emacs/bookmarks")))
 
 (use-package savehist
   :custom
-  (savehist-file "~/.local/state/emacs/history")
+  (savehist-file
+   (substitute-in-file-name
+    "${XDG_STATE_HOME}/emacs/history"))
   (savehist-mode t))
 
 (use-package vc-hooks
   :custom
   (vc-follow-symlinks t))
+
+(use-package display-line-numbers
+  :custom
+  (display-line-numbers 'relative))
+
+(use-package org
+  :custom
+  (org-tags-column 0)
+  (org-startup-indent t)
+  (org-fold-catch-invisible-edits 'show))
 
 (use-package evil
   :ensure t
