@@ -1,0 +1,51 @@
+#define _term_color0 Black
+#define _term_color1 Red3
+#define _term_color2 Green3
+#define _term_color3 Yellow3
+#define _term_color4 #4444dd
+#define _term_color5 Magenta3
+#define _term_color6 Cyan3
+#define _term_color7 Gray90
+
+#define _term_color8  gray50
+#define _term_color9  red
+#define _term_color10 green
+#define _term_color11 yellow
+#define _term_color12 #5c5cff
+#define _term_color13 magenta
+#define _term_color14 cyan
+#define _term_color15 white
+
+XTerm*termName: xterm-256color
+XTerm*font: xft:Cozette:pixelsize=32:style=Regular, xft:Noto Sans Devanagari:size=20:style=Regular
+/* XTerm*font: xft:Terminus:pixelsize=24:style=Regular, xft:Noto Sans Devanagari:size=20:style=Regular */
+XTerm*decTerminalID: vt340
+XTerm*cursorBlink: True
+XTerm*renderfont: True
+XTerm*scrollBar: false
+
+XTerm*metaSendsEscape: true
+XTerm*vt100.modifyOtherKeys: 1
+XTerm*vt100.formatOtherKeys: 1
+
+XTerm*background: Black
+XTerm*foreground: White
+
+XTerm*Color0: _term_color0
+XTerm*Color1: _term_color1
+XTerm*Color2: _term_color2
+XTerm*Color3: _term_color3
+XTerm*Color4: _term_color4
+XTerm*Color5: _term_color5
+XTerm*Color6: _term_color6
+XTerm*Color7: _term_color7
+
+XTerm*Color8: _term_color8
+XTerm*Color9: _term_color9
+XTerm*Color10: _term_color10
+XTerm*Color11: _term_color11
+XTerm*Color12: _term_color12
+XTerm*Color13: _term_color13
+XTerm*Color14: _term_color14
+XTerm*Color15: _term_color15
+
