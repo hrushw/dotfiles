@@ -22,7 +22,11 @@ XTerm*font: xft:Cozette:pixelsize=32:style=Regular, xft:Noto Sans Devanagari:siz
 XTerm*decTerminalID: vt340
 XTerm*cursorBlink: True
 XTerm*renderfont: True
-XTerm*scrollBar: false
+XTerm*scrollBar: False
+XTerm*selectToClipboard: True
+XTerm*translations: #override \n\
+    Shift Ctrl <Key> V: insert-selection(CLIPBOARD) \n\
+    Shift Ctrl <Key> C: select-end(CLIPBOARD)
 
 XTerm*metaSendsEscape: true
 XTerm*vt100.modifyOtherKeys: 1
