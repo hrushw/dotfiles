@@ -24,7 +24,7 @@ XTerm*cursorBlink: True
 XTerm*renderfont: True
 XTerm*scrollBar: False
 XTerm*selectToClipboard: True
-XTerm*translations: #override \n\
+XTerm*vt100*translations: #override \n\
     Shift Ctrl <Key> V: insert-selection(CLIPBOARD) \n\
     Shift Ctrl <Key> C: select-end(CLIPBOARD)
 
