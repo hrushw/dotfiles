@@ -11,7 +11,7 @@ set $menu rofi -show drun
 output * bg $HOME/.local/share/wallpaper fit
 
 bindsym $mod+Return exec $term
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 bindsym $mod+space exec $menu
 
 floating_modifier $mod normal
@@ -79,4 +79,34 @@ bindsym $mod+0 scratchpad show
 default_border pixel 4
 hide_edge_borders --i3 smart
 
-include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "/etc/sway/config.d/*.conf" "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/*.conf")'
+input type:touchpad {
+	tap enabled
+	drag enabled
+	drag_lock disabled
+	natural_scroll enabled
+	scroll_factor 0.25
+	accel_profile adaptive
+}
+
+font JetBrains Mono 12
+exec swayidle -w \
+        timeout 300 'swaylock -f' \
+        timeout 600 'pgrep -xu "$USER" swaylock >/dev/null && swaymsg "output * power off"' \
+             resume 'pgrep -xu "$USER" swaylock >/dev/null && swaymsg "output * power on"'  \
+        before-sleep 'swaylock -f' \
+        lock 'swaylock -f' \
+        unlock 'pkill -xu "$USER" -SIGUSR1 swaylock'
+
+bindsym XF86MonBrightnessUp exec brightnessctl s +5%
+bindsym XF86MonBrightnessDown exec brightnessctl s 5%-
+
+bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPlay exec playerctl play-pause
+
+bindsym $mod+Escape exec loginctl lock-session
+bindsym $mod+Print exec wl_scrshot_grim
