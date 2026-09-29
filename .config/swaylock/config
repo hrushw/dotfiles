@@ -1,0 +1,8 @@
+image=$HOME/.local/share/lockpaper
+scaling=fit
+color=000000
+indicator-caps-lock
+font=Roboto Mono
+font-size=24
+indicator-radius=100
+indicator-thickness=10
