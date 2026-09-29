@@ -115,3 +115,5 @@ esac
 # <<< juliaup initialize <<<
 
 export JULIA_DEPOT_PATH="$XDG_DATA_HOME/julia"
+
+export ANV_DEBUG=video-decode,video-encode
